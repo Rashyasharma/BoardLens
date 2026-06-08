@@ -8,12 +8,116 @@ use App\Models\ExamSeries;
 use App\Models\Qualification;
 use App\Models\Candidate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AnalysisController extends Controller
 {
     /**
+     * Yearly PUM trends for all subjects — used by the Yearly Trends panel on subject-wise page.
+     * Returns JSON with per-subject, per-series avg PUM data grouped by qualification.
+     */
+    public function yearlyPumTrends(Request $request)
+    {
+        $yearFrom = (int) ($request->get('year_from', 2020));
+        $yearTo   = (int) ($request->get('year_to', now()->year));
+
+        $monthOrder = ['March' => 1, 'June' => 2, 'November' => 3];
+
+        // Load all series in the year range, sorted chronologically
+        $allSeries = ExamSeries::whereBetween('year', [$yearFrom, $yearTo])
+            ->get()
+            ->sortBy(fn($s) => $s->year * 10 + ($monthOrder[$s->month] ?? 0))
+            ->values();
+
+        // Load all subjects with their qualification (eager)
+        $subjects = Subject::with('qualification')->get()->keyBy('id');
+
+        // Aggregate avg PUM per (subject_id, series_id) in one query
+        $rows = DB::table('subject_results')
+            ->select('subject_id', 'series_id', DB::raw('ROUND(AVG(pum),1) as avg_pum'), DB::raw('COUNT(*) as entries'))
+            ->whereIn('series_id', $allSeries->pluck('id'))
+            ->groupBy('subject_id', 'series_id')
+            ->get();
+
+        // Index series by id for quick lookup
+        $seriesById = $allSeries->keyBy('id');
+
+        // Build: qual_id -> subject_id -> [series_name => avg_pum]
+        $byQualSubjectSeries = [];
+        foreach ($rows as $row) {
+            $subject = $subjects->get($row->subject_id);
+            if (!$subject) continue;
+            $series  = $seriesById->get($row->series_id);
+            if (!$series) continue;
+
+            $qualId   = $subject->qualification_id;
+            $subId    = $subject->id;
+            $serName  = $series->series_name;
+
+            $byQualSubjectSeries[$qualId][$subId]['subject_name'] = $subject->subject_name;
+            $byQualSubjectSeries[$qualId][$subId]['subject_code'] = $subject->subject_code;
+            $byQualSubjectSeries[$qualId][$subId]['series'][$serName] = [
+                'avg_pum' => (float)$row->avg_pum,
+                'entries' => (int)$row->entries,
+            ];
+        }
+
+        // Build response payload
+        $qualifications = Qualification::all()->keyBy('id');
+        $result = [];
+
+        foreach ($byQualSubjectSeries as $qualId => $subjectsData) {
+            $qual = $qualifications->get($qualId);
+            if (!$qual) continue;
+
+            // Series labels for this qualification (ordered)
+            $seriesNames = $allSeries->pluck('series_name')->unique()->values()->toArray();
+
+            // Build subject rows
+            $subjectRows = [];
+            foreach ($subjectsData as $subId => $data) {
+                $pumValues = collect($data['series'] ?? [])->pluck('avg_pum')->filter()->values();
+                $overallAvg = $pumValues->isNotEmpty() ? round($pumValues->avg(), 1) : null;
+                $subjectRows[] = [
+                    'subject_id'   => $subId,
+                    'subject_name' => $data['subject_name'],
+                    'subject_code' => $data['subject_code'],
+                    'overall_avg'  => $overallAvg,
+                    'series'       => $data['series'] ?? [],
+                ];
+            }
+
+            // Sort by overall_avg descending for rankings
+            usort($subjectRows, fn($a, $b) => ($b['overall_avg'] ?? -1) <=> ($a['overall_avg'] ?? -1));
+
+            $result[] = [
+                'qualification_id'   => $qualId,
+                'qualification_name' => $qual->qualification_name,
+                'qualification_type' => $qual->qualification_type,
+                'series_labels'      => $seriesNames,
+                'subjects'           => $subjectRows,
+                'highest'            => $subjectRows[0] ?? null,
+                'lowest'             => end($subjectRows) ?: null,
+            ];
+        }
+
+        // Get available year range from the database
+        $minYear = ExamSeries::min('year') ?? 2020;
+        $maxYear = ExamSeries::max('year') ?? now()->year;
+
+        return response()->json([
+            'year_from'    => $yearFrom,
+            'year_to'      => $yearTo,
+            'min_year'     => $minYear,
+            'max_year'     => $maxYear,
+            'qualifications' => $result,
+        ]);
+    }
+
+    /**
      * Subject-wise analysis
      */
+
     public function subjectWise(Request $request)
     {
         $selectedQualId = $request->get('qualification_id');

@@ -7,7 +7,20 @@
 <div class="space-y-6 max-w-none mx-auto px-6 pb-12">
     <!-- Filter Panel -->
     <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-150">
-        <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 font-sans">Filter Parameters</h3>
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider font-sans">Filter Parameters</h3>
+            <button
+                id="open-yearly-trends-btn"
+                onclick="openYearlyTrendsPanel()"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white text-xs font-bold rounded-xl shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+            >
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                Yearly Trends
+                <span class="px-1.5 py-0.5 bg-white/20 rounded text-[10px] font-extrabold">PUM</span>
+            </button>
+        </div>
         <form method="GET" action="{{ route('analysis.subject-wise') }}" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <!-- Qualification -->
             <div>
@@ -691,5 +704,347 @@
             }
         });
     });
+</script>
+
+{{-- ======================= YEARLY TRENDS SLIDE-OVER PANEL ======================= --}}
+<div id="yearly-trends-overlay" class="fixed inset-0 z-[60] hidden" aria-modal="true" role="dialog">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeYearlyTrendsPanel()"></div>
+
+    <!-- Panel -->
+    <div id="yearly-trends-panel" class="absolute inset-y-0 right-0 w-full max-w-5xl bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out">
+
+        <!-- Panel Header -->
+        <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-violet-900 to-indigo-900 text-white flex-shrink-0">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-white/15 rounded-xl flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="text-base font-black">Yearly PUM Trends</h2>
+                    <p class="text-xs text-indigo-200">Subject performance across all exam series</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <!-- Year Range Filter -->
+                <div class="flex items-center gap-2 bg-white/10 rounded-xl px-3 py-1.5">
+                    <label class="text-[10px] text-indigo-200 font-bold uppercase">From</label>
+                    <input type="number" id="yt-year-from" value="2020" min="2015" max="2030"
+                        class="w-16 bg-transparent text-white text-xs font-bold border-none outline-none text-center"
+                        onchange="fetchYearlyTrends()" />
+                    <span class="text-indigo-300">–</span>
+                    <label class="text-[10px] text-indigo-200 font-bold uppercase">To</label>
+                    <input type="number" id="yt-year-to" value="{{ date('Y') }}" min="2015" max="2030"
+                        class="w-16 bg-transparent text-white text-xs font-bold border-none outline-none text-center"
+                        onchange="fetchYearlyTrends()" />
+                </div>
+                <button onclick="closeYearlyTrendsPanel()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/15 transition text-indigo-200 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Qualification Tabs -->
+        <div class="flex gap-0 border-b border-slate-100 bg-slate-50 flex-shrink-0 overflow-x-auto" id="yt-tabs"></div>
+
+        <!-- Body -->
+        <div class="flex-1 overflow-y-auto p-6" id="yt-body">
+            <!-- Loading state -->
+            <div id="yt-loading" class="flex flex-col items-center justify-center h-64 gap-3">
+                <div class="w-10 h-10 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+                <p class="text-sm text-slate-400 font-semibold">Loading trends data…</p>
+            </div>
+            <!-- Content injected by JS -->
+            <div id="yt-content" class="hidden space-y-6"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    // ─── State ────────────────────────────────────────────────────────────────
+    let _ytData     = null;   // raw API response
+    let _ytTabIdx   = 0;      // active qualification tab
+    let _ytChart    = null;   // Chart.js instance for trend chart
+    let _panelOpen  = false;
+
+    const SERIES_COLORS = [
+        '#6366f1','#8b5cf6','#ec4899','#f59e0b','#10b981','#3b82f6',
+        '#ef4444','#14b8a6','#f97316','#a855f7'
+    ];
+
+    // ─── Open / Close ─────────────────────────────────────────────────────────
+    window.openYearlyTrendsPanel = function() {
+        const overlay = document.getElementById('yearly-trends-overlay');
+        const panel   = document.getElementById('yearly-trends-panel');
+        overlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => panel.classList.remove('translate-x-full'), 10);
+        _panelOpen = true;
+        if (!_ytData) fetchYearlyTrends();
+    };
+
+    window.closeYearlyTrendsPanel = function() {
+        const overlay = document.getElementById('yearly-trends-overlay');
+        const panel   = document.getElementById('yearly-trends-panel');
+        panel.classList.add('translate-x-full');
+        setTimeout(() => {
+            overlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }, 300);
+        _panelOpen = false;
+    };
+
+    // ─── Fetch ────────────────────────────────────────────────────────────────
+    window.fetchYearlyTrends = async function() {
+        const yf = document.getElementById('yt-year-from').value;
+        const yt = document.getElementById('yt-year-to').value;
+
+        document.getElementById('yt-loading').classList.remove('hidden');
+        document.getElementById('yt-content').classList.add('hidden');
+        document.getElementById('yt-tabs').innerHTML = '';
+        document.getElementById('yt-content').innerHTML = '';
+        if (_ytChart) { _ytChart.destroy(); _ytChart = null; }
+
+        try {
+            const res  = await fetch(`/api/analysis/yearly-pum-trends?year_from=${yf}&year_to=${yt}`);
+            _ytData    = await res.json();
+
+            // Update year inputs to actual DB range if outside bounds
+            document.getElementById('yt-year-from').min = _ytData.min_year;
+            document.getElementById('yt-year-from').max = _ytData.max_year;
+            document.getElementById('yt-year-to').min   = _ytData.min_year;
+            document.getElementById('yt-year-to').max   = _ytData.max_year;
+
+            _ytTabIdx = 0;
+            renderTabs();
+            renderContent();
+        } catch(e) {
+            document.getElementById('yt-loading').innerHTML =
+                `<div class="text-rose-500 font-semibold text-sm">Failed to load data. Please try again.</div>`;
+        }
+    };
+
+    // ─── Render Tabs ──────────────────────────────────────────────────────────
+    function renderTabs() {
+        const container = document.getElementById('yt-tabs');
+        container.innerHTML = '';
+        (_ytData.qualifications || []).forEach((qual, idx) => {
+            const isActive = idx === _ytTabIdx;
+            const btn = document.createElement('button');
+            btn.id = `yt-tab-${idx}`;
+            btn.className = [
+                'px-5 py-3 text-xs font-bold tracking-wider uppercase transition-all duration-150 border-b-2 whitespace-nowrap',
+                isActive
+                    ? 'border-indigo-600 text-indigo-700 bg-white'
+                    : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'
+            ].join(' ');
+            btn.textContent = qual.qualification_name;
+            btn.onclick = () => { _ytTabIdx = idx; renderTabs(); renderContent(); };
+            container.appendChild(btn);
+        });
+    }
+
+    // ─── Render Content ───────────────────────────────────────────────────────
+    function renderContent() {
+        document.getElementById('yt-loading').classList.add('hidden');
+        const content = document.getElementById('yt-content');
+        content.classList.remove('hidden');
+        content.innerHTML = '';
+        if (_ytChart) { _ytChart.destroy(); _ytChart = null; }
+
+        const quals = _ytData.qualifications || [];
+        if (quals.length === 0) {
+            content.innerHTML = `<div class="text-center py-16 text-slate-400 font-semibold">No data found for the selected year range.</div>`;
+            return;
+        }
+
+        const qual = quals[_ytTabIdx];
+        if (!qual) return;
+
+        const subjects   = qual.subjects || [];
+        const seriesLabels = qual.series_labels || [];
+        const highest    = qual.highest;
+        const lowest     = subjects.length > 0 ? subjects[subjects.length - 1] : null;
+
+        // ── 1. Highlight Cards ─────────────────────────────────────────────
+        const cardsHtml = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Highest PUM Subject -->
+            <div class="relative overflow-hidden bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-5">
+                <div class="absolute -top-4 -right-4 w-20 h-20 bg-emerald-100 rounded-full opacity-50"></div>
+                <div class="flex items-start gap-3 relative">
+                    <div class="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center text-white text-lg flex-shrink-0 shadow-md">🏆</div>
+                    <div class="min-w-0">
+                        <p class="text-[10px] font-extrabold text-emerald-700 uppercase tracking-wider">Highest Avg PUM</p>
+                        <h3 class="text-sm font-black text-slate-800 mt-0.5 truncate" title="${highest ? highest.subject_name : 'N/A'}">${highest ? highest.subject_name : 'N/A'}</h3>
+                        <div class="flex items-center gap-2 mt-1.5">
+                            <span class="text-2xl font-black text-emerald-600">${highest ? highest.overall_avg + '%' : 'N/A'}</span>
+                            <span class="text-[10px] font-mono text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded">${highest ? highest.subject_code : ''}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Lowest PUM Subject -->
+            <div class="relative overflow-hidden bg-gradient-to-br from-rose-50 to-orange-50 border border-rose-200 rounded-2xl p-5">
+                <div class="absolute -top-4 -right-4 w-20 h-20 bg-rose-100 rounded-full opacity-50"></div>
+                <div class="flex items-start gap-3 relative">
+                    <div class="w-10 h-10 bg-rose-500 rounded-xl flex items-center justify-center text-white text-lg flex-shrink-0 shadow-md">⚠️</div>
+                    <div class="min-w-0">
+                        <p class="text-[10px] font-extrabold text-rose-700 uppercase tracking-wider">Lowest Avg PUM</p>
+                        <h3 class="text-sm font-black text-slate-800 mt-0.5 truncate" title="${lowest ? lowest.subject_name : 'N/A'}">${lowest ? lowest.subject_name : 'N/A'}</h3>
+                        <div class="flex items-center gap-2 mt-1.5">
+                            <span class="text-2xl font-black text-rose-600">${lowest ? (lowest.overall_avg ?? 'N/A') + (lowest.overall_avg != null ? '%' : '') : 'N/A'}</span>
+                            <span class="text-[10px] font-mono text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded">${lowest ? lowest.subject_code : ''}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+
+        // ── 2. Chart: top 5 subjects trend ──────────────────────────────────
+        const canvasId = `yt-trend-chart-${_ytTabIdx}`;
+        const chartSection = `
+        <div class="bg-white border border-slate-150 rounded-2xl p-5 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">📈 Top Subjects — PUM Trend Across Series</h3>
+                <span class="text-[10px] text-slate-400 font-semibold">Top 5 by overall avg PUM</span>
+            </div>
+            <div class="h-56 relative">
+                <canvas id="${canvasId}"></canvas>
+            </div>
+        </div>`;
+
+        // ── 3. Full Rankings Table ───────────────────────────────────────────
+        const headerCols = seriesLabels.map(s =>
+            `<th class="px-3 py-3 text-center text-[10px] font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">${s}</th>`
+        ).join('');
+
+        const tableRows = subjects.map((sub, idx) => {
+            const rankBadge = idx === 0
+                ? `<span class="inline-flex items-center justify-center w-5 h-5 bg-amber-400 text-white rounded-full text-[9px] font-black">1</span>`
+                : idx === subjects.length - 1
+                    ? `<span class="inline-flex items-center justify-center w-5 h-5 bg-rose-400 text-white rounded-full text-[9px] font-black">${idx+1}</span>`
+                    : `<span class="text-[10px] text-slate-400 font-bold w-5 text-center inline-block">${idx+1}</span>`;
+
+            const seriesCells = seriesLabels.map(sl => {
+                const entry = sub.series[sl];
+                if (!entry) return `<td class="px-3 py-3 text-center text-[10px] text-slate-300">—</td>`;
+                const pum = entry.avg_pum;
+                const color = pum >= 70 ? 'text-emerald-600' : pum >= 50 ? 'text-amber-600' : 'text-rose-600';
+                const bg    = pum >= 70 ? 'bg-emerald-50' : pum >= 50 ? 'bg-amber-50' : 'bg-rose-50';
+                return `<td class="px-3 py-3 text-center">
+                    <span class="inline-block px-2 py-0.5 rounded-lg text-[11px] font-bold ${color} ${bg}">${pum}%</span>
+                </td>`;
+            }).join('');
+
+            const avgColor = (sub.overall_avg ?? 0) >= 70 ? 'text-emerald-700' : (sub.overall_avg ?? 0) >= 50 ? 'text-amber-700' : 'text-rose-700';
+
+            return `<tr class="hover:bg-indigo-50/30 transition-colors border-b border-slate-50">
+                <td class="px-4 py-3 flex items-center gap-2">
+                    ${rankBadge}
+                </td>
+                <td class="px-2 py-3">
+                    <div class="text-xs font-bold text-slate-800">${sub.subject_name}</div>
+                    <div class="text-[9px] font-mono text-slate-400 mt-0.5">${sub.subject_code}</div>
+                </td>
+                <td class="px-3 py-3 text-center">
+                    <span class="text-sm font-black ${avgColor}">${sub.overall_avg != null ? sub.overall_avg + '%' : 'N/A'}</span>
+                </td>
+                ${seriesCells}
+            </tr>`;
+        }).join('');
+
+        const tableSection = `
+        <div class="bg-white border border-slate-150 rounded-2xl shadow-sm overflow-hidden">
+            <div class="px-5 py-3 border-b border-slate-100 bg-slate-50/60 flex items-center justify-between">
+                <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">📋 Subject Rankings — Series-wise PUM</h3>
+                <span class="text-[10px] text-slate-400">${subjects.length} subjects</span>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-slate-50 sticky top-0 z-10">
+                        <tr>
+                            <th class="px-4 py-3 text-[10px] font-bold text-slate-500 uppercase tracking-wider w-10">#</th>
+                            <th class="px-2 py-3 text-[10px] font-bold text-slate-500 uppercase tracking-wider">Subject</th>
+                            <th class="px-3 py-3 text-center text-[10px] font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">Overall Avg</th>
+                            ${headerCols}
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-50">
+                        ${tableRows || '<tr><td colspan="100" class="text-center py-10 text-slate-400">No data</td></tr>'}
+                    </tbody>
+                </table>
+            </div>
+        </div>`;
+
+        content.innerHTML = cardsHtml + '<div class="mt-1"></div>' + chartSection + '<div class="mt-1"></div>' + tableSection;
+
+        // ── Draw chart ─────────────────────────────────────────────────────
+        const top5 = subjects.slice(0, 5);
+        const chartDatasets = top5.map((sub, ci) => {
+            const color = SERIES_COLORS[ci % SERIES_COLORS.length];
+            const dataPoints = seriesLabels.map(sl => {
+                const e = sub.series[sl];
+                return e ? e.avg_pum : null;
+            });
+            return {
+                label: sub.subject_name,
+                data: dataPoints,
+                borderColor: color,
+                backgroundColor: color + '18',
+                borderWidth: 2.5,
+                fill: false,
+                tension: 0.35,
+                pointBackgroundColor: color,
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2,
+                pointRadius: 4,
+                spanGaps: true,
+            };
+        });
+
+        const ctx = document.getElementById(canvasId);
+        if (ctx) {
+            _ytChart = new Chart(ctx.getContext('2d'), {
+                type: 'line',
+                data: { labels: seriesLabels, datasets: chartDatasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { font: { size: 10, weight: 'bold' }, color: '#475569', boxWidth: 12, padding: 12 }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: ctx => ` ${ctx.dataset.label}: ${ctx.raw != null ? ctx.raw + '%' : 'N/A'}`
+                            }
+                        }
+                    },
+                    scales: {
+                        y: { min: 0, max: 100,
+                            ticks: { font: { size: 10, weight: 'bold' }, color: '#64748b', callback: v => v + '%' },
+                            grid: { color: '#f1f5f9' }
+                        },
+                        x: {
+                            ticks: { font: { size: 9, weight: 'bold' }, color: '#64748b', maxRotation: 45 },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    // Close on Escape
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && _panelOpen) closeYearlyTrendsPanel();
+    });
+})();
 </script>
 @endsection

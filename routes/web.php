@@ -128,6 +128,8 @@ Route::get('/analysis/student-wise', [StudentAnalysisController::class, 'student
     ->name('analysis.student-wise');
 Route::get('/analysis/subject-wise', [AnalysisController::class, 'subjectWise'])
     ->name('analysis.subject-wise');
+Route::get('/api/analysis/yearly-pum-trends', [AnalysisController::class, 'yearlyPumTrends'])
+    ->name('api.analysis.yearly-pum-trends');
 Route::get('/analysis/component-marks', [AnalysisController::class, 'componentMarks'])
     ->name('analysis.component-marks');
 Route::get('/analysis/grade-threshold', [AnalysisController::class, 'gradeThreshold'])
