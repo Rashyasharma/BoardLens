@@ -2,63 +2,75 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
 
 return new class extends Migration
 {
     /**
-     * Merge AS_LEVEL and A_LEVEL into a single GCE AS_A_LEVEL qualification.
-     *
-     * Order matters for SQLite:
-     *   1. Remove CHECK constraints FIRST (recreate tables as plain strings)
-     *   2. Resolve subject code conflicts
-     *   3. Re-point foreign keys from loser → winner
-     *   4. Rename winner to AS_A_LEVEL / GCE AS and A Level
-     *   5. Delete loser row
+     * Merge AS_LEVEL and A_LEVEL into a single AS_A_LEVEL qualification.
+     * Database-agnostic version (works with both SQLite and PostgreSQL).
      */
     public function up(): void
     {
-        DB::statement('PRAGMA foreign_keys = OFF');
+        Schema::disableForeignKeyConstraints();
+
+        $driver = DB::connection()->getDriverName();
 
         // ══════════════════════════════════════════════════════════════════
-        // STEP 1: Recreate qualifications WITHOUT the old enum CHECK constraint
+        // STEP 1: Remove enum CHECK constraint on qualifications
+        // so we can insert 'AS_A_LEVEL' as a new type value.
         // ══════════════════════════════════════════════════════════════════
-        DB::statement('
-            CREATE TABLE qualifications_new (
-                id TEXT NOT NULL PRIMARY KEY,
-                qualification_type TEXT NOT NULL UNIQUE,
-                qualification_name TEXT NOT NULL,
-                description TEXT,
-                is_active INTEGER NOT NULL DEFAULT 1,
-                created_at TEXT,
-                updated_at TEXT
-            )
-        ');
-        DB::statement('INSERT INTO qualifications_new SELECT * FROM qualifications');
-        DB::statement('DROP TABLE qualifications');
-        DB::statement('ALTER TABLE qualifications_new RENAME TO qualifications');
-
-        // ══════════════════════════════════════════════════════════════════
-        // STEP 2: Recreate grade_thresholds WITHOUT old enum CHECK constraint
-        // ══════════════════════════════════════════════════════════════════
-        $hasGT = DB::select("SELECT name FROM sqlite_master WHERE type='table' AND name='grade_thresholds'");
-        if (!empty($hasGT)) {
+        if ($driver === 'sqlite') {
             DB::statement('
-                CREATE TABLE grade_thresholds_new (
+                CREATE TABLE qualifications_new (
                     id TEXT NOT NULL PRIMARY KEY,
-                    series_id TEXT NOT NULL,
-                    subject_id TEXT NOT NULL,
-                    grade TEXT NOT NULL,
-                    qualification_type TEXT NOT NULL,
-                    minimum_pum NUMERIC NOT NULL,
-                    maximum_pum NUMERIC,
+                    qualification_type TEXT NOT NULL UNIQUE,
+                    qualification_name TEXT NOT NULL,
+                    description TEXT,
+                    is_active INTEGER NOT NULL DEFAULT 1,
                     created_at TEXT,
-                    updated_at TEXT,
-                    UNIQUE(series_id, subject_id, grade)
+                    updated_at TEXT
                 )
             ');
-            DB::statement('INSERT INTO grade_thresholds_new SELECT * FROM grade_thresholds');
-            DB::statement('DROP TABLE grade_thresholds');
-            DB::statement('ALTER TABLE grade_thresholds_new RENAME TO grade_thresholds');
+            DB::statement('INSERT INTO qualifications_new SELECT * FROM qualifications');
+            DB::statement('DROP TABLE qualifications');
+            DB::statement('ALTER TABLE qualifications_new RENAME TO qualifications');
+        } else {
+            // PostgreSQL: change enum column to a plain string to allow new values
+            Schema::table('qualifications', function (Blueprint $table) {
+                $table->string('qualification_type')->unique()->change();
+            });
+        }
+
+        // ══════════════════════════════════════════════════════════════════
+        // STEP 2: Remove enum CHECK constraint on grade_thresholds
+        // ══════════════════════════════════════════════════════════════════
+        if (Schema::hasTable('grade_thresholds')) {
+            if ($driver === 'sqlite') {
+                DB::statement('
+                    CREATE TABLE grade_thresholds_new (
+                        id TEXT NOT NULL PRIMARY KEY,
+                        series_id TEXT NOT NULL,
+                        subject_id TEXT NOT NULL,
+                        grade TEXT NOT NULL,
+                        qualification_type TEXT NOT NULL,
+                        minimum_pum NUMERIC NOT NULL,
+                        maximum_pum NUMERIC,
+                        created_at TEXT,
+                        updated_at TEXT,
+                        UNIQUE(series_id, subject_id, grade)
+                    )
+                ');
+                DB::statement('INSERT INTO grade_thresholds_new SELECT * FROM grade_thresholds');
+                DB::statement('DROP TABLE grade_thresholds');
+                DB::statement('ALTER TABLE grade_thresholds_new RENAME TO grade_thresholds');
+            } else {
+                // PostgreSQL: change enum column to a plain string
+                Schema::table('grade_thresholds', function (Blueprint $table) {
+                    $table->string('qualification_type')->change();
+                });
+            }
         }
 
         // ══════════════════════════════════════════════════════════════════
@@ -77,7 +89,7 @@ return new class extends Migration
         if ($asLevel && $aLevel) {
             $winnerId  = $asLevel->id;
             $loserId   = $aLevel->id;
-            $loserType = 'A'; // A Level is the loser; append -A suffix if code clashes
+            $loserType = 'A';
         } elseif ($asLevel) {
             $winnerId = $asLevel->id;
         } elseif ($aLevel) {
@@ -115,7 +127,7 @@ return new class extends Migration
                 }
             }
 
-            // ── Re-point foreign keys ──────────────────────────────────────
+            // Re-point foreign keys
             DB::table('subjects')
                 ->where('qualification_id', $loserId)
                 ->update(['qualification_id' => $winnerId]);
@@ -128,7 +140,7 @@ return new class extends Migration
                 ->where('qualification_id', $loserId)
                 ->update(['qualification_id' => $winnerId]);
 
-            // ── Delete loser row ───────────────────────────────────────────
+            // Delete loser row
             DB::table('qualifications')->where('id', $loserId)->delete();
         }
 
@@ -152,7 +164,7 @@ return new class extends Migration
             ->whereIn('qualification_type', ['AS_LEVEL', 'A_LEVEL'])
             ->update(['qualification_type' => 'AS_A_LEVEL']);
 
-        DB::statement('PRAGMA foreign_keys = ON');
+        Schema::enableForeignKeyConstraints();
     }
 
     public function down(): void

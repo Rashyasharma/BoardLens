@@ -8,36 +8,46 @@ use Illuminate\Support\Facades\DB;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Make subject_id nullable in candidate_enrollments.
+     * Database-agnostic version (works with both SQLite and PostgreSQL).
      */
     public function up(): void
     {
-        DB::statement('PRAGMA foreign_keys = OFF');
+        $driver = DB::connection()->getDriverName();
 
-        Schema::dropIfExists('candidate_enrollments_new');
+        if ($driver === 'sqlite') {
+            Schema::disableForeignKeyConstraints();
 
-        Schema::create('candidate_enrollments_new', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->foreignUuid('candidate_id')->constrained('candidates')->onDelete('cascade');
-            $table->foreignUuid('series_id')->constrained('exam_series')->onDelete('cascade');
-            $table->foreignUuid('qualification_id')->constrained('qualifications')->onDelete('cascade');
-            $table->foreignUuid('subject_id')->nullable()->constrained('subjects')->onDelete('cascade');
-            $table->enum('enrollment_status', ['enrolled', 'completed', 'withdrawn', 'absent'])->default('enrolled');
-            $table->date('enrolled_date');
-            $table->timestamps();
+            Schema::dropIfExists('candidate_enrollments_new');
 
-            $table->index('candidate_id');
-            $table->index('series_id');
-            $table->index(['candidate_id', 'series_id', 'subject_id'], 'idx_candidate_series_subject_new');
-        });
+            Schema::create('candidate_enrollments_new', function (Blueprint $table) {
+                $table->uuid('id')->primary();
+                $table->foreignUuid('candidate_id')->constrained('candidates')->onDelete('cascade');
+                $table->foreignUuid('series_id')->constrained('exam_series')->onDelete('cascade');
+                $table->foreignUuid('qualification_id')->constrained('qualifications')->onDelete('cascade');
+                $table->foreignUuid('subject_id')->nullable()->constrained('subjects')->onDelete('cascade');
+                $table->enum('enrollment_status', ['enrolled', 'completed', 'withdrawn', 'absent'])->default('enrolled');
+                $table->date('enrolled_date');
+                $table->timestamps();
 
-        // Copy existing data
-        DB::statement('INSERT INTO candidate_enrollments_new (id, candidate_id, series_id, qualification_id, subject_id, enrollment_status, enrolled_date, created_at, updated_at) SELECT id, candidate_id, series_id, qualification_id, subject_id, enrollment_status, enrolled_date, created_at, updated_at FROM candidate_enrollments');
+                $table->index('candidate_id');
+                $table->index('series_id');
+                $table->index(['candidate_id', 'series_id', 'subject_id'], 'idx_candidate_series_subject_new');
+            });
 
-        Schema::dropIfExists('candidate_enrollments');
-        Schema::rename('candidate_enrollments_new', 'candidate_enrollments');
+            // Copy existing data
+            DB::statement('INSERT INTO candidate_enrollments_new (id, candidate_id, series_id, qualification_id, subject_id, enrollment_status, enrolled_date, created_at, updated_at) SELECT id, candidate_id, series_id, qualification_id, subject_id, enrollment_status, enrolled_date, created_at, updated_at FROM candidate_enrollments');
 
-        DB::statement('PRAGMA foreign_keys = ON');
+            Schema::dropIfExists('candidate_enrollments');
+            Schema::rename('candidate_enrollments_new', 'candidate_enrollments');
+
+            Schema::enableForeignKeyConstraints();
+        } else {
+            // PostgreSQL: simply alter the column to be nullable
+            Schema::table('candidate_enrollments', function (Blueprint $table) {
+                $table->uuid('subject_id')->nullable()->change();
+            });
+        }
     }
 
     /**
@@ -45,33 +55,43 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::statement('PRAGMA foreign_keys = OFF');
+        $driver = DB::connection()->getDriverName();
 
-        Schema::dropIfExists('candidate_enrollments_new');
+        if ($driver === 'sqlite') {
+            Schema::disableForeignKeyConstraints();
 
-        Schema::create('candidate_enrollments_new', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->foreignUuid('candidate_id')->constrained('candidates')->onDelete('cascade');
-            $table->foreignUuid('series_id')->constrained('exam_series')->onDelete('cascade');
-            $table->foreignUuid('qualification_id')->constrained('qualifications')->onDelete('cascade');
-            $table->foreignUuid('subject_id')->constrained('subjects')->onDelete('cascade');
-            $table->enum('enrollment_status', ['enrolled', 'completed', 'withdrawn', 'absent'])->default('enrolled');
-            $table->date('enrolled_date');
-            $table->timestamps();
+            Schema::dropIfExists('candidate_enrollments_new');
 
-            $table->index('candidate_id');
-            $table->index('series_id');
-            $table->index(['candidate_id', 'series_id', 'subject_id'], 'idx_candidate_series_subject');
-        });
+            Schema::create('candidate_enrollments_new', function (Blueprint $table) {
+                $table->uuid('id')->primary();
+                $table->foreignUuid('candidate_id')->constrained('candidates')->onDelete('cascade');
+                $table->foreignUuid('series_id')->constrained('exam_series')->onDelete('cascade');
+                $table->foreignUuid('qualification_id')->constrained('qualifications')->onDelete('cascade');
+                $table->foreignUuid('subject_id')->constrained('subjects')->onDelete('cascade');
+                $table->enum('enrollment_status', ['enrolled', 'completed', 'withdrawn', 'absent'])->default('enrolled');
+                $table->date('enrolled_date');
+                $table->timestamps();
 
-        // Remove any rows where subject_id is null before restoring
-        DB::table('candidate_enrollments')->whereNull('subject_id')->delete();
+                $table->index('candidate_id');
+                $table->index('series_id');
+                $table->index(['candidate_id', 'series_id', 'subject_id'], 'idx_candidate_series_subject');
+            });
 
-        DB::statement('INSERT INTO candidate_enrollments_new (id, candidate_id, series_id, qualification_id, subject_id, enrollment_status, enrolled_date, created_at, updated_at) SELECT id, candidate_id, series_id, qualification_id, subject_id, enrollment_status, enrolled_date, created_at, updated_at FROM candidate_enrollments');
+            // Remove any rows where subject_id is null before restoring
+            DB::table('candidate_enrollments')->whereNull('subject_id')->delete();
 
-        Schema::dropIfExists('candidate_enrollments');
-        Schema::rename('candidate_enrollments_new', 'candidate_enrollments');
+            DB::statement('INSERT INTO candidate_enrollments_new (id, candidate_id, series_id, qualification_id, subject_id, enrollment_status, enrolled_date, created_at, updated_at) SELECT id, candidate_id, series_id, qualification_id, subject_id, enrollment_status, enrolled_date, created_at, updated_at FROM candidate_enrollments');
 
-        DB::statement('PRAGMA foreign_keys = ON');
+            Schema::dropIfExists('candidate_enrollments');
+            Schema::rename('candidate_enrollments_new', 'candidate_enrollments');
+
+            Schema::enableForeignKeyConstraints();
+        } else {
+            // PostgreSQL: make column non-nullable again
+            DB::table('candidate_enrollments')->whereNull('subject_id')->delete();
+            Schema::table('candidate_enrollments', function (Blueprint $table) {
+                $table->uuid('subject_id')->nullable(false)->change();
+            });
+        }
     }
 };
