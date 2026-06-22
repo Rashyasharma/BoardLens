@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Discover packages
+php artisan package:discover --ansi
+
 # Run database migrations
 php artisan migrate --force
 
