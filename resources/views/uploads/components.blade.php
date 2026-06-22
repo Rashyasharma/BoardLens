@@ -273,7 +273,7 @@
                                         </td>
                                         <td class="py-4">
                                             <span class="inline-flex items-center px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded whitespace-nowrap">
-                                                {{ in_array($res->grade, ['a', 'b', 'c', 'd', 'e']) ? $res->grade . ' (AS Level)' : $res->grade }}
+                                                {{ ($res->enrollment->qualification->qualification_type === 'AS_A_LEVEL' && in_array($res->grade, ['a', 'b', 'c', 'd', 'e'])) ? $res->grade . ' (AS Level)' : $res->grade }}
                                             </span>
                                             <span class="text-xs text-slate-450 font-semibold ml-2">PUM: {{ $res->pum }}%</span>
                                         </td>

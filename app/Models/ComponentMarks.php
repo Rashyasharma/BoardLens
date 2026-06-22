@@ -19,6 +19,7 @@ class ComponentMarks extends Model
         'obtained_marks',
         'total_marks',
         'percentage',
+        'grade',
         'remarks',
         'uploaded_by',
         'uploaded_at',

@@ -18,7 +18,8 @@ class ResultsController extends Controller
      */
     public function index(Request $request)
     {
-        $schoolId = auth()->user()->school_id;
+        $schoolId = auth()->user()?->school_id;
+        $selectedYear = $request->input('year');
         $searchSeriesId = $request->input('series_id');
 
         $resultsQuery = SubjectResult::query()
@@ -29,6 +30,12 @@ class ResultsController extends Controller
         if ($schoolId) {
             $resultsQuery->whereHas('enrollment.candidate', function ($q) use ($schoolId) {
                 $q->where('school_id', $schoolId);
+            });
+        }
+
+        if ($selectedYear) {
+            $resultsQuery->whereHas('series', function ($q) use ($selectedYear) {
+                $q->where('year', $selectedYear);
             });
         }
 
@@ -45,7 +52,7 @@ class ResultsController extends Controller
             if (!$series) return null;
             
             // Group by qualification within this series
-            $qualifications = $group->groupBy(fn($r) => $r->subject->qualification_id)->map(function ($qualGroup) {
+            $qualifications = $group->groupBy(fn($r) => $r->subject->qualification_id)->map(function ($qualGroup) use ($series) {
                 $firstQual = $qualGroup->first();
                 $qualification = $firstQual->subject->qualification;
                 if (!$qualification) return null;
@@ -64,14 +71,20 @@ class ResultsController extends Controller
                 });
 
                 // Calculate average PUM for qualification
-                $totalCand = $qualGroup->sum('candidate_count');
+                // Get count of unique candidates in this qualification group for the current series
+                $subjectIdsForQual = $qualGroup->pluck('subject_id')->unique()->toArray();
+                $uniqueCandidatesCount = \App\Models\CandidateEnrollment::where('series_id', $series->id)
+                    ->whereIn('subject_id', $subjectIdsForQual)
+                    ->distinct('candidate_id')
+                    ->count('candidate_id');
+
                 $avgPum = $qualGroup->avg('average_pum');
 
                 return [
                     'qualification_id' => $qualification->id,
                     'qualification_name' => $qualification->type_display,
                     'subject_count' => $qualGroup->unique('subject_id')->count(),
-                    'total_candidates' => $totalCand,
+                    'total_candidates' => $uniqueCandidatesCount,
                     'average_pum' => $avgPum ? round($avgPum, 1) : null,
                     'subjects' => $subjects
                 ];
@@ -98,13 +111,16 @@ class ResultsController extends Controller
         })->values();
 
         $qualifications = Qualification::all();
-        $series = ExamSeries::all();
+        $series = ExamSeries::orderBy('year', 'desc')->get();
+        $years = ExamSeries::distinct()->orderBy('year', 'desc')->pluck('year');
 
         return view('results.index', [
             'seriesGroups' => $seriesGroups,
             'qualifications' => $qualifications,
             'series' => $series,
+            'years' => $years,
             'selectedSeriesId' => $searchSeriesId,
+            'selectedYear' => $selectedYear,
         ]);
     }
 
@@ -113,7 +129,7 @@ class ResultsController extends Controller
      */
     public function seriesDetails(ExamSeries $examSeries)
     {
-        $schoolId = auth()->user()->school_id;
+        $schoolId = auth()->user()?->school_id;
 
         $resultsQuery = SubjectResult::query()
             ->where('series_id', $examSeries->id)
@@ -129,7 +145,7 @@ class ResultsController extends Controller
 
         $allResults = $resultsQuery->get();
 
-        $qualificationsData = $allResults->groupBy(fn($r) => $r->subject->qualification_id)->map(function ($qualGroup) {
+        $qualificationsData = $allResults->groupBy(fn($r) => $r->subject->qualification_id)->map(function ($qualGroup) use ($examSeries) {
             $firstQual = $qualGroup->first();
             $qualification = $firstQual->subject->qualification;
             if (!$qualification) return null;
@@ -153,14 +169,19 @@ class ResultsController extends Controller
                 ];
             });
 
-            $totalCand = $qualGroup->sum('candidate_count');
+            $subjectIdsForQual = $qualGroup->pluck('subject_id')->unique()->toArray();
+            $uniqueCandidatesCount = \App\Models\CandidateEnrollment::where('series_id', $examSeries->id)
+                ->whereIn('subject_id', $subjectIdsForQual)
+                ->distinct('candidate_id')
+                ->count('candidate_id');
+
             $avgPum = $qualGroup->avg('average_pum');
 
             return [
                 'qualification_id' => $qualification->id,
                 'qualification_name' => $qualification->type_display,
                 'subject_count' => $qualGroup->unique('subject_id')->count(),
-                'total_candidates' => $totalCand,
+                'total_candidates' => $uniqueCandidatesCount,
                 'average_pum' => $avgPum ? round($avgPum, 1) : null,
                 'subjects' => $subjects
             ];
@@ -177,7 +198,7 @@ class ResultsController extends Controller
      */
     public function subjectResults(ExamSeries $examSeries, Subject $subject)
     {
-        $schoolId = auth()->user()->school_id;
+        $schoolId = auth()->user()?->school_id;
 
         $query = SubjectResult::where('subject_results.series_id', $examSeries->id)
             ->where('subject_results.subject_id', $subject->id)
@@ -218,7 +239,7 @@ class ResultsController extends Controller
 
     public function view(Request $request)
     {
-        return redirect()->route('results.index');
+        return app(ViewResultsController::class)->index($request);
     }
 
     public function show(SubjectResult $result)
@@ -232,7 +253,7 @@ class ResultsController extends Controller
      */
     public function destroy(SubjectResult $result)
     {
-        $schoolId = auth()->user()->school_id;
+        $schoolId = auth()->user()?->school_id;
         $candidate = $result->enrollment->candidate;
         if ($schoolId && $candidate->school_id !== $schoolId) {
             abort(403, 'Unauthorized access.');
@@ -242,6 +263,10 @@ class ResultsController extends Controller
             $result->componentMarks()->delete();
             $result->delete();
         });
+
+        if (request()->expectsJson()) {
+            return response()->json(['success' => true, 'message' => 'Result record deleted successfully.']);
+        }
 
         // Redirect to results index if the referrer was the show page of the deleted result
         $referrer = request()->headers->get('referer');
@@ -259,7 +284,7 @@ class ResultsController extends Controller
      */
     public function destroySubjectResults(ExamSeries $examSeries, Subject $subject)
     {
-        $schoolId = auth()->user()->school_id;
+        $schoolId = auth()->user()?->school_id;
 
         \Illuminate\Support\Facades\DB::transaction(function () use ($examSeries, $subject, $schoolId) {
             $query = SubjectResult::where('series_id', $examSeries->id)
@@ -290,7 +315,7 @@ class ResultsController extends Controller
         $qualifications = Qualification::all();
         $years = collect(range(2026, 2018));
         
-        $schoolId = auth()->user()->school_id;
+        $schoolId = auth()->user()?->school_id;
         
         $seriesStats = collect();
         
@@ -336,10 +361,24 @@ class ResultsController extends Controller
                     }
                 });
                 
-            $totalResults = $resultsQuery->count();
-            $avgPum = $resultsQuery->avg('pum');
-            $passCount = $resultsQuery->whereIn('grade', ['A*', 'A', 'B', 'C', 'a', 'b', 'c'])->count();
+            $totalResults = (clone $resultsQuery)->count();
+            $avgPum = (clone $resultsQuery)->avg('pum');
+            $passCount = (clone $resultsQuery)->whereIn('grade', ['A*', 'A', 'B', 'C', 'a', 'b', 'c'])->count();
             $passRate = $totalResults > 0 ? round(($passCount / $totalResults) * 100, 1) : 0;
+            
+            // Count unique subjects in this series for this qualification
+            $subjectCount = (clone $resultsQuery)->distinct('subject_id')->count('subject_id');
+            
+            // Count total registered candidates for this qualification + series
+            $registeredQuery = \App\Models\CandidateEnrollment::where('series_id', $seriesId)
+                ->where('qualification_id', $qualId)
+                ->whereIn('enrollment_status', ['enrolled', 'completed']);
+            if ($schoolId) {
+                $registeredQuery->whereHas('candidate', function ($q) use ($schoolId) {
+                    $q->where('school_id', $schoolId);
+                });
+            }
+            $registeredCount = $registeredQuery->count();
             
             $seriesStats->push([
                 'series_id' => $seriesId,
@@ -351,6 +390,9 @@ class ResultsController extends Controller
                 'series_code' => $series->series_code,
                 'series_name' => $series->series_name,
                 'candidate_count' => $candCount,
+                'registered_count' => $registeredCount,
+                'entries_count' => $totalResults,
+                'subject_count' => $subjectCount,
                 'average_pum' => $avgPum ? round($avgPum, 1) : null,
                 'pass_rate' => $passRate,
             ]);
@@ -375,7 +417,7 @@ class ResultsController extends Controller
         $series = ExamSeries::findOrFail($seriesId);
         $qualification = Qualification::findOrFail($qualificationId);
         
-        $schoolId = auth()->user()->school_id;
+        $schoolId = auth()->user()?->school_id;
         
         // Get all candidates enrolled in this series + qualification
         $enrollments = \App\Models\CandidateEnrollment::with('candidate')
@@ -518,7 +560,7 @@ class ResultsController extends Controller
         $series = ExamSeries::findOrFail($seriesId);
         $qualification = Qualification::findOrFail($qualificationId);
         
-        $schoolId = auth()->user()->school_id;
+        $schoolId = auth()->user()?->school_id;
         
         // Get all candidates enrolled in this series + qualification
         $enrollments = \App\Models\CandidateEnrollment::with('candidate')
@@ -626,5 +668,15 @@ class ResultsController extends Controller
         };
         
         return response()->stream($callback, 200, $headers);
+    }
+
+    public function editComponents(SubjectResult $result)
+    {
+        return app(ViewResultsController::class)->editComponents($result);
+    }
+
+    public function storeComponent(SubjectResult $result, Request $request)
+    {
+        return app(ViewResultsController::class)->storeComponent($result, $request);
     }
 }

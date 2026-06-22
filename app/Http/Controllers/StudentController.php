@@ -15,7 +15,7 @@ class StudentController extends Controller
      */
     public function index(Request $request)
     {
-        $schoolId = auth()->user()->school_id;
+        $schoolId = auth()->user()?->school_id;
         $search = $request->input('search');
         $qualId = $request->input('qualification_id');
         $year = $request->input('year');

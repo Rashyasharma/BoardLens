@@ -118,8 +118,8 @@
                                     }
                                 @endphp
                                 <div class="flex items-center gap-2">
-                                    <span class="inline-flex items-center justify-center {{ in_array($res->grade, ['a', 'b', 'c', 'd', 'e']) ? 'px-2.5 h-7 rounded-lg' : 'w-7 h-7 rounded-full' }} {{ $gradeClass }} text-xs font-extrabold whitespace-nowrap">
-                                        {{ in_array($res->grade, ['a', 'b', 'c', 'd', 'e']) ? $res->grade . ' (AS Level)' : $res->grade }}
+                                    <span class="inline-flex items-center justify-center {{ ($res->enrollment->qualification->qualification_type === 'AS_A_LEVEL' && in_array($res->grade, ['a', 'b', 'c', 'd', 'e'])) ? 'px-3.5 h-7 rounded-lg' : 'w-7 h-7 rounded-full' }} {{ $gradeClass }} text-xs font-extrabold whitespace-nowrap">
+                                        {{ ($res->enrollment->qualification->qualification_type === 'AS_A_LEVEL' && in_array($res->grade, ['a', 'b', 'c', 'd', 'e'])) ? $res->grade . ' (AS Level)' : $res->grade }}
                                     </span>
                                     <span class="text-xs text-slate-500 font-semibold">PUM: {{ $res->pum }}%</span>
                                 </div>
@@ -140,9 +140,14 @@
                                         Complete
                                     </span>
                                 @else
-                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-50 border border-amber-100 text-amber-800">
-                                        Pending Components
-                                    </span>
+                                    <div class="flex flex-col items-center gap-1">
+                                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-50 border border-amber-100 text-amber-800">
+                                            Pending Components
+                                        </span>
+                                        <a href="{{ route('results.edit-components', $res->id) }}" class="text-xxs font-extrabold text-indigo-650 hover:text-indigo-850 hover:underline">
+                                            ⚡ Complete Portfolio
+                                        </a>
+                                    </div>
                                 @endif
                             </td>
                             <!-- Actions -->

@@ -78,22 +78,30 @@
     @else
         {{-- Scrollable table --}}
         <div class="bg-white border border-slate-150 rounded-2xl shadow-sm overflow-hidden">
+            {{-- Sort Toolbar --}}
+            <div class="px-6 py-2.5 border-b border-slate-100 bg-slate-50/50 flex flex-wrap items-center gap-2 print:hidden">
+                <span class="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider mr-1">Sort by:</span>
+                <button onclick="sortTable('cand_no')" id="sort-cand_no" class="sort-btn active-sort px-3 py-1.5 rounded-lg text-[11px] font-bold border border-slate-200 bg-white text-slate-700 hover:border-indigo-400 hover:text-indigo-700 transition">Cand. No.</button>
+                <button onclick="sortTable('name')" id="sort-name" class="sort-btn px-3 py-1.5 rounded-lg text-[11px] font-bold border border-slate-200 bg-white text-slate-700 hover:border-indigo-400 hover:text-indigo-700 transition">Name</button>
+                <button onclick="sortTable('grade')" id="sort-grade" class="sort-btn px-3 py-1.5 rounded-lg text-[11px] font-bold border border-slate-200 bg-white text-slate-700 hover:border-indigo-400 hover:text-indigo-700 transition">Grade</button>
+                <button onclick="sortTable('pum')" id="sort-pum" class="sort-btn px-3 py-1.5 rounded-lg text-[11px] font-bold border border-slate-200 bg-white text-slate-700 hover:border-indigo-400 hover:text-indigo-700 transition">PUM</button>
+            </div>
             <div class="overflow-x-auto">
-                <table class="w-full border-collapse text-sm" id="results-table">
+                <table class="w-full border-collapse border border-slate-300 text-sm" id="results-table">
                     <thead>
-                        <tr class="bg-slate-50 border-b border-slate-150 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                        <tr class="bg-slate-50 text-xs font-bold text-slate-500 uppercase tracking-wider">
                             {{-- Sticky columns --}}
-                            <th class="sticky left-0 z-10 bg-slate-50 px-4 py-3 text-left border-r border-slate-150 min-w-[7rem]">Cand. No.</th>
-                            <th class="sticky left-28 z-10 bg-slate-50 px-4 py-3 text-left border-r border-slate-150 min-w-[11rem]">Name</th>
+                            <th class="sticky left-0 z-10 bg-slate-50 px-4 py-3 text-left border border-slate-300 min-w-[7rem]">Cand. No.</th>
+                            <th class="sticky left-28 z-10 bg-slate-50 px-4 py-3 text-left border border-slate-300 min-w-[11rem]">Name</th>
                             {{-- Functional columns --}}
-                            <th class="px-3 py-3 text-center min-w-[7rem]">Grade</th>
-                            <th class="px-3 py-3 text-center min-w-[7rem]">PUM</th>
+                            <th class="px-3 py-3 text-center min-w-[9rem] bg-slate-200/60 border border-slate-300">Grade</th>
+                            <th class="px-3 py-3 text-center min-w-[7rem] border border-slate-300">PUM</th>
                             {{-- Dynamic component columns --}}
                             @foreach($components as $comp)
-                                <th class="px-3 py-3 text-center min-w-[8rem] border-l border-slate-100 bg-slate-50/80">
+                                <th class="px-3 py-3 text-center min-w-[10rem] border border-slate-300 {{ $loop->even ? 'bg-slate-200/60' : 'bg-slate-50' }}">
                                     <div class="flex flex-col items-center gap-1">
-                                        <div class="font-mono text-indigo-600 font-extrabold">{{ $comp->component_code }}</div>
-                                        <div class="text-xxs font-semibold text-slate-400 normal-case">/ {{ $comp->total_marks }}</div>
+                                        <div class="font-mono text-indigo-600 font-extrabold cursor-help" title="{{ $comp->component_name }}">{{ $comp->component_label }} ({{ $comp->component_code }})</div>
+                                        <div class="text-xxs font-semibold text-slate-400 normal-case">({{ $comp->total_marks }})</div>
                                         <label class="inline-flex items-center gap-1 cursor-pointer mt-1 text-[10px] font-semibold text-indigo-500 hover:text-indigo-700">
                                             <input type="checkbox"
                                                 class="header-applicable-toggle w-3.5 h-3.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
@@ -107,9 +115,9 @@
                                 </th>
                             @endforeach
                             {{-- Total --}}
-                            <th class="px-3 py-3 text-center min-w-[6rem] border-l border-slate-200 bg-indigo-50/30 text-indigo-700">Total</th>
+                            <th class="px-3 py-3 text-center min-w-[6rem] border border-slate-300 bg-indigo-50/30 text-indigo-700">Total</th>
                             {{-- Action --}}
-                            <th class="px-4 py-3 text-center min-w-[5rem]">Save</th>
+                            <th class="px-4 py-3 text-center min-w-[9rem] border border-slate-300">Actions</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100">
@@ -119,25 +127,25 @@
                                 data-enrollment="{{ $row['enrollment_id'] }}">
 
                                 {{-- Sticky: Cand No. --}}
-                                <td class="sticky left-0 z-[5] bg-white border-r border-slate-100 px-4 py-3">
+                                <td class="sticky left-0 z-[5] bg-white border border-slate-300 px-4 py-3">
                                     <span class="font-mono text-xs font-bold text-slate-600">{{ $row['candidate_no'] }}</span>
                                 </td>
 
                                 {{-- Sticky: Name --}}
-                                <td class="sticky left-28 z-[5] bg-white border-r border-slate-100 px-4 py-3">
+                                <td class="sticky left-28 z-[5] bg-white border border-slate-300 px-4 py-3">
                                     <span class="font-semibold text-slate-700 text-xs">{{ $row['candidate_name'] }}</span>
                                 </td>
 
                                 {{-- Grade --}}
-                                <td class="px-3 py-3 text-center">
-                                    <select class="grade-input px-2 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500/20 w-full max-w-[8.5rem] disabled:opacity-80 disabled:cursor-not-allowed"
+                                <td class="px-3 py-3 text-center bg-slate-200/60 border border-slate-300">
+                                    <select class="grade-input px-2 py-1.5 bg-white border border-slate-200 rounded-lg text-xs font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500/20 w-full min-w-[8rem] disabled:opacity-80 disabled:cursor-not-allowed"
                                         data-enrollment="{{ $row['enrollment_id'] }}"
                                         disabled
                                         onchange="recalcTotal('{{ $row['enrollment_id'] }}')">
                                         <option value="">—</option>
                                         @foreach($grades as $g)
                                             @php
-                                                $displayGrade = in_array($g, ['a', 'b', 'c', 'd', 'e']) ? $g . ' (AS Level)' : $g;
+                                                $displayGrade = ($subject->qualification->qualification_type === 'AS_A_LEVEL' && in_array($g, ['a', 'b', 'c', 'd', 'e'])) ? $g . ' (AS Level)' : $g;
                                             @endphp
                                             <option value="{{ $g }}" {{ $row['grade'] === $g ? 'selected' : '' }}>{{ $displayGrade }}</option>
                                         @endforeach
@@ -145,7 +153,7 @@
                                 </td>
 
                                 {{-- PUM --}}
-                                <td class="px-3 py-3 text-center">
+                                <td class="px-3 py-3 text-center border border-slate-300">
                                     <input type="number" step="0.01" min="0" max="100"
                                         class="pum-input px-2 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold text-center focus:outline-none focus:ring-2 focus:ring-indigo-500/20 w-full max-w-[5.5rem] disabled:opacity-80 disabled:cursor-not-allowed"
                                         value="{{ $row['pum'] }}"
@@ -156,7 +164,7 @@
 
                                 {{-- Component marks --}}
                                 @foreach($row['components'] as $compRow)
-                                    <td class="px-3 py-3 text-center border-l border-slate-100"
+                                    <td class="px-3 py-3 text-center border border-slate-300 {{ $loop->even ? 'bg-slate-200/60' : 'bg-slate-50' }}"
                                         id="comp-cell-{{ $row['enrollment_id'] }}-{{ $compRow['component_id'] }}">
                                         <div class="flex flex-col items-center gap-1.5">
                                             {{-- Applicable checkbox --}}
@@ -181,12 +189,27 @@
                                                 id="comp-input-{{ $row['enrollment_id'] }}-{{ $compRow['component_id'] }}"
                                                 {{ !$compRow['applicable'] ? 'disabled' : '' }}
                                                 oninput="recalcTotal('{{ $row['enrollment_id'] }}')" />
+                                            {{-- Component Grade select --}}
+                                            <select
+                                                class="comp-grade-select px-1 py-0.5 bg-slate-50 border border-slate-200 rounded text-[10px] font-bold text-center focus:outline-none focus:ring-1 focus:ring-indigo-400 w-full max-w-[5rem] disabled:opacity-60 disabled:cursor-not-allowed
+                                                    {{ !$compRow['applicable'] ? 'opacity-30 pointer-events-none' : '' }}"
+                                                data-enrollment="{{ $row['enrollment_id'] }}"
+                                                data-component="{{ $compRow['component_id'] }}"
+                                                disabled
+                                                id="comp-grade-{{ $row['enrollment_id'] }}-{{ $compRow['component_id'] }}"
+                                                title="Component Grade">
+                                                <option value="">—</option>
+                                                @foreach($grades as $g)
+                                                    @php $dg = ($subject->qualification->qualification_type === 'AS_A_LEVEL' && in_array($g, ['a','b','c','d','e'])) ? $g.' (AS)' : $g; @endphp
+                                                    <option value="{{ $g }}" {{ ($compRow['component_grade'] ?? '') === $g ? 'selected' : '' }}>{{ $dg }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </td>
                                 @endforeach
 
                                 {{-- Total --}}
-                                <td class="px-3 py-3 text-center border-l border-slate-200 bg-indigo-50/20"
+                                <td class="px-3 py-3 text-center border border-slate-300 bg-indigo-50/20"
                                     id="total-cell-{{ $row['enrollment_id'] }}">
                                     @php
                                         $initTotal = collect($row['components'])
@@ -204,15 +227,24 @@
                                     </div>
                                 </td>
 
-                                {{-- Save button --}}
-                                <td class="px-4 py-3 text-center">
-                                    <button type="button"
-                                        disabled
-                                        onclick="saveRow('{{ $row['enrollment_id'] }}', '{{ $series->id }}', '{{ $subject->id }}')"
-                                        id="save-row-btn-{{ $row['enrollment_id'] }}"
-                                        class="save-row-btn px-3 py-1.5 bg-white border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50 text-xs font-bold text-slate-650 hover:text-indigo-700 rounded-lg transition disabled:opacity-40 disabled:cursor-not-allowed">
-                                        Save
-                                    </button>
+                                {{-- Save & Delete buttons --}}
+                                <td class="px-4 py-3 border border-slate-300">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <button type="button"
+                                            disabled
+                                            onclick="saveRow('{{ $row['enrollment_id'] }}', '{{ $series->id }}', '{{ $subject->id }}')"
+                                            id="save-row-btn-{{ $row['enrollment_id'] }}"
+                                            class="save-row-btn px-2.5 py-1.5 bg-white border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50 text-xs font-bold text-slate-650 hover:text-indigo-700 rounded-lg transition disabled:opacity-40 disabled:cursor-not-allowed">
+                                            Save
+                                        </button>
+                                        <button type="button"
+                                            onclick="deleteRow('{{ $row['enrollment_id'] }}', '{{ $row['result_id'] }}')"
+                                            id="delete-row-btn-{{ $row['enrollment_id'] }}"
+                                            {{ !$row['result_id'] ? 'disabled' : '' }}
+                                            class="delete-row-btn px-2.5 py-1.5 bg-white border border-slate-200 hover:border-rose-300 hover:bg-rose-50 text-xs font-bold text-rose-650 hover:text-rose-700 rounded-lg transition disabled:opacity-40 disabled:cursor-not-allowed">
+                                            Delete
+                                        </button>
+                                    </div>
                                 </td>
 
                             </tr>
@@ -269,9 +301,11 @@
             const enrollmentId = cb.dataset.enrollment;
             const compId       = cb.dataset.component;
             const input        = document.getElementById(`comp-input-${enrollmentId}-${compId}`);
+            const gradeSelect  = document.getElementById(`comp-grade-${enrollmentId}-${compId}`);
             if (cb.checked) {
                 input.disabled = false;
                 input.classList.remove('opacity-30', 'pointer-events-none');
+                if (gradeSelect) { gradeSelect.disabled = false; }
             }
         });
 
@@ -279,6 +313,9 @@
         document.querySelectorAll('.grade-input, .pum-input, .comp-marks-input').forEach(el => {
             el.classList.remove('bg-slate-50');
             el.classList.add('bg-white');
+        });
+        document.querySelectorAll('.comp-grade-select').forEach(el => {
+            if (!el.disabled) { el.classList.remove('bg-slate-50'); el.classList.add('bg-white'); }
         });
     }
 
@@ -295,12 +332,17 @@
         document.getElementById('footer-save-btn').classList.add('hidden');
 
         // Disable all selectors and checkboxes
-        document.querySelectorAll('.header-applicable-toggle, .grade-input, .pum-input, .applicable-toggle, .comp-marks-input, .save-row-btn').forEach(el => {
+        document.querySelectorAll('.header-applicable-toggle, .grade-input, .pum-input, .applicable-toggle, .comp-marks-input, .comp-grade-select').forEach(el => {
             el.disabled = true;
+        });
+        document.querySelectorAll('.save-row-btn').forEach(btn => {
+            if (btn.textContent.trim() !== 'Retry') {
+                btn.disabled = true;
+            }
         });
 
         // Styling indicators
-        document.querySelectorAll('.grade-input, .pum-input, .comp-marks-input').forEach(el => {
+        document.querySelectorAll('.grade-input, .pum-input, .comp-marks-input, .comp-grade-select').forEach(el => {
             el.classList.add('bg-slate-50');
             el.classList.remove('bg-white');
         });
@@ -361,18 +403,30 @@
         const enrollmentId = checkbox.dataset.enrollment;
         const compId       = checkbox.dataset.component;
         const input        = document.getElementById(`comp-input-${enrollmentId}-${compId}`);
+        const gradeSelect  = document.getElementById(`comp-grade-${enrollmentId}-${compId}`);
 
         if (checkbox.checked) {
             input.disabled = false;
             input.classList.remove('opacity-30', 'pointer-events-none');
             input.classList.remove('bg-slate-50');
             input.classList.add('bg-white');
+            if (gradeSelect) {
+                gradeSelect.disabled = false;
+                gradeSelect.classList.remove('opacity-30', 'pointer-events-none', 'bg-slate-50');
+                gradeSelect.classList.add('bg-white');
+            }
         } else {
             input.disabled = true;
             input.value    = '';
             input.classList.add('opacity-30', 'pointer-events-none');
             input.classList.add('bg-slate-50');
             input.classList.remove('bg-white');
+            if (gradeSelect) {
+                gradeSelect.disabled = true;
+                gradeSelect.value = '';
+                gradeSelect.classList.add('opacity-30', 'pointer-events-none', 'bg-slate-50');
+                gradeSelect.classList.remove('bg-white');
+            }
         }
         recalcTotal(enrollmentId);
     }
@@ -387,17 +441,53 @@
         });
     }
 
-    // ── Sort Rows: sorted candidate-wise ────
+    // ── Sorting ──────────────────────────────────────────────────────────
+    let currentSort = 'cand_no';
+    let sortAsc = { cand_no: true, name: true, grade: true, pum: false };
+
+    function sortTable(key) {
+        if (currentSort === key) {
+            sortAsc[key] = !sortAsc[key];
+        } else {
+            currentSort = key;
+        }
+
+        document.querySelectorAll('.sort-btn').forEach(btn => {
+            btn.classList.remove('active-sort');
+        });
+        const activeBtn = document.getElementById('sort-' + key);
+        if (activeBtn) activeBtn.classList.add('active-sort');
+
+        sortRows();
+    }
+
     function sortRows() {
         const tbody = document.querySelector('#results-table tbody');
         if (!tbody) return;
         const rows = Array.from(tbody.querySelectorAll('.result-row'));
 
         rows.sort((a, b) => {
-            const candNoA = a.querySelector('td.sticky:first-child span').textContent.trim();
-            const candNoB = b.querySelector('td.sticky:first-child span').textContent.trim();
-
-            return candNoA.localeCompare(candNoB, undefined, { numeric: true, sensitivity: 'base' });
+            let aVal, bVal;
+            const key = currentSort;
+            
+            if (key === 'cand_no') {
+                aVal = a.querySelector('td.sticky:first-child span').textContent.trim();
+                bVal = b.querySelector('td.sticky:first-child span').textContent.trim();
+                return sortAsc[key] ? aVal.localeCompare(bVal, undefined, {numeric: true}) : bVal.localeCompare(aVal, undefined, {numeric: true});
+            } else if (key === 'name') {
+                aVal = a.querySelector('td.sticky:nth-child(2) span').textContent.trim().toLowerCase();
+                bVal = b.querySelector('td.sticky:nth-child(2) span').textContent.trim().toLowerCase();
+                return sortAsc[key] ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+            } else if (key === 'grade') {
+                aVal = a.querySelector('.grade-input').value.trim();
+                bVal = b.querySelector('.grade-input').value.trim();
+                return sortAsc[key] ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+            } else if (key === 'pum') {
+                aVal = parseFloat(a.querySelector('.pum-input').value) || 0;
+                bVal = parseFloat(b.querySelector('.pum-input').value) || 0;
+                return sortAsc[key] ? aVal - bVal : bVal - aVal;
+            }
+            return 0;
         });
 
         rows.forEach(row => tbody.appendChild(row));
@@ -414,14 +504,16 @@
 
         const componentData = [];
         document.querySelectorAll(`.applicable-toggle[data-enrollment="${enrollmentId}"]`).forEach(cb => {
-            const compId  = cb.dataset.component;
-            const input   = document.getElementById(`comp-input-${enrollmentId}-${compId}`);
-            const val     = input?.value ?? '';
+            const compId      = cb.dataset.component;
+            const input       = document.getElementById(`comp-input-${enrollmentId}-${compId}`);
+            const gradeSelect = document.getElementById(`comp-grade-${enrollmentId}-${compId}`);
+            const val         = input?.value ?? '';
             
             componentData.push({
-                component_id: compId,
-                applicable:   cb.checked,
-                obtained:     parseFloat(val) || 0,
+                component_id:    compId,
+                applicable:      cb.checked,
+                obtained:        parseFloat(val) || 0,
+                component_grade: gradeSelect?.value ?? null,
             });
         });
 
@@ -467,13 +559,93 @@
         .catch(err => {
             btn.disabled  = false;
             btn.textContent = 'Retry';
-            btn.className = 'px-3 py-1.5 bg-rose-50 border border-rose-200 text-xs font-bold text-rose-600 rounded-lg transition';
+            btn.className = 'px-3 py-1.5 bg-rose-50 border border-rose-200 text-xs font-bold text-rose-600 rounded-lg transition hover:bg-rose-100 cursor-pointer';
             console.error(err);
         });
     }
 
     function updateSavedCount() {
         document.getElementById('saved-count').textContent = savedRows.size;
+    }
+
+    // ── Delete result row ──────────────────────────────────────────────────
+    function deleteRow(enrollmentId, resultId) {
+        if (!resultId) {
+            // Simply clear inputs if no saved record exists in db
+            clearRowFields(enrollmentId);
+            return;
+        }
+
+        if (!confirm('Are you sure you want to delete this result? This will clear the grade, PUM, and component marks.')) {
+            return;
+        }
+
+        const deleteBtn = document.getElementById('delete-row-btn-' + enrollmentId);
+        deleteBtn.disabled = true;
+        deleteBtn.textContent = '…';
+
+        const deleteUrl = `/results/${resultId}`;
+
+        fetch(deleteUrl, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': CSRF_TOKEN,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ _method: 'DELETE' })
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success || data.message) {
+                clearRowFields(enrollmentId);
+                // Update UI state
+                savedRows.delete(enrollmentId);
+                updateSavedCount();
+                deleteBtn.disabled = true;
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.removeAttribute('onclick'); // prevent double actions
+                
+                // Clear result ID references
+                deleteBtn.setAttribute('onclick', `deleteRow('${enrollmentId}', '')`);
+            } else {
+                throw new Error(data.message ?? 'Failed to delete');
+            }
+        })
+        .catch(err => {
+            deleteBtn.disabled = false;
+            deleteBtn.textContent = 'Delete';
+            alert('Error deleting result: ' + err.message);
+        });
+    }
+
+    function clearRowFields(enrollmentId) {
+        // Clear Grade select
+        const gradeInput = document.querySelector(`.grade-input[data-enrollment="${enrollmentId}"]`);
+        if (gradeInput) gradeInput.value = '';
+
+        // Clear PUM input
+        const pumInput = document.querySelector(`.pum-input[data-enrollment="${enrollmentId}"]`);
+        if (pumInput) pumInput.value = '';
+
+        // Clear Component inputs and applicable toggles
+        document.querySelectorAll(`.applicable-toggle[data-enrollment="${enrollmentId}"]`).forEach(cb => {
+            cb.checked = true; // reset to default
+            const compId = cb.dataset.component;
+            const input = document.getElementById(`comp-input-${enrollmentId}-${compId}`);
+            if (input) {
+                input.value = '';
+                input.disabled = !isEditing;
+            }
+            const gradeSelect = document.getElementById(`comp-grade-${enrollmentId}-${compId}`);
+            if (gradeSelect) {
+                gradeSelect.value = '';
+                gradeSelect.disabled = !isEditing;
+            }
+        });
+
+        // Recalculate totals
+        recalcTotal(enrollmentId);
     }
 
     // Init totals and sorting on load
@@ -487,6 +659,13 @@
 </script>
 
 <style>
+    /* Sort Button Active State */
+    .sort-btn.active-sort {
+        border-color: #6366f1; /* indigo-500 */
+        background-color: #eef2ff; /* indigo-50 */
+        color: #4338ca; /* indigo-700 */
+    }
+
     /* Highlight focused row */
     .result-row:focus-within {
         background-color: rgb(241 245 249 / 0.4) !important;

@@ -57,7 +57,7 @@
                             type="button"
                             onclick="selectSubject('{{ $subj['id'] }}')"
                             id="subj-tile-{{ $subj['id'] }}"
-                            class="subj-tile w-full text-left bg-white p-5 rounded-2xl border transition-all duration-200 flex flex-col justify-between space-y-3 shadow-sm hover:shadow group focus:outline-none {{ $isSelected ? 'border-indigo-500 ring-2 ring-indigo-500/10' : 'border-slate-200 hover:border-slate-300' }}"
+                            class="subj-tile w-full text-left p-5 rounded-2xl border transition-all duration-200 flex flex-col justify-between space-y-3 shadow-sm hover:shadow group focus:outline-none {{ $isSelected ? 'border-indigo-500 ring-2 ring-indigo-500/10 bg-indigo-50/50' : 'border-slate-200 hover:border-slate-300 bg-white' }}"
                         >
                             <div class="flex justify-between items-start gap-2 w-full">
                                 <div class="space-y-0.5">
@@ -254,14 +254,14 @@
     function selectSubject(subjectId) {
         // Toggle selected state style on subject tiles
         document.querySelectorAll('.subj-tile').forEach(tile => {
-            tile.classList.remove('border-indigo-500', 'ring-2', 'ring-indigo-500/10');
-            tile.classList.add('border-slate-200');
+            tile.classList.remove('border-indigo-500', 'ring-2', 'ring-indigo-500/10', 'bg-indigo-50/50');
+            tile.classList.add('border-slate-200', 'bg-white');
         });
 
         const activeTile = document.getElementById('subj-tile-' + subjectId);
         if (activeTile) {
-            activeTile.classList.add('border-indigo-500', 'ring-2', 'ring-indigo-500/10');
-            activeTile.classList.remove('border-slate-200');
+            activeTile.classList.add('border-indigo-500', 'ring-2', 'ring-indigo-500/10', 'bg-indigo-50/50');
+            activeTile.classList.remove('border-slate-200', 'bg-white');
         }
 
         // Toggle details panes

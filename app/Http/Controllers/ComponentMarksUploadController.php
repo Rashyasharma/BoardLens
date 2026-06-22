@@ -38,10 +38,9 @@ class ComponentMarksUploadController extends Controller
                 ->with(['enrollment.candidate', 'componentMarks'])
                 ->get();
 
-            // Get all components for this subject
-            $components = Component::where('subject_id', $subjectId)
-                ->orderBy('component_code')
-                ->get();
+            // Get all components for this subject's series
+            $componentSet = \App\Models\ComponentSet::findForSubjectYear($subjectId, $selectedSeries->year);
+            $components = $componentSet ? $componentSet->components()->orderBy('component_code')->get() : collect();
         }
 
         return view('uploads.components', [
@@ -96,7 +95,8 @@ class ComponentMarksUploadController extends Controller
                     }
 
                     // Find component
-                    $component = Component::where('subject_id', $result->subject_id)
+                    $componentSet = \App\Models\ComponentSet::findForSubjectYear($result->subject_id, $result->series->year);
+                    $component = Component::where('component_set_id', $componentSet?->id)
                         ->where('component_code', $componentCode)
                         ->first();
 

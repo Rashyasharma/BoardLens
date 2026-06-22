@@ -4,7 +4,7 @@
 @section('page-title', 'Add New Subject')
 
 @section('content')
-<div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-slate-150">
+<div class="max-w-5xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-slate-150">
     <div class="flex items-center gap-3 mb-6">
         <a href="{{ route('subjects.index') }}" class="p-2 hover:bg-slate-100 rounded-xl transition text-slate-500 hover:text-slate-800">
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -54,21 +54,25 @@
 
             <div id="components-list" class="space-y-4">
                 <!-- Template row -->
-                <div class="component-row grid grid-cols-12 gap-3 items-end p-4 bg-slate-50/50 rounded-xl border border-slate-100">
-                    <div class="col-span-2">
+                <div class="component-row flex flex-wrap md:flex-nowrap gap-3 items-end p-4 bg-slate-50/50 rounded-xl border border-slate-100">
+                    <div class="w-full md:w-24 shrink-0">
                         <label class="block text-xxs font-bold text-slate-450 uppercase mb-1">Code *</label>
                         <input type="text" name="components[0][code]" placeholder="e.g. P1" required class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs font-mono" />
                     </div>
-                    <div class="name-col-wrapper col-span-7">
+                    <div class="name-col-wrapper flex-1 min-w-[200px]">
                         <label class="block text-xxs font-bold text-slate-455 uppercase mb-1">Name *</label>
                         <input type="text" name="components[0][name]" placeholder="e.g. Paper 1 Core" required class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs" />
                     </div>
-                    <div class="col-span-2">
+                    <div class="label-col-wrapper flex-1 min-w-[150px]">
+                        <label class="block text-xxs font-bold text-slate-455 uppercase mb-1">Label</label>
+                        <input type="text" name="components[0][label]" placeholder="e.g. Theory" class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs" />
+                    </div>
+                    <div class="w-full md:w-24 shrink-0">
                         <label class="block text-xxs font-bold text-slate-455 uppercase mb-1">Marks *</label>
                         <input type="number" name="components[0][marks]" placeholder="80" required min="1" class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs" />
                     </div>
                     <!-- Level Tag Column (hidden by default unless AS_A_LEVEL) -->
-                    <div class="col-span-3 level-tag-column hidden">
+                    <div class="level-tag-column w-full md:w-32 shrink-0 hidden">
                         <label class="block text-xxs font-bold text-slate-455 uppercase mb-1">Level Tag</label>
                         <select name="components[0][level_id]" class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs">
                             <option value="">-- None --</option>
@@ -77,7 +81,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-span-1 text-center pb-2">
+                    <div class="w-full md:w-10 shrink-0 text-center pb-2">
                         <button type="button" onclick="removeComponentRow(this)" class="text-rose-500 hover:text-rose-700 font-bold text-base">&times;</button>
                     </div>
                 </div>
@@ -105,7 +109,6 @@
         const isAsALevel = selectedOpt && selectedOpt.getAttribute('data-type') === 'AS_A_LEVEL';
         
         const levelCols = document.querySelectorAll('.level-tag-column');
-        const nameCols = document.querySelectorAll('.name-col-wrapper');
         
         levelCols.forEach(col => {
             if (isAsALevel) {
@@ -114,16 +117,6 @@
                 col.classList.add('hidden');
                 const sel = col.querySelector('select');
                 if (sel) sel.value = '';
-            }
-        });
-
-        nameCols.forEach(col => {
-            if (isAsALevel) {
-                col.classList.remove('col-span-7');
-                col.classList.add('col-span-4');
-            } else {
-                col.classList.remove('col-span-4');
-                col.classList.add('col-span-7');
             }
         });
     }
@@ -135,25 +128,28 @@
 
         const list = document.getElementById('components-list');
         const row = document.createElement('div');
-        row.className = "component-row grid grid-cols-12 gap-3 items-end p-4 bg-slate-50/50 rounded-xl border border-slate-100 animate-fade-in";
+        row.className = "component-row flex flex-wrap md:flex-nowrap gap-3 items-end p-4 bg-slate-50/50 rounded-xl border border-slate-100 animate-fade-in";
         
-        const nameColSpan = isAsALevel ? 'col-span-4' : 'col-span-7';
         const levelColClass = isAsALevel ? '' : 'hidden';
 
         row.innerHTML = `
-            <div class="col-span-2">
+            <div class="w-full md:w-24 shrink-0">
                 <label class="block text-xxs font-bold text-slate-450 uppercase mb-1">Code *</label>
                 <input type="text" name="components[${componentIndex}][code]" placeholder="e.g. P2" required class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs font-mono" />
             </div>
-            <div class="name-col-wrapper ${nameColSpan}">
+            <div class="name-col-wrapper flex-1 min-w-[200px]">
                 <label class="block text-xxs font-bold text-slate-455 uppercase mb-1">Name *</label>
                 <input type="text" name="components[${componentIndex}][name]" placeholder="e.g. Paper 2 Extended" required class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs" />
             </div>
-            <div class="col-span-2">
+            <div class="label-col-wrapper flex-1 min-w-[150px]">
+                <label class="block text-xxs font-bold text-slate-455 uppercase mb-1">Label</label>
+                <input type="text" name="components[${componentIndex}][label]" placeholder="e.g. Theory" class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs" />
+            </div>
+            <div class="w-full md:w-24 shrink-0">
                 <label class="block text-xxs font-bold text-slate-455 uppercase mb-1">Marks *</label>
                 <input type="number" name="components[${componentIndex}][marks]" placeholder="120" required min="1" class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs" />
             </div>
-            <div class="col-span-3 level-tag-column ${levelColClass}">
+            <div class="level-tag-column w-full md:w-32 shrink-0 ${levelColClass}">
                 <label class="block text-xxs font-bold text-slate-455 uppercase mb-1">Level Tag</label>
                 <select name="components[${componentIndex}][level_id]" class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs">
                     <option value="">-- None --</option>
@@ -162,7 +158,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-span-1 text-center pb-2">
+            <div class="w-full md:w-10 shrink-0 text-center pb-2">
                 <button type="button" onclick="removeComponentRow(this)" class="text-rose-500 hover:text-rose-700 font-bold text-base">&times;</button>
             </div>
         `;

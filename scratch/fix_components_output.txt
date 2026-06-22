@@ -1,0 +1,467 @@
+﻿=== COMPONENT CLEANUP & ADD ===
+
+ADDING components for IGCSE/0472 (English (Additional Language)): 03, 12, 22, 42
+ADDING components for IGCSE/0607 (Cambridge Int Mathematics): 12, 22, 32, 42, 52, 62
+ADDING components for IGCSE/0680 (Environmental Management): 12, 22
+ADDING components for AS_A_LEVEL/9093 (English Language): 12, 22, 32, 42, 88
+ADDING components for AS_A_LEVEL/9479 (Art And Design): 01, 02
+ADDING components for AS_A_LEVEL/9489 (History): 12, 22
+ADDING components for AS_A_LEVEL/9695 (Literature In English): 12, 22, 32, 42
+ADDING components for AS_A_LEVEL/9699 (Sociology): 12, 22, 32, 42
+
+--- CHECKING FOR DUPLICATE COMPONENTS ---
+
+  AS_A_LEVEL/8021:
+    DB has: 1, 2, P1, P2
+    Broadsheet expects: 12, 22
+    MISSING from DB: 12, 22
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    EXTRA in DB (not in broadsheet): 1, 2, P1, P2
+    DELETED: 1 (Essay) - no marks linked
+    DELETED: 2 (Comprehension) - no marks linked
+    DELETED: P1 (Essay) - no marks linked
+    DELETED: P2 (Comprehension) - no marks linked
+
+  AS_A_LEVEL/9609:
+    DB has: 1, 2, 3, 4
+    Broadsheet expects: 12, 22, 32, 42
+    MISSING from DB: 12, 22, 32, 42
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    ADDED: 32 (Component 32)
+    ADDED: 42 (Component 42)
+    EXTRA in DB (not in broadsheet): 1, 2, 3, 4
+    DELETED: 1 (Business Concepts 1) - no marks linked
+    DELETED: 2 (Business Concepts 2) - no marks linked
+    DELETED: 3 (Business Decision-Making) - no marks linked
+    DELETED: 4 (Business Strategy) - no marks linked
+
+  AS_A_LEVEL/9618:
+    DB has: 1, 2, 3, 4, P1, P2, P3, P4
+    Broadsheet expects: 32, 42, 88
+    MISSING from DB: 32, 42, 88
+    ADDED: 32 (Component 32)
+    ADDED: 42 (Component 42)
+    ADDED: 88 (Component 88)
+    EXTRA in DB (not in broadsheet): 1, 2, 3, 4, P1, P2, P3, P4
+    DELETED: 1 (Theory Fundamentals) - no marks linked
+    DELETED: 2 (Fundamental Problem Solving and Programming Skills) - no marks linked
+    DELETED: 3 (Advanced Theory) - no marks linked
+    DELETED: 4 (Practical) - no marks linked
+    DELETED: P1 (Theory Fundamentals) - no marks linked
+    DELETED: P2 (Fundamental Problem Solving & Programming) - no marks linked
+    DELETED: P3 (Advanced Theory) - no marks linked
+    DELETED: P4 (Further Problem Solving & Programming) - no marks linked
+
+  AS_A_LEVEL/9626:
+    DB has: 1, 2, 3, 4
+    Broadsheet expects: 02, 04, 12, 32
+    MISSING from DB: 02, 04, 12, 32
+    ADDED: 02 (Component 02)
+    ADDED: 04 (Component 04)
+    ADDED: 12 (Component 12)
+    ADDED: 32 (Component 32)
+    EXTRA in DB (not in broadsheet): 1, 2, 3, 4
+    DELETED: 1 (Theory) - no marks linked
+    DELETED: 2 (Practical) - no marks linked
+    DELETED: 3 (Advanced Theory) - no marks linked
+    DELETED: 4 (Advanced Practical) - no marks linked
+
+  AS_A_LEVEL/9700:
+    DB has: 1, 2, 3, 4, 5, P1, P2, P3, P4, P5
+    Broadsheet expects: 12, 22, 33, 42, 52, 95
+    MISSING from DB: 12, 22, 33, 42, 52, 95
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    ADDED: 33 (Component 33)
+    ADDED: 42 (Component 42)
+    ADDED: 52 (Component 52)
+    ADDED: 95 (Component 95)
+    EXTRA in DB (not in broadsheet): 1, 2, 3, 4, 5, P1, P2, P3, P4, P5
+    DELETED: 1 (Multiple Choice) - no marks linked
+    DELETED: 2 (AS Level Structured Questions) - no marks linked
+    DELETED: 3 (Advanced Practical Skills) - no marks linked
+    DELETED: 4 (A Level Structured Questions) - no marks linked
+    DELETED: 5 (Planning, Analysis and Evaluation) - no marks linked
+    DELETED: P1 (Multiple Choice) - no marks linked
+    DELETED: P2 (AS Structured Questions) - no marks linked
+    DELETED: P3 (Advanced Practical Skills) - no marks linked
+    DELETED: P4 (A Level Structured Questions) - no marks linked
+    DELETED: P5 (Planning, Analysis & Evaluation) - no marks linked
+
+  AS_A_LEVEL/9701:
+    DB has: 1, 2, 3, 4, 5, P1, P2, P3, P4, P5
+    Broadsheet expects: 42, 52, 95
+    MISSING from DB: 42, 52, 95
+    ADDED: 42 (Component 42)
+    ADDED: 52 (Component 52)
+    ADDED: 95 (Component 95)
+    EXTRA in DB (not in broadsheet): 1, 2, 3, 4, 5, P1, P2, P3, P4, P5
+    DELETED: 1 (Multiple Choice) - no marks linked
+    DELETED: 2 (AS Level Structured Questions) - no marks linked
+    DELETED: 3 (Advanced Practical Skills) - no marks linked
+    DELETED: 4 (A Level Structured Questions) - no marks linked
+    DELETED: 5 (Planning, Analysis and Evaluation) - no marks linked
+    DELETED: P1 (Multiple Choice) - no marks linked
+    DELETED: P2 (AS Structured Questions) - no marks linked
+    DELETED: P3 (Advanced Practical Skills) - no marks linked
+    DELETED: P4 (A Level Structured Questions) - no marks linked
+    DELETED: P5 (Planning, Analysis & Evaluation) - no marks linked
+
+  AS_A_LEVEL/9702:
+    DB has: 1, 2, 3, 4, 5, P1, P2, P3, P4, P5
+    Broadsheet expects: 12, 22, 33, 42, 52, 95
+    MISSING from DB: 12, 22, 33, 42, 52, 95
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    ADDED: 33 (Component 33)
+    ADDED: 42 (Component 42)
+    ADDED: 52 (Component 52)
+    ADDED: 95 (Component 95)
+    EXTRA in DB (not in broadsheet): 1, 2, 3, 4, 5, P1, P2, P3, P4, P5
+    DELETED: 1 (Multiple Choice) - no marks linked
+    DELETED: 2 (AS Level Structured Questions) - no marks linked
+    DELETED: 3 (Advanced Practical Skills) - no marks linked
+    DELETED: 4 (A Level Structured Questions) - no marks linked
+    DELETED: 5 (Planning, Analysis and Evaluation) - no marks linked
+    DELETED: P1 (Multiple Choice) - no marks linked
+    DELETED: P2 (AS Structured Questions) - no marks linked
+    DELETED: P3 (Advanced Practical Skills) - no marks linked
+    DELETED: P4 (A Level Structured Questions) - no marks linked
+    DELETED: P5 (Planning, Analysis & Evaluation) - no marks linked
+
+  AS_A_LEVEL/9706:
+    DB has: 1, 2, 3, 4
+    Broadsheet expects: 12, 22
+    MISSING from DB: 12, 22
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    EXTRA in DB (not in broadsheet): 1, 2, 3, 4
+    DELETED: 1 (Multiple Choice) - no marks linked
+    DELETED: 2 (Fundamentals of Accounting) - no marks linked
+    DELETED: 3 (Financial Accounting) - no marks linked
+    DELETED: 4 (Management Accounting) - no marks linked
+
+  AS_A_LEVEL/9708:
+    DB has: 1, 2, 3, 4
+    Broadsheet expects: 12, 22, 32, 42, 98
+    MISSING from DB: 12, 22, 32, 42, 98
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    ADDED: 32 (Component 32)
+    ADDED: 42 (Component 42)
+    ADDED: 98 (Component 98)
+    EXTRA in DB (not in broadsheet): 1, 2, 3, 4
+    DELETED: 1 (Multiple Choice) - no marks linked
+    DELETED: 2 (Data Response and Essays) - no marks linked
+    DELETED: 3 (Multiple Choice) - no marks linked
+    DELETED: 4 (Data Response and Essays) - no marks linked
+
+  AS_A_LEVEL/9709:
+    DB has: 1, 3, 5, 6, P1, P3, P4, P5, P6
+    Broadsheet expects: 12, 32, 52, 62, 98
+    MISSING from DB: 12, 32, 52, 62, 98
+    ADDED: 12 (Component 12)
+    ADDED: 32 (Component 32)
+    ADDED: 52 (Component 52)
+    ADDED: 62 (Component 62)
+    ADDED: 98 (Component 98)
+    EXTRA in DB (not in broadsheet): 1, 3, 5, 6, P1, P3, P4, P5, P6
+    DELETED: 1 (Pure Mathematics 1) - no marks linked
+    DELETED: 3 (Pure Mathematics 3) - no marks linked
+    DELETED: 5 (Probability & Statistics 1) - no marks linked
+    DELETED: 6 (Probability & Statistics 2) - no marks linked
+    DELETED: P1 (Pure Mathematics 1) - no marks linked
+    DELETED: P3 (Pure Mathematics 3) - no marks linked
+    DELETED: P4 (Mechanics) - no marks linked
+    DELETED: P5 (Probability & Statistics 1) - no marks linked
+    DELETED: P6 (Probability & Statistics 2) - no marks linked
+
+  AS_A_LEVEL/9990:
+    DB has: 1, 2, 3, 4, P1, P2, P3, P4
+    Broadsheet expects: 12, 22, 32, 42
+    MISSING from DB: 12, 22, 32, 42
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    ADDED: 32 (Component 32)
+    ADDED: 42 (Component 42)
+    EXTRA in DB (not in broadsheet): 1, 2, 3, 4, P1, P2, P3, P4
+    DELETED: 1 (Approaches, Issues and Debates) - no marks linked
+    DELETED: 2 (Research Methods) - no marks linked
+    DELETED: 3 (Specialist Options: Approaches, Issues and Debates) - no marks linked
+    DELETED: 4 (Specialist Options: Application and Research Methods) - no marks linked
+    DELETED: P1 (Approaches, Issues and Debates) - no marks linked
+    DELETED: P2 (Research Methods) - no marks linked
+    DELETED: P3 (Specialist Options: Theory) - no marks linked
+    DELETED: P4 (Specialist Options: Application and Research Methods) - no marks linked
+
+  IGCSE/0400:
+    DB has: Component 1, Component 2
+    Broadsheet expects: 01, 02
+    MISSING from DB: 01, 02
+    ADDED: 01 (Component 01)
+    ADDED: 02 (Component 02)
+    EXTRA in DB (not in broadsheet): Component 1, Component 2
+    DELETED: Component 1 (Coursework) - no marks linked
+    DELETED: Component 2 (Externally Set Assignment) - no marks linked
+
+  IGCSE/0417:
+    DB has: Paper 3
+    Broadsheet expects: 02, 03, 12
+    MISSING from DB: 02, 03, 12
+    ADDED: 02 (Component 02)
+    ADDED: 03 (Component 03)
+    ADDED: 12 (Component 12)
+    EXTRA in DB (not in broadsheet): Paper 3
+    DELETED: Paper 3 (Spreadsheets and Website Authoring) - no marks linked
+
+  IGCSE/0450:
+    DB has: P1, P2
+    Broadsheet expects: 12, 22
+    MISSING from DB: 12, 22
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    EXTRA in DB (not in broadsheet): P1, P2
+    DELETED: P1 (Short Answer & Data Response) - no marks linked
+    DELETED: P2 (Case Study) - no marks linked
+
+  IGCSE/0452:
+    DB has: Paper 1, Paper 2
+    Broadsheet expects: 12, 22
+    MISSING from DB: 12, 22
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    EXTRA in DB (not in broadsheet): Paper 1, Paper 2
+    DELETED: Paper 1 (Multiple Choice) - no marks linked
+    DELETED: Paper 2 (Structured Written Paper) - no marks linked
+
+  IGCSE/0455:
+    DB has: 1, 2, P1, P2
+    Broadsheet expects: 12, 22
+    MISSING from DB: 12, 22
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    EXTRA in DB (not in broadsheet): 1, 2, P1, P2
+    DELETED: 1 (Multiple Choice) - no marks linked
+    DELETED: 2 (Structured Questions) - no marks linked
+    DELETED: P1 (Multiple Choice) - no marks linked
+    DELETED: P2 (Structured Questions) - no marks linked
+
+  IGCSE/0460:
+    DB has: Paper 1, Paper 4
+    Broadsheet expects: 12, 22, 42
+    MISSING from DB: 12, 22, 42
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    ADDED: 42 (Component 42)
+    EXTRA in DB (not in broadsheet): Paper 1, Paper 4
+    DELETED: Paper 1 (Physical Geography) - no marks linked
+    DELETED: Paper 4 (Geographical Investigations) - no marks linked
+
+  IGCSE/0471:
+    DB has: Paper 1, Paper 2
+    Broadsheet expects: 12, 22
+    MISSING from DB: 12, 22
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    EXTRA in DB (not in broadsheet): Paper 1, Paper 2
+    DELETED: Paper 1 (Key Terms and Concepts) - no marks linked
+    DELETED: Paper 2 (Managing and Marketing Destinations) - no marks linked
+
+  IGCSE/0475:
+    DB has: Paper 2
+    Broadsheet expects: 12, 32, 42
+    MISSING from DB: 12, 32, 42
+    ADDED: 12 (Component 12)
+    ADDED: 32 (Component 32)
+    ADDED: 42 (Component 42)
+    EXTRA in DB (not in broadsheet): Paper 2
+    DELETED: Paper 2 (Drama) - no marks linked
+
+  IGCSE/0500:
+    DB has: P1, P2
+    Broadsheet expects: 12, 22
+    MISSING from DB: 12, 22
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    EXTRA in DB (not in broadsheet): P1, P2
+    DELETED: P1 (Reading) - no marks linked
+    DELETED: P2 (Directed Writing & Composition) - no marks linked
+
+  IGCSE/0510:
+    DB has: 1, 2, 3
+    Broadsheet expects: 12, 22, 32
+    MISSING from DB: 12, 22, 32
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    ADDED: 32 (Component 32)
+    EXTRA in DB (not in broadsheet): 1, 2, 3
+    DELETED: 1 (Reading and Writing) - no marks linked
+    DELETED: 2 (Listening) - no marks linked
+    DELETED: 3 (Speaking Test) - no marks linked
+
+  IGCSE/0520:
+    DB has: 1, 2, 3, 4
+    Broadsheet expects: 03, 12, 22, 42
+    MISSING from DB: 03, 12, 22, 42
+    ADDED: 03 (Component 03)
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    ADDED: 42 (Component 42)
+    EXTRA in DB (not in broadsheet): 1, 2, 3, 4
+    DELETED: 1 (Listening) - no marks linked
+    DELETED: 2 (Reading) - no marks linked
+    DELETED: 3 (Speaking) - no marks linked
+    DELETED: 4 (Writing) - no marks linked
+
+  IGCSE/0549:
+    DB has: Paper 1, Paper 2
+    Broadsheet expects: 01, 02
+    MISSING from DB: 01, 02
+    ADDED: 01 (Component 01)
+    ADDED: 02 (Component 02)
+    EXTRA in DB (not in broadsheet): Paper 1, Paper 2
+    DELETED: Paper 1 (Reading and Writing) - no marks linked
+    DELETED: Paper 2 (Listening) - no marks linked
+
+  IGCSE/0580:
+    DB has: Paper 1, Paper 2, Paper 3, Paper 4
+    Broadsheet expects: 12, 22, 32, 42
+    MISSING from DB: 12, 22, 32, 42
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    ADDED: 32 (Component 32)
+    ADDED: 42 (Component 42)
+    EXTRA in DB (not in broadsheet): Paper 1, Paper 2, Paper 3, Paper 4
+    DELETED: Paper 1 (Non-calculator (Core)) - no marks linked
+    DELETED: Paper 2 (Non-calculator (Extended)) - no marks linked
+    DELETED: Paper 3 (Calculator (Core)) - no marks linked
+    DELETED: Paper 4 (Calculator (Extended)) - no marks linked
+
+  IGCSE/0606:
+    DB has: Paper 2
+    Broadsheet expects: 12, 22
+    MISSING from DB: 12, 22
+    ADDED: 12 (Component 12)
+    ADDED: 22 (Component 22)
+    EXTRA in DB (not in broadsheet): Paper 2
+    DELETED: Paper 2 (Calculator) - no marks linked
+
+  IGCSE/0610:
+    DB has: Paper 1, Paper 2, Paper 3, Paper 4, Paper 5, Paper 6
+    Broadsheet expects: 12, 32, 62
+    MISSING from DB: 12, 32, 62
+    ADDED: 12 (Component 12)
+    ADDED: 32 (Component 32)
+    ADDED: 62 (Component 62)
+    EXTRA in DB (not in broadsheet): Paper 1, Paper 2, Paper 3, Paper 4, Paper 5, Paper 6
+    DELETED: Paper 1 (Multiple Choice (Core)) - no marks linked
+    DELETED: Paper 2 (Multiple Choice (Extended)) - no marks linked
+    DELETED: Paper 3 (Theory (Core)) - no marks linked
+    DELETED: Paper 4 (Theory (Extended)) - no marks linked
+    DELETED: Paper 5 (Practical Test) - no marks linked
+    DELETED: Paper 6 (Alternative to Practical) - no marks linked
+
+  IGCSE/0620:
+    DB has: Paper 1, Paper 2, Paper 3, Paper 4, Paper 5, Paper 6
+    Broadsheet expects: 22, 42, 62
+    MISSING from DB: 22, 42, 62
+    ADDED: 22 (Component 22)
+    ADDED: 42 (Component 42)
+    ADDED: 62 (Component 62)
+    EXTRA in DB (not in broadsheet): Paper 1, Paper 2, Paper 3, Paper 4, Paper 5, Paper 6
+    DELETED: Paper 1 (Multiple Choice (Core)) - no marks linked
+    DELETED: Paper 2 (Multiple Choice (Extended)) - no marks linked
+    DELETED: Paper 3 (Theory (Core)) - no marks linked
+    DELETED: Paper 4 (Theory (Extended)) - no marks linked
+    DELETED: Paper 5 (Practical Test) - no marks linked
+    DELETED: Paper 6 (Alternative to Practical) - no marks linked
+
+  IGCSE/0625:
+    DB has: Paper 1, Paper 2, Paper 3, Paper 4, Paper 5, Paper 6
+    Broadsheet expects: 22, 42, 62
+    MISSING from DB: 22, 42, 62
+    ADDED: 22 (Component 22)
+    ADDED: 42 (Component 42)
+    ADDED: 62 (Component 62)
+    EXTRA in DB (not in broadsheet): Paper 1, Paper 2, Paper 3, Paper 4, Paper 5, Paper 6
+    DELETED: Paper 1 (Multiple Choice (Core)) - no marks linked
+    DELETED: Paper 2 (Multiple Choice (Extended)) - no marks linked
+    DELETED: Paper 3 (Theory (Core)) - no marks linked
+    DELETED: Paper 4 (Theory (Extended)) - no marks linked
+    DELETED: Paper 5 (Practical Test) - no marks linked
+    DELETED: Paper 6 (Alternative to Practical) - no marks linked
+
+  IGCSE/0653:
+    DB has: Paper 1, Paper 2, Paper 3, Paper 4, Paper 5, Paper 6
+    Broadsheet expects: 12, 32, 62
+    MISSING from DB: 12, 32, 62
+    ADDED: 12 (Component 12)
+    ADDED: 32 (Component 32)
+    ADDED: 62 (Component 62)
+    EXTRA in DB (not in broadsheet): Paper 1, Paper 2, Paper 3, Paper 4, Paper 5, Paper 6
+    DELETED: Paper 1 (Multiple Choice (Core)) - no marks linked
+    DELETED: Paper 2 (Multiple Choice (Extended)) - no marks linked
+    DELETED: Paper 3 (Theory (Core)) - no marks linked
+    DELETED: Paper 4 (Theory (Extended)) - no marks linked
+    DELETED: Paper 5 (Practical Test) - no marks linked
+    DELETED: Paper 6 (Alternative to Practical) - no marks linked
+
+  IGCSE/0654:
+    DB has: Paper 1, Paper 2, Paper 3, Paper 4, Paper 5, Paper 6
+    Broadsheet expects: 22, 42, 62
+    MISSING from DB: 22, 42, 62
+    ADDED: 22 (Component 22)
+    ADDED: 42 (Component 42)
+    ADDED: 62 (Component 62)
+    EXTRA in DB (not in broadsheet): Paper 1, Paper 2, Paper 3, Paper 4, Paper 5, Paper 6
+    DELETED: Paper 1 (Multiple Choice (Core)) - no marks linked
+    DELETED: Paper 2 (Multiple Choice (Extended)) - no marks linked
+    DELETED: Paper 3 (Theory (Core)) - no marks linked
+    DELETED: Paper 4 (Theory (Extended)) - no marks linked
+    DELETED: Paper 5 (Practical Test) - no marks linked
+    DELETED: Paper 6 (Alternative to Practical) - no marks linked
+
+=== FINAL COMPONENT STATUS ===
+  [AS_A_LEVEL] 8021 (English General Paper): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9093 (English Language): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9479 (Art And Design): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9489 (History): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9609 (Business): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9618 (Computer Science): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9626 (Information Technology): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9695 (Literature In English): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9699 (Sociology): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9700 (Biology): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9701 (Chemistry): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9702 (Physics): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9706 (Accounting): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9708 (Economics): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9709 (Mathematics): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9990 (Psychology): 0 components -  [MISSING]
+  [IGCSE] 0400 (Art And Design): 0 components -  [MISSING]
+  [IGCSE] 0417 (Information And Communication): 0 components -  [MISSING]
+  [IGCSE] 0450 (Business Studies): 0 components -  [MISSING]
+  [IGCSE] 0452 (Accounting): 0 components -  [MISSING]
+  [IGCSE] 0455 (Economics): 0 components -  [MISSING]
+  [IGCSE] 0460 (Geography): 0 components -  [MISSING]
+  [IGCSE] 0471 (Travel And Tourism): 0 components -  [MISSING]
+  [IGCSE] 0472 (English (Additional Language)): 0 components -  [MISSING]
+  [IGCSE] 0475 (Literature In English): 0 components -  [MISSING]
+  [IGCSE] 0478 (Computer Science): 4 components - P1, P2, 1, 2 [OK]
+  [IGCSE] 0500 (English Language): 0 components -  [MISSING]
+  [IGCSE] 0510 (English As A Second Language): 0 components -  [MISSING]
+  [IGCSE] 0520 (French (Foreign Language)): 0 components -  [MISSING]
+  [IGCSE] 0549 (Hindi As A Second Language): 0 components -  [MISSING]
+  [IGCSE] 0580 (Mathematics): 0 components -  [MISSING]
+  [IGCSE] 0606 (Additional Mathematics): 0 components -  [MISSING]
+  [IGCSE] 0607 (Cambridge Int Mathematics): 0 components -  [MISSING]
+  [IGCSE] 0610 (Biology (Pure)): 0 components -  [MISSING]
+  [IGCSE] 0620 (Chemistry (Pure)): 0 components -  [MISSING]
+  [IGCSE] 0625 (Physics (Pure)): 0 components -  [MISSING]
+  [IGCSE] 0653 (Combined Science): 0 components -  [MISSING]
+  [IGCSE] 0654 (Co-Ord Sciences (Double Award)): 0 components -  [MISSING]
+  [IGCSE] 0680 (Environmental Management): 0 components -  [MISSING]
+
+Subjects with no components: 38

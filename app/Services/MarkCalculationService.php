@@ -62,10 +62,11 @@ class MarkCalculationService
                 'total_obtained_marks' => $totalObtained,
                 'total_marks' => $totalPossible,
                 'overall_percentage' => round($percentage, 2),
-                'uniform_mark' => round($totalWeightedMark, 2),
+                'calculated_uniform_mark' => round($totalWeightedMark, 2),
                 'grade' => $grade,
                 'is_passed' => $isPassed,
                 'calculated_at' => now(),
+                'status' => 'complete',
             ]
         );
 

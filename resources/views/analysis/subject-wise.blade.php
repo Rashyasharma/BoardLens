@@ -765,14 +765,16 @@
 <script>
 (function() {
     // ─── State ────────────────────────────────────────────────────────────────
-    let _ytData     = null;   // raw API response
-    let _ytTabIdx   = 0;      // active qualification tab
-    let _ytChart    = null;   // Chart.js instance for trend chart
-    let _panelOpen  = false;
+    let _ytData       = null;   // raw API response
+    let _ytTabIdx     = 0;      // active qualification tab
+    let _ytChart      = null;   // Chart.js multi-line instance
+    let _panelOpen    = false;
+    let _activeSubjects = new Set(); // subject_ids currently plotted
 
-    const SERIES_COLORS = [
+    const PALETTE = [
         '#6366f1','#8b5cf6','#ec4899','#f59e0b','#10b981','#3b82f6',
-        '#ef4444','#14b8a6','#f97316','#a855f7'
+        '#ef4444','#14b8a6','#f97316','#a855f7','#0ea5e9','#84cc16',
+        '#fb7185','#34d399','#fbbf24','#60a5fa','#c084fc','#4ade80'
     ];
 
     // ─── Open / Close ─────────────────────────────────────────────────────────
@@ -807,12 +809,12 @@
         document.getElementById('yt-tabs').innerHTML = '';
         document.getElementById('yt-content').innerHTML = '';
         if (_ytChart) { _ytChart.destroy(); _ytChart = null; }
+        _activeSubjects.clear();
 
         try {
             const res  = await fetch(`/api/analysis/yearly-pum-trends?year_from=${yf}&year_to=${yt}`);
             _ytData    = await res.json();
 
-            // Update year inputs to actual DB range if outside bounds
             document.getElementById('yt-year-from').min = _ytData.min_year;
             document.getElementById('yt-year-from').max = _ytData.max_year;
             document.getElementById('yt-year-to').min   = _ytData.min_year;
@@ -842,7 +844,7 @@
                     : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'
             ].join(' ');
             btn.textContent = qual.qualification_name;
-            btn.onclick = () => { _ytTabIdx = idx; renderTabs(); renderContent(); };
+            btn.onclick = () => { _ytTabIdx = idx; _activeSubjects.clear(); renderTabs(); renderContent(); };
             container.appendChild(btn);
         });
     }
@@ -861,18 +863,26 @@
             return;
         }
 
-        const qual = quals[_ytTabIdx];
+        const qual        = quals[_ytTabIdx];
         if (!qual) return;
 
-        const subjects   = qual.subjects || [];
+        const subjects    = qual.subjects || [];
         const seriesLabels = qual.series_labels || [];
-        const highest    = qual.highest;
-        const lowest     = subjects.length > 0 ? subjects[subjects.length - 1] : null;
+        const highest     = qual.highest;
+        const lowest      = subjects.length > 0 ? subjects[subjects.length - 1] : null;
+
+        // Pre-activate top 5 subjects by default
+        if (_activeSubjects.size === 0) {
+            subjects.slice(0, 5).forEach(s => _activeSubjects.add(String(s.subject_id)));
+        }
+
+        // Assign a stable color per subject_id
+        const colorMap = {};
+        subjects.forEach((s, i) => { colorMap[s.subject_id] = PALETTE[i % PALETTE.length]; });
 
         // ── 1. Highlight Cards ─────────────────────────────────────────────
         const cardsHtml = `
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- Highest PUM Subject -->
             <div class="relative overflow-hidden bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-5">
                 <div class="absolute -top-4 -right-4 w-20 h-20 bg-emerald-100 rounded-full opacity-50"></div>
                 <div class="flex items-start gap-3 relative">
@@ -887,7 +897,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Lowest PUM Subject -->
             <div class="relative overflow-hidden bg-gradient-to-br from-rose-50 to-orange-50 border border-rose-200 rounded-2xl p-5">
                 <div class="absolute -top-4 -right-4 w-20 h-20 bg-rose-100 rounded-full opacity-50"></div>
                 <div class="flex items-start gap-3 relative">
@@ -904,20 +913,144 @@
             </div>
         </div>`;
 
-        // ── 2. Chart: top 5 subjects trend ──────────────────────────────────
-        const canvasId = `yt-trend-chart-${_ytTabIdx}`;
-        const chartSection = `
+        // ── 2. Subject Toggle Buttons ──────────────────────────────────────
+        const toggleBtns = subjects.map((s) => {
+            const active = _activeSubjects.has(String(s.subject_id));
+            const col    = colorMap[s.subject_id];
+            return `<button
+                class="yt-subj-btn inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-[10px] font-bold border transition-all duration-150 whitespace-nowrap ${
+                    active ? 'text-white shadow-sm' : 'bg-white text-slate-500 border-slate-200 hover:border-slate-400'
+                }"
+                style="${active ? `background:${col};border-color:${col};` : ''}"
+                data-subject-id="${s.subject_id}"
+                onclick="toggleSubjectLine('${s.subject_id}')"
+                title="${s.subject_name} (${s.subject_code}) — Avg: ${s.overall_avg != null ? s.overall_avg+'%' : 'N/A'}">
+                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:${col}"></span>
+                ${s.subject_name}
+                <span class="opacity-70 font-mono text-[9px]">${s.subject_code}</span>
+            </button>`;
+        }).join('');
+
+        const activeCount = _activeSubjects.size;
+        const subjectToggleSection = `
         <div class="bg-white border border-slate-150 rounded-2xl p-5 shadow-sm">
-            <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">📈 Top Subjects — PUM Trend Across Series</h3>
-                <span class="text-[10px] text-slate-400 font-semibold">Top 5 by overall avg PUM</span>
+            <div class="flex items-center justify-between mb-3">
+                <div>
+                    <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">📈 PUM Trend — Toggle Subjects</h3>
+                    <p class="text-[10px] text-slate-400 mt-0.5">Click subject pills to show/hide on the chart. <span id="yt-active-count" class="font-bold text-indigo-600">${activeCount}</span> active.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="selectAllSubjects()" class="text-[10px] font-bold text-indigo-600 hover:text-indigo-800 px-2.5 py-1 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition">All</button>
+                    <button onclick="clearAllSubjects()" class="text-[10px] font-bold text-slate-500 hover:text-slate-700 px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Clear</button>
+                </div>
             </div>
-            <div class="h-56 relative">
-                <canvas id="${canvasId}"></canvas>
+            <!-- Subject pill buttons -->
+            <div class="flex flex-wrap gap-2 mb-5" id="yt-subj-buttons">
+                ${toggleBtns}
+            </div>
+            <!-- Chart -->
+            <div class="h-64 relative" id="yt-chart-wrapper">
+                <canvas id="yt-trend-chart-${_ytTabIdx}"></canvas>
             </div>
         </div>`;
 
-        // ── 3. Full Rankings Table ───────────────────────────────────────────
+        // ── 3. Trajectory / Trend Direction cards ──────────────────────────
+        // For each subject with ≥2 series, compare first vs last PUM
+        const improving = [], declining = [], stable = [];
+        subjects.forEach(s => {
+            const vals = seriesLabels
+                .map(sl => s.series[sl]?.avg_pum ?? null)
+                .filter(v => v !== null);
+            if (vals.length < 2) return;
+            const diff = vals[vals.length-1] - vals[0];
+            if (diff > 3) improving.push({...s, diff: diff.toFixed(1)});
+            else if (diff < -3) declining.push({...s, diff: diff.toFixed(1)});
+            else stable.push({...s, diff: diff.toFixed(1)});
+        });
+
+        const trajectoryCard = (items, label, icon, colorClass, borderClass, badgeClass) => {
+            if (items.length === 0) return '';
+            return `<div class="${borderClass} rounded-2xl p-4 border">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-base">${icon}</span>
+                    <h4 class="text-[10px] font-extrabold ${colorClass} uppercase tracking-wider">${label}</h4>
+                    <span class="ml-auto text-[9px] font-black ${badgeClass} px-2 py-0.5 rounded-full">${items.length}</span>
+                </div>
+                <div class="space-y-1">
+                    ${items.slice(0,6).map(s => `
+                    <div class="flex items-center justify-between text-[10px]">
+                        <span class="font-semibold text-slate-700 truncate max-w-[140px]" title="${s.subject_name}">${s.subject_name}</span>
+                        <span class="font-black ${colorClass} ml-2 flex-shrink-0">${parseFloat(s.diff) > 0 ? '+' : ''}${s.diff}%</span>
+                    </div>`).join('')}
+                    ${items.length > 6 ? `<p class="text-[9px] text-slate-400 font-medium mt-1">+${items.length-6} more</p>` : ''}
+                </div>
+            </div>`;
+        };
+
+        const trajectorySection = (improving.length + declining.length + stable.length) > 0 ? `
+        <div class="bg-white border border-slate-150 rounded-2xl p-5 shadow-sm">
+            <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-3">🎯 Subject Trajectories <span class="text-[9px] font-medium text-slate-400 normal-case">first vs last series</span></h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                ${trajectoryCard(improving, 'Improving', '📈', 'text-emerald-700', 'bg-emerald-50 border-emerald-200', 'bg-emerald-100 text-emerald-700')}
+                ${trajectoryCard(declining, 'Declining', '📉', 'text-rose-700', 'bg-rose-50 border-rose-200', 'bg-rose-100 text-rose-700')}
+                ${trajectoryCard(stable, 'Stable', '➡️', 'text-slate-600', 'bg-slate-50 border-slate-200', 'bg-slate-200 text-slate-600')}
+            </div>
+        </div>` : '';
+
+        // ── 4. PUM Heat Map Grid ───────────────────────────────────────────
+        const heatRowLimit = Math.min(subjects.length, 20);
+        const heatRows = subjects.slice(0, heatRowLimit).map(s => {
+            const cells = seriesLabels.map(sl => {
+                const e = s.series[sl];
+                if (!e) return `<td class="px-1.5 py-1.5 text-center"><span class="inline-block w-8 text-[9px] text-slate-200 font-bold">—</span></td>`;
+                const pum = e.avg_pum;
+                const bg  = pum >= 80 ? '#10b981' : pum >= 70 ? '#34d399' : pum >= 60 ? '#6ee7b7'
+                          : pum >= 50 ? '#fbbf24' : pum >= 40 ? '#f97316' : '#ef4444';
+                const txt = pum >= 50 ? '#fff' : '#fff';
+                return `<td class="px-0.5 py-0.5 text-center">
+                    <span class="inline-flex items-center justify-center w-10 h-6 rounded text-[9px] font-black" style="background:${bg};color:${txt}">${pum}%</span>
+                </td>`;
+            }).join('');
+            return `<tr class="border-b border-slate-50 hover:bg-slate-50/50">
+                <td class="px-3 py-1.5 text-[10px] font-semibold text-slate-700 whitespace-nowrap max-w-[130px]">
+                    <span class="truncate block" title="${s.subject_name} (${s.subject_code})">${s.subject_name}</span>
+                    <span class="text-[8px] font-mono text-slate-400">${s.subject_code}</span>
+                </td>
+                ${cells}
+            </tr>`;
+        }).join('');
+
+        const heatCols = seriesLabels.map(sl =>
+            `<th class="px-0.5 py-2 text-[8px] font-bold text-slate-400 uppercase text-center whitespace-nowrap" style="writing-mode:vertical-rl;transform:rotate(180deg);height:60px;">${sl}</th>`
+        ).join('');
+
+        const heatMapSection = seriesLabels.length > 0 ? `
+        <div class="bg-white border border-slate-150 rounded-2xl shadow-sm overflow-hidden">
+            <div class="px-5 py-3 border-b border-slate-100 bg-slate-50/60 flex items-center justify-between">
+                <div>
+                    <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">🌡️ PUM Heat Map</h3>
+                    <p class="text-[9px] text-slate-400 mt-0.5">Green = high PUM · Red = low PUM${subjects.length > 20 ? ' · Top 20 shown' : ''}</p>
+                </div>
+                <div class="flex items-center gap-1 text-[8px] font-bold">
+                    <span class="px-1.5 py-0.5 rounded" style="background:#10b981;color:#fff">≥80</span>
+                    <span class="px-1.5 py-0.5 rounded" style="background:#fbbf24;color:#fff">≥50</span>
+                    <span class="px-1.5 py-0.5 rounded" style="background:#ef4444;color:#fff">&lt;40</span>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="text-left border-collapse w-full">
+                    <thead class="bg-slate-50">
+                        <tr>
+                            <th class="px-3 py-2 text-[10px] font-bold text-slate-500 uppercase tracking-wider">Subject</th>
+                            ${heatCols}
+                        </tr>
+                    </thead>
+                    <tbody>${heatRows}</tbody>
+                </table>
+            </div>
+        </div>` : '';
+
+        // ── 5. Full Rankings Table ─────────────────────────────────────────
         const headerCols = seriesLabels.map(s =>
             `<th class="px-3 py-3 text-center text-[10px] font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">${s}</th>`
         ).join('');
@@ -943,9 +1076,7 @@
             const avgColor = (sub.overall_avg ?? 0) >= 70 ? 'text-emerald-700' : (sub.overall_avg ?? 0) >= 50 ? 'text-amber-700' : 'text-rose-700';
 
             return `<tr class="hover:bg-indigo-50/30 transition-colors border-b border-slate-50">
-                <td class="px-4 py-3 flex items-center gap-2">
-                    ${rankBadge}
-                </td>
+                <td class="px-4 py-3">${rankBadge}</td>
                 <td class="px-2 py-3">
                     <div class="text-xs font-bold text-slate-800">${sub.subject_name}</div>
                     <div class="text-[9px] font-mono text-slate-400 mt-0.5">${sub.subject_code}</div>
@@ -980,25 +1111,46 @@
             </div>
         </div>`;
 
-        content.innerHTML = cardsHtml + '<div class="mt-1"></div>' + chartSection + '<div class="mt-1"></div>' + tableSection;
+        content.innerHTML = [
+            cardsHtml,
+            '<div class="mt-1"></div>',
+            subjectToggleSection,
+            '<div class="mt-1"></div>',
+            trajectorySection,
+            trajectorySection ? '<div class="mt-1"></div>' : '',
+            heatMapSection,
+            heatMapSection ? '<div class="mt-1"></div>' : '',
+            tableSection
+        ].join('');
 
-        // ── Draw chart ─────────────────────────────────────────────────────
-        const top5 = subjects.slice(0, 5);
-        const chartDatasets = top5.map((sub, ci) => {
-            const color = SERIES_COLORS[ci % SERIES_COLORS.length];
-            const dataPoints = seriesLabels.map(sl => {
-                const e = sub.series[sl];
-                return e ? e.avg_pum : null;
-            });
+        // Draw the chart with currently active subjects
+        drawChart(subjects, seriesLabels, colorMap);
+    }
+
+    // ─── Draw / Redraw Chart ──────────────────────────────────────────────────
+    function drawChart(subjects, seriesLabels, colorMap) {
+        if (_ytChart) { _ytChart.destroy(); _ytChart = null; }
+
+        // get the tab index from the current DOM (may have changed)
+        const qual = (_ytData.qualifications || [])[_ytTabIdx];
+        if (!qual) return;
+
+        const canvasEl = document.querySelector('#yt-chart-wrapper canvas');
+        if (!canvasEl) return;
+
+        const activeList = (subjects || qual.subjects || []).filter(s => _activeSubjects.has(String(s.subject_id)));
+
+        const datasets = activeList.map(s => {
+            const col = colorMap[s.subject_id];
             return {
-                label: sub.subject_name,
-                data: dataPoints,
-                borderColor: color,
-                backgroundColor: color + '18',
+                label: `${s.subject_name} (${s.subject_code})`,
+                data: seriesLabels.map(sl => s.series[sl]?.avg_pum ?? null),
+                borderColor: col,
+                backgroundColor: col + '15',
                 borderWidth: 2.5,
                 fill: false,
                 tension: 0.35,
-                pointBackgroundColor: color,
+                pointBackgroundColor: col,
                 pointBorderColor: '#fff',
                 pointBorderWidth: 2,
                 pointRadius: 4,
@@ -1006,39 +1158,93 @@
             };
         });
 
-        const ctx = document.getElementById(canvasId);
-        if (ctx) {
-            _ytChart = new Chart(ctx.getContext('2d'), {
-                type: 'line',
-                data: { labels: seriesLabels, datasets: chartDatasets },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    interaction: { mode: 'index', intersect: false },
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { font: { size: 10, weight: 'bold' }, color: '#475569', boxWidth: 12, padding: 12 }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: ctx => ` ${ctx.dataset.label}: ${ctx.raw != null ? ctx.raw + '%' : 'N/A'}`
-                            }
-                        }
+        _ytChart = new Chart(canvasEl.getContext('2d'), {
+            type: 'line',
+            data: { labels: seriesLabels, datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: {
+                        display: false // we have our own pill buttons
                     },
-                    scales: {
-                        y: { min: 0, max: 100,
-                            ticks: { font: { size: 10, weight: 'bold' }, color: '#64748b', callback: v => v + '%' },
-                            grid: { color: '#f1f5f9' }
-                        },
-                        x: {
-                            ticks: { font: { size: 9, weight: 'bold' }, color: '#64748b', maxRotation: 45 },
-                            grid: { display: false }
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => ` ${ctx.dataset.label}: ${ctx.raw != null ? ctx.raw + '%' : 'N/A'}`
                         }
                     }
+                },
+                scales: {
+                    y: { min: 0, max: 100,
+                        ticks: { font: { size: 10, weight: 'bold' }, color: '#64748b', callback: v => v + '%' },
+                        grid: { color: '#f1f5f9' }
+                    },
+                    x: {
+                        ticks: { font: { size: 9, weight: 'bold' }, color: '#64748b', maxRotation: 45 },
+                        grid: { display: false }
+                    }
                 }
-            });
+            }
+        });
+    }
+
+    // ─── Toggle a subject line on/off ─────────────────────────────────────────
+    window.toggleSubjectLine = function(subjectId) {
+        const sid = String(subjectId);
+        if (_activeSubjects.has(sid)) {
+            _activeSubjects.delete(sid);
+        } else {
+            _activeSubjects.add(sid);
         }
+        refreshToggleButtons();
+        const qual = (_ytData.qualifications || [])[_ytTabIdx];
+        if (qual) drawChart(qual.subjects, qual.series_labels, buildColorMap(qual.subjects));
+    };
+
+    window.selectAllSubjects = function() {
+        const qual = (_ytData.qualifications || [])[_ytTabIdx];
+        if (!qual) return;
+        qual.subjects.forEach(s => _activeSubjects.add(String(s.subject_id)));
+        refreshToggleButtons();
+        drawChart(qual.subjects, qual.series_labels, buildColorMap(qual.subjects));
+    };
+
+    window.clearAllSubjects = function() {
+        _activeSubjects.clear();
+        refreshToggleButtons();
+        const qual = (_ytData.qualifications || [])[_ytTabIdx];
+        if (qual) drawChart(qual.subjects, qual.series_labels, buildColorMap(qual.subjects));
+    };
+
+    function buildColorMap(subjects) {
+        const m = {};
+        subjects.forEach((s, i) => { m[s.subject_id] = PALETTE[i % PALETTE.length]; });
+        return m;
+    }
+
+    function refreshToggleButtons() {
+        const qual = (_ytData.qualifications || [])[_ytTabIdx];
+        if (!qual) return;
+        const colorMap = buildColorMap(qual.subjects);
+        document.querySelectorAll('.yt-subj-btn').forEach(btn => {
+            const sid = String(btn.dataset.subjectId);
+            const active = _activeSubjects.has(sid);
+            const col = colorMap[sid];
+            if (active) {
+                btn.style.background = col;
+                btn.style.borderColor = col;
+                btn.classList.remove('bg-white','text-slate-500','border-slate-200','hover:border-slate-400');
+                btn.classList.add('text-white','shadow-sm');
+            } else {
+                btn.style.background = '';
+                btn.style.borderColor = '';
+                btn.classList.add('bg-white','text-slate-500','border-slate-200','hover:border-slate-400');
+                btn.classList.remove('text-white','shadow-sm');
+            }
+        });
+        const countEl = document.getElementById('yt-active-count');
+        if (countEl) countEl.textContent = _activeSubjects.size;
     }
 
     // Close on Escape

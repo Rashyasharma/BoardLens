@@ -9,6 +9,7 @@ use App\Models\Qualification;
 use App\Models\Candidate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AnalysisController extends Controller
 {
@@ -508,7 +509,7 @@ class AnalysisController extends Controller
                         ->from('candidate_enrollments')
                         ->whereIn('candidate_id', $candidateIds);
                 })
-                ->with(['subject.qualification', 'series', 'componentMarks.component'])
+                ->with(['subject.qualification', 'series', 'componentMarks.component', 'enrollment.candidate'])
                 ->get();
 
                 // Sort results chronologically by Series
@@ -530,6 +531,8 @@ class AnalysisController extends Controller
                 foreach ($groupedResults as $seriesId => $seriesResults) {
                     $series = $seriesResults->first()->series;
                     $avgPum = $seriesResults->avg('pum');
+                    // Candidate number for this specific series
+                    $seriesCandidateNumber = $seriesResults->first()->enrollment?->candidate?->candidate_number ?? 'N/A';
                     $journey[] = [
                         'series_id' => $series->id,
                         'series_name' => $series->series_name,
@@ -542,6 +545,7 @@ class AnalysisController extends Controller
                         'worst_grade' => $this->getWorstGrade($seriesResults),
                         'qualifications' => $seriesResults->map(fn($r) => $r->subject->qualification->qualification_name)->unique()->values()->toArray(),
                         'pum_delta' => null,
+                        'candidate_number' => $seriesCandidateNumber,
                     ];
                 }
 
@@ -878,5 +882,172 @@ class AnalysisController extends Controller
             'X' => 10, 'Q' => 11
         ];
         return $results->sortByDesc(fn($r) => $gradeOrder[$r->grade] ?? 99)->first()->grade ?? 'N/A';
+    }
+
+    /**
+     * Export a student's complete journey as a PDF report card.
+     */
+    public function studentJourneyPdf(Request $request)
+    {
+        $candidateName = $request->get('candidate_name');
+        if (!$candidateName) {
+            return redirect()->route('analysis.student-journey')->with('error', 'No candidate selected.');
+        }
+
+        // Fetch all candidate records with this name
+        $students = Candidate::where('candidate_name', $candidateName)->with('school')->get();
+        if ($students->isEmpty()) {
+            return redirect()->route('analysis.student-journey', ['candidate_name' => $candidateName])
+                ->with('error', 'Candidate not found.');
+        }
+
+        $student = $students->first();
+        $allCandidateNumbers = $students->pluck('candidate_number')->unique()->toArray();
+        $candidateIds = $students->pluck('id')->toArray();
+
+        // Fetch all results
+        $results = SubjectResult::whereIn('enrollment_id', function ($query) use ($candidateIds) {
+            $query->select('id')->from('candidate_enrollments')->whereIn('candidate_id', $candidateIds);
+        })
+        ->with(['subject.qualification', 'series', 'componentMarks.component', 'enrollment.candidate'])
+        ->get();
+
+        // Sort results chronologically
+        $monthOrder = ['March' => 1, 'June' => 2, 'November' => 3];
+        $sortedResults = $results->sort(function ($a, $b) use ($monthOrder) {
+            if ($a->series->year !== $b->series->year) {
+                return $a->series->year <=> $b->series->year;
+            }
+            return ($monthOrder[$a->series->month] ?? 99) <=> ($monthOrder[$b->series->month] ?? 99);
+        });
+
+        // Build journey
+        $journey = [];
+        $groupedResults = $sortedResults->groupBy(fn($res) => $res->series->id);
+
+        foreach ($groupedResults as $seriesId => $seriesResults) {
+            $series = $seriesResults->first()->series;
+            $journey[] = [
+                'series_id'        => $series->id,
+                'series_name'      => $series->series_name,
+                'year'             => $series->year,
+                'month'            => $series->month,
+                'avg_pum'          => round($seriesResults->avg('pum'), 1),
+                'results'          => $seriesResults,
+                'total_subjects'   => $seriesResults->count(),
+                'best_grade'       => $this->getBestGrade($seriesResults),
+                'worst_grade'      => $this->getWorstGrade($seriesResults),
+                'pum_delta'        => null,
+                'candidate_number' => $seriesResults->first()->enrollment?->candidate?->candidate_number ?? 'N/A',
+            ];
+        }
+
+        // Compute PUM deltas
+        for ($i = 1; $i < count($journey); $i++) {
+            $journey[$i]['pum_delta'] = round($journey[$i]['avg_pum'] - $journey[$i - 1]['avg_pum'], 1);
+        }
+
+        // Overall stats
+        $totalResultsCount = $results->count();
+        $avgPumOverall     = $totalResultsCount > 0 ? round($results->avg('pum'), 1) : 0;
+        $gradeOrder        = ['A*' => 1, 'A' => 2, 'B' => 3, 'C' => 4, 'D' => 5, 'E' => 6, 'U' => 7];
+        $bestGrade         = $totalResultsCount > 0
+            ? ($results->sortBy(fn($r) => $gradeOrder[$r->grade] ?? 99)->first()->grade ?? 'N/A')
+            : 'N/A';
+        $passCountOverall  = $results->where('is_passed', true)->count();
+        $passRateOverall   = $totalResultsCount > 0 ? round(($passCountOverall / $totalResultsCount) * 100, 0) : 0;
+
+        $schoolName = $student->school?->school_name ?? 'IN016 Lucky International School';
+
+        $pdf = Pdf::loadView('reports.student-report-card', [
+            'student'              => $student,
+            'all_candidate_numbers'=> $allCandidateNumbers,
+            'journey'              => $journey,
+            'total_results_count'  => $totalResultsCount,
+            'avg_pum_overall'      => $avgPumOverall,
+            'best_grade'           => $bestGrade,
+            'pass_rate_overall'    => $passRateOverall,
+            'schoolName'           => $schoolName,
+        ])->setPaper('a4', 'portrait');
+
+        $filename = 'report-card-' . str_replace(' ', '-', strtolower($candidateName)) . '-' . now()->format('Ymd') . '.pdf';
+
+        return $pdf->download($filename);
+    }
+
+    /**
+     * Preview a student's report card in the browser before downloading.
+     */
+    public function studentJourneyPreview(Request $request)
+    {
+        $candidateName = $request->get('candidate_name');
+        if (!$candidateName) {
+            return redirect()->route('analysis.student-journey')->with('error', 'No candidate selected.');
+        }
+
+        $students = Candidate::where('candidate_name', $candidateName)->with('school')->get();
+        if ($students->isEmpty()) {
+            return redirect()->route('analysis.student-journey', ['candidate_name' => $candidateName])
+                ->with('error', 'Candidate not found.');
+        }
+
+        $student = $students->first();
+        $allCandidateNumbers = $students->pluck('candidate_number')->unique()->toArray();
+        $candidateIds = $students->pluck('id')->toArray();
+
+        $results = SubjectResult::whereIn('enrollment_id', function ($query) use ($candidateIds) {
+            $query->select('id')->from('candidate_enrollments')->whereIn('candidate_id', $candidateIds);
+        })
+        ->with(['subject.qualification', 'series', 'componentMarks.component', 'enrollment.candidate'])
+        ->get();
+
+        $monthOrder = ['March' => 1, 'June' => 2, 'November' => 3];
+        $sortedResults = $results->sort(function ($a, $b) use ($monthOrder) {
+            if ($a->series->year !== $b->series->year) return $a->series->year <=> $b->series->year;
+            return ($monthOrder[$a->series->month] ?? 99) <=> ($monthOrder[$b->series->month] ?? 99);
+        });
+
+        $journey = [];
+        foreach ($sortedResults->groupBy(fn($r) => $r->series->id) as $seriesId => $seriesResults) {
+            $series = $seriesResults->first()->series;
+            $journey[] = [
+                'series_id'        => $series->id,
+                'series_name'      => $series->series_name,
+                'year'             => $series->year,
+                'month'            => $series->month,
+                'avg_pum'          => round($seriesResults->avg('pum'), 1),
+                'results'          => $seriesResults,
+                'total_subjects'   => $seriesResults->count(),
+                'best_grade'       => $this->getBestGrade($seriesResults),
+                'worst_grade'      => $this->getWorstGrade($seriesResults),
+                'pum_delta'        => null,
+                'candidate_number' => $seriesResults->first()->enrollment?->candidate?->candidate_number ?? 'N/A',
+            ];
+        }
+
+        for ($i = 1; $i < count($journey); $i++) {
+            $journey[$i]['pum_delta'] = round($journey[$i]['avg_pum'] - $journey[$i - 1]['avg_pum'], 1);
+        }
+
+        $totalResultsCount = $results->count();
+        $avgPumOverall     = $totalResultsCount > 0 ? round($results->avg('pum'), 1) : 0;
+        $gradeOrder        = ['A*' => 1, 'A' => 2, 'B' => 3, 'C' => 4, 'D' => 5, 'E' => 6, 'U' => 7];
+        $bestGrade         = $totalResultsCount > 0
+            ? ($results->sortBy(fn($r) => $gradeOrder[$r->grade] ?? 99)->first()->grade ?? 'N/A')
+            : 'N/A';
+        $passCountOverall  = $results->where('is_passed', true)->count();
+        $passRateOverall   = $totalResultsCount > 0 ? round(($passCountOverall / $totalResultsCount) * 100, 0) : 0;
+        $schoolName        = $student->school?->school_name ?? 'IN016 Lucky International School';
+
+        return view('reports.student-report-preview', [
+            'student'              => $student,
+            'all_candidate_numbers'=> $allCandidateNumbers,
+            'journey'              => $journey,
+            'total_results_count'  => $totalResultsCount,
+            'avg_pum_overall'      => $avgPumOverall,
+            'best_grade'           => $bestGrade,
+            'pass_rate_overall'    => $passRateOverall,
+            'schoolName'           => $schoolName,
+        ]);
     }
 }

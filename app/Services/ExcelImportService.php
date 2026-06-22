@@ -63,14 +63,21 @@ class ExcelImportService
                 );
 
                 // Find component
-                $component = Component::whereHas('subject', function ($q) use ($row) {
-                    $q->where('subject_code', (string)$row[2]);
-                })
-                ->where('component_code', (string)$row[3])
-                ->first();
+                $series = \App\Models\ExamSeries::find($seriesId);
+                $subject = \App\Models\Subject::where('subject_code', (string)$row[2])->first();
+                
+                if (!$subject) {
+                    throw new \Exception("Subject with code " . $row[2] . " not found");
+                }
+                
+                $componentSet = \App\Models\ComponentSet::findForSubjectYear($subject->id, $series->year);
+                
+                $component = Component::where('component_set_id', $componentSet?->id)
+                    ->where('component_code', (string)$row[3])
+                    ->first();
 
                 if (!$component) {
-                    throw new \Exception("Component with code " . $row[3] . " not found for subject " . $row[2]);
+                    throw new \Exception("Component with code " . $row[3] . " not found in the configured component set for subject " . $row[2]);
                 }
 
                 // Store component marks

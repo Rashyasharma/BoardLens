@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -35,8 +35,30 @@
     </script>
     
     <style>
+        /* Modern Minimalist Cambridge Theme */
         body {
-            font-family: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: 'Instrument Sans', sans-serif !important;
+            background-color: #fcfcfc !important;
+            color: #0c0c0d !important;
+        }
+        .bg-white {
+            background-color: #ffffff !important;
+            border: 1px solid #eaeaea !important;
+            border-radius: 12px !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.01) !important;
+        }
+        .border-slate-200 {
+            border-color: #f1f1f1 !important;
+        }
+        header {
+            background-color: #ffffff !important;
+            border-bottom: 1px solid #f1f1f1 !important;
+        }
+        .bg-indigo-50 {
+            background-color: #f4f4f6 !important;
+            color: #111112 !important;
+            border: 1px solid #e2e2e4 !important;
+            border-radius: 8px !important;
         }
     </style>
 </head>

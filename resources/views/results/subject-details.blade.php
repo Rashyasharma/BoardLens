@@ -85,8 +85,8 @@
                             <!-- Uploaded Result -->
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-2">
-                                    <span class="inline-flex items-center justify-center {{ in_array($res->grade, ['a', 'b', 'c', 'd', 'e']) ? 'px-2.5 h-7 rounded-lg' : 'w-7 h-7 rounded-full' }} bg-slate-900 text-white text-xs font-extrabold whitespace-nowrap">
-                                        {{ in_array($res->grade, ['a', 'b', 'c', 'd', 'e']) ? $res->grade . ' (AS Level)' : $res->grade }}
+                                    <span class="inline-flex items-center justify-center {{ ($subject->qualification->qualification_type === 'AS_A_LEVEL' && in_array($res->grade, ['a', 'b', 'c', 'd', 'e'])) ? 'px-3.5 h-7 rounded-lg' : 'w-7 h-7 rounded-full' }} bg-slate-900 text-white text-xs font-extrabold whitespace-nowrap">
+                                        {{ ($subject->qualification->qualification_type === 'AS_A_LEVEL' && in_array($res->grade, ['a', 'b', 'c', 'd', 'e'])) ? $res->grade . ' (AS Level)' : $res->grade }}
                                     </span>
                                     <span class="text-xs text-slate-500 font-semibold">PUM: {{ $res->pum }}%</span>
                                 </div>

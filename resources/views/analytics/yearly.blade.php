@@ -26,10 +26,10 @@
                 <!-- Series Select -->
                 <div>
                     <label class="block text-xs font-bold uppercase text-slate-400 tracking-wider mb-1.5">Exam Series</label>
-                    <select name="series_id" class="w-full px-3 py-2.5 border border-slate-200 rounded-xl bg-slate-50 text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <select name="month" class="w-full px-3 py-2.5 border border-slate-200 rounded-xl bg-slate-50 text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                         <option value="">All Series</option>
-                        @foreach($examSeries as $series)
-                            <option value="{{ $series->id }}" {{ request('series_id') == $series->id ? 'selected' : '' }}>{{ $series->series_name }}</option>
+                        @foreach(['March', 'June', 'November'] as $m)
+                            <option value="{{ $m }}" {{ request('month') == $m ? 'selected' : '' }}>{{ $m }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -66,7 +66,7 @@
                     @csrf
                     <input type="hidden" name="format" value="pdf">
                     <input type="hidden" name="year" value="{{ request('year') }}">
-                    <input type="hidden" name="series_id" value="{{ request('series_id') }}">
+                    <input type="hidden" name="month" value="{{ request('month') }}">
                     <input type="hidden" name="subject_id" value="{{ request('subject_id') }}">
                     <button type="submit" class="w-full py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold rounded-xl border border-rose-200 transition duration-150 flex items-center justify-center gap-1.5">
                         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -80,7 +80,7 @@
                     @csrf
                     <input type="hidden" name="format" value="excel">
                     <input type="hidden" name="year" value="{{ request('year') }}">
-                    <input type="hidden" name="series_id" value="{{ request('series_id') }}">
+                    <input type="hidden" name="month" value="{{ request('month') }}">
                     <input type="hidden" name="subject_id" value="{{ request('subject_id') }}">
                     <button type="submit" class="w-full py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-bold rounded-xl border border-emerald-200 transition duration-150 flex items-center justify-center gap-1.5">
                         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

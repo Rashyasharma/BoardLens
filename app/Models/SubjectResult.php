@@ -51,10 +51,8 @@ class SubjectResult extends Model
         parent::boot();
 
         static::saving(function ($model) {
-            $subject = $model->subject ?: \App\Models\Subject::find($model->subject_id);
-            if ($subject) {
-                $model->is_passed = $model->pum >= $subject->passing_percentage;
-            }
+            $grade = strtoupper(trim($model->grade));
+            $model->is_passed = !empty($grade) && !in_array($grade, ['U', 'UU', 'X', 'Q', 'PENDING']);
         });
     }
 
@@ -88,11 +86,22 @@ class SubjectResult extends Model
         return $this->belongsTo(User::class, 'uploaded_by');
     }
 
+    public function getExpectedComponentsAttribute()
+    {
+        $componentSet = \App\Models\ComponentSet::findForSubjectYear($this->subject_id, $this->series->year);
+        return $componentSet ? $componentSet->components()->orderBy('component_code')->get() : collect();
+    }
+
+    public function getExpectedComponentCountAttribute(): int
+    {
+        return $this->expected_components->count();
+    }
+
     // Check if all components are uploaded
     public function hasAllComponentsUploaded(): bool
     {
-        $subject = $this->subject;
-        $componentCount = $subject->components()->count();
+        $componentCount = $this->expected_component_count;
+
         $uploadedCount = $this->componentMarks()->count();
 
         return $componentCount > 0 && $componentCount === $uploadedCount;
@@ -137,11 +146,9 @@ class SubjectResult extends Model
     // Mark as passed/failed
     public function updatePassStatus()
     {
-        $subject = $this->subject ?: \App\Models\Subject::find($this->subject_id);
-        if ($subject) {
-            $this->is_passed = $this->pum >= $subject->passing_percentage;
-            $this->save();
-        }
+        $grade = strtoupper(trim($this->grade));
+        $this->is_passed = !empty($grade) && !in_array($grade, ['U', 'UU', 'X', 'Q', 'PENDING']);
+        $this->save();
     }
 
     // Scope for analysis queries

@@ -45,7 +45,7 @@ class DashboardController extends Controller
         }
         $activeSeries = $activeSeriesQuery->count();
         $totalSubjects = Subject::count();
-        $schoolName = $school ? $school->school_name : 'Default Center';
+        $schoolName = $school ? $school->school_name : 'IN016 Lucky International School';
 
         // 2. Academic Results Analytics
         $totalResults = $resultQuery->count(); // Total subject entries

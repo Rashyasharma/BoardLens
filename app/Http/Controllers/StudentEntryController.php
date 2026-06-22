@@ -40,12 +40,16 @@ class StudentEntryController extends Controller
         $igcseSubjects = \App\Models\Subject::where('qualification_id', $igcseQual->id)->orderBy('subject_name')->get();
         $gceSubjects = \App\Models\Subject::where('qualification_id', $gceQual->id)->orderBy('subject_name')->get();
 
-        // Map registered subject IDs per candidate ID
-        $candidateSubjectsMap = [];
-        $allEnrollments = CandidateEnrollment::where('series_id', $series->id)->get();
+        // Map registered subject IDs AND subject_codes per candidate ID
+        $candidateSubjectsMap   = [];
+        $candidateSubjectCodes  = []; // candidate_id => [subject_code, ...]
+        $allEnrollments = CandidateEnrollment::with('subject')->where('series_id', $series->id)->get();
         foreach ($allEnrollments as $e) {
             if ($e->subject_id) {
-                $candidateSubjectsMap[$e->candidate_id][] = $e->subject_id;
+                $candidateSubjectsMap[$e->candidate_id][]  = $e->subject_id;
+                if ($e->subject) {
+                    $candidateSubjectCodes[$e->candidate_id][] = $e->subject->subject_code;
+                }
             }
         }
 
@@ -57,7 +61,8 @@ class StudentEntryController extends Controller
             'gceEnrollments',
             'igcseSubjects',
             'gceSubjects',
-            'candidateSubjectsMap'
+            'candidateSubjectsMap',
+            'candidateSubjectCodes'
         ));
     }
 
@@ -216,6 +221,15 @@ class StudentEntryController extends Controller
         ]);
 
         if ($registered) {
+            // Check for subject code conflict before enrolling
+            $conflict = $this->findSubjectCodeConflict($candidateId, $examSeries->id, $subjectId);
+            if ($conflict) {
+                return response()->json([
+                    'success' => false,
+                    'message' => "This student is already registered for '{$conflict->subject_name}' (code {$conflict->subject_code}). A student can only be registered for one subject per subject code per series.",
+                ], 422);
+            }
+
             CandidateEnrollment::firstOrCreate([
                 'candidate_id'     => $candidateId,
                 'series_id'        => $examSeries->id,
@@ -269,9 +283,16 @@ class StudentEntryController extends Controller
             'enrollment_status' => 'enrolled',
         ]);
 
-        // Specific subject enrollments
+        // Specific subject enrollments with conflict check
         $subjects = $request->subjects ?? [];
+        $skipped = [];
         foreach ($subjects as $subId) {
+            $conflict = $this->findSubjectCodeConflict($candidate->id, $examSeries->id, $subId);
+            if ($conflict) {
+                $sub = \App\Models\Subject::find($subId);
+                $skipped[] = ($sub ? $sub->subject_name : $subId) . " (conflicts with '{$conflict->subject_name}')";
+                continue;
+            }
             CandidateEnrollment::firstOrCreate([
                 'candidate_id'     => $candidate->id,
                 'series_id'        => $examSeries->id,
@@ -283,6 +304,94 @@ class StudentEntryController extends Controller
             ]);
         }
 
-        return back()->with('success', 'Candidate successfully registered.');
+        $msg = 'Candidate successfully registered.';
+        if (!empty($skipped)) {
+            $msg .= ' Skipped (duplicate subject code): ' . implode(', ', $skipped);
+        }
+
+        return back()->with('success', $msg);
+    }
+
+    /**
+     * Bulk update candidate registrations/enrollments for a series.
+     */
+    public function updateBulkEntries(Request $request, ExamSeries $examSeries)
+    {
+        $request->validate([
+            'qualification_id' => 'required|exists:qualifications,id',
+            'entries'          => 'required|array',
+            'entries.*.candidate_id' => 'required|exists:candidates,id',
+            'entries.*.subject_id'   => 'required|exists:subjects,id',
+            'entries.*.registered'   => 'required|boolean',
+        ]);
+
+        $qualId = $request->qualification_id;
+        $entries = $request->entries;
+
+        try {
+            \DB::transaction(function () use ($examSeries, $qualId, $entries) {
+                foreach ($entries as $entry) {
+                    $candidateId = $entry['candidate_id'];
+                    $subjectId = $entry['subject_id'];
+                    $registered = (bool)$entry['registered'];
+
+                    // Ensure general enrollment exists
+                    CandidateEnrollment::firstOrCreate([
+                        'candidate_id'     => $candidateId,
+                        'series_id'        => $examSeries->id,
+                        'qualification_id' => $qualId,
+                        'subject_id'       => null,
+                    ], [
+                        'enrolled_date'     => now()->toDateString(),
+                        'enrollment_status' => 'enrolled',
+                    ]);
+
+                    if ($registered) {
+                        CandidateEnrollment::firstOrCreate([
+                            'candidate_id'     => $candidateId,
+                            'series_id'        => $examSeries->id,
+                            'qualification_id' => $qualId,
+                            'subject_id'       => $subjectId,
+                        ], [
+                            'enrolled_date'     => now()->toDateString(),
+                            'enrollment_status' => 'enrolled',
+                        ]);
+                    } else {
+                        CandidateEnrollment::where('candidate_id', $candidateId)
+                            ->where('series_id', $examSeries->id)
+                            ->where('subject_id', $subjectId)
+                            ->delete();
+                    }
+                }
+            });
+
+            return response()->json(['success' => true]);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Check if a candidate is already enrolled in a subject with the same subject_code
+     * in the given series (excluding the subject_id being checked itself).
+     * Returns the conflicting Subject model if found, or null.
+     */
+    private function findSubjectCodeConflict(string $candidateId, string $seriesId, string $newSubjectId): ?\App\Models\Subject
+    {
+        $newSubject = \App\Models\Subject::find($newSubjectId);
+        if (!$newSubject) return null;
+
+        // Find any existing enrollment in this series for a DIFFERENT subject with same code
+        $conflict = CandidateEnrollment::where('candidate_id', $candidateId)
+            ->where('series_id', $seriesId)
+            ->whereNotNull('subject_id')
+            ->where('subject_id', '!=', $newSubjectId)
+            ->whereHas('subject', function ($q) use ($newSubject) {
+                $q->where('subject_code', $newSubject->subject_code);
+            })
+            ->with('subject')
+            ->first();
+
+        return $conflict ? $conflict->subject : null;
     }
 }

@@ -56,6 +56,6 @@ class CbseSubject extends Model
             'Project'             => '📁 Project',
             'Internal Assessment' => '📋 Internal Assessment',
             default               => $this->practical_type,
-        ];
+        };
     }
 }

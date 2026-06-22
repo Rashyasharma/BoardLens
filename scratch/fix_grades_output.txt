@@ -1,0 +1,93 @@
+﻿Loaded 1161 DB results
+Processing: IN016 IGCSE Provisional Component Marks June 2022.xlsx (JUN-2022)
+Processing: IN016 IGCSE Provisional Component Marks June 2023.xlsx (JUN-2023)
+Processing: IN016 IGCSE Provisional Component Marks June 2024.xlsx (JUN-2024)
+Processing: IN016 IGCSE Provisional Component Marks June 2025.xlsx (JUN-2025)
+Processing: IN016 IGCSE Provisional Component Marks March 2019.xlsx (MAR-2019)
+Processing: IN016 IGCSE Provisional Component Marks March 2020.xlsx (MAR-2020)
+Processing: IN016 IGCSE Provisional Component Marks March 2021.xlsx (MAR-2021)
+Processing: IN016 IGCSE Provisional Component Marks March 2023.xlsx (MAR-2023)
+Processing: IN016 IGCSE Provisional Component Marks March 2024.xlsx (MAR-2024)
+Processing: IN016 IGCSE Provisional Component Marks March 2025.xlsx (MAR-2025)
+Processing: IN016 IGCSE Provisional Component Marks March 2026.xlsx (MAR-2026)
+Processing: IN016 IGCSE Provisional Component Marks November 2019.xlsx (NOV-2019)
+Processing: IN016 IGCSE Provisional Component Marks November 2021.xlsx (NOV-2021)
+Processing: IN016 IGCSE Provisional Component Marks November 2024.xlsx (NOV-2024)
+Processing: IN016 IGCSE Provisional Component Marks November 2025.xlsx (NOV-2025)
+Processing: IN016 AS A Level Provisional Component Marks June 2022.xlsx (JUN-2022)
+Processing: IN016 AS A Level Provisional Component Marks June 2023.xlsx (JUN-2023)
+Processing: IN016 AS A Level Provisional Component Marks June 2024.xlsx (JUN-2024)
+Processing: IN016 AS A Level Provisional Component Marks June 2025.xlsx (JUN-2025)
+Processing: IN016 AS A Level Provisional Component Marks March 2020.xlsx (MAR-2020)
+Processing: IN016 AS A Level Provisional Component Marks March 2021.xlsx (MAR-2021)
+Processing: IN016 AS A Level Provisional Component Marks March 2023.xlsx (MAR-2023)
+Processing: IN016 AS A Level Provisional Component Marks March 2024.xlsx (MAR-2024)
+Processing: IN016 AS A Level Provisional Component Marks March 2025.xlsx (MAR-2025)
+Processing: IN016 AS A Level Provisional Component Marks March 2026.xlsx (MAR-2026)
+Processing: IN016 AS A Level Provisional Component Marks November 2020.xlsx (NOV-2020)
+Processing: IN016 AS A Level Provisional Component Marks November 2021.xlsx (NOV-2021)
+Processing: IN016 AS A Level Provisional Component Marks November 2022.xlsx (NOV-2022)
+Processing: IN016 AS A Level Provisional Component Marks November 2024.xlsx (NOV-2024)
+Processing: IN016 AS A Level Provisional Component Marks November 2025.xlsx (NOV-2025)
+
+========================================
+=== DEFINITIVE VERIFICATION RESULTS ===
+========================================
+
+Total broadsheet records: 1024
+Matched (including case-insensitive): 1024
+Mismatched (needs fix): 0
+Broadsheet grade blank (component-only row): 0
+Not in DB: 0
+Fixes to apply: 0
+
+--- ALL GRADE FIXES ---
+
+--- COMPONENT DEFINITIONS FROM BROADSHEETS ---
+  IGCSE:
+    0400: Components 01, 02
+    0417: Components 02, 03, 12
+    0450: Components 12, 22
+    0452: Components 12, 22
+    0455: Components 12, 22
+    0460: Components 12, 22, 42
+    0471: Components 12, 22
+    0472: Components 03, 12, 22, 42
+    0475: Components 12, 32, 42
+    0500: Components 12, 22
+    0510: Components 12, 22, 32
+    0520: Components 03, 12, 22, 42
+    0549: Components 01, 02
+    0580: Components 12, 22, 32, 42
+    0606: Components 12, 22
+    0607: Components 12, 22, 32, 42, 52, 62
+    0610: Components 12, 32, 62
+    0620: Components 22, 42, 62
+    0625: Components 22, 42, 62
+    0653: Components 12, 32, 62
+    0654: Components 22, 42, 62
+    0680: Components 12, 22
+  AS_A_LEVEL:
+    8021: Components 12, 22
+    9093: Components 12, 22, 32, 42, 88
+    9479: Components 01, 02
+    9489: Components 12, 22
+    9609: Components 12, 22, 32, 42
+    9618: Components 32, 42, 88
+    9626: Components 02, 04, 12, 32
+    9695: Components 12, 22, 32, 42
+    9699: Components 12, 22, 32, 42
+    9700: Components 12, 22, 33, 42, 52, 95
+    9701: Components 42, 52, 95
+    9702: Components 12, 22, 33, 42, 52, 95
+    9706: Components 12, 22
+    9708: Components 12, 22, 32, 42, 98
+    9709: Components 12, 32, 52, 62, 98
+    9990: Components 12, 22, 32, 42
+
+--- APPLYING FIXES ---
+Applied 0 grade fixes!
+
+--- POST-FIX VERIFICATION ---
+Blank grades after fix: 0
+Total subject results: 1165

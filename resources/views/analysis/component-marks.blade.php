@@ -4,7 +4,7 @@
 @section('page-title', 'Component-wise Marks Analysis')
 
 @section('content')
-<div class="space-y-6 max-w-7xl mx-auto py-2">
+<div class="space-y-6 max-w-full px-6 mx-auto py-2">
     
     <!-- Step 1: Selector Panel -->
     <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm animate-fade-in space-y-4">
@@ -50,9 +50,13 @@
         <!-- Right Side: Component Detailed Dashboard & Analytics (Spans 8 cols) -->
         <div class="lg:col-span-8 space-y-6">
             
-            <!-- Default Placeholder -->
-            <div id="comp-dashboard-placeholder" class="bg-slate-50 border border-dashed border-slate-250 rounded-3xl p-16 text-center text-slate-400 text-xs">
-                Select a component tile from the list to view its yearly trend performance, maximum/minimum scores, and top scorer candidate details.
+            <!-- Default Placeholder (All Components Graph) -->
+            <div id="comp-dashboard-placeholder" class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm space-y-4 text-center text-slate-400 text-xs">
+                <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider text-left">All Components Comparison</h4>
+                <div class="relative h-80 w-full">
+                    <canvas id="allComponentsChart"></canvas>
+                </div>
+                <p class="pt-2">Select a component tile from the list to view its specific yearly trend performance, max/min scores, and top scorer candidate details.</p>
             </div>
 
             <!-- Component Details View Panel -->
@@ -101,25 +105,12 @@
                     </div>
                 </div>
 
-                <!-- Series-wise detailed min/max card -->
-                <div class="bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden">
-                    <div class="px-6 py-4 border-b border-slate-100 bg-slate-50/50">
-                        <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Series High / Low Performers</h4>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse">
-                            <thead>
-                                <tr class="bg-slate-50 border-b border-slate-150 text-slate-500 text-[10px] font-extrabold uppercase tracking-wider">
-                                    <th class="px-6 py-3">Exam Series</th>
-                                    <th class="px-6 py-3">Average Pct</th>
-                                    <th class="px-6 py-3">Max Mark (Candidate)</th>
-                                    <th class="px-6 py-3">Min Mark (Candidate)</th>
-                                </tr>
-                            </thead>
-                            <tbody id="series-performers-tbody" class="divide-y divide-slate-100 text-xs text-slate-600">
-                                <!-- Dynamically filled row records -->
-                            </tbody>
-                        </table>
+                <!-- Series-wise detailed min/max card (Tiles Layout) -->
+                <div class="bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden p-6 space-y-4">
+                    <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Series High / Low Performers</h4>
+                    
+                    <div id="series-performers-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <!-- Dynamically filled tile records -->
                     </div>
                 </div>
 
@@ -139,6 +130,7 @@
     const trendsData = @json($componentTrends);
     
     let trendChartInstance = null;
+    let allComponentsChartInstance = null;
 
     function filterSubjects() {
         const qualId = document.getElementById('qual-select').value;
@@ -246,6 +238,103 @@
             `;
             listContainer.appendChild(btn);
         });
+
+        // Render All Components Chart
+        renderAllComponentsChart(filtered);
+    }
+
+    function renderAllComponentsChart(componentsList) {
+        if (allComponentsChartInstance) {
+            allComponentsChartInstance.destroy();
+        }
+
+        // Collect all unique series labels across all components
+        const allSeriesSet = new Set();
+        componentsList.forEach(c => {
+            const uniqueKey = `${c.subject_id}_${c.code} - ${c.name}`;
+            const trend = trendsData[uniqueKey];
+            if (trend && trend.series_trends) {
+                trend.series_trends.forEach(s => allSeriesSet.add(s.series));
+            }
+        });
+        
+        // Month order for sorting chronologically
+        const monthOrder = {'March': 1, 'June': 2, 'November': 3};
+        const seriesLabels = Array.from(allSeriesSet).sort((a, b) => {
+            // Assume format "June 2023"
+            const [monthA, yearA] = a.split(' ');
+            const [monthB, yearB] = b.split(' ');
+            if (yearA !== yearB) return yearA - yearB;
+            return (monthOrder[monthA] || 0) - (monthOrder[monthB] || 0);
+        });
+
+        const datasets = [];
+        const colors = [
+            '#4f46e5', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', 
+            '#0ea5e9', '#ec4899', '#14b8a6', '#f97316', '#64748b'
+        ];
+
+        componentsList.forEach((c, index) => {
+            if (!c.has_data) return;
+            const uniqueKey = `${c.subject_id}_${c.code} - ${c.name}`;
+            const trend = trendsData[uniqueKey];
+            if (!trend || !trend.series_trends) return;
+
+            const dataPoints = seriesLabels.map(label => {
+                const found = trend.series_trends.find(s => s.series === label);
+                return found ? found.avg_pct : null;
+            });
+
+            const color = colors[index % colors.length];
+            datasets.push({
+                label: `${c.code} - ${c.name}`,
+                data: dataPoints,
+                borderColor: color,
+                backgroundColor: color,
+                borderWidth: 2,
+                pointRadius: 4,
+                tension: 0.3,
+                spanGaps: true
+            });
+        });
+
+        const ctx = document.getElementById('allComponentsChart').getContext('2d');
+        allComponentsChartInstance = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: seriesLabels,
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            boxWidth: 12,
+                            padding: 15,
+                            font: { size: 10 }
+                        }
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    }
+                },
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 100,
+                        grid: { color: '#f1f5f9' },
+                        title: { display: true, text: 'Average Percentage (%)' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
     }
 
     function selectComponent(uniqueKey, component, btnElement) {
@@ -276,7 +365,7 @@
             document.getElementById('comp-lowest').innerHTML = '<span class="text-slate-400 font-bold">N/A</span>';
             document.getElementById('comp-candidates-sat').textContent = '0';
             document.getElementById('comp-candidates-sat-container').title = 'No candidate data';
-            document.getElementById('series-performers-tbody').innerHTML = '<tr><td colspan="4" class="px-6 py-4 text-center text-slate-400 italic">No candidate marks uploaded for this component yet.</td></tr>';
+            document.getElementById('series-performers-grid').innerHTML = '<div class="col-span-full text-center text-slate-400 italic py-6">No candidate marks uploaded for this component yet.</div>';
             
             if (trendChartInstance) {
                 trendChartInstance.destroy();
@@ -311,33 +400,39 @@
         
         // Overall Highest/Lowest marks ever with candidate names
         document.getElementById('comp-highest').innerHTML = `
-            <span class="block text-slate-800 font-black">${component.highest} Marks</span>
+            <span class="block text-slate-800 font-black">${component.highest}/${component.total_marks}</span>
             <span class="block text-[10px] text-slate-400 leading-tight font-semibold truncate">${trend.highest_candidate}</span>
         `;
         document.getElementById('comp-lowest').innerHTML = `
-            <span class="block text-slate-800 font-black">${component.lowest} Marks</span>
+            <span class="block text-slate-800 font-black">${component.lowest}/${component.total_marks}</span>
             <span class="block text-[10px] text-slate-400 leading-tight font-semibold truncate">${trend.lowest_candidate}</span>
         `;
 
-        // Populate table
-        const tbody = document.getElementById('series-performers-tbody');
-        tbody.innerHTML = '';
+        // Populate tiles grid
+        const grid = document.getElementById('series-performers-grid');
+        grid.innerHTML = '';
         trend.series_trends.forEach(row => {
-            const tr = document.createElement('tr');
-            tr.className = 'hover:bg-slate-50/50 transition';
-            tr.innerHTML = `
-                <td class="px-6 py-4 font-bold text-slate-800">${row.series}</td>
-                <td class="px-6 py-4 font-bold text-indigo-650">${row.avg_pct}%</td>
-                <td class="px-6 py-4">
-                    <span class="font-extrabold text-slate-700">${row.max_score} marks</span>
-                    <span class="block text-[10px] text-slate-400 font-semibold">${row.max_candidate}</span>
-                </td>
-                <td class="px-6 py-4">
-                    <span class="font-extrabold text-slate-700">${row.min_score} marks</span>
-                    <span class="block text-[10px] text-slate-400 font-semibold">${row.min_candidate}</span>
-                </td>
+            const tile = document.createElement('div');
+            tile.className = 'bg-slate-50 border border-slate-200 rounded-2xl p-4 flex flex-col justify-between hover:shadow-md transition';
+            tile.innerHTML = `
+                <div class="flex justify-between items-start mb-3 border-b border-slate-150 pb-2">
+                    <span class="font-extrabold text-slate-800 text-sm">${row.series}</span>
+                    <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2 py-0.5 rounded-md">${row.avg_pct}% Avg</span>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-1">
+                    <div class="bg-emerald-50/50 rounded-xl p-2 border border-emerald-100">
+                        <span class="block text-[9px] font-black text-emerald-600/80 uppercase tracking-wider mb-0.5">Highest</span>
+                        <span class="block font-extrabold text-emerald-700 text-sm leading-none">${Math.round(row.max_score)}/${component.total_marks}</span>
+                        <span class="block text-[9px] text-slate-400 font-semibold mt-1 truncate" title="${row.max_candidate}">${row.max_candidate}</span>
+                    </div>
+                    <div class="bg-rose-50/50 rounded-xl p-2 border border-rose-100">
+                        <span class="block text-[9px] font-black text-rose-600/80 uppercase tracking-wider mb-0.5">Lowest</span>
+                        <span class="block font-extrabold text-rose-700 text-sm leading-none">${Math.round(row.min_score)}/${component.total_marks}</span>
+                        <span class="block text-[9px] text-slate-400 font-semibold mt-1 truncate" title="${row.min_candidate}">${row.min_candidate}</span>
+                    </div>
+                </div>
             `;
-            tbody.appendChild(tr);
+            grid.appendChild(tile);
         });
 
         // Render Chart

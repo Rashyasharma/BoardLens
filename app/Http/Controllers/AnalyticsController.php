@@ -22,11 +22,11 @@ class AnalyticsController extends Controller
      */
     public function yearly(Request $request)
     {
-        $filters = $request->only(['year', 'series_id', 'subject_id', 'qualification_type', 'grade']);
+        $filters = $request->only(['year', 'series_id', 'month', 'subject_id', 'qualification_type', 'grade']);
         
         // Scope filters to school
-        if (auth()->user()->school_id) {
-            $filters['school_id'] = auth()->user()->school_id;
+        if (auth()->user()?->school_id) {
+            $filters['school_id'] = auth()->user()?->school_id;
         }
 
         $gradeDistribution = $this->analyticsService->getGradeDistribution($filters);
@@ -72,10 +72,10 @@ class AnalyticsController extends Controller
     public function export(Request $request)
     {
         $format = $request->input('format', 'pdf');
-        $filters = $request->only(['year', 'series_id', 'subject_id']);
+        $filters = $request->only(['year', 'series_id', 'month', 'subject_id']);
         
-        if (auth()->user()->school_id) {
-            $filters['school_id'] = auth()->user()->school_id;
+        if (auth()->user()?->school_id) {
+            $filters['school_id'] = auth()->user()?->school_id;
         }
 
         $gradeDistribution = $this->analyticsService->getGradeDistribution($filters);

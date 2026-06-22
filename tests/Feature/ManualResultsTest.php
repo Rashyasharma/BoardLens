@@ -66,8 +66,17 @@ class ManualResultsTest extends TestCase
 
     public function test_components_default_to_applicable_when_no_result()
     {
+        $defaultSet = \App\Models\ComponentSet::create([
+            'subject_id' => $this->subject->id,
+            'start_year' => null,
+            'end_year' => null,
+            'label' => 'Default',
+            'is_default' => true,
+        ]);
+
         $comp1 = Component::create([
             'subject_id' => $this->subject->id,
+            'component_set_id' => $defaultSet->id,
             'component_code' => 'P1',
             'component_name' => 'Pure Mathematics 1',
             'total_marks' => 75,

@@ -54,7 +54,6 @@
                             <span class="text-xs font-semibold text-slate-500">Max: {{ $comp->total_marks }} marks</span>
                         </div>
                         <h4 class="text-sm font-bold text-slate-800">{{ $comp->component_name }}</h4>
-                        <p class="text-xs text-slate-400">Scaling Factor: {{ $comp->scaling_factor }}/10</p>
                     </div>
 
                     <!-- Input Form -->

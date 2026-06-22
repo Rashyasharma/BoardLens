@@ -13,14 +13,17 @@ class Component extends Model
 
     protected $fillable = [
         'subject_id',
+        'component_set_id',
         'component_code',
         'component_name',
         'component_type',
+        'component_label',
         'total_marks',
         'scaling_factor',
         'is_mandatory',
         'description',
-        'level_id'
+        'level_id',
+        'series_id',
     ];
 
     protected $casts = [
@@ -32,6 +35,11 @@ class Component extends Model
     public function subject(): BelongsTo
     {
         return $this->belongsTo(Subject::class);
+    }
+
+    public function componentSet(): BelongsTo
+    {
+        return $this->belongsTo(ComponentSet::class, 'component_set_id');
     }
 
     public function level(): BelongsTo

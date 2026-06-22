@@ -1,0 +1,85 @@
+﻿=== COMPONENT CLEANUP & ADD ===
+
+ADDING components for IGCSE/0400 (Art And Design): 01, 02
+ADDING components for IGCSE/0417 (Information And Communication): 02, 03, 12
+ADDING components for IGCSE/0450 (Business Studies): 12, 22
+ADDING components for IGCSE/0452 (Accounting): 12, 22
+ADDING components for IGCSE/0455 (Economics): 12, 22
+ADDING components for IGCSE/0460 (Geography): 12, 22, 42
+ADDING components for IGCSE/0471 (Travel And Tourism): 12, 22
+ADDING components for IGCSE/0472 (English (Additional Language)): 03, 12, 22, 42
+ADDING components for IGCSE/0475 (Literature In English): 12, 32, 42
+ADDING components for IGCSE/0500 (English Language): 12, 22
+ADDING components for IGCSE/0510 (English As A Second Language): 12, 22, 32
+ADDING components for IGCSE/0520 (French (Foreign Language)): 03, 12, 22, 42
+ADDING components for IGCSE/0549 (Hindi As A Second Language): 01, 02
+ADDING components for IGCSE/0580 (Mathematics): 12, 22, 32, 42
+ADDING components for IGCSE/0606 (Additional Mathematics): 12, 22
+ADDING components for IGCSE/0607 (Cambridge Int Mathematics): 12, 22, 32, 42, 52, 62
+ADDING components for IGCSE/0610 (Biology (Pure)): 12, 32, 62
+ADDING components for IGCSE/0620 (Chemistry (Pure)): 22, 42, 62
+ADDING components for IGCSE/0625 (Physics (Pure)): 22, 42, 62
+ADDING components for IGCSE/0653 (Combined Science): 12, 32, 62
+ADDING components for IGCSE/0654 (Co-Ord Sciences (Double Award)): 22, 42, 62
+ADDING components for IGCSE/0680 (Environmental Management): 12, 22
+ADDING components for AS_A_LEVEL/8021 (English General Paper): 12, 22
+ADDING components for AS_A_LEVEL/9093 (English Language): 12, 22, 32, 42, 88
+ADDING components for AS_A_LEVEL/9479 (Art And Design): 01, 02
+ADDING components for AS_A_LEVEL/9489 (History): 12, 22
+ADDING components for AS_A_LEVEL/9609 (Business): 12, 22, 32, 42
+ADDING components for AS_A_LEVEL/9618 (Computer Science): 32, 42, 88
+ADDING components for AS_A_LEVEL/9626 (Information Technology): 02, 04, 12, 32
+ADDING components for AS_A_LEVEL/9695 (Literature In English): 12, 22, 32, 42
+ADDING components for AS_A_LEVEL/9699 (Sociology): 12, 22, 32, 42
+ADDING components for AS_A_LEVEL/9700 (Biology): 12, 22, 33, 42, 52, 95
+ADDING components for AS_A_LEVEL/9701 (Chemistry): 42, 52, 95
+ADDING components for AS_A_LEVEL/9702 (Physics): 12, 22, 33, 42, 52, 95
+ADDING components for AS_A_LEVEL/9706 (Accounting): 12, 22
+ADDING components for AS_A_LEVEL/9708 (Economics): 12, 22, 32, 42, 98
+ADDING components for AS_A_LEVEL/9709 (Mathematics): 12, 32, 52, 62, 98
+ADDING components for AS_A_LEVEL/9990 (Psychology): 12, 22, 32, 42
+
+--- CHECKING FOR DUPLICATE COMPONENTS ---
+
+=== FINAL COMPONENT STATUS ===
+  [AS_A_LEVEL] 8021 (English General Paper): 2 components - 12, 22 [OK]
+  [AS_A_LEVEL] 9093 (English Language): 5 components - 12, 22, 32, 42, 88 [OK]
+  [AS_A_LEVEL] 9479 (Art And Design): 2 components - 01, 02 [OK]
+  [AS_A_LEVEL] 9489 (History): 2 components - 12, 22 [OK]
+  [AS_A_LEVEL] 9609 (Business): 4 components - 12, 22, 32, 42 [OK]
+  [AS_A_LEVEL] 9618 (Computer Science): 3 components - 32, 42, 88 [OK]
+  [AS_A_LEVEL] 9626 (Information Technology): 4 components - 02, 04, 12, 32 [OK]
+  [AS_A_LEVEL] 9695 (Literature In English): 4 components - 12, 22, 32, 42 [OK]
+  [AS_A_LEVEL] 9699 (Sociology): 4 components - 12, 22, 32, 42 [OK]
+  [AS_A_LEVEL] 9700 (Biology): 6 components - 12, 22, 33, 42, 52, 95 [OK]
+  [AS_A_LEVEL] 9701 (Chemistry): 3 components - 42, 52, 95 [OK]
+  [AS_A_LEVEL] 9702 (Physics): 6 components - 12, 22, 33, 42, 52, 95 [OK]
+  [AS_A_LEVEL] 9706 (Accounting): 2 components - 12, 22 [OK]
+  [AS_A_LEVEL] 9708 (Economics): 5 components - 12, 22, 32, 42, 98 [OK]
+  [AS_A_LEVEL] 9709 (Mathematics): 5 components - 12, 32, 52, 62, 98 [OK]
+  [AS_A_LEVEL] 9990 (Psychology): 4 components - 12, 22, 32, 42 [OK]
+  [IGCSE] 0400 (Art And Design): 2 components - 01, 02 [OK]
+  [IGCSE] 0417 (Information And Communication): 3 components - 02, 03, 12 [OK]
+  [IGCSE] 0450 (Business Studies): 2 components - 12, 22 [OK]
+  [IGCSE] 0452 (Accounting): 2 components - 12, 22 [OK]
+  [IGCSE] 0455 (Economics): 2 components - 12, 22 [OK]
+  [IGCSE] 0460 (Geography): 3 components - 12, 22, 42 [OK]
+  [IGCSE] 0471 (Travel And Tourism): 2 components - 12, 22 [OK]
+  [IGCSE] 0472 (English (Additional Language)): 4 components - 03, 12, 22, 42 [OK]
+  [IGCSE] 0475 (Literature In English): 3 components - 12, 32, 42 [OK]
+  [IGCSE] 0478 (Computer Science): 4 components - P1, P2, 1, 2 [OK]
+  [IGCSE] 0500 (English Language): 2 components - 12, 22 [OK]
+  [IGCSE] 0510 (English As A Second Language): 3 components - 12, 22, 32 [OK]
+  [IGCSE] 0520 (French (Foreign Language)): 4 components - 03, 12, 22, 42 [OK]
+  [IGCSE] 0549 (Hindi As A Second Language): 2 components - 01, 02 [OK]
+  [IGCSE] 0580 (Mathematics): 4 components - 12, 22, 32, 42 [OK]
+  [IGCSE] 0606 (Additional Mathematics): 2 components - 12, 22 [OK]
+  [IGCSE] 0607 (Cambridge Int Mathematics): 6 components - 12, 22, 32, 42, 52, 62 [OK]
+  [IGCSE] 0610 (Biology (Pure)): 3 components - 12, 32, 62 [OK]
+  [IGCSE] 0620 (Chemistry (Pure)): 3 components - 22, 42, 62 [OK]
+  [IGCSE] 0625 (Physics (Pure)): 3 components - 22, 42, 62 [OK]
+  [IGCSE] 0653 (Combined Science): 3 components - 12, 32, 62 [OK]
+  [IGCSE] 0654 (Co-Ord Sciences (Double Award)): 3 components - 22, 42, 62 [OK]
+  [IGCSE] 0680 (Environmental Management): 2 components - 12, 22 [OK]
+
+Subjects with no components: 0

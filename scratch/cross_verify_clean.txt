@@ -1,0 +1,734 @@
+﻿Loaded 1161 subject results from DB
+
+Found 32 broadsheet files
+
+=== Processing: IN016 IGCSE Provisional Component Marks June 2022.xlsx (Series: JUN-2022, Qual: IGCSE) ===
+=== Processing: IN016 IGCSE Provisional Component Marks June 2023.xlsx (Series: JUN-2023, Qual: IGCSE) ===
+=== Processing: IN016 IGCSE Provisional Component Marks June 2024.xlsx (Series: JUN-2024, Qual: IGCSE) ===
+=== Processing: IN016 IGCSE Provisional Component Marks June 2025.xlsx (Series: JUN-2025, Qual: IGCSE) ===
+=== Processing: IN016 IGCSE Provisional Component Marks March 2019.xlsx (Series: MAR-2019, Qual: IGCSE) ===
+=== Processing: IN016 IGCSE Provisional Component Marks March 2020.xlsx (Series: MAR-2020, Qual: IGCSE) ===
+=== Processing: IN016 IGCSE Provisional Component Marks March 2021.xlsx (Series: MAR-2021, Qual: IGCSE) ===
+=== Processing: IN016 IGCSE Provisional Component Marks March 2023.xlsx (Series: MAR-2023, Qual: IGCSE) ===
+=== Processing: IN016 IGCSE Provisional Component Marks March 2024.xlsx (Series: MAR-2024, Qual: IGCSE) ===
+=== Processing: IN016 IGCSE Provisional Component Marks March 2025.xlsx (Series: MAR-2025, Qual: IGCSE) ===
+=== Processing: IN016 IGCSE Provisional Component Marks March 2026.xlsx (Series: MAR-2026, Qual: IGCSE) ===
+=== Processing: IN016 IGCSE Provisional Component Marks November 2019.xlsx (Series: NOV-2019, Qual: IGCSE) ===
+=== Processing: IN016 IGCSE Provisional Component Marks November 2021.xlsx (Series: NOV-2021, Qual: IGCSE) ===
+=== Processing: IN016 IGCSE Provisional Component Marks November 2024.xlsx (Series: NOV-2024, Qual: IGCSE) ===
+=== Processing: IN016 IGCSE Provisional Component Marks November 2025.xlsx (Series: NOV-2025, Qual: IGCSE) ===
+=== Processing: IN016 AS A Level Provisional Component Marks June 2022.xlsx (Series: JUN-2022, Qual: AS_A_LEVEL) ===
+=== Processing: IN016 AS A Level Provisional Component Marks June 2023.xlsx (Series: JUN-2023, Qual: AS_A_LEVEL) ===
+=== Processing: IN016 AS A Level Provisional Component Marks June 2024.xlsx (Series: JUN-2024, Qual: AS_A_LEVEL) ===
+=== Processing: IN016 AS A Level Provisional Component Marks June 2025.xlsx (Series: JUN-2025, Qual: AS_A_LEVEL) ===
+=== Processing: IN016 AS A Level Provisional Component Marks March 2020.xlsx (Series: MAR-2020, Qual: AS_A_LEVEL) ===
+=== Processing: IN016 AS A Level Provisional Component Marks March 2021.xlsx (Series: MAR-2021, Qual: AS_A_LEVEL) ===
+=== Processing: IN016 AS A Level Provisional Component Marks March 2023.xlsx (Series: MAR-2023, Qual: AS_A_LEVEL) ===
+=== Processing: IN016 AS A Level Provisional Component Marks March 2024.xlsx (Series: MAR-2024, Qual: AS_A_LEVEL) ===
+=== Processing: IN016 AS A Level Provisional Component Marks March 2025.xlsx (Series: MAR-2025, Qual: AS_A_LEVEL) ===
+=== Processing: IN016 AS A Level Provisional Component Marks March 2026.xlsx (Series: MAR-2026, Qual: AS_A_LEVEL) ===
+=== Processing: IN016 AS A Level Provisional Component Marks November 2020.xlsx (Series: NOV-2020, Qual: AS_A_LEVEL) ===
+=== Processing: IN016 AS A Level Provisional Component Marks November 2021.xlsx (Series: NOV-2021, Qual: AS_A_LEVEL) ===
+=== Processing: IN016 AS A Level Provisional Component Marks November 2022.xlsx (Series: NOV-2022, Qual: AS_A_LEVEL) ===
+=== Processing: IN016 AS A Level Provisional Component Marks November 2024.xlsx (Series: NOV-2024, Qual: AS_A_LEVEL) ===
+=== Processing: IN016 AS A Level Provisional Component Marks November 2025.xlsx (Series: NOV-2025, Qual: AS_A_LEVEL) ===
+
+===============================
+=== VERIFICATION SUMMARY ===
+===============================
+
+--- GRADE MISMATCHES ---
+  [JUN-2022] Subject 0580 Candidate 0006 (Harshvardhan Singh): Broadsheet=A vs DB=A*
+  [JUN-2023] Subject 0417 Candidate 0001 (Molly Dilipkumar Chopra): Broadsheet=B vs DB=D
+  [JUN-2023] Subject 0510 Candidate 0001 (Molly Dilipkumar Chopra): Broadsheet=C vs DB=B
+  [JUN-2023] Subject 0580 Candidate 0001 (Molly Dilipkumar Chopra): Broadsheet=A vs DB=A*
+  [JUN-2023] Subject 0620 Candidate 0001 (Molly Dilipkumar Chopra): Broadsheet=A vs DB=A*
+  [JUN-2024] Subject 0450 Candidate 0011 (Anvi Talesara): Broadsheet=F vs DB=G
+  [JUN-2024] Subject 0450 Candidate 0012 (Devansh Pareek): Broadsheet=D vs DB=C
+  [JUN-2024] Subject 0455 Candidate 0010 (Aishwarya Sisodia): Broadsheet=F vs DB=D
+  [JUN-2024] Subject 0455 Candidate 0011 (Anvi Talesara): Broadsheet=E vs DB=F
+  [JUN-2024] Subject 0455 Candidate 0012 (Devansh Pareek): Broadsheet=A vs DB=D
+  [JUN-2024] Subject 0455 Candidate 0013 (Vihaan Mogra): Broadsheet=B vs DB=C
+  [JUN-2024] Subject 0500 Candidate 0010 (Aishwarya Sisodia): Broadsheet=F vs DB=E
+  [JUN-2024] Subject 0500 Candidate 0011 (Anvi Talesara): Broadsheet=F vs DB=E
+  [JUN-2024] Subject 0500 Candidate 0012 (Devansh Pareek): Broadsheet=G vs DB=F
+  [JUN-2024] Subject 0607 Candidate 0010 (Aishwarya Sisodia): Broadsheet= vs DB=D
+  [JUN-2024] Subject 0607 Candidate 0013 (Vihaan Mogra): Broadsheet= vs DB=C
+  [JUN-2024] Subject 0610 Candidate 0010 (Aishwarya Sisodia): Broadsheet= vs DB=E
+  [JUN-2024] Subject 0610 Candidate 0011 (Anvi Talesara): Broadsheet=G vs DB=U
+  [JUN-2025] Subject 0455 Candidate 0008 (Divyansh Jain): Broadsheet=A vs DB=B
+  [JUN-2025] Subject 0455 Candidate 0009 (Jinal Solanki): Broadsheet=C vs DB=B
+  [JUN-2025] Subject 0455 Candidate 0011 (Niharika Sharma): Broadsheet=D vs DB=C
+  [JUN-2025] Subject 0455 Candidate 0037 (Ayushman Solanki): Broadsheet=D vs DB=E
+  [JUN-2025] Subject 0471 Candidate 0005 (Bharat Puniya): Broadsheet=A vs DB=B
+  [JUN-2025] Subject 0472 Candidate 0005 (Bharat Puniya): Broadsheet=A vs DB=A*
+  [JUN-2025] Subject 0520 Candidate 0012 (Kartik Rankawat): Broadsheet=D vs DB=C
+  [JUN-2025] Subject 0625 Candidate 0006 (Nikhil Kachhwaha): Broadsheet=A vs DB=A*
+  [JUN-2025] Subject 0654 Candidate 0008 (Divyansh Jain): Broadsheet=AA vs DB=A*A*
+  [JUN-2025] Subject 0680 Candidate 0005 (Bharat Puniya): Broadsheet=A vs DB=A*
+  [JUN-2025] Subject 0680 Candidate 0007 (Jhanak Sharma): Broadsheet=A vs DB=B
+  [MAR-2019] Subject 0417 Candidate 0001 (Abhayraj Tak): Broadsheet=C vs DB=B
+  [MAR-2019] Subject 0417 Candidate 0004 (Harsh Sharma): Broadsheet=C vs DB=B
+  [MAR-2019] Subject 0417 Candidate 0007 (Mehraj Ali): Broadsheet=U vs DB=F
+  [MAR-2019] Subject 0417 Candidate 0009 (Rishit Mantri): Broadsheet=B vs DB=A
+  [MAR-2019] Subject 0455 Candidate 0001 (Abhayraj Tak): Broadsheet=A vs DB=C
+  [MAR-2019] Subject 0455 Candidate 0002 (Abhishek Bishnoi): Broadsheet=A vs DB=A*
+  [MAR-2019] Subject 0455 Candidate 0003 (Aryan): Broadsheet=A vs DB=C
+  [MAR-2019] Subject 0455 Candidate 0004 (Harsh Sharma): Broadsheet=A vs DB=C
+  [MAR-2019] Subject 0455 Candidate 0005 (Khush Jirawala): Broadsheet=A vs DB=C
+  [MAR-2019] Subject 0455 Candidate 0006 (Lucky Jangid): Broadsheet=A vs DB=B
+  [MAR-2019] Subject 0455 Candidate 0009 (Rishit Mantri): Broadsheet=A vs DB=B
+  [MAR-2019] Subject 0455 Candidate 0011 (Sanjay): Broadsheet=A vs DB=C
+  [MAR-2019] Subject 0510 Candidate 0001 (Abhayraj Tak): Broadsheet=C vs DB=B
+  [MAR-2019] Subject 0510 Candidate 0006 (Lucky Jangid): Broadsheet=B vs DB=C
+  [MAR-2019] Subject 0510 Candidate 0008 (Prabhav Agarwal): Broadsheet=E vs DB=D
+  [MAR-2019] Subject 0510 Candidate 0010 (Ronak Agarwal): Broadsheet=D vs DB=C
+  [MAR-2019] Subject 0510 Candidate 0011 (Sanjay): Broadsheet=U vs DB=E
+  [MAR-2019] Subject 0549 Candidate 0002 (Abhishek Bishnoi): Broadsheet=A vs DB=A*
+  [MAR-2019] Subject 0549 Candidate 0006 (Lucky Jangid): Broadsheet=C vs DB=B
+  [MAR-2019] Subject 0549 Candidate 0007 (Mehraj Ali): Broadsheet=D vs DB=C
+  [MAR-2019] Subject 0549 Candidate 0008 (Prabhav Agarwal): Broadsheet=B vs DB=A
+  [MAR-2019] Subject 0549 Candidate 0010 (Ronak Agarwal): Broadsheet=D vs DB=B
+  [MAR-2019] Subject 0580 Candidate 0001 (Abhayraj Tak): Broadsheet= vs DB=C
+  [MAR-2019] Subject 0580 Candidate 0002 (Abhishek Bishnoi): Broadsheet= vs DB=A*
+  [MAR-2019] Subject 0580 Candidate 0003 (Aryan): Broadsheet= vs DB=B
+  [MAR-2019] Subject 0580 Candidate 0004 (Harsh Sharma): Broadsheet= vs DB=A
+  [MAR-2019] Subject 0580 Candidate 0005 (Khush Jirawala): Broadsheet= vs DB=A
+  [MAR-2019] Subject 0580 Candidate 0006 (Lucky Jangid): Broadsheet= vs DB=C
+  [MAR-2019] Subject 0580 Candidate 0008 (Prabhav Agarwal): Broadsheet= vs DB=A
+  [MAR-2019] Subject 0580 Candidate 0009 (Rishit Mantri): Broadsheet= vs DB=A*
+  [MAR-2019] Subject 0580 Candidate 0011 (Sanjay): Broadsheet= vs DB=A*
+  [MAR-2019] Subject 0620 Candidate 0001 (Abhayraj Tak): Broadsheet=B vs DB=C
+  [MAR-2019] Subject 0620 Candidate 0002 (Abhishek Bishnoi): Broadsheet=B vs DB=A
+  [MAR-2019] Subject 0620 Candidate 0009 (Rishit Mantri): Broadsheet=B vs DB=A
+  [MAR-2019] Subject 0625 Candidate 0001 (Abhayraj Tak): Broadsheet=B vs DB=C
+  [MAR-2019] Subject 0625 Candidate 0004 (Harsh Sharma): Broadsheet=C vs DB=B
+  [MAR-2019] Subject 0625 Candidate 0009 (Rishit Mantri): Broadsheet=C vs DB=B
+  [MAR-2019] Subject 0653 Candidate 0003 (Aryan): Broadsheet= vs DB=B
+  [MAR-2019] Subject 0653 Candidate 0005 (Khush Jirawala): Broadsheet= vs DB=B
+  [MAR-2019] Subject 0653 Candidate 0006 (Lucky Jangid): Broadsheet= vs DB=B
+  [MAR-2019] Subject 0653 Candidate 0008 (Prabhav Agarwal): Broadsheet= vs DB=B
+  [MAR-2019] Subject 0653 Candidate 0011 (Sanjay): Broadsheet= vs DB=B
+  [MAR-2020] Subject 0400 Candidate 0003 (Mitesh Mishra): Broadsheet=C vs DB=D
+  [MAR-2020] Subject 0400 Candidate 0004 (Parth Raj Mathur): Broadsheet=D vs DB=E
+  [MAR-2020] Subject 0455 Candidate 0001 (Agrima Sharma): Broadsheet=A vs DB=B
+  [MAR-2020] Subject 0455 Candidate 0002 (Keshav Gehlot): Broadsheet=A vs DB=B
+  [MAR-2020] Subject 0455 Candidate 0005 (Ramchandra Ramsnehi): Broadsheet=A vs DB=B
+  [MAR-2020] Subject 0455 Candidate 0006 (Sawai Gurjar): Broadsheet=A vs DB=C
+  [MAR-2020] Subject 0510 Candidate 0001 (Agrima Sharma): Broadsheet=D vs DB=C
+  [MAR-2020] Subject 0510 Candidate 0003 (Mitesh Mishra): Broadsheet=U vs DB=E
+  [MAR-2020] Subject 0510 Candidate 0005 (Ramchandra Ramsnehi): Broadsheet=D vs DB=C
+  [MAR-2020] Subject 0510 Candidate 0007 (Yugan Sharma): Broadsheet=U vs DB=E
+  [MAR-2020] Subject 0549 Candidate 0002 (Keshav Gehlot): Broadsheet=D vs DB=C
+  [MAR-2020] Subject 0549 Candidate 0003 (Mitesh Mishra): Broadsheet=C vs DB=B
+  [MAR-2020] Subject 0549 Candidate 0004 (Parth Raj Mathur): Broadsheet=C vs DB=A
+  [MAR-2020] Subject 0549 Candidate 0005 (Ramchandra Ramsnehi): Broadsheet=A vs DB=A*
+  [MAR-2020] Subject 0549 Candidate 0006 (Sawai Gurjar): Broadsheet=A vs DB=A*
+  [MAR-2020] Subject 0549 Candidate 0007 (Yugan Sharma): Broadsheet=F vs DB=D
+  [MAR-2020] Subject 0580 Candidate 0003 (Mitesh Mishra): Broadsheet=G vs DB=E
+  [MAR-2020] Subject 0580 Candidate 0007 (Yugan Sharma): Broadsheet=F vs DB=D
+  [MAR-2020] Subject 0580 Candidate 0001 (Agrima Sharma): Broadsheet= vs DB=C
+  [MAR-2020] Subject 0580 Candidate 0002 (Keshav Gehlot): Broadsheet= vs DB=B
+  [MAR-2020] Subject 0580 Candidate 0004 (Parth Raj Mathur): Broadsheet= vs DB=B
+  [MAR-2020] Subject 0580 Candidate 0005 (Ramchandra Ramsnehi): Broadsheet= vs DB=A
+  [MAR-2020] Subject 0580 Candidate 0006 (Sawai Gurjar): Broadsheet= vs DB=B
+  [MAR-2020] Subject 0653 Candidate 0001 (Agrima Sharma): Broadsheet= vs DB=C
+  [MAR-2020] Subject 0653 Candidate 0002 (Keshav Gehlot): Broadsheet= vs DB=A
+  [MAR-2020] Subject 0653 Candidate 0004 (Parth Raj Mathur): Broadsheet= vs DB=A
+  [MAR-2020] Subject 0653 Candidate 0005 (Ramchandra Ramsnehi): Broadsheet= vs DB=B
+  [MAR-2020] Subject 0653 Candidate 0006 (Sawai Gurjar): Broadsheet= vs DB=B
+  [MAR-2020] Subject 0653 Candidate 0003 (Mitesh Mishra): Broadsheet=C vs DB=E
+  [MAR-2021] Subject 0417 Candidate 0005 (Navya Vaishnav): Broadsheet=A vs DB=B
+  [MAR-2021] Subject 0417 Candidate 0007 (Suhani Chauhan): Broadsheet=A vs DB=B
+  [MAR-2021] Subject 0417 Candidate 0008 (Vinisha Mantri): Broadsheet=A vs DB=B
+  [MAR-2021] Subject 0455 Candidate 0004 (Jog Singh Rathore): Broadsheet=D vs DB=E
+  [MAR-2021] Subject 0455 Candidate 0005 (Navya Vaishnav): Broadsheet=A vs DB=B
+  [MAR-2021] Subject 0455 Candidate 0009 (Yashvardhan Singh): Broadsheet=D vs DB=F
+  [MAR-2021] Subject 0510 Candidate 0001 (Aditi Jangid): Broadsheet=B vs DB=C
+  [MAR-2021] Subject 0510 Candidate 0004 (Jog Singh Rathore): Broadsheet=C vs DB=E
+  [MAR-2021] Subject 0510 Candidate 0007 (Suhani Chauhan): Broadsheet=B vs DB=C
+  [MAR-2021] Subject 0510 Candidate 0009 (Yashvardhan Singh): Broadsheet=C vs DB=D
+  [MAR-2021] Subject 0520 Candidate 0004 (Jog Singh Rathore): Broadsheet=C vs DB=D
+  [MAR-2021] Subject 0520 Candidate 0008 (Vinisha Mantri): Broadsheet=C vs DB=B
+  [MAR-2021] Subject 0549 Candidate 0002 (Ajar Pandey): Broadsheet=A vs DB=A*
+  [MAR-2021] Subject 0549 Candidate 0006 (Radhika Gehlot): Broadsheet=A vs DB=A*
+  [MAR-2021] Subject 0549 Candidate 0007 (Suhani Chauhan): Broadsheet=A vs DB=A*
+  [MAR-2021] Subject 0580 Candidate 0001 (Aditi Jangid): Broadsheet=C vs DB=D
+  [MAR-2021] Subject 0580 Candidate 0002 (Ajar Pandey): Broadsheet= vs DB=A
+  [MAR-2021] Subject 0580 Candidate 0004 (Jog Singh Rathore): Broadsheet= vs DB=C
+  [MAR-2021] Subject 0580 Candidate 0005 (Navya Vaishnav): Broadsheet= vs DB=A*
+  [MAR-2021] Subject 0580 Candidate 0006 (Radhika Gehlot): Broadsheet= vs DB=A*
+  [MAR-2021] Subject 0580 Candidate 0007 (Suhani Chauhan): Broadsheet= vs DB=A*
+  [MAR-2021] Subject 0580 Candidate 0008 (Vinisha Mantri): Broadsheet= vs DB=A*
+  [MAR-2021] Subject 0653 Candidate 0001 (Aditi Jangid): Broadsheet=F vs DB=E
+  [MAR-2021] Subject 0654 Candidate 0004 (Jog Singh Rathore): Broadsheet=GG vs DB=DD
+  [MAR-2021] Subject 0654 Candidate 0005 (Navya Vaishnav): Broadsheet=CC vs DB=BB
+  [MAR-2021] Subject 0654 Candidate 0006 (Radhika Gehlot): Broadsheet=AA vs DB=A*A*
+  [MAR-2021] Subject 0654 Candidate 0007 (Suhani Chauhan): Broadsheet=BB vs DB=AA
+  [MAR-2021] Subject 0654 Candidate 0008 (Vinisha Mantri): Broadsheet=AA vs DB=A*A*
+  [MAR-2023] Subject 0400 Candidate 0002 (Krishna Soni): Broadsheet=D vs DB=E
+  [MAR-2023] Subject 0400 Candidate 0006 (Suman Champawat): Broadsheet=E vs DB=D
+  [MAR-2023] Subject 0417 Candidate 0005 (Ronik Mewara): Broadsheet=C vs DB=B
+  [MAR-2023] Subject 0417 Candidate 0008 (Vipul Kachhwaha): Broadsheet=B vs DB=A
+  [MAR-2023] Subject 0455 Candidate 0003 (Mahek Bhambhani): Broadsheet=C vs DB=B
+  [MAR-2023] Subject 0455 Candidate 0004 (Riya Bhandari): Broadsheet=D vs DB=E
+  [MAR-2023] Subject 0455 Candidate 0005 (Ronik Mewara): Broadsheet=C vs DB=D
+  [MAR-2023] Subject 0455 Candidate 0008 (Vipul Kachhwaha): Broadsheet=B vs DB=C
+  [MAR-2023] Subject 0510 Candidate 0004 (Riya Bhandari): Broadsheet=C vs DB=B
+  [MAR-2023] Subject 0510 Candidate 0005 (Ronik Mewara): Broadsheet=D vs DB=C
+  [MAR-2023] Subject 0510 Candidate 0008 (Vipul Kachhwaha): Broadsheet=B vs DB=A
+  [MAR-2023] Subject 0520 Candidate 0004 (Riya Bhandari): Broadsheet=B vs DB=A
+  [MAR-2023] Subject 0520 Candidate 0007 (Vikram Kumar Prajapat): Broadsheet=G vs DB=F
+  [MAR-2023] Subject 0549 Candidate 0001 (Aryan Nakhawat): Broadsheet=U vs DB=G
+  [MAR-2023] Subject 0549 Candidate 0003 (Mahek Bhambhani): Broadsheet=A vs DB=A*
+  [MAR-2023] Subject 0580 Candidate 0003 (Mahek Bhambhani): Broadsheet= vs DB=A
+  [MAR-2023] Subject 0580 Candidate 0004 (Riya Bhandari): Broadsheet= vs DB=B
+  [MAR-2023] Subject 0580 Candidate 0005 (Ronik Mewara): Broadsheet= vs DB=C
+  [MAR-2023] Subject 0580 Candidate 0006 (Suman Champawat): Broadsheet= vs DB=D
+  [MAR-2023] Subject 0580 Candidate 0008 (Vipul Kachhwaha): Broadsheet= vs DB=A*
+  [MAR-2023] Subject 0653 Candidate 0001 (Aryan Nakhawat): Broadsheet=C vs DB=E
+  [MAR-2023] Subject 0653 Candidate 0007 (Vikram Kumar Prajapat): Broadsheet=E vs DB=G
+  [MAR-2023] Subject 0654 Candidate 0003 (Mahek Bhambhani): Broadsheet=AA vs DB=A*A*
+  [MAR-2023] Subject 0654 Candidate 0005 (Ronik Mewara): Broadsheet=AA vs DB=BB
+  [MAR-2023] Subject 0654 Candidate 0008 (Vipul Kachhwaha): Broadsheet=AA vs DB=A*A*
+  [MAR-2024] Subject 0417 Candidate 0001 (Anand Kanwar Padiyar): Broadsheet=C vs DB=D
+  [MAR-2024] Subject 0417 Candidate 0002 (Bhanupriya Rana): Broadsheet=G vs DB=D
+  [MAR-2024] Subject 0417 Candidate 0003 (Himanshi Agarwal): Broadsheet=C vs DB=B
+  [MAR-2024] Subject 0417 Candidate 0005 (Jahanara Khan): Broadsheet=U vs DB=F
+  [MAR-2024] Subject 0417 Candidate 0006 (Kalyani Yadav): Broadsheet=D vs DB=C
+  [MAR-2024] Subject 0417 Candidate 0007 (Kamlesh Chaudhary): Broadsheet=E vs DB=C
+  [MAR-2024] Subject 0417 Candidate 0009 (Manisha Yadav): Broadsheet=G vs DB=F
+  [MAR-2024] Subject 0417 Candidate 0010 (Preet Singh): Broadsheet=C vs DB=B
+  [MAR-2024] Subject 0417 Candidate 0011 (Priyal Chopra): Broadsheet=D vs DB=B
+  [MAR-2024] Subject 0455 Candidate 0001 (Anand Kanwar Padiyar): Broadsheet=A vs DB=C
+  [MAR-2024] Subject 0455 Candidate 0002 (Bhanupriya Rana): Broadsheet=E vs DB=F
+  [MAR-2024] Subject 0455 Candidate 0003 (Himanshi Agarwal): Broadsheet=A vs DB=C
+  [MAR-2024] Subject 0455 Candidate 0004 (Hiten Jain): Broadsheet=A vs DB=C
+  [MAR-2024] Subject 0455 Candidate 0006 (Kalyani Yadav): Broadsheet=E vs DB=D
+  [MAR-2024] Subject 0455 Candidate 0007 (Kamlesh Chaudhary): Broadsheet=A vs DB=C
+  [MAR-2024] Subject 0455 Candidate 0011 (Priyal Chopra): Broadsheet=E vs DB=C
+  [MAR-2024] Subject 0510 Candidate 0002 (Bhanupriya Rana): Broadsheet=F vs DB=E
+  [MAR-2024] Subject 0510 Candidate 0003 (Himanshi Agarwal): Broadsheet=C vs DB=B
+  [MAR-2024] Subject 0510 Candidate 0004 (Hiten Jain): Broadsheet=U vs DB=F
+  [MAR-2024] Subject 0510 Candidate 0006 (Kalyani Yadav): Broadsheet=F vs DB=D
+  [MAR-2024] Subject 0510 Candidate 0012 (Priyanka Khilery): Broadsheet=E vs DB=D
+  [MAR-2024] Subject 0520 Candidate 0002 (Bhanupriya Rana): Broadsheet=F vs DB=E
+  [MAR-2024] Subject 0549 Candidate 0003 (Himanshi Agarwal): Broadsheet=A vs DB=A*
+  [MAR-2024] Subject 0549 Candidate 0007 (Kamlesh Chaudhary): Broadsheet=A vs DB=B
+  [MAR-2024] Subject 0549 Candidate 0010 (Preet Singh): Broadsheet=C vs DB=A
+  [MAR-2024] Subject 0580 Candidate 0001 (Anand Kanwar Padiyar): Broadsheet= vs DB=B
+  [MAR-2024] Subject 0580 Candidate 0002 (Bhanupriya Rana): Broadsheet= vs DB=C
+  [MAR-2024] Subject 0580 Candidate 0003 (Himanshi Agarwal): Broadsheet= vs DB=A
+  [MAR-2024] Subject 0580 Candidate 0004 (Hiten Jain): Broadsheet= vs DB=B
+  [MAR-2024] Subject 0580 Candidate 0005 (Jahanara Khan): Broadsheet= vs DB=E
+  [MAR-2024] Subject 0580 Candidate 0006 (Kalyani Yadav): Broadsheet= vs DB=D
+  [MAR-2024] Subject 0580 Candidate 0007 (Kamlesh Chaudhary): Broadsheet= vs DB=B
+  [MAR-2024] Subject 0580 Candidate 0011 (Priyal Chopra): Broadsheet= vs DB=A
+  [MAR-2024] Subject 0580 Candidate 0012 (Priyanka Khilery): Broadsheet= vs DB=C
+  [MAR-2024] Subject 0654 Candidate 0001 (Anand Kanwar Padiyar): Broadsheet= vs DB=BB
+  [MAR-2024] Subject 0654 Candidate 0002 (Bhanupriya Rana): Broadsheet= vs DB=DD
+  [MAR-2024] Subject 0654 Candidate 0003 (Himanshi Agarwal): Broadsheet= vs DB=AA
+  [MAR-2024] Subject 0654 Candidate 0005 (Jahanara Khan): Broadsheet= vs DB=FF
+  [MAR-2024] Subject 0654 Candidate 0006 (Kalyani Yadav): Broadsheet= vs DB=CC
+  [MAR-2024] Subject 0654 Candidate 0007 (Kamlesh Chaudhary): Broadsheet= vs DB=BB
+  [MAR-2024] Subject 0654 Candidate 0009 (Manisha Yadav): Broadsheet= vs DB=FF
+  [MAR-2024] Subject 0654 Candidate 0010 (Preet Singh): Broadsheet= vs DB=CC
+  [MAR-2024] Subject 0654 Candidate 0011 (Priyal Chopra): Broadsheet= vs DB=BB
+  [MAR-2024] Subject 0654 Candidate 0012 (Priyanka Khilery): Broadsheet= vs DB=CC
+  [MAR-2025] Subject 0400 Candidate 0003 (Bharat Puniya): Broadsheet=B vs DB=C
+  [MAR-2025] Subject 0400 Candidate 0006 (Jain Yogita Suresh): Broadsheet=D vs DB=C
+  [MAR-2025] Subject 0417 Candidate 0002 (Ayan Ali Khan): Broadsheet=F vs DB=B
+  [MAR-2025] Subject 0417 Candidate 0004 (Divyansh Jain): Broadsheet=F vs DB=B
+  [MAR-2025] Subject 0417 Candidate 0007 (Jayveer Singh Bhati): Broadsheet=D vs DB=A
+  [MAR-2025] Subject 0417 Candidate 0008 (Jhanak Sharma): Broadsheet=C vs DB=B
+  [MAR-2025] Subject 0417 Candidate 0009 (Jinal Solanki): Broadsheet=E vs DB=B
+  [MAR-2025] Subject 0417 Candidate 0010 (Juned Moyal): Broadsheet=C vs DB=A
+  [MAR-2025] Subject 0417 Candidate 0011 (Kartik Rankawat): Broadsheet=U vs DB=C
+  [MAR-2025] Subject 0417 Candidate 0012 (Mayank Mewara): Broadsheet=F vs DB=B
+  [MAR-2025] Subject 0417 Candidate 0013 (Mayank Malviya): Broadsheet=F vs DB=C
+  [MAR-2025] Subject 0417 Candidate 0014 (Niharika Sharma): Broadsheet=U vs DB=C
+  [MAR-2025] Subject 0417 Candidate 0015 (Nikhil Kachhwaha): Broadsheet=E vs DB=B
+  [MAR-2025] Subject 0417 Candidate 0016 (Preet Rathore): Broadsheet=U vs DB=E
+  [MAR-2025] Subject 0417 Candidate 0019 (Shaurya Lodha): Broadsheet=F vs DB=B
+  [MAR-2025] Subject 0417 Candidate 0020 (Utsav Maheshwari): Broadsheet=D vs DB=B
+  [MAR-2025] Subject 0417 Candidate 0021 (Vivek Kumar Yadav): Broadsheet=E vs DB=B
+  [MAR-2025] Subject 0455 Candidate 0001 (Anirudh): Broadsheet=C vs DB=E
+  [MAR-2025] Subject 0455 Candidate 0006 (Jain Yogita Suresh): Broadsheet=E vs DB=D
+  [MAR-2025] Subject 0455 Candidate 0012 (Mayank Mewara): Broadsheet=B vs DB=D
+  [MAR-2025] Subject 0455 Candidate 0013 (Mayank Malviya): Broadsheet=E vs DB=F
+  [MAR-2025] Subject 0455 Candidate 0015 (Nikhil Kachhwaha): Broadsheet=C vs DB=B
+  [MAR-2025] Subject 0455 Candidate 0017 (Raghvendra Pratap Singh): Broadsheet=C vs DB=E
+  [MAR-2025] Subject 0455 Candidate 0018 (Rajveer Singh Tanwar): Broadsheet=D vs DB=F
+  [MAR-2025] Subject 0455 Candidate 0019 (Shaurya Lodha): Broadsheet=A vs DB=D
+  [MAR-2025] Subject 0510 Candidate 0002 (Ayan Ali Khan): Broadsheet=B vs DB=C
+  [MAR-2025] Subject 0510 Candidate 0005 (Drashti Dhoot): Broadsheet=B vs DB=C
+  [MAR-2025] Subject 0510 Candidate 0007 (Jayveer Singh Bhati): Broadsheet=D vs DB=C
+  [MAR-2025] Subject 0510 Candidate 0008 (Jhanak Sharma): Broadsheet=C vs DB=B
+  [MAR-2025] Subject 0510 Candidate 0009 (Jinal Solanki): Broadsheet=G vs DB=F
+  [MAR-2025] Subject 0510 Candidate 0014 (Niharika Sharma): Broadsheet=D vs DB=E
+  [MAR-2025] Subject 0510 Candidate 0017 (Raghvendra Pratap Singh): Broadsheet=F vs DB=E
+  [MAR-2025] Subject 0510 Candidate 0020 (Utsav Maheshwari): Broadsheet=A vs DB=B
+  [MAR-2025] Subject 0510 Candidate 0021 (Vivek Kumar Yadav): Broadsheet=D vs DB=C
+  [MAR-2025] Subject 0510 Candidate 0022 (Yujvendra Pratap Singh): Broadsheet=F vs DB=E
+  [MAR-2025] Subject 0510 Candidate 0036 (Kunal Jangid): Broadsheet=U vs DB=F
+  [MAR-2025] Subject 0520 Candidate 0008 (Jhanak Sharma): Broadsheet=C vs DB=B
+  [MAR-2025] Subject 0520 Candidate 0010 (Juned Moyal): Broadsheet=C vs DB=B
+  [MAR-2025] Subject 0549 Candidate 0006 (Jain Yogita Suresh): Broadsheet=A vs DB=A*
+  [MAR-2025] Subject 0549 Candidate 0007 (Jayveer Singh Bhati): Broadsheet=A vs DB=B
+  [MAR-2025] Subject 0549 Candidate 0015 (Nikhil Kachhwaha): Broadsheet=A vs DB=A*
+  [MAR-2025] Subject 0549 Candidate 0016 (Preet Rathore): Broadsheet=E vs DB=D
+  [MAR-2025] Subject 0549 Candidate 0017 (Raghvendra Pratap Singh): Broadsheet=E vs DB=D
+  [MAR-2025] Subject 0580 Candidate 0002 (Ayan Ali Khan): Broadsheet= vs DB=A*
+  [MAR-2025] Subject 0580 Candidate 0003 (Bharat Puniya): Broadsheet= vs DB=A*
+  [MAR-2025] Subject 0580 Candidate 0004 (Divyansh Jain): Broadsheet= vs DB=A
+  [MAR-2025] Subject 0580 Candidate 0005 (Drashti Dhoot): Broadsheet= vs DB=B
+  [MAR-2025] Subject 0580 Candidate 0006 (Jain Yogita Suresh): Broadsheet= vs DB=B
+  [MAR-2025] Subject 0580 Candidate 0007 (Jayveer Singh Bhati): Broadsheet= vs DB=A*
+  [MAR-2025] Subject 0580 Candidate 0008 (Jhanak Sharma): Broadsheet= vs DB=A*
+  [MAR-2025] Subject 0580 Candidate 0009 (Jinal Solanki): Broadsheet= vs DB=B
+  [MAR-2025] Subject 0580 Candidate 0010 (Juned Moyal): Broadsheet= vs DB=B
+  [MAR-2025] Subject 0580 Candidate 0011 (Kartik Rankawat): Broadsheet= vs DB=D
+  [MAR-2025] Subject 0580 Candidate 0012 (Mayank Mewara): Broadsheet= vs DB=C
+  [MAR-2025] Subject 0580 Candidate 0013 (Mayank Malviya): Broadsheet= vs DB=D
+  [MAR-2025] Subject 0580 Candidate 0014 (Niharika Sharma): Broadsheet= vs DB=D
+  [MAR-2025] Subject 0580 Candidate 0015 (Nikhil Kachhwaha): Broadsheet= vs DB=A*
+  [MAR-2025] Subject 0580 Candidate 0017 (Raghvendra Pratap Singh): Broadsheet= vs DB=C
+  [MAR-2025] Subject 0580 Candidate 0019 (Shaurya Lodha): Broadsheet= vs DB=A
+  [MAR-2025] Subject 0580 Candidate 0020 (Utsav Maheshwari): Broadsheet= vs DB=B
+  [MAR-2025] Subject 0580 Candidate 0021 (Vivek Kumar Yadav): Broadsheet= vs DB=E
+  [MAR-2025] Subject 0580 Candidate 0022 (Yujvendra Pratap Singh): Broadsheet= vs DB=A
+  [MAR-2025] Subject 0580 Candidate 0037 (Ayushman Solanki): Broadsheet= vs DB=D
+  [MAR-2025] Subject 0606 Candidate 0003 (Bharat Puniya): Broadsheet=A vs DB=A*
+  [MAR-2025] Subject 0610 Candidate 0015 (Nikhil Kachhwaha): Broadsheet=A vs DB=A*
+  [MAR-2025] Subject 0654 Candidate 0002 (Ayan Ali Khan): Broadsheet= vs DB=AA
+  [MAR-2025] Subject 0654 Candidate 0003 (Bharat Puniya): Broadsheet= vs DB=A*A*
+  [MAR-2025] Subject 0654 Candidate 0005 (Drashti Dhoot): Broadsheet= vs DB=CC
+  [MAR-2025] Subject 0654 Candidate 0006 (Jain Yogita Suresh): Broadsheet= vs DB=AA
+  [MAR-2025] Subject 0654 Candidate 0007 (Jayveer Singh Bhati): Broadsheet= vs DB=AA
+  [MAR-2025] Subject 0654 Candidate 0008 (Jhanak Sharma): Broadsheet= vs DB=AA
+  [MAR-2025] Subject 0654 Candidate 0009 (Jinal Solanki): Broadsheet= vs DB=CC
+  [MAR-2025] Subject 0654 Candidate 0010 (Juned Moyal): Broadsheet= vs DB=CC
+  [MAR-2025] Subject 0654 Candidate 0011 (Kartik Rankawat): Broadsheet= vs DB=EE
+  [MAR-2025] Subject 0654 Candidate 0012 (Mayank Mewara): Broadsheet= vs DB=BB
+  [MAR-2025] Subject 0654 Candidate 0013 (Mayank Malviya): Broadsheet= vs DB=DD
+  [MAR-2025] Subject 0654 Candidate 0014 (Niharika Sharma): Broadsheet= vs DB=DD
+  [MAR-2025] Subject 0654 Candidate 0016 (Preet Rathore): Broadsheet= vs DB=UU
+  [MAR-2025] Subject 0654 Candidate 0019 (Shaurya Lodha): Broadsheet= vs DB=BB
+  [MAR-2025] Subject 0654 Candidate 0020 (Utsav Maheshwari): Broadsheet= vs DB=BB
+  [MAR-2025] Subject 0654 Candidate 0021 (Vivek Kumar Yadav): Broadsheet= vs DB=DD
+  [MAR-2025] Subject 0654 Candidate 0022 (Yujvendra Pratap Singh): Broadsheet= vs DB=AA
+  [MAR-2025] Subject 0654 Candidate 0017 (Raghvendra Pratap Singh): Broadsheet=CC vs DB=DD
+  [MAR-2026] Subject 0400 Candidate 5011 (Manya Lohia): Broadsheet=E vs DB=F
+  [MAR-2026] Subject 0400 Candidate 5015 (Tanisha Choudhary): Broadsheet=C vs DB=E
+  [MAR-2026] Subject 0400 Candidate 5028 (Shubhangi Gajja): Broadsheet=D vs DB=E
+  [MAR-2026] Subject 0417 Candidate 0006 (Nikhil Kachhwaha): Broadsheet=C vs DB=A
+  [MAR-2026] Subject 0450 Candidate 0006 (Nikhil Kachhwaha): Broadsheet=E vs DB=G
+  [MAR-2026] Subject 0452 Candidate 5006 (Bhuvnesh Dhariwal): Broadsheet=C vs DB=B
+  [MAR-2026] Subject 0452 Candidate 5012 (Mohit Jangid): Broadsheet=U vs DB=G
+  [MAR-2026] Subject 0455 Candidate 5003 (Arvind Chaudhary): Broadsheet=D vs DB=C
+  [MAR-2026] Subject 0455 Candidate 5005 (Bhuvi Jain): Broadsheet=E vs DB=G
+  [MAR-2026] Subject 0455 Candidate 5013 (Nitin Jirawala): Broadsheet=B vs DB=C
+  [MAR-2026] Subject 0455 Candidate 5027 (Chrisanne Nadine D'Silva): Broadsheet=D vs DB=C
+  [MAR-2026] Subject 0580 Candidate 5004 (Ayushman Singh Rajpurohit): Broadsheet=E vs DB=F
+  [MAR-2026] Subject 0580 Candidate 5014 (Prince Gehlot): Broadsheet=E vs DB=F
+  [MAR-2026] Subject 0580 Candidate 5015 (Tanisha Choudhary): Broadsheet=C vs DB=D
+  [MAR-2026] Subject 0580 Candidate 5001 (Aaditya Sharma): Broadsheet= vs DB=A*
+  [MAR-2026] Subject 0580 Candidate 5002 (Ajij Ali): Broadsheet= vs DB=B
+  [MAR-2026] Subject 0580 Candidate 5003 (Arvind Chaudhary): Broadsheet= vs DB=C
+  [MAR-2026] Subject 0580 Candidate 5005 (Bhuvi Jain): Broadsheet= vs DB=U
+  [MAR-2026] Subject 0580 Candidate 5006 (Bhuvnesh Dhariwal): Broadsheet= vs DB=A
+  [MAR-2026] Subject 0580 Candidate 5007 (Divyam Jain): Broadsheet= vs DB=C
+  [MAR-2026] Subject 0580 Candidate 5008 (Harshit Samriya): Broadsheet= vs DB=D
+  [MAR-2026] Subject 0580 Candidate 5009 (Khush Chopra): Broadsheet= vs DB=A
+  [MAR-2026] Subject 0580 Candidate 5011 (Manya Lohia): Broadsheet= vs DB=C
+  [MAR-2026] Subject 0580 Candidate 5013 (Nitin Jirawala): Broadsheet= vs DB=A*
+  [MAR-2026] Subject 0653 Candidate 5004 (Ayushman Singh Rajpurohit): Broadsheet= vs DB=F
+  [MAR-2026] Subject 0654 Candidate 5001 (Aaditya Sharma): Broadsheet=AA vs DB=A*A*
+  [MAR-2026] Subject 0654 Candidate 5002 (Ajij Ali): Broadsheet=AA vs DB=BB
+  [MAR-2026] Subject 0654 Candidate 5005 (Bhuvi Jain): Broadsheet=EE vs DB=FF
+  [MAR-2026] Subject 0654 Candidate 5008 (Harshit Samriya): Broadsheet=EE vs DB=DD
+  [NOV-2019] Subject 0510 Candidate 0001 (Aryan): Broadsheet=D vs DB=E
+  [NOV-2019] Subject 0510 Candidate 0002 (Mehraj Ali): Broadsheet=F vs DB=G
+  [NOV-2021] Subject 0455 Candidate 0001 (Aditi Jangid): Broadsheet=A vs DB=D
+  [NOV-2021] Subject 0455 Candidate 0007 (Harsh Vardhan Vyas): Broadsheet=A vs DB=B
+  [NOV-2021] Subject 0510 Candidate 0007 (Harsh Vardhan Vyas): Broadsheet=C vs DB=D
+  [NOV-2021] Subject 0549 Candidate 0007 (Harsh Vardhan Vyas): Broadsheet=A vs DB=A*
+  [NOV-2021] Subject 0549 Candidate 0008 (Durga Kanwar): Broadsheet=A vs DB=A*
+  [NOV-2021] Subject 0580 Candidate 0009 (Stuti Gaurav Mathur): Broadsheet= vs DB=B
+  [NOV-2024] Subject 0417 Candidate 0004 (Kunal Jangid): Broadsheet=U vs DB=G
+  [NOV-2024] Subject 0610 Candidate 0020 (Anvi Talesara): Broadsheet=D vs DB=F
+  [NOV-2025] Subject 0417 Candidate 5002 (Ajij Ali): Broadsheet=A vs DB=B
+  [NOV-2025] Subject 0417 Candidate 5004 (Ayushman Singh Rajpurohit): Broadsheet=C vs DB=E
+  [NOV-2025] Subject 0417 Candidate 5006 (Bhuvnesh Dhariwal): Broadsheet=B vs DB=A
+  [NOV-2025] Subject 0417 Candidate 5007 (Divyam Jain): Broadsheet=A vs DB=C
+  [NOV-2025] Subject 0417 Candidate 5008 (Harshit Samriya): Broadsheet=B vs DB=C
+  [NOV-2025] Subject 0417 Candidate 5013 (Nitin Jirawala): Broadsheet=A vs DB=B
+  [NOV-2025] Subject 0417 Candidate 5014 (Prince Gehlot): Broadsheet=G vs DB=U
+  [NOV-2025] Subject 0510 Candidate 5001 (Aaditya Sharma): Broadsheet=A vs DB=A*
+  [NOV-2025] Subject 0510 Candidate 5002 (Ajij Ali): Broadsheet=E vs DB=D
+  [NOV-2025] Subject 0510 Candidate 5004 (Ayushman Singh Rajpurohit): Broadsheet=D vs DB=C
+  [NOV-2025] Subject 0510 Candidate 5005 (Bhuvi Jain): Broadsheet=D vs DB=C
+  [NOV-2025] Subject 0510 Candidate 5008 (Harshit Samriya): Broadsheet=C vs DB=B
+  [NOV-2025] Subject 0510 Candidate 5011 (Manya Lohia): Broadsheet=E vs DB=D
+  [NOV-2025] Subject 0510 Candidate 5012 (Mohit Jangid): Broadsheet=F vs DB=E
+  [NOV-2025] Subject 0510 Candidate 5013 (Nitin Jirawala): Broadsheet=C vs DB=B
+  [NOV-2025] Subject 0510 Candidate 5027 (Chrisanne Nadine D'Silva): Broadsheet=A vs DB=B
+  [NOV-2025] Subject 0549 Candidate 5001 (Aaditya Sharma): Broadsheet=A vs DB=A*
+  [NOV-2025] Subject 0549 Candidate 5002 (Ajij Ali): Broadsheet=B vs DB=A
+  [NOV-2025] Subject 0549 Candidate 5008 (Harshit Samriya): Broadsheet=E vs DB=D
+  [NOV-2025] Subject 0549 Candidate 5009 (Khush Chopra): Broadsheet=A vs DB=A*
+  [NOV-2025] Subject 0549 Candidate 5010 (Krishnavardhan Singh): Broadsheet=A vs DB=B
+  [NOV-2025] Subject 0549 Candidate 5015 (Tanisha Choudhary): Broadsheet=B vs DB=C
+  [JUN-2022] Subject 9479 Candidate 0009 (Mitesh Mishra): Broadsheet=E vs DB=D
+  [JUN-2022] Subject 9489 Candidate 0009 (Mitesh Mishra): Broadsheet=C vs DB=d
+  [JUN-2022] Subject 9618 Candidate 0001 (Arhaan Shaikh): Broadsheet=D vs DB=e
+  [JUN-2022] Subject 9708 Candidate 0008 (Yugan Sharma): Broadsheet=C vs DB=D
+  [JUN-2022] Subject 9990 Candidate 0009 (Mitesh Mishra): Broadsheet=D vs DB=E
+  [JUN-2023] Subject 8021 Candidate 0008 (Bhavika Anand): Broadsheet=d vs DB=e
+  [JUN-2023] Subject 9489 Candidate 0008 (Bhavika Anand): Broadsheet=C vs DB=D
+  [JUN-2023] Subject 9618 Candidate 0004 (Arhaan Shaikh): Broadsheet= vs DB=D
+  [JUN-2023] Subject 9618 Candidate 0005 (Suhani Chauhan): Broadsheet= vs DB=B
+  [JUN-2023] Subject 9626 Candidate 0006 (Nandini Chauhan): Broadsheet=B vs DB=c
+  [JUN-2023] Subject 9626 Candidate 0010 (Riddhi Gupta): Broadsheet=A vs DB=b
+  [JUN-2023] Subject 9700 Candidate 0006 (Nandini Chauhan): Broadsheet=C vs DB=e
+  [JUN-2023] Subject 9700 Candidate 0007 (Eregare Ojiyovwi Okeoghene Shirley): Broadsheet=C vs DB=e
+  [JUN-2023] Subject 9701 Candidate 0002 (Harshvardhan Singh): Broadsheet=A vs DB=b
+  [JUN-2023] Subject 9701 Candidate 0006 (Nandini Chauhan): Broadsheet=A vs DB=b
+  [JUN-2023] Subject 9701 Candidate 0007 (Eregare Ojiyovwi Okeoghene Shirley): Broadsheet=A vs DB=b
+  [JUN-2023] Subject 9702 Candidate 0006 (Nandini Chauhan): Broadsheet=A vs DB=b
+  [JUN-2023] Subject 9702 Candidate 0007 (Eregare Ojiyovwi Okeoghene Shirley): Broadsheet=A vs DB=c
+  [JUN-2023] Subject 9708 Candidate 0008 (Bhavika Anand): Broadsheet=U vs DB=D
+  [JUN-2023] Subject 9990 Candidate 0008 (Bhavika Anand): Broadsheet=D vs DB=C
+  [JUN-2024] Subject 8021 Candidate 0006 (Ananya Gupta): Broadsheet=e vs DB=d
+  [JUN-2024] Subject 9609 Candidate 0005 (Yash Parihar): Broadsheet=U vs DB=e
+  [JUN-2024] Subject 9609 Candidate 0006 (Ananya Gupta): Broadsheet= vs DB=B
+  [JUN-2024] Subject 9618 Candidate 0004 (Harshvardhan Singh): Broadsheet=D vs DB=U
+  [JUN-2024] Subject 9618 Candidate 0001 (Garv Agarwal): Broadsheet=C vs DB=b
+  [JUN-2024] Subject 9618 Candidate 0003 (Vipul Kachhwaha): Broadsheet=B vs DB=a
+  [JUN-2024] Subject 9706 Candidate 0006 (Ananya Gupta): Broadsheet=B vs DB=A
+  [JUN-2024] Subject 9708 Candidate 0006 (Ananya Gupta): Broadsheet=A vs DB=B
+  [JUN-2024] Subject 9709 Candidate 0004 (Harshvardhan Singh): Broadsheet=A vs DB=D
+  [JUN-2024] Subject 9709 Candidate 0008 (Shikhar Vaswani): Broadsheet=B vs DB=c
+  [JUN-2025] Subject 8021 Candidate 0026 (Vikram Kumar Prajapat): Broadsheet=e vs DB=U
+  [JUN-2025] Subject 9479 Candidate 0004 (Anjali Jain): Broadsheet=B vs DB=D
+  [JUN-2025] Subject 9609 Candidate 0026 (Vikram Kumar Prajapat): Broadsheet=E vs DB=U
+  [JUN-2025] Subject 9626 Candidate 0013 (Rishav Kumar Singla): Broadsheet=U vs DB=D
+  [JUN-2025] Subject 9706 Candidate 0034 (Nikita Bishnoi): Broadsheet= vs DB=C
+  [JUN-2025] Subject 9708 Candidate 0003 (Vipul Kachhwaha): Broadsheet=B vs DB=C
+  [JUN-2025] Subject 9708 Candidate 0033 (Krishna Soni): Broadsheet=E vs DB=D
+  [MAR-2020] Subject 9626 Candidate 0010 (Aryan): Broadsheet=U vs DB=e
+  [MAR-2020] Subject 9626 Candidate 0017 (Tanmay Salecha): Broadsheet=C vs DB=d
+  [MAR-2020] Subject 9702 Candidate 0015 (Prabhav Agarwal): Broadsheet=U vs DB=e
+  [MAR-2020] Subject 9706 Candidate 0009 (Abhishek Bishnoi): Broadsheet=B vs DB=a
+  [MAR-2020] Subject 9706 Candidate 0010 (Aryan): Broadsheet=B vs DB=c
+  [MAR-2020] Subject 9706 Candidate 0014 (Mehraj Ali): Broadsheet=B vs DB=c
+  [MAR-2020] Subject 9708 Candidate 0011 (Ira Ali): Broadsheet=B vs DB=d
+  [MAR-2020] Subject 9708 Candidate 0012 (Khush Jirawala): Broadsheet=C vs DB=e
+  [MAR-2020] Subject 9708 Candidate 0013 (Lucky Jangid): Broadsheet=D vs DB=U
+  [MAR-2020] Subject 9708 Candidate 0017 (Tanmay Salecha): Broadsheet=C vs DB=d
+  [MAR-2020] Subject 9990 Candidate 0013 (Lucky Jangid): Broadsheet=E vs DB=U
+  [MAR-2021] Subject 9609 Candidate 0021 (Lucky Jangid): Broadsheet=E vs DB=D
+  [MAR-2021] Subject 9609 Candidate 0024 (Tanmay Salecha): Broadsheet=D vs DB=E
+  [MAR-2021] Subject 9626 Candidate 0020 (Khush Jirawala): Broadsheet=E vs DB=C
+  [MAR-2021] Subject 9626 Candidate 0017 (Abhishek Bishnoi): Broadsheet= vs DB=A
+  [MAR-2021] Subject 9626 Candidate 0018 (Aryan): Broadsheet= vs DB=U
+  [MAR-2021] Subject 9626 Candidate 0024 (Tanmay Salecha): Broadsheet= vs DB=D
+  [MAR-2021] Subject 9700 Candidate 0019 (Ira Ali): Broadsheet=C vs DB=b
+  [MAR-2021] Subject 9701 Candidate 0022 (Prabhav Agarwal): Broadsheet= vs DB=U
+  [MAR-2021] Subject 9701 Candidate 0023 (Rishit Mantri): Broadsheet= vs DB=A
+  [MAR-2021] Subject 9702 Candidate 0016 (Abhayraj Tak): Broadsheet= vs DB=E
+  [MAR-2021] Subject 9702 Candidate 0022 (Prabhav Agarwal): Broadsheet= vs DB=U
+  [MAR-2021] Subject 9702 Candidate 0023 (Rishit Mantri): Broadsheet= vs DB=A
+  [MAR-2021] Subject 9702 Candidate 0011 (Keshav Gehlot): Broadsheet=U vs DB=e
+  [MAR-2021] Subject 9702 Candidate 0013 (Parth Raj Mathur): Broadsheet=U vs DB=d
+  [MAR-2021] Subject 9706 Candidate 0017 (Abhishek Bishnoi): Broadsheet= vs DB=A*
+  [MAR-2021] Subject 9706 Candidate 0018 (Aryan): Broadsheet= vs DB=D
+  [MAR-2021] Subject 9706 Candidate 0020 (Khush Jirawala): Broadsheet= vs DB=B
+  [MAR-2021] Subject 9706 Candidate 0021 (Lucky Jangid): Broadsheet= vs DB=D
+  [MAR-2021] Subject 9706 Candidate 0024 (Tanmay Salecha): Broadsheet= vs DB=C
+  [MAR-2021] Subject 9708 Candidate 0020 (Khush Jirawala): Broadsheet= vs DB=C
+  [MAR-2021] Subject 9708 Candidate 0021 (Lucky Jangid): Broadsheet= vs DB=D
+  [MAR-2021] Subject 9708 Candidate 0017 (Abhishek Bishnoi): Broadsheet= vs DB=A
+  [MAR-2021] Subject 9708 Candidate 0019 (Ira Ali): Broadsheet= vs DB=C
+  [MAR-2021] Subject 9708 Candidate 0024 (Tanmay Salecha): Broadsheet= vs DB=D
+  [MAR-2021] Subject 9708 Candidate 0010 (Jaisal Singh): Broadsheet=B vs DB=d
+  [MAR-2021] Subject 9708 Candidate 0014 (Sawai Gurjar): Broadsheet=C vs DB=e
+  [MAR-2021] Subject 9709 Candidate 0016 (Abhayraj Tak): Broadsheet= vs DB=C
+  [MAR-2021] Subject 9709 Candidate 0017 (Abhishek Bishnoi): Broadsheet= vs DB=A*
+  [MAR-2021] Subject 9709 Candidate 0018 (Aryan): Broadsheet= vs DB=C
+  [MAR-2021] Subject 9709 Candidate 0020 (Khush Jirawala): Broadsheet= vs DB=B
+  [MAR-2021] Subject 9709 Candidate 0022 (Prabhav Agarwal): Broadsheet= vs DB=D
+  [MAR-2021] Subject 9709 Candidate 0023 (Rishit Mantri): Broadsheet= vs DB=A
+  [MAR-2021] Subject 9709 Candidate 0011 (Keshav Gehlot): Broadsheet=C vs DB=d
+  [MAR-2021] Subject 9990 Candidate 0019 (Ira Ali): Broadsheet= vs DB=C
+  [MAR-2021] Subject 9990 Candidate 0010 (Jaisal Singh): Broadsheet=D vs DB=e
+  [MAR-2023] Subject 8021 Candidate 0019 (Arhaan Shaikh): Broadsheet=U vs DB=e
+  [MAR-2023] Subject 8021 Candidate 0020 (Suhani Chauhan): Broadsheet=d vs DB=c
+  [MAR-2023] Subject 8021 Candidate 0021 (Ajar Pandey): Broadsheet=U vs DB=e
+  [MAR-2023] Subject 9093 Candidate 0026 (Manas Jain): Broadsheet= vs DB=C
+  [MAR-2023] Subject 9093 Candidate 0027 (Anjali Jain): Broadsheet=E vs DB=U
+  [MAR-2023] Subject 9609 Candidate 0021 (Ajar Pandey): Broadsheet= vs DB=B
+  [MAR-2023] Subject 9609 Candidate 0022 (Jayesh Garg): Broadsheet= vs DB=D
+  [MAR-2023] Subject 9609 Candidate 0023 (Aditi Jangid): Broadsheet= vs DB=E
+  [MAR-2023] Subject 9609 Candidate 0012 (Harshini Arvind Jain): Broadsheet=D vs DB=e
+  [MAR-2023] Subject 9626 Candidate 0021 (Ajar Pandey): Broadsheet= vs DB=D
+  [MAR-2023] Subject 9626 Candidate 0023 (Aditi Jangid): Broadsheet= vs DB=E
+  [MAR-2023] Subject 9700 Candidate 0026 (Manas Jain): Broadsheet= vs DB=C
+  [MAR-2023] Subject 9701 Candidate 0026 (Manas Jain): Broadsheet= vs DB=B
+  [MAR-2023] Subject 9701 Candidate 0019 (Arhaan Shaikh): Broadsheet= vs DB=E
+  [MAR-2023] Subject 9701 Candidate 0020 (Suhani Chauhan): Broadsheet= vs DB=B
+  [MAR-2023] Subject 9701 Candidate 0025 (Stuti Gaurav Mathur): Broadsheet= vs DB=E
+  [MAR-2023] Subject 9701 Candidate 0027 (Anjali Jain): Broadsheet=D vs DB=e
+  [MAR-2023] Subject 9702 Candidate 0019 (Arhaan Shaikh): Broadsheet= vs DB=E
+  [MAR-2023] Subject 9702 Candidate 0020 (Suhani Chauhan): Broadsheet= vs DB=B
+  [MAR-2023] Subject 9702 Candidate 0025 (Stuti Gaurav Mathur): Broadsheet= vs DB=D
+  [MAR-2023] Subject 9702 Candidate 0009 (Harshvardhan Singh): Broadsheet=A vs DB=b
+  [MAR-2023] Subject 9702 Candidate 0010 (Mukesh): Broadsheet=B vs DB=d
+  [MAR-2023] Subject 9702 Candidate 0011 (Shrey Prakash Vishnoi): Broadsheet=B vs DB=d
+  [MAR-2023] Subject 9702 Candidate 0027 (Anjali Jain): Broadsheet=C vs DB=d
+  [MAR-2023] Subject 9706 Candidate 0021 (Ajar Pandey): Broadsheet= vs DB=B
+  [MAR-2023] Subject 9706 Candidate 0022 (Jayesh Garg): Broadsheet= vs DB=A
+  [MAR-2023] Subject 9706 Candidate 0023 (Aditi Jangid): Broadsheet= vs DB=E
+  [MAR-2023] Subject 9706 Candidate 0012 (Harshini Arvind Jain): Broadsheet=C vs DB=b
+  [MAR-2023] Subject 9706 Candidate 0017 (Yash Parihar): Broadsheet=B vs DB=d
+  [MAR-2023] Subject 9706 Candidate 0018 (Sufiya Ali): Broadsheet=B vs DB=c
+  [MAR-2023] Subject 9708 Candidate 0021 (Ajar Pandey): Broadsheet= vs DB=D
+  [MAR-2023] Subject 9708 Candidate 0022 (Jayesh Garg): Broadsheet= vs DB=C
+  [MAR-2023] Subject 9708 Candidate 0023 (Aditi Jangid): Broadsheet= vs DB=E
+  [MAR-2023] Subject 9708 Candidate 0012 (Harshini Arvind Jain): Broadsheet=E vs DB=d
+  [MAR-2023] Subject 9708 Candidate 0013 (Krrish Sakhrani): Broadsheet=B vs DB=c
+  [MAR-2023] Subject 9708 Candidate 0015 (Ravi Khilery): Broadsheet=C vs DB=e
+  [MAR-2023] Subject 9708 Candidate 0027 (Anjali Jain): Broadsheet=B vs DB=d
+  [MAR-2023] Subject 9709 Candidate 0025 (Stuti Gaurav Mathur): Broadsheet= vs DB=C
+  [MAR-2023] Subject 9709 Candidate 0026 (Manas Jain): Broadsheet= vs DB=A
+  [MAR-2023] Subject 9709 Candidate 0019 (Arhaan Shaikh): Broadsheet= vs DB=D
+  [MAR-2023] Subject 9709 Candidate 0020 (Suhani Chauhan): Broadsheet= vs DB=A
+  [MAR-2023] Subject 9709 Candidate 0011 (Shrey Prakash Vishnoi): Broadsheet=U vs DB=e
+  [MAR-2023] Subject 9709 Candidate 0013 (Krrish Sakhrani): Broadsheet=C vs DB=b
+  [MAR-2023] Subject 9709 Candidate 0027 (Anjali Jain): Broadsheet=D vs DB=c
+  [MAR-2024] Subject 8021 Candidate 0029 (Harshvardhan Singh): Broadsheet=U vs DB=e
+  [MAR-2024] Subject 8021 Candidate 0030 (Nandini Chauhan): Broadsheet=e vs DB=c
+  [MAR-2024] Subject 8021 Candidate 0031 (Shrey Prakash Vishnoi): Broadsheet=a vs DB=b
+  [MAR-2024] Subject 8021 Candidate 0033 (Krrish Sakhrani): Broadsheet=a vs DB=c
+  [MAR-2024] Subject 8021 Candidate 0037 (Yash Parihar): Broadsheet=b vs DB=c
+  [MAR-2024] Subject 8021 Candidate 0038 (Harsh Vardhan Vyas): Broadsheet=b vs DB=c
+  [MAR-2024] Subject 8021 Candidate 0040 (Aditi Jangid): Broadsheet=a vs DB=c
+  [MAR-2024] Subject 9609 Candidate 0035 (Rishav Kumar Singla): Broadsheet= vs DB=U
+  [MAR-2024] Subject 9609 Candidate 0036 (Sufiya Ali): Broadsheet= vs DB=E
+  [MAR-2024] Subject 9609 Candidate 0038 (Harsh Vardhan Vyas): Broadsheet= vs DB=E
+  [MAR-2024] Subject 9609 Candidate 0025 (Twinkle Lunia): Broadsheet=B vs DB=c
+  [MAR-2024] Subject 9626 Candidate 0035 (Rishav Kumar Singla): Broadsheet= vs DB=U
+  [MAR-2024] Subject 9626 Candidate 0036 (Sufiya Ali): Broadsheet= vs DB=U
+  [MAR-2024] Subject 9626 Candidate 0032 (Naman Kachhwaha): Broadsheet= vs DB=D
+  [MAR-2024] Subject 9626 Candidate 0014 (Gungun): Broadsheet=E vs DB=U
+  [MAR-2024] Subject 9626 Candidate 0019 (Shikhar Vaswani): Broadsheet=D vs DB=U
+  [MAR-2024] Subject 9626 Candidate 0020 (Sonal Rathore): Broadsheet=U vs DB=e
+  [MAR-2024] Subject 9700 Candidate 0027 (Ajita Gour): Broadsheet=C vs DB=U
+  [MAR-2024] Subject 9700 Candidate 0028 (Eregare Ojiyovwi Okeoghene Shirley): Broadsheet= vs DB=U
+  [MAR-2024] Subject 9700 Candidate 0030 (Nandini Chauhan): Broadsheet= vs DB=U
+  [MAR-2024] Subject 9700 Candidate 0031 (Shrey Prakash Vishnoi): Broadsheet= vs DB=U
+  [MAR-2024] Subject 9700 Candidate 0015 (Krish Agarwala): Broadsheet=B vs DB=c
+  [MAR-2024] Subject 9700 Candidate 0017 (Riya Bhandari): Broadsheet=D vs DB=e
+  [MAR-2024] Subject 9701 Candidate 0028 (Eregare Ojiyovwi Okeoghene Shirley): Broadsheet= vs DB=C
+  [MAR-2024] Subject 9701 Candidate 0029 (Harshvardhan Singh): Broadsheet= vs DB=E
+  [MAR-2024] Subject 9701 Candidate 0030 (Nandini Chauhan): Broadsheet= vs DB=C
+  [MAR-2024] Subject 9701 Candidate 0031 (Shrey Prakash Vishnoi): Broadsheet= vs DB=C
+  [MAR-2024] Subject 9701 Candidate 0015 (Krish Agarwala): Broadsheet=C vs DB=d
+  [MAR-2024] Subject 9701 Candidate 0017 (Riya Bhandari): Broadsheet=D vs DB=e
+  [MAR-2024] Subject 9701 Candidate 0020 (Sonal Rathore): Broadsheet=C vs DB=d
+  [MAR-2024] Subject 9702 Candidate 0028 (Eregare Ojiyovwi Okeoghene Shirley): Broadsheet= vs DB=D
+  [MAR-2024] Subject 9702 Candidate 0030 (Nandini Chauhan): Broadsheet= vs DB=C
+  [MAR-2024] Subject 9702 Candidate 0029 (Harshvardhan Singh): Broadsheet= vs DB=C
+  [MAR-2024] Subject 9702 Candidate 0031 (Shrey Prakash Vishnoi): Broadsheet= vs DB=C
+  [MAR-2024] Subject 9702 Candidate 0015 (Krish Agarwala): Broadsheet=C vs DB=d
+  [MAR-2024] Subject 9702 Candidate 0017 (Riya Bhandari): Broadsheet=U vs DB=e
+  [MAR-2024] Subject 9702 Candidate 0020 (Sonal Rathore): Broadsheet=E vs DB=d
+  [MAR-2024] Subject 9702 Candidate 0021 (Vipul Kachhwaha): Broadsheet=B vs DB=c
+  [MAR-2024] Subject 9706 Candidate 0038 (Harsh Vardhan Vyas): Broadsheet= vs DB=B
+  [MAR-2024] Subject 9706 Candidate 0032 (Naman Kachhwaha): Broadsheet= vs DB=A*
+  [MAR-2024] Subject 9706 Candidate 0033 (Krrish Sakhrani): Broadsheet= vs DB=A
+  [MAR-2024] Subject 9706 Candidate 0034 (Ravi Khilery): Broadsheet= vs DB=A
+  [MAR-2024] Subject 9706 Candidate 0035 (Rishav Kumar Singla): Broadsheet= vs DB=B
+  [MAR-2024] Subject 9706 Candidate 0036 (Sufiya Ali): Broadsheet= vs DB=C
+  [MAR-2024] Subject 9706 Candidate 0037 (Yash Parihar): Broadsheet= vs DB=D
+  [MAR-2024] Subject 9706 Candidate 0022 (Aarna Mishra): Broadsheet=B vs DB=a
+  [MAR-2024] Subject 9706 Candidate 0025 (Twinkle Lunia): Broadsheet=E vs DB=b
+  [MAR-2024] Subject 9708 Candidate 0039 (Anjali Jain): Broadsheet=B vs DB=E
+  [MAR-2024] Subject 9708 Candidate 0034 (Ravi Khilery): Broadsheet= vs DB=E
+  [MAR-2024] Subject 9708 Candidate 0038 (Harsh Vardhan Vyas): Broadsheet= vs DB=C
+  [MAR-2024] Subject 9708 Candidate 0032 (Naman Kachhwaha): Broadsheet= vs DB=B
+  [MAR-2024] Subject 9708 Candidate 0033 (Krrish Sakhrani): Broadsheet= vs DB=C
+  [MAR-2024] Subject 9708 Candidate 0021 (Vipul Kachhwaha): Broadsheet=C vs DB=d
+  [MAR-2024] Subject 9708 Candidate 0022 (Aarna Mishra): Broadsheet=C vs DB=e
+  [MAR-2024] Subject 9708 Candidate 0025 (Twinkle Lunia): Broadsheet=C vs DB=e
+  [MAR-2024] Subject 9709 Candidate 0028 (Eregare Ojiyovwi Okeoghene Shirley): Broadsheet= vs DB=C
+  [MAR-2024] Subject 9709 Candidate 0029 (Harshvardhan Singh): Broadsheet= vs DB=C
+  [MAR-2024] Subject 9709 Candidate 0032 (Naman Kachhwaha): Broadsheet= vs DB=A*
+  [MAR-2024] Subject 9709 Candidate 0033 (Krrish Sakhrani): Broadsheet= vs DB=B
+  [MAR-2024] Subject 9709 Candidate 0034 (Ravi Khilery): Broadsheet= vs DB=D
+  [MAR-2024] Subject 9709 Candidate 0016 (Mahek Bhambhani): Broadsheet=A vs DB=b
+  [MAR-2024] Subject 9990 Candidate 0027 (Ajita Gour): Broadsheet=D vs DB=e
+  [MAR-2024] Subject 9990 Candidate 0017 (Riya Bhandari): Broadsheet=U vs DB=e
+  [MAR-2024] Subject 9990 Candidate 0022 (Aarna Mishra): Broadsheet=D vs DB=e
+  [MAR-2024] Subject 9990 Candidate 0025 (Twinkle Lunia): Broadsheet=C vs DB=d
+  [MAR-2025] Subject 8021 Candidate 0023 (Garv Agarwal): Broadsheet=c vs DB=b
+  [MAR-2025] Subject 8021 Candidate 0025 (Krish Agarwalla): Broadsheet=d vs DB=e
+  [MAR-2025] Subject 8021 Candidate 0027 (Riya Bhandari): Broadsheet=c vs DB=d
+  [MAR-2025] Subject 8021 Candidate 0028 (Ronik Mewara): Broadsheet=U vs DB=e
+  [MAR-2025] Subject 8021 Candidate 0031 (Vipul Kachhwaha): Broadsheet=c vs DB=b
+  [MAR-2025] Subject 8021 Candidate 0033 (Krishna Soni): Broadsheet=e vs DB=U
+  [MAR-2025] Subject 8021 Candidate 0034 (Nikita Bishnoi): Broadsheet=e vs DB=U
+  [MAR-2025] Subject 8021 Candidate 0035 (Twinkle Lunia): Broadsheet=a vs DB=b
+  [MAR-2025] Subject 9609 Candidate 0032 (Aarna Mishra): Broadsheet=C vs DB=U
+  [MAR-2025] Subject 9609 Candidate 0035 (Twinkle Lunia): Broadsheet= vs DB=D
+  [MAR-2025] Subject 9700 Candidate 0030 (Sonal Rathore): Broadsheet=C vs DB=D
+  [MAR-2025] Subject 9701 Candidate 0024 (Gungun): Broadsheet=U vs DB=E
+  [MAR-2025] Subject 9701 Candidate 0027 (Riya Bhandari): Broadsheet=U vs DB=E
+  [MAR-2025] Subject 9701 Candidate 0030 (Sonal Rathore): Broadsheet=C vs DB=D
+  [MAR-2025] Subject 9702 Candidate 0026 (Mahek Bhambhani): Broadsheet= vs DB=B
+  [MAR-2025] Subject 9702 Candidate 0029 (Shikhar Vaswani): Broadsheet= vs DB=U
+  [MAR-2025] Subject 9702 Candidate 0031 (Vipul Kachhwaha): Broadsheet= vs DB=C
+  [MAR-2025] Subject 9702 Candidate 0023 (Garv Agarwal): Broadsheet= vs DB=B
+  [MAR-2025] Subject 9702 Candidate 0027 (Riya Bhandari): Broadsheet= vs DB=U
+  [MAR-2025] Subject 9702 Candidate 0030 (Sonal Rathore): Broadsheet= vs DB=C
+  [MAR-2025] Subject 9706 Candidate 0033 (Krishna Soni): Broadsheet= vs DB=E
+  [MAR-2025] Subject 9706 Candidate 0032 (Aarna Mishra): Broadsheet= vs DB=D
+  [MAR-2025] Subject 9706 Candidate 0035 (Twinkle Lunia): Broadsheet= vs DB=D
+  [MAR-2025] Subject 9708 Candidate 0034 (Nikita Bishnoi): Broadsheet=U vs DB=E
+  [MAR-2025] Subject 9708 Candidate 0035 (Twinkle Lunia): Broadsheet=U vs DB=D
+  [MAR-2025] Subject 9709 Candidate 0029 (Shikhar Vaswani): Broadsheet=U vs DB=E
+  [MAR-2025] Subject 9709 Candidate 0024 (Gungun): Broadsheet=U vs DB=E
+  [MAR-2025] Subject 9709 Candidate 0028 (Ronik Mewara): Broadsheet=U vs DB=E
+  [MAR-2025] Subject 9709 Candidate 0031 (Vipul Kachhwaha): Broadsheet=B vs DB=A
+  [MAR-2025] Subject 9709 Candidate 0023 (Garv Agarwal): Broadsheet=C vs DB=B
+  [MAR-2025] Subject 9709 Candidate 0026 (Mahek Bhambhani): Broadsheet=C vs DB=B
+  [MAR-2025] Subject 9990 Candidate 0035 (Twinkle Lunia): Broadsheet=E vs DB=C
+  [MAR-2026] Subject 9609 Candidate 0034 (Nikita Bishnoi): Broadsheet=A vs DB=C
+  [MAR-2026] Subject 9702 Candidate 0008 (Divyansh Jain): Broadsheet=U vs DB=e
+  [MAR-2026] Subject 9706 Candidate 5025 (Amrit Kumbhat): Broadsheet=E vs DB=U
+  [MAR-2026] Subject 9708 Candidate 5029 (Vedanshi Gajja): Broadsheet=D vs DB=U
+  [MAR-2026] Subject 9709 Candidate 0005 (Bharat Puniya): Broadsheet=A vs DB=A*
+  [MAR-2026] Subject 9709 Candidate 5016 (Anand Kanwar Padiyar): Broadsheet=D vs DB=E
+  [MAR-2026] Subject 9709 Candidate 5018 (Himanshi Agarwal): Broadsheet=D vs DB=E
+  [MAR-2026] Subject 9709 Candidate 5021 (Kamlesh Chaudhary): Broadsheet=D vs DB=E
+  [MAR-2026] Subject 9990 Candidate 5020 (Kalyani Yadav): Broadsheet=B vs DB=C
+  [NOV-2020] Subject 9701 Candidate 0004 (Prabhav Agarwal): Broadsheet=B vs DB=d
+  [NOV-2020] Subject 9708 Candidate 0002 (Khush Jirawala): Broadsheet=B vs DB=d
+  [NOV-2020] Subject 9708 Candidate 0003 (Lucky Jangid): Broadsheet=C vs DB=d
+  [NOV-2021] Subject 9626 Candidate 0006 (Aryan): Broadsheet=B vs DB=C
+  [NOV-2021] Subject 9626 Candidate 0005 (Yugan Sharma): Broadsheet=B vs DB=c
+  [NOV-2021] Subject 9708 Candidate 0004 (Sawai Gurjar): Broadsheet=B vs DB=c
+  [NOV-2021] Subject 9709 Candidate 0002 (Keshav Gehlot): Broadsheet=U vs DB=e
+  [NOV-2021] Subject 9990 Candidate 0003 (Mitesh Mishra): Broadsheet=C vs DB=U
+  [NOV-2021] Subject 9990 Candidate 0004 (Sawai Gurjar): Broadsheet=D vs DB=e
+  [NOV-2022] Subject 9489 Candidate 0002 (Bhavika Anand): Broadsheet=B vs DB=c
+  [NOV-2022] Subject 9700 Candidate 0003 (Manas Jain): Broadsheet=D vs DB=c
+  [NOV-2022] Subject 9701 Candidate 0004 (Prabhav Agarwal): Broadsheet=A vs DB=D
+  [NOV-2022] Subject 9701 Candidate 0003 (Manas Jain): Broadsheet=B vs DB=a
+  [NOV-2022] Subject 9702 Candidate 0004 (Prabhav Agarwal): Broadsheet=A vs DB=B
+  [NOV-2022] Subject 9708 Candidate 0003 (Manas Jain): Broadsheet= vs DB=B
+  [NOV-2022] Subject 9708 Candidate 0002 (Bhavika Anand): Broadsheet=D vs DB=c
+  [NOV-2022] Subject 9990 Candidate 0002 (Bhavika Anand): Broadsheet=C vs DB=d
+  [NOV-2024] Subject 8021 Candidate 0013 (Rishav Kumar Singla): Broadsheet=e vs DB=U
+  [NOV-2024] Subject 8021 Candidate 0015 (Ravi Khilery): Broadsheet=c vs DB=e
+  [NOV-2024] Subject 9609 Candidate 0013 (Rishav Kumar Singla): Broadsheet= vs DB=D
+  [NOV-2024] Subject 9626 Candidate 0013 (Rishav Kumar Singla): Broadsheet= vs DB=U
+  [NOV-2024] Subject 9700 Candidate 0009 (Shrey Prakash Vishnoi): Broadsheet=A vs DB=C
+  [NOV-2024] Subject 9700 Candidate 0010 (Nandini Chauhan): Broadsheet=B vs DB=A
+  [NOV-2024] Subject 9700 Candidate 0012 (Ajita Gour): Broadsheet=B vs DB=A
+  [NOV-2024] Subject 9701 Candidate 0018 (Harshvardhan Singh): Broadsheet=E vs DB=D
+  [NOV-2024] Subject 9701 Candidate 0017 (Krish Agarwalla): Broadsheet= vs DB=C
+  [NOV-2024] Subject 9701 Candidate 0001 (Mahek Bhambhani): Broadsheet=B vs DB=a
+  [NOV-2024] Subject 9701 Candidate 0006 (Gungun): Broadsheet=E vs DB=d
+  [NOV-2024] Subject 9701 Candidate 0011 (Ronik Mewara): Broadsheet=E vs DB=d
+  [NOV-2024] Subject 9701 Candidate 0016 (Riya Bhandari): Broadsheet=E vs DB=c
+  [NOV-2024] Subject 9702 Candidate 0018 (Harshvardhan Singh): Broadsheet=E vs DB=C
+  [NOV-2024] Subject 9702 Candidate 0017 (Krish Agarwalla): Broadsheet= vs DB=C
+  [NOV-2024] Subject 9702 Candidate 0001 (Mahek Bhambhani): Broadsheet=C vs DB=b
+  [NOV-2024] Subject 9702 Candidate 0003 (Shikhar Vaswani): Broadsheet=U vs DB=e
+  [NOV-2024] Subject 9702 Candidate 0014 (Vipul Kachhwaha): Broadsheet=D vs DB=b
+  [NOV-2024] Subject 9706 Candidate 0005 (Krishna Soni): Broadsheet=C vs DB=e
+  [NOV-2024] Subject 9706 Candidate 0008 (Nikita Bishnoi): Broadsheet=D vs DB=c
+  [NOV-2024] Subject 9708 Candidate 0015 (Ravi Khilery): Broadsheet= vs DB=C
+  [NOV-2024] Subject 9708 Candidate 0002 (Twinkle Lunia): Broadsheet=B vs DB=c
+  [NOV-2024] Subject 9709 Candidate 0015 (Ravi Khilery): Broadsheet=B vs DB=C
+  [NOV-2024] Subject 9709 Candidate 0018 (Harshvardhan Singh): Broadsheet= vs DB=B
+  [NOV-2024] Subject 9709 Candidate 0006 (Gungun): Broadsheet=C vs DB=d
+  [NOV-2024] Subject 9709 Candidate 0011 (Ronik Mewara): Broadsheet=B vs DB=c
+  [NOV-2024] Subject 9709 Candidate 0013 (Rishav Kumar Singla): Broadsheet=C vs DB=d
+  [NOV-2025] Subject 8021 Candidate 0034 (Nikita Bishnoi): Broadsheet=e vs DB=U
+  [NOV-2025] Subject 8021 Candidate 5021 (Kamlesh Chaudhary): Broadsheet=d vs DB=e
+  [NOV-2025] Subject 8021 Candidate 5022 (Manisha Yadav): Broadsheet=e vs DB=U
+  [NOV-2025] Subject 9700 Candidate 5017 (Bhanupriya Rana): Broadsheet=E vs DB=U
+  [NOV-2025] Subject 9700 Candidate 0027 (Riya Bhandari): Broadsheet= vs DB=E
+  [NOV-2025] Subject 9702 Candidate 0028 (Ronik Mewara): Broadsheet=U vs DB=E
+  [NOV-2025] Subject 9702 Candidate 0029 (Shikhar Vaswani): Broadsheet= vs DB=E
+  [NOV-2025] Subject 9708 Candidate 5016 (Anand Kanwar Padiyar): Broadsheet=D vs DB=e
+  [NOV-2025] Subject 9708 Candidate 5023 (Priyal Chopra): Broadsheet=C vs DB=E
+  [NOV-2025] Subject 9708 Candidate 5024 (Priyanka Khilery): Broadsheet=C vs DB=E
+  [NOV-2025] Subject 9708 Candidate 0029 (Shikhar Vaswani): Broadsheet= vs DB=E
+  [NOV-2025] Subject 9708 Candidate 0034 (Nikita Bishnoi): Broadsheet= vs DB=U
+
+--- BLANK GRADES IN DB ---
+NONE - No blank grades!
+
+--- RECORDS IN BROADSHEET BUT NOT IN DB ---
+NONE - All broadsheet records found in DB!
+
+--- SUBJECT-TO-QUALIFICATION MAPPING ---
+(Checking each broadsheet subject maps to exactly one DB subject)
+
+--- COMPONENT COMPLETENESS CHECK ---
+(Checking each DB subject has components and each component has a grade column)
+  IGCSE:
+    OK: 0400 (Art And Design) - Components: 01, 02
+    OK: 0417 (Information And Communication) - Components: 02, 03, 12
+    OK: 0450 (Business Studies) - Components: 12, 22
+    OK: 0452 (Accounting) - Components: 12, 22
+    OK: 0455 (Economics) - Components: 12, 22
+    OK: 0460 (Geography) - Components: 12, 22, 42
+    OK: 0471 (Travel And Tourism) - Components: 12, 22
+    OK: 0472 (English (Additional Language)) - Components: 03, 12, 22, 42
+    OK: 0475 (Literature In English) - Components: 12, 32, 42
+    OK: 0478 (Computer Science) - Components: 1, 2, P1, P2
+    OK: 0500 (English Language) - Components: 12, 22
+    OK: 0510 (English As A Second Language) - Components: 12, 22, 32
+    OK: 0520 (French (Foreign Language)) - Components: 03, 12, 22, 42
+    OK: 0549 (Hindi As A Second Language) - Components: 01, 02
+    OK: 0580 (Mathematics) - Components: 12, 22, 32, 42
+    OK: 0606 (Additional Mathematics) - Components: 12, 22
+    OK: 0607 (Cambridge Int Mathematics) - Components: 12, 22, 32, 42, 52, 62
+    OK: 0610 (Biology (Pure)) - Components: 12, 32, 62
+    OK: 0620 (Chemistry (Pure)) - Components: 22, 42, 62
+    OK: 0625 (Physics (Pure)) - Components: 22, 42, 62
+    OK: 0653 (Combined Science) - Components: 12, 32, 62
+    OK: 0654 (Co-Ord Sciences (Double Award)) - Components: 22, 42, 62
+    OK: 0680 (Environmental Management) - Components: 12, 22
+  AS_A_LEVEL:
+    OK: 8021 (English General Paper) - Components: 12, 22
+    OK: 9093 (English Language) - Components: 12, 22, 32, 42, 88
+    OK: 9479 (Art And Design) - Components: 01, 02
+    OK: 9489 (History) - Components: 12, 22
+    OK: 9609 (Business) - Components: 12, 22, 32, 42
+    OK: 9618 (Computer Science) - Components: 32, 42, 88
+    OK: 9626 (Information Technology) - Components: 02, 04, 12, 32
+    OK: 9695 (Literature In English) - Components: 12, 22, 32, 42
+    OK: 9699 (Sociology) - Components: 12, 22, 32, 42
+    OK: 9700 (Biology) - Components: 12, 22, 33, 42, 52, 95
+    OK: 9701 (Chemistry) - Components: 42, 52, 95
+    OK: 9702 (Physics) - Components: 12, 22, 33, 42, 52, 95
+    OK: 9706 (Accounting) - Components: 12, 22
+    OK: 9708 (Economics) - Components: 12, 22, 32, 42, 98
+    OK: 9709 (Mathematics) - Components: 12, 32, 52, 62, 98
+    OK: 9990 (Psychology) - Components: 12, 22, 32, 42
+
+--- GRADE COLUMN PRESENCE IN COMPONENT_MARKS TABLE ---
+component_marks.grade column exists: NO - NEEDS MIGRATION
+
+--- TOTAL COUNTS ---
+Total broadsheet records processed: 1024
+Total DB subject results: 1161
+Grade mismatches: 630
+Blank grades: 0
+Not in DB: 0
+Component marks in DB: 0 (needs import)

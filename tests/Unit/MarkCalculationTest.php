@@ -80,9 +80,15 @@ class MarkCalculationTest extends TestCase
             'enrolled_date' => now()->toDateString()
         ]);
 
-        // 8. Create Components (P1: 100 max, P2: 100 max)
+        // 8. Create Component Set and Components
+        $componentSet = \App\Models\ComponentSet::create([
+            'subject_id' => $subject->id,
+            'is_default' => true,
+        ]);
+
         $comp1 = Component::create([
             'subject_id' => $subject->id,
+            'component_set_id' => $componentSet->id,
             'component_code' => 'P1',
             'component_name' => 'Paper 1',
             'component_type' => 'paper',
@@ -92,6 +98,7 @@ class MarkCalculationTest extends TestCase
 
         $comp2 = Component::create([
             'subject_id' => $subject->id,
+            'component_set_id' => $componentSet->id,
             'component_code' => 'P2',
             'component_name' => 'Paper 2',
             'component_type' => 'paper',

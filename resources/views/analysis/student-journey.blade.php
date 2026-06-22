@@ -57,45 +57,62 @@
 
     @if($student)
         <!-- Candidate Profile Summary Header -->
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-150 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div>
-                <span class="text-xxs font-extrabold text-indigo-700 uppercase bg-indigo-50 border border-indigo-150 px-2 py-0.5 rounded">
-                    Candidate Profile
-                </span>
-                <h2 class="text-xl font-bold text-slate-800 mt-2">{{ $student->candidate_name }}</h2>
-                <p class="text-xs text-slate-400 mt-1 font-medium">
-                    Candidate Number(s): <span class="font-mono font-semibold text-slate-600 bg-slate-50 border border-slate-100 px-1.5 py-0.5 rounded">{{ implode(', ', $all_candidate_numbers) }}</span> 
-                    <span class="mx-1.5">|</span> School: <span class="text-slate-600 font-semibold">{{ $student->school->school_name }}</span>
-                    @if($student->date_of_birth)
-                        <span class="mx-1.5">|</span> DOB: <span class="text-slate-600 font-semibold">{{ $student->date_of_birth->format('d M Y') }}</span>
-                    @endif
-                </p>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-150">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <span class="text-xxs font-extrabold text-indigo-700 uppercase bg-indigo-50 border border-indigo-150 px-2 py-0.5 rounded">
+                        Candidate Profile
+                    </span>
+                    <h2 class="text-xl font-bold text-slate-800 mt-2">{{ $student->candidate_name }}</h2>
+                    <p class="text-xs text-slate-400 mt-1 font-medium">
+                        Candidate Number(s): <span class="font-mono font-semibold text-slate-600 bg-slate-50 border border-slate-100 px-1.5 py-0.5 rounded">{{ implode(', ', $all_candidate_numbers) }}</span> 
+                        <span class="mx-1.5">|</span> School: <span class="text-slate-600 font-semibold">{{ $student->school->school_name }}</span>
+                        @if($student->date_of_birth)
+                            <span class="mx-1.5">|</span> DOB: <span class="text-slate-600 font-semibold">{{ $student->date_of_birth->format('d M Y') }}</span>
+                        @endif
+                    </p>
+                </div>
+                
+                <!-- Overall Stats Summary Cards -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full md:w-auto shrink-0 pt-4 md:pt-0 border-t border-slate-100 md:border-none">
+                    <div class="px-4 py-2.5 bg-slate-50 border border-slate-100 rounded-xl text-center">
+                        <span class="text-xxs font-bold text-slate-400 uppercase tracking-wider block">Total Papers</span>
+                        <span class="text-lg font-black text-slate-800">{{ $total_results_count }}</span>
+                    </div>
+                    <div class="px-4 py-2.5 bg-indigo-50/50 border border-indigo-100 rounded-xl text-center">
+                        <span class="text-xxs font-bold text-indigo-500 uppercase tracking-wider block">Avg PUM</span>
+                        <span class="text-lg font-black text-indigo-700">
+                            {{ $avg_pum_overall }}%
+                        </span>
+                    </div>
+                    <div class="px-4 py-2.5 bg-emerald-50 border border-emerald-100 rounded-xl text-center">
+                        <span class="text-xxs font-bold text-emerald-600 uppercase tracking-wider block">Best Grade</span>
+                        <span class="text-lg font-black text-emerald-800 font-sans">
+                            {{ $best_grade }}
+                        </span>
+                    </div>
+                    <div class="px-4 py-2.5 bg-amber-50 border border-amber-100 rounded-xl text-center">
+                        <span class="text-xxs font-bold text-amber-600 uppercase tracking-wider block">Pass Rate</span>
+                        <span class="text-lg font-black text-amber-800">
+                            {{ $pass_rate_overall }}%
+                        </span>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Overall Stats Summary Cards -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full md:w-auto shrink-0 pt-4 md:pt-0 border-t border-slate-100 md:border-none">
-                <div class="px-4 py-2.5 bg-slate-50 border border-slate-100 rounded-xl text-center">
-                    <span class="text-xxs font-bold text-slate-400 uppercase tracking-wider block">Total Papers</span>
-                    <span class="text-lg font-black text-slate-800">{{ $total_results_count }}</span>
-                </div>
-                <div class="px-4 py-2.5 bg-indigo-50/50 border border-indigo-100 rounded-xl text-center">
-                    <span class="text-xxs font-bold text-indigo-500 uppercase tracking-wider block">Avg PUM</span>
-                    <span class="text-lg font-black text-indigo-700">
-                        {{ $avg_pum_overall }}%
-                    </span>
-                </div>
-                <div class="px-4 py-2.5 bg-emerald-50 border border-emerald-100 rounded-xl text-center">
-                    <span class="text-xxs font-bold text-emerald-600 uppercase tracking-wider block">Best Grade</span>
-                    <span class="text-lg font-black text-emerald-800 font-sans">
-                        {{ $best_grade }}
-                    </span>
-                </div>
-                <div class="px-4 py-2.5 bg-amber-50 border border-amber-100 rounded-xl text-center">
-                    <span class="text-xxs font-bold text-amber-600 uppercase tracking-wider block">Pass Rate</span>
-                    <span class="text-lg font-black text-amber-800">
-                        {{ $pass_rate_overall }}%
-                    </span>
-                </div>
+
+            {{-- Export PDF Button --}}
+            <div class="mt-4 pt-4 border-t border-slate-100 flex justify-end">
+                <a 
+                    href="{{ route('analysis.student-journey.preview', ['candidate_name' => $student->candidate_name]) }}"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold rounded-xl shadow-md transition duration-200 hover:-translate-y-0.5"
+                >
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    Preview &amp; Download Report Card
+                </a>
             </div>
         </div>
 
@@ -228,7 +245,7 @@
                                                     <span class="px-1.5 py-0.2 bg-slate-100 border border-slate-200 text-[8px] font-bold text-slate-500 rounded">
                                                         {{ $res->subject->qualification->qualification_name }}
                                                     </span>
-                                                    <h5 class="text-[11px] font-extrabold text-slate-800 mt-1 truncate" title="{{ $res->subject->subject_name }}">{{ $res->subject->subject_name }}</h5>
+                                                    <h5 class="text-[11px] font-extrabold text-slate-800 mt-1 truncate" title="{{ $res->subject->subject_name }} ({{ $res->subject->subject_code }})">{{ $res->subject->subject_name }} ({{ $res->subject->subject_code }})</h5>
                                                 </div>
                                                 <span class="inline-flex items-center justify-center w-6 h-6 bg-slate-900 text-white rounded-full text-[10px] font-extrabold shadow-sm shrink-0">
                                                     {{ $res->grade }}
@@ -245,7 +262,7 @@
                                                 <div class="pt-1 border-t border-slate-100 grid grid-cols-3 gap-0.5 bg-white p-1 rounded-lg border border-slate-150 text-[8px]">
                                                     @foreach($res->componentMarks as $mark)
                                                         <div class="text-center">
-                                                            <span class="text-slate-400 font-bold font-mono block">{{ $mark->component->component_code }}</span>
+                                                            <span class="text-slate-400 font-bold font-mono block" title="{{ $mark->component->component_label ?? $mark->component->component_name }}">{{ $mark->component->component_label ?? $mark->component->component_name }} ({{ $mark->component->component_code }})</span>
                                                             <span class="font-black text-slate-700">{{ $mark->obtained_marks }}</span><span class="text-[7px] text-slate-400">/{{ $mark->component->total_marks }}</span>
                                                         </div>
                                                     @endforeach
@@ -323,7 +340,7 @@
                                             <span class="px-2 py-0.5 bg-slate-100 border border-slate-200 text-[10px] font-bold text-slate-500 rounded">
                                                 {{ $res->subject->qualification->qualification_name }}
                                             </span>
-                                            <h5 class="text-sm font-bold text-slate-800 mt-1.5 truncate" title="{{ $res->subject->subject_name }}">{{ $res->subject->subject_name }}</h5>
+                                            <h5 class="text-sm font-bold text-slate-800 mt-1.5 truncate" title="{{ $res->subject->subject_name }} ({{ $res->subject->subject_code }})">{{ $res->subject->subject_name }} ({{ $res->subject->subject_code }})</h5>
                                             <p class="text-xs text-slate-450 font-semibold mt-1">PUM: <span class="text-base font-black text-indigo-600 ml-1">{{ $res->pum }}%</span></p>
                                         </div>
                                         <span class="inline-flex items-center justify-center w-7 h-7 bg-slate-900 text-white rounded-full text-xs font-extrabold shadow-sm shrink-0">

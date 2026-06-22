@@ -74,23 +74,21 @@ class ManualResultsController extends Controller
         $series  = $examSeries;
         $subject = $subject->load(['components', 'qualification']);
 
-        // All enrollments for this series + subject (fetching general enrollment rows for students registered for this subject)
         $enrollments = CandidateEnrollment::with('candidate')
             ->where('series_id', $series->id)
-            ->where('qualification_id', $subject->qualification_id)
-            ->whereNull('subject_id')
-            ->whereIn('candidate_id', function ($query) use ($series, $subject) {
-                $query->select('candidate_id')
-                    ->from('candidate_enrollments')
-                    ->where('series_id', $series->id)
-                    ->where('subject_id', $subject->id);
-            })
+            ->where('subject_id', $subject->id)
             ->join('candidates', 'candidate_enrollments.candidate_id', '=', 'candidates.id')
             ->orderBy('candidates.candidate_number')
             ->select('candidate_enrollments.*')
             ->get();
 
-        $components = $subject->components()->orderBy('component_code')->get();
+        // Fetch components for this subject based on the series year
+        $componentSet = \App\Models\ComponentSet::findForSubjectYear($subject->id, $series->year);
+        $components = collect();
+        
+        if ($componentSet) {
+            $components = $componentSet->components()->orderBy('component_code')->get();
+        }
 
         $grades = $subject->qualification->qualification_type === 'AS_A_LEVEL'
             ? ['A*', 'A', 'B', 'C', 'D', 'E', 'a', 'b', 'c', 'd', 'e', 'U']
@@ -104,14 +102,7 @@ class ManualResultsController extends Controller
                 $q->whereIn('candidate_id', $candidateIds);
             })
             ->get()
-            ->keyBy(function($res) use ($series, $subject) {
-                $gen = CandidateEnrollment::where('candidate_id', $res->enrollment->candidate_id)
-                    ->where('series_id', $series->id)
-                    ->where('qualification_id', $subject->qualification_id)
-                    ->whereNull('subject_id')
-                    ->first();
-                return $gen ? $gen->id : null;
-            });
+            ->keyBy('enrollment_id');
 
         $rows = $enrollments->map(function ($enrollment) use ($components, $subjectResults) {
             $result = $subjectResults->get($enrollment->id);
@@ -122,7 +113,8 @@ class ManualResultsController extends Controller
                 foreach ($result->componentMarks as $cm) {
                     $componentMarkMap[$cm->component_id] = [
                         'obtained' => $cm->obtained_marks,
-                        'applicable' => true, // if a mark exists, it was applicable
+                        'grade'    => $cm->grade,
+                        'applicable' => true,
                     ];
                 }
             }
@@ -135,6 +127,7 @@ class ManualResultsController extends Controller
                     'component_name' => $comp->component_name,
                     'max_marks'      => $comp->total_marks,
                     'obtained'       => $existing ? $existing['obtained'] : null,
+                    'component_grade'=> $existing ? ($existing['grade'] ?? null) : null,
                     'applicable'     => $result ? ($existing ? true : false) : true,
                 ];
             });
@@ -169,9 +162,10 @@ class ManualResultsController extends Controller
             'grade'         => 'nullable|in:A*,A*A*,A,AA,B,BB,C,CC,D,DD,E,EE,F,FF,G,GG,U,UU,a,b,c,d,e,u',
             'pum'           => 'nullable|numeric|min:0|max:100',
             'components'    => 'nullable|array',
-            'components.*.component_id' => 'exists:components,id',
-            'components.*.obtained'     => 'nullable|numeric|min:0',
-            'components.*.applicable'   => 'boolean',
+            'components.*.component_id'    => 'exists:components,id',
+            'components.*.obtained'        => 'nullable|numeric|min:0',
+            'components.*.applicable'      => 'boolean',
+            'components.*.component_grade' => 'nullable|string|max:10',
         ]);
 
         $enrollment = CandidateEnrollment::findOrFail($request->enrollment_id);
@@ -234,7 +228,7 @@ class ManualResultsController extends Controller
                     'overall_percentage'      => $percentage,
                     'is_passed'               => $isPassed,
                     'status'                  => count($componentData) > 0 ? 'component_marks_added' : 'pending_components',
-                    'uploaded_by'             => Auth::id(),
+                    'uploaded_by'             => Auth::id() ?? 1,
                     'result_uploaded_at'      => now(),
                 ]
             );
@@ -259,7 +253,8 @@ class ManualResultsController extends Controller
                             'obtained_marks' => $obtained,
                             'total_marks'    => $maxMarks,
                             'percentage'     => $pct,
-                            'uploaded_by'    => Auth::id(),
+                            'grade'          => $c['component_grade'] ?? null,
+                            'uploaded_by'    => Auth::id() ?? 1,
                             'uploaded_at'    => now(),
                         ]
                     );

@@ -311,14 +311,14 @@ class AiImportTest extends TestCase
         $bob = collect($candidates)->firstWhere('candidate_name', 'Bob DoubleStar');
         $this->assertNotNull($bob);
         $this->assertEquals(95.0, $bob['results']['0580']['pum']);
-        // Assert AS Level 'e' maps to 45.0 PUM
-        $this->assertEquals(45.0, $bob['results']['8021']['pum']);
+        // Assert AS Level 'e' maps to 44.5 PUM
+        $this->assertEquals(44.5, $bob['results']['8021']['pum']);
 
-        // Assert A maps to 85.0 PUM
+        // Assert A maps to 84.5 PUM
         $charlie = collect($candidates)->firstWhere('candidate_name', 'Charlie A');
         $this->assertNotNull($charlie);
-        $this->assertEquals(85.0, $charlie['results']['0580']['pum']);
-        // Assert AS Level 'c' maps to 65.0 PUM
-        $this->assertEquals(65.0, $charlie['results']['8021']['pum']);
+        $this->assertEquals(84.5, $charlie['results']['0580']['pum']);
+        // Assert AS Level 'c' maps to 64.5 PUM
+        $this->assertEquals(64.5, $charlie['results']['8021']['pum']);
     }
 }

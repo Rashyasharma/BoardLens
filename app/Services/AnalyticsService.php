@@ -153,6 +153,12 @@ class AnalyticsService
             $query->where('series_id', $filters['series_id']);
         }
 
+        if (!empty($filters['month'])) {
+            $query->whereHas('series', function ($q) use ($filters) {
+                $q->where('month', $filters['month']);
+            });
+        }
+
         if (!empty($filters['subject_id'])) {
             $query->where('subject_id', $filters['subject_id']);
         }

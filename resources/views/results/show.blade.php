@@ -50,7 +50,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
         <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-sm flex flex-col justify-between h-32 relative overflow-hidden">
             <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Uploaded Grade</span>
-            <span class="text-5xl font-black mt-2">{{ in_array($result->grade, ['a', 'b', 'c', 'd', 'e']) ? $result->grade . ' (AS Level)' : $result->grade }}</span>
+            <span class="text-5xl font-black mt-2">{{ ($result->enrollment->qualification->qualification_type === 'AS_A_LEVEL' && in_array($result->grade, ['a', 'b', 'c', 'd', 'e'])) ? $result->grade . ' (AS Level)' : $result->grade }}</span>
             <div class="absolute -right-4 -bottom-6 opacity-10">
                 <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
             </div>
@@ -76,46 +76,70 @@
 
     <!-- Component Breakdown Table -->
     <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-        <div class="px-6 py-4 border-b border-slate-100">
+        <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
             <h4 class="text-lg font-bold text-slate-800">Component-wise Marks Breakdown</h4>
+            <span class="text-xs text-slate-500 font-semibold">
+                {{ $result->componentMarks->count() }} of {{ $result->expected_component_count }} Uploaded
+            </span>
         </div>
         <div class="overflow-x-auto">
+            @php
+                $marksKeyed = $result->componentMarks->keyBy('component_id');
+            @endphp
             <table class="w-full text-left border-collapse">
                 <thead>
                     <tr class="bg-slate-50 border-b border-slate-150 text-slate-500 text-xs font-semibold uppercase tracking-wider">
-                        <th class="px-6 py-3">Component Code</th>
+                        <th class="px-6 py-3">Component Label & Code</th>
                         <th class="px-6 py-3">Component Name</th>
                         <th class="px-6 py-3">Total Marks</th>
                         <th class="px-6 py-3">Obtained Marks</th>
                         <th class="px-6 py-3">Percentage</th>
-                        <th class="px-6 py-3 text-right">Scaling Factor</th>
+                        <th class="px-6 py-3 text-right">Status</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 text-sm text-slate-600">
-                    @forelse($result->componentMarks as $mark)
+                    @forelse($result->expected_components as $comp)
+                        @php
+                            $mark = $marksKeyed->get($comp->id);
+                        @endphp
                         <tr class="hover:bg-slate-50/50 transition">
                             <td class="px-6 py-4">
                                 <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 text-xs font-bold rounded border border-indigo-100">
-                                    {{ $mark->component->component_code }}
+                                    {{ $comp->component_label }} ({{ $comp->component_code }})
                                 </span>
                             </td>
-                            <td class="px-6 py-4 font-semibold text-slate-800">{{ $mark->component->component_name }}</td>
-                            <td class="px-6 py-4">{{ $mark->total_marks }}</td>
-                            <td class="px-6 py-4 font-bold text-slate-800">{{ round($mark->obtained_marks, 1) }}</td>
-                            <td class="px-6 py-4 font-semibold text-emerald-600">{{ round($mark->percentage, 1) }}%</td>
-                            <td class="px-6 py-4 text-right font-bold text-slate-700">
-                                {{ $mark->component->scaling_factor }}/10
+                            <td class="px-6 py-4 font-semibold text-slate-800">{{ $comp->component_name }}</td>
+                            <td class="px-6 py-4">{{ $comp->total_marks }}</td>
+                            <td class="px-6 py-4 font-bold text-slate-800">
+                                @if($mark)
+                                    {{ round($mark->obtained_marks, 1) }}
+                                @else
+                                    <span class="text-slate-400 font-normal">-</span>
+                                @endif
+                            </td>
+                            <td class="px-6 py-4 font-semibold">
+                                @if($mark)
+                                    <span class="text-emerald-600">{{ round($mark->percentage, 1) }}%</span>
+                                @else
+                                    <span class="text-slate-400 font-normal">-</span>
+                                @endif
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                @if($mark)
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                                        Uploaded
+                                    </span>
+                                @else
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
+                                        Pending Upload
+                                    </span>
+                                @endif
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7" class="px-6 py-8 text-center text-slate-400">
-                                No component marks recorded for this candidate.
-                                    <div class="mt-3">
-                                        <a href="{{ route('results.edit-components', $result->id) }}" class="px-3 py-1.5 bg-slate-100 text-indigo-600 text-xs font-bold rounded-lg border border-slate-200">
-                                            Add Component Marks Manually
-                                        </a>
-                                    </div>
+                            <td colspan="6" class="px-6 py-8 text-center text-slate-400">
+                                No components defined for this subject.
                             </td>
                         </tr>
                     @endforelse

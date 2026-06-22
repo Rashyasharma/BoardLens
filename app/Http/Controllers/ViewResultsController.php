@@ -16,7 +16,7 @@ class ViewResultsController extends Controller
      */
     public function index(Request $request)
     {
-        $schoolId = auth()->user()->school_id;
+        $schoolId = auth()->user()?->school_id;
         
         $query = SubjectResult::query()
             ->with(['enrollment.candidate', 'subject', 'series', 'componentMarks.component']);
@@ -45,6 +45,21 @@ class ViewResultsController extends Controller
             $query->filterBySeries($request->series_id);
         }
 
+        if ($request->filled('grade')) {
+            $g = $request->grade;
+            if ($g === 'QX') {
+                $query->whereIn('grade', ['Q', 'X']);
+            } elseif ($g === 'U') {
+                $query->whereIn('grade', ['U', 'UU']);
+            } else {
+                $query->where('grade', $g);
+            }
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
         $results = $query->paginate(20)->withQueryString();
 
         // Get filter options
@@ -64,7 +79,7 @@ class ViewResultsController extends Controller
     public function show(SubjectResult $result)
     {
         // Scope check
-        $schoolId = auth()->user()->school_id;
+        $schoolId = auth()->user()?->school_id;
         $candidate = $result->enrollment->candidate;
         if ($schoolId && $candidate->school_id !== $schoolId) {
             abort(403, 'Unauthorized access to result record.');
@@ -95,13 +110,14 @@ class ViewResultsController extends Controller
     public function editComponents(SubjectResult $result)
     {
         // Scope check
-        $schoolId = auth()->user()->school_id;
+        $schoolId = auth()->user()?->school_id;
         $candidate = $result->enrollment->candidate;
         if ($schoolId && $candidate->school_id !== $schoolId) {
             abort(403, 'Unauthorized access to result record.');
         }
 
-        $components = $result->subject->components()->get();
+        $componentSet = \App\Models\ComponentSet::findForSubjectYear($result->subject_id, $result->series->year);
+        $components = $componentSet ? $componentSet->components()->orderBy('component_code')->get() : collect();
         $existingMarks = $result->componentMarks()
             ->with('component')
             ->get()
@@ -121,7 +137,7 @@ class ViewResultsController extends Controller
     public function storeComponent(SubjectResult $result, Request $request)
     {
         // Scope check
-        $schoolId = auth()->user()->school_id;
+        $schoolId = auth()->user()?->school_id;
         $candidate = $result->enrollment->candidate;
         if ($schoolId && $candidate->school_id !== $schoolId) {
             abort(403, 'Unauthorized access to result record.');

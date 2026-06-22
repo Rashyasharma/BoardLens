@@ -118,22 +118,10 @@ class ResultUploadController extends Controller
                     // Use centralized Candidate lookup/creation helper to prevent duplicate profiles
                     $candidate = Candidate::findOrCreateByNameAndNumber($schoolId, $candNo, $candName);
 
-                    // Find or create general enrollment
-                    $enrollment = CandidateEnrollment::firstOrCreate(
-                        [
-                            'candidate_id' => $candidate->id,
-                            'series_id' => $seriesId,
-                            'qualification_id' => $qualificationId,
-                            'subject_id' => null,
-                        ],
-                        [
-                            'enrolled_date' => now()->toDateString(),
-                            'enrollment_status' => 'enrolled',
-                        ]
-                    );
+                    // We no longer create general (subject_id = null) enrollments.
 
                     // Ensure subject-specific enrollment exists
-                    CandidateEnrollment::firstOrCreate(
+                    $subjectEnrollment = CandidateEnrollment::firstOrCreate(
                         [
                             'candidate_id' => $candidate->id,
                             'series_id' => $seriesId,
@@ -146,10 +134,10 @@ class ResultUploadController extends Controller
                         ]
                     );
 
-                    // Create or update subject result under general enrollment
+                    // Create or update subject result under subject-specific enrollment
                     $result = SubjectResult::updateOrCreate(
                         [
-                            'enrollment_id' => $enrollment->id,
+                            'enrollment_id' => $subjectEnrollment->id,
                             'subject_id' => $subjectId,
                             'series_id' => $seriesId,
                         ],

@@ -1,0 +1,55 @@
+﻿=== COMPONENT CLEANUP & ADD ===
+
+ADDING components for IGCSE/0472 (English (Additional Language)): 03, 12, 22, 42
+ADDING components for IGCSE/0607 (Cambridge Int Mathematics): 12, 22, 32, 42, 52, 62
+ADDING components for IGCSE/0680 (Environmental Management): 12, 22
+ADDING components for AS_A_LEVEL/9093 (English Language): 12, 22, 32, 42, 88
+ADDING components for AS_A_LEVEL/9479 (Art And Design): 01, 02
+ADDING components for AS_A_LEVEL/9489 (History): 12, 22
+ADDING components for AS_A_LEVEL/9695 (Literature In English): 12, 22, 32, 42
+ADDING components for AS_A_LEVEL/9699 (Sociology): 12, 22, 32, 42
+
+--- CHECKING FOR DUPLICATE COMPONENTS ---
+
+=== FINAL COMPONENT STATUS ===
+  [AS_A_LEVEL] 8021 (English General Paper): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9093 (English Language): 5 components - 12, 22, 32, 42, 88 [OK]
+  [AS_A_LEVEL] 9479 (Art And Design): 2 components - 01, 02 [OK]
+  [AS_A_LEVEL] 9489 (History): 2 components - 12, 22 [OK]
+  [AS_A_LEVEL] 9609 (Business): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9618 (Computer Science): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9626 (Information Technology): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9695 (Literature In English): 4 components - 12, 22, 32, 42 [OK]
+  [AS_A_LEVEL] 9699 (Sociology): 4 components - 12, 22, 32, 42 [OK]
+  [AS_A_LEVEL] 9700 (Biology): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9701 (Chemistry): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9702 (Physics): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9706 (Accounting): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9708 (Economics): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9709 (Mathematics): 0 components -  [MISSING]
+  [AS_A_LEVEL] 9990 (Psychology): 0 components -  [MISSING]
+  [IGCSE] 0400 (Art And Design): 0 components -  [MISSING]
+  [IGCSE] 0417 (Information And Communication): 0 components -  [MISSING]
+  [IGCSE] 0450 (Business Studies): 0 components -  [MISSING]
+  [IGCSE] 0452 (Accounting): 0 components -  [MISSING]
+  [IGCSE] 0455 (Economics): 0 components -  [MISSING]
+  [IGCSE] 0460 (Geography): 0 components -  [MISSING]
+  [IGCSE] 0471 (Travel And Tourism): 0 components -  [MISSING]
+  [IGCSE] 0472 (English (Additional Language)): 4 components - 03, 12, 22, 42 [OK]
+  [IGCSE] 0475 (Literature In English): 0 components -  [MISSING]
+  [IGCSE] 0478 (Computer Science): 4 components - P1, P2, 1, 2 [OK]
+  [IGCSE] 0500 (English Language): 0 components -  [MISSING]
+  [IGCSE] 0510 (English As A Second Language): 0 components -  [MISSING]
+  [IGCSE] 0520 (French (Foreign Language)): 0 components -  [MISSING]
+  [IGCSE] 0549 (Hindi As A Second Language): 0 components -  [MISSING]
+  [IGCSE] 0580 (Mathematics): 0 components -  [MISSING]
+  [IGCSE] 0606 (Additional Mathematics): 0 components -  [MISSING]
+  [IGCSE] 0607 (Cambridge Int Mathematics): 6 components - 12, 22, 32, 42, 52, 62 [OK]
+  [IGCSE] 0610 (Biology (Pure)): 0 components -  [MISSING]
+  [IGCSE] 0620 (Chemistry (Pure)): 0 components -  [MISSING]
+  [IGCSE] 0625 (Physics (Pure)): 0 components -  [MISSING]
+  [IGCSE] 0653 (Combined Science): 0 components -  [MISSING]
+  [IGCSE] 0654 (Co-Ord Sciences (Double Award)): 0 components -  [MISSING]
+  [IGCSE] 0680 (Environmental Management): 2 components - 12, 22 [OK]
+
+Subjects with no components: 30

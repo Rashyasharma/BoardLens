@@ -96,7 +96,7 @@
                                             Q (Pending)
                                         @elseif($g === 'X')
                                             X (No Result)
-                                        @elseif(in_array($g, ['a', 'b', 'c', 'd', 'e']))
+                                        @elseif($enrollment->qualification->qualification_type === 'AS_A_LEVEL' && in_array($g, ['a', 'b', 'c', 'd', 'e']))
                                             {{ $g }} (AS Level)
                                         @else
                                             {{ $g }}

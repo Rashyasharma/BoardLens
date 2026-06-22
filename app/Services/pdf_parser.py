@@ -32,26 +32,32 @@ def clean_provisional_grade(g_val):
 def get_midpoint_pum(grade, qualification=None, subject_code=None):
     g = grade.strip()
     if g in ('a', 'b', 'c', 'd', 'e'):
-        m_map = {'a': 90.0, 'b': 75.0, 'c': 65.0, 'd': 55.0, 'e': 45.0}
+        m_map = {
+            'a': 90.0,  # Midpoint of 80-100 range
+            'b': 74.5,  # Midpoint of 70-79 range
+            'c': 64.5,  # Midpoint of 60-69 range
+            'd': 54.5,  # Midpoint of 50-59 range
+            'e': 44.5   # Midpoint of 40-49 range
+        }
         return m_map.get(g, 0.0)
     
     g_upper = g.upper()
     if g_upper in ('A*', 'A*A*'):
         return 95.0
     elif g_upper in ('A', 'AA'):
-        return 85.0
+        return 84.5
     elif g_upper in ('B', 'BB'):
-        return 75.0
+        return 74.5
     elif g_upper in ('C', 'CC'):
-        return 65.0
+        return 64.5
     elif g_upper in ('D', 'DD'):
-        return 55.0
+        return 54.5
     elif g_upper in ('E', 'EE'):
-        return 45.0
+        return 44.5
     elif g_upper in ('F', 'FF'):
-        return 35.0
+        return 34.5
     elif g_upper in ('G', 'GG'):
-        return 25.0
+        return 24.5
     return 0.0
 
 

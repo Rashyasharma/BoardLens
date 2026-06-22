@@ -336,7 +336,7 @@
         </a>
 
         <!-- CBSE Insights -->
-        <a href="{{ route('cbse-insights') }}" class="card cbse" id="card-cbse">
+        <a href="{{ route('cbse.dashboard') }}" class="card cbse" id="card-cbse">
             <div class="card-accent"></div>
             <div class="card-inner">
                 <div class="card-icon">📘</div>

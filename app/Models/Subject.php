@@ -40,6 +40,11 @@ class Subject extends Model
         return $this->hasMany(Component::class);
     }
 
+    public function componentSets(): HasMany
+    {
+        return $this->hasMany(ComponentSet::class);
+    }
+
     public function gradeThresholds(): HasMany
     {
         return $this->hasMany(GradeThreshold::class);

@@ -108,7 +108,7 @@
                                     class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 text-xs font-bold text-slate-700">
                                 <option value="">-- Ignore Sheet --</option>
                                 @foreach($dbSubjects as $dbSub)
-                                    <option value="{{ $dbSub->id }}" data-components='@json($dbSub->components)' {{ $selectedSubId == $dbSub->id ? 'selected' : '' }}>
+                                    <option value="{{ $dbSub->id }}" data-components='@json(\App\Models\ComponentSet::findForSubjectYear($dbSub->id, $series->year)?->components ?? [])' {{ $selectedSubId == $dbSub->id ? 'selected' : '' }}>
                                         {{ $dbSub->subject_code }} — {{ $dbSub->subject_name }}
                                     </option>
                                 @endforeach
@@ -130,7 +130,8 @@
                                      $paperDigit = ($firstDigit === '0' && strlen($comp['code']) > 1) ? substr($comp['code'], 1, 1) : $firstDigit;
                                      $matchedDbComp = null;
                                      if ($matchedSubject) {
-                                         $matchedDbComp = $matchedSubject->components->first(function($dc) use ($paperDigit) {
+                                         $seriesComponents = \App\Models\ComponentSet::findForSubjectYear($matchedSubject->id, $series->year)?->components ?? collect();
+                                         $matchedDbComp = $seriesComponents->first(function($dc) use ($paperDigit) {
                                              return str_contains($dc->component_code, $paperDigit) || str_contains($dc->component_name, $paperDigit);
                                          });
                                      }
@@ -150,7 +151,10 @@
                                             class="w-full px-2 py-1.5 bg-white border border-slate-200 rounded-lg focus:outline-none text-[10px] font-bold text-slate-600 component-dropdown">
                                         <option value="">-- Ignore Component --</option>
                                         @if($matchedSubject)
-                                            @foreach($matchedSubject->components as $dc)
+                                            @php
+                                                $seriesComponents = \App\Models\ComponentSet::findForSubjectYear($matchedSubject->id, $series->year)?->components ?? collect();
+                                            @endphp
+                                            @foreach($seriesComponents as $dc)
                                                 <option value="{{ $dc->id }}" {{ ($matchedDbComp && $matchedDbComp->id == $dc->id) ? 'selected' : '' }}>
                                                     {{ $dc->component_code }} ({{ $dc->total_marks }}m)
                                                 </option>

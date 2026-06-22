@@ -71,10 +71,10 @@
         </div>
 
         {{-- Broadsheet Table --}}
-        <div class="overflow-auto max-h-[70vh] border-b border-slate-200" id="broadsheet-scroll-container">
+        <div class="overflow-auto max-h-[75vh] border-b border-slate-200" id="broadsheet-scroll-container">
             <table class="border-collapse text-sm w-full" id="broadsheet-table" style="table-layout: fixed;">
                 <colgroup>
-                    <col style="width: 90px;">
+                    <col style="width: 100px;">
                     <col style="width: 220px;">
                     @foreach($subjects as $sub)
                         <col style="width: 50px;">
@@ -82,10 +82,10 @@
                 </colgroup>
                 <thead>
                     <tr class="border-b border-slate-200">
-                        <th class="bg-white px-3 py-3 text-left border-r border-slate-200 align-bottom sticky left-0 z-20" style="min-width:90px;">
+                        <th class="bg-white px-3 py-3 text-left border-r border-slate-200 align-bottom sticky left-0 z-20" style="min-width:100px;">
                             <span class="text-xs font-bold text-slate-650 uppercase tracking-wider">Cand. No</span>
                         </th>
-                        <th class="bg-white px-3 py-3 text-left border-r border-slate-200 align-bottom sticky left-[90px] z-20" style="min-width:220px;">
+                        <th class="bg-white px-3 py-3 text-left border-r border-slate-200 align-bottom sticky left-[100px] z-20" style="min-width:220px;">
                             <span class="text-xs font-bold text-slate-650 uppercase tracking-wider">Candidate Name</span>
                         </th>
                         @foreach($subjects as $sub)
@@ -103,10 +103,10 @@
                 <tbody class="divide-y divide-slate-100">
                     @foreach($candidates as $cand)
                         <tr class="hover:bg-emerald-50/10 transition duration-700" id="row-cand-{{ $cand['candidate_no'] }}">
-                            <td class="bg-white border-r border-slate-150 px-3 py-2 cursor-pointer sticky left-0 z-10 font-mono text-xs font-bold text-slate-700 whitespace-nowrap" style="min-width:90px;" onclick="toggleRowHighlight('{{ $cand['candidate_no'] }}')">
+                            <td class="bg-white border-r border-slate-150 px-3 py-2 cursor-pointer sticky left-0 z-10 font-mono text-xs font-bold text-slate-700 whitespace-nowrap" style="min-width:100px;" onclick="toggleRowHighlight('{{ $cand['candidate_no'] }}')">
                                 {{ $cand['candidate_no'] }}
                             </td>
-                            <td class="bg-white border-r border-slate-150 px-3 py-2 cursor-pointer sticky left-[90px] z-10 text-xs font-bold text-slate-800 uppercase whitespace-nowrap" style="min-width:220px;" onclick="toggleRowHighlight('{{ $cand['candidate_no'] }}')">
+                            <td class="bg-white border-r border-slate-150 px-3 py-2 cursor-pointer sticky left-[100px] z-10 text-xs font-bold text-slate-800 uppercase whitespace-nowrap" style="min-width:220px;" onclick="toggleRowHighlight('{{ $cand['candidate_no'] }}')">
                                 {{ $cand['candidate_name'] }}
                             </td>
                             @foreach($subjects as $sub)
@@ -115,7 +115,7 @@
                                     $pum = $cand['pums'][$sub->id] ?? null;
                                     $displayGrade = '';
                                     if ($grade !== null) {
-                                        $displayGrade = in_array($grade, ['a', 'b', 'c', 'd', 'e']) ? $grade . '^' : $grade;
+                                        $displayGrade = ($qualification->qualification_type === 'AS_A_LEVEL' && in_array($grade, ['a', 'b', 'c', 'd', 'e'])) ? $grade . '^' : $grade;
                                     }
                                     $displayPum = ($pum !== null) ? $pum : '';
                                     
@@ -144,7 +144,7 @@
                         @foreach($presentGrades as $g)
                             <tr class="hover:bg-slate-100/50 transition border-b border-slate-150">
                                 <td colspan="2" class="sticky left-0 z-10 bg-slate-50 border-r border-slate-200 px-4 py-2 text-right font-extrabold text-slate-600">
-                                    Grade {{ in_array($g, ['a', 'b', 'c', 'd', 'e']) ? $g . ' (AS Level)' : $g }}
+                                    Grade {{ ($qualification->qualification_type === 'AS_A_LEVEL' && in_array($g, ['a', 'b', 'c', 'd', 'e'])) ? $g . ' (AS Level)' : $g }}
                                 </td>
                                 @foreach($subjects as $sub)
                                     <td class="px-1 py-2 text-center border-l border-slate-100 font-black text-slate-800 col-subj-{{ $sub->id }}">
@@ -312,7 +312,7 @@
     #broadsheet-table thead th:nth-child(2) {
         z-index: 25;
         position: sticky;
-        left: 90px;
+        left: 100px;
     }
 
     /* Column/Row highlighting styles - premium green */
@@ -325,7 +325,7 @@
         writing-mode: vertical-rl;
         text-orientation: mixed;
         transform: rotate(180deg);
-        white-space: nowrap;
+        white-space: normal;
         display: flex;
         align-items: center;
         justify-content: flex-start;

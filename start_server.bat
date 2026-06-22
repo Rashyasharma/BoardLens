@@ -11,7 +11,7 @@ if %errorlevel% equ 0 (
     start /b npm run dev
 ) else (
     echo [WARNING] npm was not found on your system. Vite dev server for frontend assets could not be started.
-    echo Please install Node.js (which includes npm) to compile and render frontend styles correctly.
+    echo Please install Node.js - which includes npm - to compile and render frontend styles correctly.
 )
 
 :: Wait a few seconds for the server to spin up

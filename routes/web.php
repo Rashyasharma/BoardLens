@@ -63,6 +63,12 @@ Route::put('/subjects/{subject}', [QualificationController::class, 'updateSubjec
     ->name('subjects.update');
 Route::delete('/subjects/{subject}', [QualificationController::class, 'destroySubject'])
     ->name('subjects.destroy');
+Route::post('/subjects/{subject}/component-sets', [QualificationController::class, 'storeComponentSet'])
+    ->name('subjects.component-sets.store');
+Route::put('/subjects/{subject}/component-sets/{componentSet}', [QualificationController::class, 'updateComponentSet'])
+    ->name('subjects.component-sets.update');
+Route::delete('/subjects/{subject}/component-sets/{componentSet}', [QualificationController::class, 'deleteComponentSet'])
+    ->name('subjects.component-sets.destroy');
 
 // ============== EXAM SERIES ==============
 Route::get('/exam-series', [ExamSeriesController::class, 'index'])->name('exam-series.index');
@@ -80,6 +86,7 @@ Route::get('/student-entries/{examSeries}', [StudentEntryController::class, 'sho
 Route::post('/student-entries/{examSeries}/upload', [StudentEntryController::class, 'upload'])->name('student-entries.upload');
 Route::post('/student-entries/{examSeries}/unenroll/{candidate}', [StudentEntryController::class, 'unenroll'])->name('student-entries.unenroll');
 Route::post('/student-entries/{examSeries}/toggle-subject', [StudentEntryController::class, 'toggleSubject'])->name('student-entries.toggle-subject');
+Route::post('/student-entries/{examSeries}/bulk-update', [StudentEntryController::class, 'updateBulkEntries'])->name('student-entries.bulk-update');
 Route::post('/student-entries/{examSeries}/add-candidate', [StudentEntryController::class, 'addCandidate'])->name('student-entries.add-candidate');
 
 // ============== MANUAL RESULTS ENTRY ==============
@@ -108,6 +115,10 @@ Route::get('/results/broadsheet/{series}/{qualification}/export', [ResultsContro
     ->name('results.broadsheet.export');
 Route::get('/results/{result}', [ResultsController::class, 'show'])
     ->name('results.show');
+Route::get('/results/{result}/edit-components', [ResultsController::class, 'editComponents'])
+    ->name('results.edit-components');
+Route::post('/results/{result}/store-component', [ResultsController::class, 'storeComponent'])
+    ->name('results.store-component');
 Route::delete('/results/{result}', [ResultsController::class, 'destroy'])
     ->name('results.destroy');
 Route::get('/results/subject/{examSeries}/{subject}', [ResultsController::class, 'subjectResults'])
@@ -138,6 +149,10 @@ Route::get('/analysis/trends', [AnalysisController::class, 'trends'])
     ->name('analysis.trends');
 Route::get('/analysis/student-journey', [AnalysisController::class, 'studentJourney'])
     ->name('analysis.student-journey');
+Route::get('/analysis/student-journey/export-pdf', [AnalysisController::class, 'studentJourneyPdf'])
+    ->name('analysis.student-journey.pdf');
+Route::get('/analysis/student-journey/preview', [AnalysisController::class, 'studentJourneyPreview'])
+    ->name('analysis.student-journey.preview');
 
 // ============== SETTINGS ==============
 Route::get('/settings', [SettingsController::class, 'index'])
@@ -201,5 +216,51 @@ Route::get('/', function () {
 Route::get('/cbse-insights', function () {
     return view('cbse-insights');
 })->name('cbse-insights');
+
+// ============== CBSE MODULE ==============
+use App\Http\Controllers\Cbse\CbseDashboardController;
+use App\Http\Controllers\Cbse\CbseQualificationController;
+use App\Http\Controllers\Cbse\CbseSubjectController;
+use App\Http\Controllers\Cbse\CbseStudentController;
+use App\Http\Controllers\Cbse\CbseResultController;
+use App\Http\Controllers\Cbse\CbseAnalysisController;
+
+Route::prefix('cbse')->name('cbse.')->group(function () {
+    Route::get('/dashboard', [CbseDashboardController::class, 'index'])->name('dashboard');
+    
+    // Qualifications
+    Route::get('/qualifications', [CbseQualificationController::class, 'index'])->name('qualifications.index');
+    Route::get('/qualifications/{qualification}', [CbseQualificationController::class, 'show'])->name('qualifications.show');
+
+    // Subjects
+    Route::resource('subjects', CbseSubjectController::class);
+
+    // Academic Years
+    Route::resource('academic-years', \App\Http\Controllers\Cbse\CbseAcademicYearController::class);
+
+    // Student Entries (Manage Enrollments inside Academic Years)
+    Route::get('/student-entries/{academicYear}', [\App\Http\Controllers\Cbse\CbseStudentEntryController::class, 'show'])->name('student-entries.show');
+    Route::post('/student-entries/{academicYear}/add-student', [\App\Http\Controllers\Cbse\CbseStudentEntryController::class, 'addStudent'])->name('student-entries.add-student');
+    Route::post('/student-entries/{academicYear}/toggle-subject', [\App\Http\Controllers\Cbse\CbseStudentEntryController::class, 'toggleSubject'])->name('student-entries.toggle-subject');
+    Route::post('/student-entries/{academicYear}/update-roll-number', [\App\Http\Controllers\Cbse\CbseStudentEntryController::class, 'updateRollNumber'])->name('student-entries.update-roll-number');
+    Route::post('/student-entries/{academicYear}/bulk-update', [\App\Http\Controllers\Cbse\CbseStudentEntryController::class, 'updateBulkEntries'])->name('student-entries.bulk-update');
+
+    // Students (Show only, since managing is via entries grid)
+    Route::get('/students/{student}', [CbseStudentController::class, 'show'])->name('students.show');
+
+    // Results
+    Route::get('/results/upload', [CbseResultController::class, 'showUpload'])->name('results.upload');
+    Route::post('/results/upload', [CbseResultController::class, 'storeUpload'])->name('results.store-upload');
+    Route::post('/results/save-row', [CbseResultController::class, 'saveRow'])->name('results.save-row');
+    Route::get('/results/year/{academicYear}', [CbseResultController::class, 'academicYearDetails'])->name('results.year-details');
+    Route::get('/results/subject/{academicYear}/{subject}', [CbseResultController::class, 'subjectDetails'])->name('results.subject-details');
+    Route::delete('/results/subject/{academicYear}/{subject}', [CbseResultController::class, 'destroySubjectResults'])->name('results.destroy-subject');
+    Route::resource('results', CbseResultController::class);
+
+    // Analysis
+    Route::get('/analysis/subject-wise', [CbseAnalysisController::class, 'subjectWise'])->name('analysis.subject-wise');
+    Route::get('/analysis/student-journey', [CbseAnalysisController::class, 'studentJourney'])->name('analysis.student-journey');
+    Route::get('/analysis/broadsheet', [CbseAnalysisController::class, 'broadsheet'])->name('analysis.broadsheet');
+});
 
 
