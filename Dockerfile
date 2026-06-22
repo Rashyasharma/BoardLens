@@ -1,4 +1,4 @@
-FROM php:8.2-apache
+FROM php:8.3-apache
 
 # Install required system packages
 RUN apt-get update && apt-get install -y \
@@ -43,7 +43,7 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 
 # Copy the start script
 COPY start.sh /usr/local/bin/start.sh
-RUN chmod +x /usr/local/bin/start.sh
+RUN sed -i 's/\r$//' /usr/local/bin/start.sh && chmod +x /usr/local/bin/start.sh
 
 # Run the start script
 CMD ["/usr/local/bin/start.sh"]
