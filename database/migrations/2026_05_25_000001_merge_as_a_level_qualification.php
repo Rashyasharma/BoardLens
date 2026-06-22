@@ -39,7 +39,7 @@ return new class extends Migration
         } else {
             // PostgreSQL: change enum column to a plain string to allow new values
             Schema::table('qualifications', function (Blueprint $table) {
-                $table->string('qualification_type')->unique()->change();
+                $table->string('qualification_type')->change();
             });
         }
 
