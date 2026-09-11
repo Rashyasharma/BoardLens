@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             ComponentSeeder::class,
             ExamSeriesSeeder::class,
             TestDataSeeder::class,
+            InitialUserSeeder::class,
         ]);
     }
 }

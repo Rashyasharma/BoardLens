@@ -83,5 +83,90 @@
         </div>
     </div>
 
+    <!-- Category 3: Subject Performance -->
+    <div class="space-y-3">
+        <h3 class="text-[11px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 pb-2 flex items-center gap-1.5 font-sans">
+            📈 Subject Performance (Last 3 Years)
+        </h3>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- GCE AS & A Level Performance -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h4 class="text-sm font-bold text-slate-700 mb-4 flex items-center justify-between">
+                    <span>GCE AS & A Level</span>
+                    <span class="text-xs font-normal text-slate-400 bg-slate-100 px-2 py-1 rounded">Top & Bottom 5</span>
+                </h4>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3 flex items-center gap-2"><span class="text-lg">🏆</span> Best Performing</h5>
+                        <ul class="space-y-2">
+                            @forelse($bestGceSubjects as $stat)
+                                <li class="flex items-center justify-between text-sm">
+                                    <span class="text-slate-600 font-medium truncate pr-2">{{ $stat->subject->subject_name }} <span class="text-xs text-slate-400 ml-1">({{ $stat->subject->subject_code }})</span></span>
+                                    <span class="text-emerald-700 font-bold bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-100">{{ $stat->avg_pum }} <span class="text-xs font-medium opacity-70">PUM</span></span>
+                                </li>
+                            @empty
+                                <li class="text-sm text-slate-400 italic">No data available</li>
+                            @endforelse
+                        </ul>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-slate-100">
+                        <h5 class="text-xs font-semibold text-rose-600 uppercase tracking-wider mb-3 flex items-center gap-2"><span class="text-lg">📉</span> Needs Improvement</h5>
+                        <ul class="space-y-2">
+                            @forelse($worstGceSubjects as $stat)
+                                <li class="flex items-center justify-between text-sm">
+                                    <span class="text-slate-600 font-medium truncate pr-2">{{ $stat->subject->subject_name }} <span class="text-xs text-slate-400 ml-1">({{ $stat->subject->subject_code }})</span></span>
+                                    <span class="text-rose-700 font-bold bg-rose-50 px-2.5 py-1 rounded-md border border-rose-100">{{ $stat->avg_pum }} <span class="text-xs font-medium opacity-70">PUM</span></span>
+                                </li>
+                            @empty
+                                <li class="text-sm text-slate-400 italic">No data available</li>
+                            @endforelse
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IGCSE Performance -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h4 class="text-sm font-bold text-slate-700 mb-4 flex items-center justify-between">
+                    <span>IGCSE</span>
+                    <span class="text-xs font-normal text-slate-400 bg-slate-100 px-2 py-1 rounded">Top & Bottom 5</span>
+                </h4>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3 flex items-center gap-2"><span class="text-lg">🏆</span> Best Performing</h5>
+                        <ul class="space-y-2">
+                            @forelse($bestIgcseSubjects as $stat)
+                                <li class="flex items-center justify-between text-sm">
+                                    <span class="text-slate-600 font-medium truncate pr-2">{{ $stat->subject->subject_name }} <span class="text-xs text-slate-400 ml-1">({{ $stat->subject->subject_code }})</span></span>
+                                    <span class="text-emerald-700 font-bold bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-100">{{ $stat->avg_pum }} <span class="text-xs font-medium opacity-70">PUM</span></span>
+                                </li>
+                            @empty
+                                <li class="text-sm text-slate-400 italic">No data available</li>
+                            @endforelse
+                        </ul>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-slate-100">
+                        <h5 class="text-xs font-semibold text-rose-600 uppercase tracking-wider mb-3 flex items-center gap-2"><span class="text-lg">📉</span> Needs Improvement</h5>
+                        <ul class="space-y-2">
+                            @forelse($worstIgcseSubjects as $stat)
+                                <li class="flex items-center justify-between text-sm">
+                                    <span class="text-slate-600 font-medium truncate pr-2">{{ $stat->subject->subject_name }} <span class="text-xs text-slate-400 ml-1">({{ $stat->subject->subject_code }})</span></span>
+                                    <span class="text-rose-700 font-bold bg-rose-50 px-2.5 py-1 rounded-md border border-rose-100">{{ $stat->avg_pum }} <span class="text-xs font-medium opacity-70">PUM</span></span>
+                                </li>
+                            @empty
+                                <li class="text-sm text-slate-400 italic">No data available</li>
+                            @endforelse
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 @endsection

@@ -1,0 +1,1041 @@
+﻿
+══════════════════════════════════════════════
+FILE : Electronic Results File for June 2022.xls
+SERIES: 2022 June (id=019e5ed2-bde0-721f-b432-3e2c8da64020)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for June 2023.xls
+SERIES: 2023 June (id=019e5ed2-bdf0-7207-8ad6-e7a0de7d32b8)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for June 2024.xls
+SERIES: 2024 June (id=019e5ed2-bdff-7189-8b90-2e93467b089f)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for June 2025.xls
+SERIES: 2025 June (id=019e5ed2-be0f-72ad-89e8-d1d89ebaad0a)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for June 2026_raw.xls
+SERIES: 2026 June (id=019ff3e5-a875-718b-be8b-6aa62b75fe76)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for March 2022.xls
+SERIES: 2022 March (id=019e5ed2-bddb-7305-bcfb-7a75c8d0dcf3)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for March 2023.xls
+SERIES: 2023 March (id=019e5ed2-bdeb-72eb-a9cb-beef503fa502)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for March 2024.xls
+SERIES: 2024 March (id=019e5ed2-bdfa-73e4-af9c-65e9fc90e40d)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for March 2025.xls
+SERIES: 2025 March (id=019e5ed2-be09-7254-b16e-707651fd4f93)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for March 2026.xls
+SERIES: 2026 March (id=019e5ed2-be1b-7098-8157-5242cabfec27)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for November 2021.xls
+SERIES: 2021 November (id=019e5ed2-bdd6-7152-a878-00a32199d621)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for November 2022.xls
+SERIES: 2022 November (id=019e5ed2-bde6-71b3-a45a-16b8cafbbb72)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for November 2023.xls
+SERIES: 2023 November (id=019ee460-40b4-728f-8236-6aa8806137c9)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for November 2024.xls
+SERIES: 2024 November (id=019e5ed2-be04-7299-8e4d-f66677417c8e)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for November 2025.xls
+SERIES: 2025 November (id=019e5ed2-be15-7171-93bc-4f3555f1e588)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Provisional Results File for June 2020.xls
+SERIES: 2020 June (id=019e5ed2-bdc1-73cd-b313-dbb4caea40c5)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Provisional Results File for June 2021.xls
+SERIES: 2021 June (id=019e5ed2-bdd1-7208-b126-7f91f99a3129)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Provisional Results File for March 2019.xls
+SERIES: 2019 March (id=019e5ed2-bdab-7095-b617-526c7ff17c29)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Provisional Results File for March 2020.xls
+SERIES: 2020 March (id=019e5ed2-bdbc-7018-9135-bb0b0d1a34c6)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Provisional Results File for March 2021.xls
+SERIES: 2021 March (id=019e5ed2-bdcc-7242-8f8c-a467be993d5d)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Provisional Results File for November 2019.xls
+SERIES: 2019 November (id=019e5ed2-bdb6-7240-8f2f-a4af758f4fbf)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Provisional Results File for November 2020.xls
+SERIES: 2020 November (id=019e5ed2-bdc7-7113-89b2-319b116d0a9f)
+══════════════════════════════════════════════
+
+
+╔══════════════════════════════════════════════════════════╗
+║              GRADE VERIFICATION REPORT                  ║
+╚══════════════════════════════════════════════════════════╝
+
+┌─── ❌ GRADE MISMATCHES (58) ───────────────────────────
+│  2026 June     4013 CHRISANNE NADINE D'SILVA  BUSINESS (9609)                      Excel=B     DB=A   
+│  2022 March    0022 STUTI GAURAV MATHUR      BUSINESS (9609)                      Excel=A*    DB=E   
+│  2023 March    0003 MAHEK BHAMBHANI          CO-ORD SCIENCES (DOUBLE AWARD) (0654)  Excel=A*    DB=A*A*
+│  2023 March    0003 MAHEK BHAMBHANI          ECONOMICS (0455)                     Excel=B     DB=C   
+│  2023 March    0003 MAHEK BHAMBHANI          ENGLISH AS A SECOND LANGUAGE (0510)  Excel=B     DB=A   
+│  2023 March    0003 MAHEK BHAMBHANI          MATHEMATICS (W/OUT COURSEWORK) (0580)  Excel=A     DB=A*  
+│  2023 March    0004 RIYA BHANDARI            ECONOMICS (9708)                     Excel=E     DB=D   
+│  2023 March    0004 RIYA BHANDARI            MATHEMATICS (W/OUT COURSEWORK) (9709)  Excel=B     DB=C   
+│  2023 March    0009 HARSHVARDHAN SINGH       INFORMATION AND COMMUNICATION (0417)  Excel=B     DB=U   
+│  2023 March    0009 HARSHVARDHAN SINGH       MATHEMATICS (W/OUT COURSEWORK) (0580)  Excel=B     DB=D   
+│  2023 March    0027 ANJALI JAIN              ECONOMICS (0455)                     Excel=D     DB=E   
+│  2023 March    0027 ANJALI JAIN              FOREIGN LANGUAGE FRENCH (0520)       Excel=U     DB=A   
+│  2023 March    0027 ANJALI JAIN              MATHEMATICS (W/OUT COURSEWORK) (0580)  Excel=D     DB=B   
+│  2024 March    0018 RONIK MEWARA             MATHEMATICS (9709)                   Excel=D     DB=C   
+│  2024 March    0018 RONIK MEWARA             PHYSICS (9702)                       Excel=U     DB=C   
+│  2024 March    0026 VIKRAM KUMAR PRAJAPAT    INFORMATION TECHNOLOGY (9626)        Excel=U     DB=D   
+│  2024 March    0027 AJITA GOUR               BIOLOGY (9700)                       Excel=U     DB=E   
+│  2024 March    0029 HARSHVARDHAN SINGH       MATHEMATICS (9709)                   Excel=C     DB=U   
+│  2024 March    0029 HARSHVARDHAN SINGH       PHYSICS (9702)                       Excel=C     DB=U   
+│  2024 March    0030 NANDINI CHAUHAN          BIOLOGY (9700)                       Excel=U     DB=D   
+│  2024 March    0030 NANDINI CHAUHAN          CHEMISTRY (9701)                     Excel=C     DB=D   
+│  2024 March    0030 NANDINI CHAUHAN          PHYSICS (9702)                       Excel=C     DB=D   
+│  2024 March    0032 NAMAN KACHHWAHA          ACCOUNTING (9706)                    Excel=A*    DB=A   
+│  2024 March    0032 NAMAN KACHHWAHA          ECONOMICS (9708)                     Excel=B     DB=E   
+│  2024 March    0033 KRRISH SAKHRANI          ACCOUNTING (9706)                    Excel=A     DB=U   
+│  2024 March    0033 KRRISH SAKHRANI          ECONOMICS (9708)                     Excel=C     DB=U   
+│  2024 March    0034 RAVI KHILERY             ECONOMICS (9708)                     Excel=E     DB=U   
+│  2024 March    0035 RISHAV KUMAR SINGLA      BUSINESS (9609)                      Excel=U     DB=C   
+│  2024 March    0012 PRIYANKA KHILERY         LITERATURE IN ENGLISH (9695)         Excel=C     DB=U   
+│  2024 March    0026 VIKRAM KUMAR PRAJAPAT    CHEMISTRY (9701)                     Excel=F     DB=C   
+│  2025 March    0019 SHAURYA LODHA            MATHEMATICS (0580)                   Excel=C     DB=A   
+│  2026 March    5006 BHUVNESH DHARIWAL        ACCOUNTING (0452)                    Excel=M     DB=B   
+│  2026 March    5001 AADITYA SHARMA           ECONOMICS (0455)                     Excel=A*    DB=A   
+│  2026 March    5001 AADITYA SHARMA           MATHEMATICS (0580)                   Excel=A     DB=A*  
+│  2026 March    5002 AJIJ ALI                 ECONOMICS (0455)                     Excel=BB    DB=B   
+│  2026 March    5003 ARVIND CHAUDHARY         ECONOMICS (0455)                     Excel=BB    DB=C   
+│  2026 March    5005 BHUVI JAIN               ECONOMICS (0455)                     Excel=FF    DB=G   
+│  2026 March    5005 BHUVI JAIN               MATHEMATICS (0580)                   Excel=G     DB=U   
+│  2026 March    5006 BHUVNESH DHARIWAL        MATHEMATICS (0580)                   Excel=B     DB=A   
+│  2026 March    5007 DIVYAM JAIN              ECONOMICS (0455)                     Excel=CC    DB=D   
+│  2026 March    5007 DIVYAM JAIN              MATHEMATICS (0580)                   Excel=D     DB=C   
+│  2026 March    5009 KHUSH CHOPRA             ECONOMICS (0455)                     Excel=AA    DB=A   
+│  2026 March    5011 MANYA LOHIA              ECONOMICS (0455)                     Excel=CC    DB=C   
+│  2026 March    5013 NITIN JIRAWALA           ECONOMICS (0455)                     Excel=BB    DB=C   
+│  2026 March    5013 NITIN JIRAWALA           MATHEMATICS (0580)                   Excel=C     DB=A*  
+│  2026 March    5015 TANISHA CHOUDHARY        ECONOMICS (0455)                     Excel=CC    DB=C   
+│  2026 March    5015 TANISHA CHOUDHARY        MATHEMATICS (0580)                   Excel=C     DB=D   
+│  2026 March    5028 SHUBHANGI GAJJA          BUSINESS (0450)                      Excel=E     DB=C   
+│  2024 November  0003 SHIKHAR VASWANI          PHYSICS (9702)                       Excel=E     DB=B   
+│  2020 June     0005 KHUSH JIRAWALA           ENGLISH GENERAL PAPER (8021)         Excel=B     DB=A   
+│  2020 June     0005 KHUSH JIRAWALA           MATHEMATICS (9709)                   Excel=C     DB=B   
+│  2020 March    0017 TANMAY SALECHA           ACCOUNTING (9706)                    Excel=B     DB=A   
+│  2020 March    0017 TANMAY SALECHA           ECONOMICS (9708)                     Excel=D     DB=A   
+│  2020 March    0017 TANMAY SALECHA           INFORMATION TECHNOLOGY (9626)        Excel=D     DB=A   
+│  2020 March    0001 AGRIMA SHARMA            ECONOMICS (0455)                     Excel=A     DB=B   
+│  2020 March    0005 RAMCHANDRA RAMSNEHI      CHEMISTRY (9701)                     Excel=C     DB=Q   
+│  2020 March    0005 RAMCHANDRA RAMSNEHI      PHYSICS (9702)                       Excel=A     DB=E   
+│  2021 March    0005 NAVYA VAISHNAV           MATHEMATICS (9709)                   Excel=A*    DB=C   
+└──────────────────────────────────────────────────────────
+
+┌─── ⚠  RESULTS MISSING FROM DB (834) ──────────────────
+│  2022 June     0001 ARHAAN SHAIKH            COMPUTER SCIENCE (9618/9608/0478)    Excel=E
+│  2022 June     0002 SUHANI CHAUHAN           COMPUTER SCIENCE (9618/9608/0478)    Excel=B
+│  2022 June     0004 KESHAV GEHLOT            COMPUTER SCIENCE (9618/9608/0478)    Excel=C
+│  2022 June     0005 PARTH RAJ MATHUR         COMPUTER SCIENCE (9618/9608/0478)    Excel=C
+│  2022 June     0007 SAWAI GURJAR             HISTORY (9489/9389)                  Excel=D
+│  2022 June     0008 YUGAN SHARMA             ACCOUNTING (9706/0452)               Excel=B
+│  2022 June     0008 YUGAN SHARMA             ECONOMICS (9708/0455)                Excel=D
+│  2022 June     0009 MITESH MISHRA            ART AND DESIGN (9479/0400)           Excel=D
+│  2022 June     0009 MITESH MISHRA            HISTORY (9489/9389)                  Excel=D
+│  2022 June     0009 MITESH MISHRA            PSYCHOLOGY (9990)                    Excel=E
+│  2022 June     0006 HARSHVARDHAN SINGH       ACCOUNTING (9706/0452)               Excel=AA
+│  2022 June     0006 HARSHVARDHAN SINGH       ART AND DESIGN (9479/0400)           Excel=A*
+│  2023 June     0002 HARSHVARDHAN SINGH       CHEMISTRY (9701/0620)                Excel=B
+│  2023 June     0002 HARSHVARDHAN SINGH       COMPUTER SCIENCE (9618/9608/0478)    Excel=U
+│  2023 June     0004 ARHAAN SHAIKH            COMPUTER SCIENCE (9618/9608/0478)    Excel=D
+│  2023 June     0005 SUHANI CHAUHAN           COMPUTER SCIENCE (9618/9608/0478)    Excel=B
+│  2023 June     0006 NANDINI CHAUHAN          BIOLOGY (9700/0610)                  Excel=E
+│  2023 June     0006 NANDINI CHAUHAN          CHEMISTRY (9701/0620)                Excel=B
+│  2023 June     0006 NANDINI CHAUHAN          INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2023 June     0006 NANDINI CHAUHAN          PHYSICS (9702/0625)                  Excel=B
+│  2023 June     0007 EREGARE OJIYOVWI OKEOGHENE SHIRLEY  BIOLOGY (9700/0610)                  Excel=E
+│  2023 June     0007 EREGARE OJIYOVWI OKEOGHENE SHIRLEY  CHEMISTRY (9701/0620)                Excel=B
+│  2023 June     0007 EREGARE OJIYOVWI OKEOGHENE SHIRLEY  MATHEMATICS (9709/0580)              Excel=A
+│  2023 June     0007 EREGARE OJIYOVWI OKEOGHENE SHIRLEY  PHYSICS (9702/0625)                  Excel=C
+│  2023 June     0009 AJITA GOUR               COMPUTER SCIENCE (9618/9608/0478)    Excel=U
+│  2023 June     0010 RIDDHI GUPTA             INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2023 June     0010 RIDDHI GUPTA             MATHEMATICS (9709/0580)              Excel=A
+│  2023 June     0001 MOLLY DILIPKUMAR CHOPRA  BIOLOGY (9700/0610)                  Excel=M
+│  2023 June     0001 MOLLY DILIPKUMAR CHOPRA  BIOLOGY (9700/0610)                  Excel=A
+│  2023 June     0001 MOLLY DILIPKUMAR CHOPRA  CHEMISTRY (9701/0620)                Excel=A*
+│  2023 June     0001 MOLLY DILIPKUMAR CHOPRA  COMPUTER SCIENCE (9618/9608/0478)    Excel=B
+│  2023 June     0001 MOLLY DILIPKUMAR CHOPRA  ECONOMICS (9708/0455)                Excel=C
+│  2023 June     0001 MOLLY DILIPKUMAR CHOPRA  ENGLISH GENERAL PAPER (8021)         Excel=C
+│  2023 June     0001 MOLLY DILIPKUMAR CHOPRA  HISTORY (9489/9389)                  Excel=D
+│  2023 June     0001 MOLLY DILIPKUMAR CHOPRA  INFORMATION TECHNOLOGY (9626)        Excel=A*
+│  2023 June     0001 MOLLY DILIPKUMAR CHOPRA  MATHEMATICS (9709/0580)              Excel=A
+│  2024 June     0001 GARV AGARWAL             COMPUTER SCIENCE (9618/9608/0478)    Excel=B
+│  2024 June     0002 RONIK MEWARA             COMPUTER SCIENCE (9618/9608/0478)    Excel=D
+│  2024 June     0004 HARSHVARDHAN SINGH       COMPUTER SCIENCE (9618/9608/0478)    Excel=U
+│  2024 June     0004 HARSHVARDHAN SINGH       MATHEMATICS (9709/0580)              Excel=D
+│  2024 June     0005 YASH PARIHAR             BUSINESS (9609/0450)                 Excel=E
+│  2024 June     0005 YASH PARIHAR             INFORMATION TECHNOLOGY (9626)        Excel=U
+│  2024 June     0008 SHIKHAR VASWANI          MATHEMATICS (9709/0580)              Excel=C
+│  2024 June     0009 ARYAN NAKHAWAT           INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2024 June     0010 AISHWARYA SISODIA        ACCOUNTING (9706/0452)               Excel=E
+│  2024 June     0010 AISHWARYA SISODIA        COMPUTER SCIENCE (9618/9608/0478)    Excel=D
+│  2024 June     0010 AISHWARYA SISODIA        ENGLISH GENERAL PAPER (8021)         Excel=D
+│  2024 June     0010 AISHWARYA SISODIA        MATHEMATICS (9709/0580)              Excel=E
+│  2024 June     0011 ANVI TALESARA            ACCOUNTING (9706/0452)               Excel=U
+│  2024 June     0011 ANVI TALESARA            BUSINESS (9609/0450)                 Excel=G
+│  2024 June     0011 ANVI TALESARA            COMPUTER SCIENCE (9618/9608/0478)    Excel=G
+│  2024 June     0011 ANVI TALESARA            ENGLISH GENERAL PAPER (8021)         Excel=F
+│  2024 June     0011 ANVI TALESARA            MATHEMATICS (9709/0580)              Excel=E
+│  2024 June     0012 DEVANSH PAREEK           ACCOUNTING (9706/0452)               Excel=E
+│  2024 June     0012 DEVANSH PAREEK           BUSINESS (9609/0450)                 Excel=C
+│  2024 June     0012 DEVANSH PAREEK           COMPUTER SCIENCE (9618/9608/0478)    Excel=F
+│  2024 June     0012 DEVANSH PAREEK           ENGLISH GENERAL PAPER (8021)         Excel=D
+│  2024 June     0012 DEVANSH PAREEK           MATHEMATICS (9709/0580)              Excel=F
+│  2024 June     0013 VIHAAN MOGRA             BUSINESS (9609/0450)                 Excel=C
+│  2024 June     0013 VIHAAN MOGRA             COMPUTER SCIENCE (9618/9608/0478)    Excel=C
+│  2024 June     0013 VIHAAN MOGRA             ECONOMICS (9708/0455)                Excel=D
+│  2024 June     0013 VIHAAN MOGRA             ENGLISH GENERAL PAPER (8021)         Excel=C
+│  2024 June     0013 VIHAAN MOGRA             MATHEMATICS (9709/0580)              Excel=E
+│  2025 June     0001 GARV AGARWAL             COMPUTER SCIENCE (9618/9608/0478)    Excel=A
+│  2025 June     0002 RONIK MEWARA             COMPUTER SCIENCE (9618/9608/0478)    Excel=C
+│  2025 June     0013 RISHAV KUMAR SINGLA      INFORMATION TECHNOLOGY (9626)        Excel=D
+│  2025 June     0026 VIKRAM KUMAR PRAJAPAT    ACCOUNTING (9706/0452)               Excel=B
+│  2025 June     0026 VIKRAM KUMAR PRAJAPAT    BUSINESS (9609/0450)                 Excel=U
+│  2025 June     0026 VIKRAM KUMAR PRAJAPAT    ENGLISH GENERAL PAPER (8021)         Excel=U
+│  2025 June     0026 VIKRAM KUMAR PRAJAPAT    INFORMATION TECHNOLOGY (9626)        Excel=U
+│  2025 June     0005 BHARAT PUNIYA            ACCOUNTING (9706/0452)               Excel=D
+│  2025 June     0006 NIKHIL KACHHWAHA         ACCOUNTING (9706/0452)               Excel=D
+│  2025 June     0008 DIVYANSH JAIN            ACCOUNTING (9706/0452)               Excel=M
+│  2025 June     0009 JINAL SOLANKI            ACCOUNTING (9706/0452)               Excel=M
+│  2025 June     0010 DRASHTI DHOOT            ACCOUNTING (9706/0452)               Excel=M
+│  2025 June     0011 NIHARIKA SHARMA          ACCOUNTING (9706/0452)               Excel=P
+│  2025 June     0012 KARTIK RANKAWAT          ACCOUNTING (9706/0452)               Excel=P
+│  2025 June     0005 BHARAT PUNIYA            COMPUTER SCIENCE (9618/9608/0478)    Excel=A
+│  2025 June     0005 BHARAT PUNIYA            ECONOMICS (9708/0455)                Excel=A*
+│  2025 June     0005 BHARAT PUNIYA            INFORMATION TECHNOLOGY (9626)        Excel=A*
+│  2025 June     0006 NIKHIL KACHHWAHA         ACCOUNTING (9706/0452)               Excel=B
+│  2025 June     0006 NIKHIL KACHHWAHA         ART AND DESIGN (9479/0400)           Excel=A
+│  2025 June     0006 NIKHIL KACHHWAHA         INFORMATION TECHNOLOGY (9626)        Excel=A
+│  2025 June     0007 JHANAK SHARMA            ACCOUNTING (9706/0452)               Excel=B
+│  2025 June     0007 JHANAK SHARMA            INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2025 June     0007 JHANAK SHARMA            PHYSICS (9702/0625)                  Excel=C
+│  2025 June     0008 DIVYANSH JAIN            BUSINESS (9609/0450)                 Excel=A*
+│  2025 June     0008 DIVYANSH JAIN            COMPUTER SCIENCE (9618/9608/0478)    Excel=B
+│  2025 June     0009 JINAL SOLANKI            COMPUTER SCIENCE (9618/9608/0478)    Excel=B
+│  2025 June     0010 DRASHTI DHOOT            COMPUTER SCIENCE (9618/9608/0478)    Excel=B
+│  2025 June     0011 NIHARIKA SHARMA          COMPUTER SCIENCE (9618/9608/0478)    Excel=C
+│  2025 June     0012 KARTIK RANKAWAT          COMPUTER SCIENCE (9618/9608/0478)    Excel=E
+│  2025 June     0012 KARTIK RANKAWAT          MATHEMATICS (9709/0580)              Excel=C
+│  2025 June     0037 AYUSHMAN SOLANKI         BUSINESS (9609/0450)                 Excel=AA
+│  2025 June     0037 AYUSHMAN SOLANKI         COMPUTER SCIENCE (9618/9608/0478)    Excel=E
+│  2025 June     0037 AYUSHMAN SOLANKI         ENGLISH GENERAL PAPER (8021)         Excel=D
+│  2026 June     0008 DIVYANSH JAIN            COMPUTER SCIENCE (9618/9608/0478)    Excel=E
+│  2026 June     5005 BHUVI JAIN               BIOLOGY (9700/0610)                  Excel=D
+│  2026 June     5010 KRISHNAVARDHAN SINGH     ACCOUNTING (9706/0452)               Excel=F
+│  2026 June     5014 PRINCE GEHLOT            ART AND DESIGN (9479/0400)           Excel=F
+│  2022 March    0010 ARHAAN SHAIKH            CHEMISTRY (9701/0620)                Excel=B
+│  2022 March    0010 ARHAAN SHAIKH            MATHEMATICS (9709/0580)              Excel=C
+│  2022 March    0010 ARHAAN SHAIKH            PHYSICS (9702/0625)                  Excel=C
+│  2022 March    0011 SUHANI CHAUHAN           CHEMISTRY (9701/0620)                Excel=A
+│  2022 March    0011 SUHANI CHAUHAN           MATHEMATICS (9709/0580)              Excel=A
+│  2022 March    0011 SUHANI CHAUHAN           PHYSICS (9702/0625)                  Excel=A
+│  2022 March    0012 AJAR PANDEY              ACCOUNTING (9706/0452)               Excel=B
+│  2022 March    0012 AJAR PANDEY              BUSINESS (9609/0450)                 Excel=A
+│  2022 March    0012 AJAR PANDEY              ECONOMICS (9708/0455)                Excel=B
+│  2022 March    0012 AJAR PANDEY              INFORMATION TECHNOLOGY (9626)        Excel=A
+│  2022 March    0013 ADITI JANGID             ACCOUNTING (9706/0452)               Excel=C
+│  2022 March    0013 ADITI JANGID             BUSINESS (9609/0450)                 Excel=D
+│  2022 March    0013 ADITI JANGID             ECONOMICS (9708/0455)                Excel=E
+│  2022 March    0013 ADITI JANGID             INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2022 March    0017 KESHAV GEHLOT            CHEMISTRY (9701/0620)                Excel=D
+│  2022 March    0017 KESHAV GEHLOT            ENGLISH GENERAL PAPER (8021)         Excel=C
+│  2022 March    0017 KESHAV GEHLOT            MATHEMATICS (9709/0580)              Excel=C
+│  2022 March    0017 KESHAV GEHLOT            PHYSICS (9702/0625)                  Excel=C
+│  2022 March    0018 PARTH RAJ MATHUR         BIOLOGY (9700/0610)                  Excel=A
+│  2022 March    0018 PARTH RAJ MATHUR         CHEMISTRY (9701/0620)                Excel=B
+│  2022 March    0018 PARTH RAJ MATHUR         ENGLISH GENERAL PAPER (8021)         Excel=B
+│  2022 March    0018 PARTH RAJ MATHUR         PHYSICS (9702/0625)                  Excel=B
+│  2022 March    0019 YUGAN SHARMA             ENGLISH GENERAL PAPER (8021)         Excel=D
+│  2022 March    0019 YUGAN SHARMA             INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2022 March    0020 SAWAI GURJAR             ECONOMICS (9708/0455)                Excel=A
+│  2022 March    0020 SAWAI GURJAR             ENGLISH GENERAL PAPER (8021)         Excel=A
+│  2022 March    0020 SAWAI GURJAR             INFORMATION TECHNOLOGY (9626)        Excel=A
+│  2022 March    0020 SAWAI GURJAR             PSYCHOLOGY (9990)                    Excel=B
+│  2022 March    0021 MITESH MISHRA            ENGLISH GENERAL PAPER (8021)         Excel=E
+│  2022 March    0022 STUTI GAURAV MATHUR      CHEMISTRY (9701/0620)                Excel=A
+│  2022 March    0022 STUTI GAURAV MATHUR      PHYSICS (9702/0625)                  Excel=A
+│  2022 March    0001 HARSHINI ARVIND JAIN     ACCOUNTING (9706/0452)               Excel=D
+│  2022 March    0004 NAMAN KACHHWAHA          ACCOUNTING (9706/0452)               Excel=D
+│  2022 March    0005 RAVI KHILERY             ACCOUNTING (9706/0452)               Excel=M
+│  2022 March    0007 SHREY PRAKASH VISHNOI    ACCOUNTING (9706/0452)               Excel=D
+│  2022 March    0009 VIKAS CHOUDHARY          ACCOUNTING (9706/0452)               Excel=D
+│  2022 March    0001 HARSHINI ARVIND JAIN     ACCOUNTING (9706/0452)               Excel=AA
+│  2022 March    0001 HARSHINI ARVIND JAIN     CHEMISTRY (9701/0620)                Excel=B
+│  2022 March    0001 HARSHINI ARVIND JAIN     ECONOMICS (9708/0455)                Excel=A
+│  2022 March    0001 HARSHINI ARVIND JAIN     ENGLISH GENERAL PAPER (8021)         Excel=A*
+│  2022 March    0001 HARSHINI ARVIND JAIN     INFORMATION TECHNOLOGY (9626)        Excel=A*
+│  2022 March    0001 HARSHINI ARVIND JAIN     MATHEMATICS (9709/0580)              Excel=A
+│  2022 March    0002 HARSHVARDHAN SINGH       ECONOMICS (9708/0455)                Excel=B
+│  2022 March    0002 HARSHVARDHAN SINGH       ENGLISH GENERAL PAPER (8021)         Excel=A*
+│  2022 March    0002 HARSHVARDHAN SINGH       INFORMATION TECHNOLOGY (9626)        Excel=A
+│  2022 March    0003 KRRISH SAKHRANI          BIOLOGY (9700/0610)                  Excel=C
+│  2022 March    0003 KRRISH SAKHRANI          ECONOMICS (9708/0455)                Excel=A
+│  2022 March    0003 KRRISH SAKHRANI          ENGLISH GENERAL PAPER (8021)         Excel=A*
+│  2022 March    0003 KRRISH SAKHRANI          INFORMATION TECHNOLOGY (9626)        Excel=A*
+│  2022 March    0003 KRRISH SAKHRANI          MATHEMATICS (9709/0580)              Excel=C
+│  2022 March    0004 NAMAN KACHHWAHA          ACCOUNTING (9706/0452)               Excel=A*
+│  2022 March    0004 NAMAN KACHHWAHA          CHEMISTRY (9701/0620)                Excel=A*
+│  2022 March    0004 NAMAN KACHHWAHA          ECONOMICS (9708/0455)                Excel=A*
+│  2022 March    0004 NAMAN KACHHWAHA          ENGLISH GENERAL PAPER (8021)         Excel=A*
+│  2022 March    0004 NAMAN KACHHWAHA          INFORMATION TECHNOLOGY (9626)        Excel=A*
+│  2022 March    0004 NAMAN KACHHWAHA          MATHEMATICS (9709/0580)              Excel=A*
+│  2022 March    0005 RAVI KHILERY             ACCOUNTING (9706/0452)               Excel=BB
+│  2022 March    0005 RAVI KHILERY             CHEMISTRY (9701/0620)                Excel=B
+│  2022 March    0005 RAVI KHILERY             ECONOMICS (9708/0455)                Excel=B
+│  2022 March    0005 RAVI KHILERY             ENGLISH GENERAL PAPER (8021)         Excel=A*
+│  2022 March    0005 RAVI KHILERY             INFORMATION TECHNOLOGY (9626)        Excel=A
+│  2022 March    0005 RAVI KHILERY             MATHEMATICS (9709/0580)              Excel=A
+│  2022 March    0006 RISHAV KUMAR SINGLA      BIOLOGY (9700/0610)                  Excel=C
+│  2022 March    0006 RISHAV KUMAR SINGLA      ECONOMICS (9708/0455)                Excel=C
+│  2022 March    0006 RISHAV KUMAR SINGLA      ENGLISH GENERAL PAPER (8021)         Excel=A
+│  2022 March    0006 RISHAV KUMAR SINGLA      INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2022 March    0006 RISHAV KUMAR SINGLA      MATHEMATICS (9709/0580)              Excel=C
+│  2022 March    0007 SHREY PRAKASH VISHNOI    ACCOUNTING (9706/0452)               Excel=AA
+│  2022 March    0007 SHREY PRAKASH VISHNOI    CHEMISTRY (9701/0620)                Excel=A
+│  2022 March    0007 SHREY PRAKASH VISHNOI    ECONOMICS (9708/0455)                Excel=B
+│  2022 March    0007 SHREY PRAKASH VISHNOI    ENGLISH GENERAL PAPER (8021)         Excel=A*
+│  2022 March    0007 SHREY PRAKASH VISHNOI    INFORMATION TECHNOLOGY (9626)        Excel=A
+│  2022 March    0007 SHREY PRAKASH VISHNOI    MATHEMATICS (9709/0580)              Excel=A
+│  2022 March    0008 SUNIL GURJAR             BIOLOGY (9700/0610)                  Excel=C
+│  2022 March    0008 SUNIL GURJAR             ECONOMICS (9708/0455)                Excel=C
+│  2022 March    0008 SUNIL GURJAR             ENGLISH GENERAL PAPER (8021)         Excel=A
+│  2022 March    0008 SUNIL GURJAR             INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2022 March    0008 SUNIL GURJAR             MATHEMATICS (9709/0580)              Excel=C
+│  2022 March    0009 VIKAS CHOUDHARY          ACCOUNTING (9706/0452)               Excel=A*
+│  2022 March    0009 VIKAS CHOUDHARY          CHEMISTRY (9701/0620)                Excel=A*
+│  2022 March    0009 VIKAS CHOUDHARY          ECONOMICS (9708/0455)                Excel=A
+│  2022 March    0009 VIKAS CHOUDHARY          ENGLISH GENERAL PAPER (8021)         Excel=A*
+│  2022 March    0009 VIKAS CHOUDHARY          INFORMATION TECHNOLOGY (9626)        Excel=A*
+│  2022 March    0009 VIKAS CHOUDHARY          MATHEMATICS (9709/0580)              Excel=A*
+│  2023 March    0001 ARYAN NAKHAWAT           COMBINED SCIENCE (0653)              Excel=E
+│  2023 March    0001 ARYAN NAKHAWAT           ENGLISH AS A SECOND LANGUAGE (0510)  Excel=U
+│  2023 March    0001 ARYAN NAKHAWAT           HINDI AS A SECOND LANGUAGE (0549)    Excel=G
+│  2023 March    0001 ARYAN NAKHAWAT           INFORMATION AND COMMUNICATION (0417)  Excel=U
+│  2023 March    0001 ARYAN NAKHAWAT           MATHEMATICS (W/OUT COURSEWORK) (9709/0580)  Excel=D
+│  2023 March    0002 KRISHNA SONI             ART AND DESIGN (9479/0400)           Excel=E
+│  2023 March    0002 KRISHNA SONI             COMBINED SCIENCE (0653)              Excel=D
+│  2023 March    0002 KRISHNA SONI             ENGLISH AS A SECOND LANGUAGE (0510)  Excel=D
+│  2023 March    0002 KRISHNA SONI             HINDI AS A SECOND LANGUAGE (0549)    Excel=B
+│  2023 March    0002 KRISHNA SONI             MATHEMATICS (W/OUT COURSEWORK) (9709/0580)  Excel=C
+│  2023 March    0003 MAHEK BHAMBHANI          ART AND DESIGN (9479/0400)           Excel=D
+│  2023 March    0003 MAHEK BHAMBHANI          HINDI AS A SECOND LANGUAGE (0549)    Excel=A*
+│  2023 March    0004 RIYA BHANDARI            ART AND DESIGN (9479/0400)           Excel=D
+│  2023 March    0004 RIYA BHANDARI            CO-ORD SCIENCES (DOUBLE AWARD) (0654)  Excel=AA
+│  2023 March    0004 RIYA BHANDARI            ENGLISH AS A SECOND LANGUAGE (0510)  Excel=B
+│  2023 March    0004 RIYA BHANDARI            FOREIGN LANGUAGE FRENCH (0520)       Excel=A
+│  2023 March    0005 RONIK MEWARA             CO-ORD SCIENCES (DOUBLE AWARD) (0654)  Excel=BB
+│  2023 March    0005 RONIK MEWARA             ECONOMICS (9708/0455)                Excel=D
+│  2023 March    0005 RONIK MEWARA             ENGLISH AS A SECOND LANGUAGE (0510)  Excel=C
+│  2023 March    0005 RONIK MEWARA             FOREIGN LANGUAGE FRENCH (0520)       Excel=C
+│  2023 March    0005 RONIK MEWARA             INFORMATION AND COMMUNICATION (0417)  Excel=B
+│  2023 March    0005 RONIK MEWARA             MATHEMATICS (W/OUT COURSEWORK) (9709/0580)  Excel=C
+│  2023 March    0006 SUMAN CHAMPAWAT          ART AND DESIGN (9479/0400)           Excel=D
+│  2023 March    0006 SUMAN CHAMPAWAT          CO-ORD SCIENCES (DOUBLE AWARD) (0654)  Excel=BB
+│  2023 March    0006 SUMAN CHAMPAWAT          ECONOMICS (9708/0455)                Excel=F
+│  2023 March    0006 SUMAN CHAMPAWAT          ENGLISH AS A SECOND LANGUAGE (0510)  Excel=D
+│  2023 March    0006 SUMAN CHAMPAWAT          HINDI AS A SECOND LANGUAGE (0549)    Excel=A
+│  2023 March    0006 SUMAN CHAMPAWAT          MATHEMATICS (W/OUT COURSEWORK) (9709/0580)  Excel=D
+│  2023 March    0007 VIKRAM KUMAR PRAJAPAT    COMBINED SCIENCE (0653)              Excel=G
+│  2023 March    0007 VIKRAM KUMAR PRAJAPAT    ENGLISH AS A SECOND LANGUAGE (0510)  Excel=U
+│  2023 March    0007 VIKRAM KUMAR PRAJAPAT    FOREIGN LANGUAGE FRENCH (0520)       Excel=F
+│  2023 March    0007 VIKRAM KUMAR PRAJAPAT    INFORMATION AND COMMUNICATION (0417)  Excel=U
+│  2023 March    0007 VIKRAM KUMAR PRAJAPAT    MATHEMATICS (W/OUT COURSEWORK) (9709/0580)  Excel=C
+│  2023 March    0008 VIPUL KACHHWAHA          CO-ORD SCIENCES (DOUBLE AWARD) (0654)  Excel=A*
+│  2023 March    0008 VIPUL KACHHWAHA          ECONOMICS (9708/0455)                Excel=C
+│  2023 March    0008 VIPUL KACHHWAHA          ENGLISH AS A SECOND LANGUAGE (0510)  Excel=A
+│  2023 March    0008 VIPUL KACHHWAHA          FOREIGN LANGUAGE FRENCH (0520)       Excel=A
+│  2023 March    0008 VIPUL KACHHWAHA          INFORMATION AND COMMUNICATION (0417)  Excel=A
+│  2023 March    0008 VIPUL KACHHWAHA          MATHEMATICS (W/OUT COURSEWORK) (9709/0580)  Excel=A*
+│  2023 March    0027 ANJALI JAIN              CHEMISTRY (9701/0620)                Excel=B
+│  2023 March    0003 MAHEK BHAMBHANI          ART AND DESIGN (9479/0400)           Excel=M
+│  2023 March    0004 RIYA BHANDARI            ART AND DESIGN (9479/0400)           Excel=M
+│  2023 March    0005 RONIK MEWARA             ART AND DESIGN (9479/0400)           Excel=M
+│  2023 March    0006 SUMAN CHAMPAWAT          ART AND DESIGN (9479/0400)           Excel=P
+│  2023 March    0008 VIPUL KACHHWAHA          ART AND DESIGN (9479/0400)           Excel=D
+│  2023 March    0010 MUKESH                   CHEMISTRY (9701/0620)                Excel=U
+│  2023 March    0010 MUKESH                   COMBINED SCIENCE (0653)              Excel=U
+│  2023 March    0010 MUKESH                   HINDI AS A SECOND LANGUAGE (0549)    Excel=U
+│  2023 March    0010 MUKESH                   MATHEMATICS (W/OUT COURSEWORK) (9709/0580)  Excel=D
+│  2023 March    0011 SHREY PRAKASH VISHNOI    COMBINED SCIENCE (0653)              Excel=U
+│  2023 March    0011 SHREY PRAKASH VISHNOI    INFORMATION AND COMMUNICATION (0417)  Excel=E
+│  2023 March    0011 SHREY PRAKASH VISHNOI    MATHEMATICS (W/OUT COURSEWORK) (9709/0580)  Excel=D
+│  2023 March    0012 HARSHINI ARVIND JAIN     ART AND DESIGN (9479/0400)           Excel=B
+│  2023 March    0012 HARSHINI ARVIND JAIN     CO-ORD SCIENCES (DOUBLE AWARD) (0654)  Excel=E
+│  2023 March    0012 HARSHINI ARVIND JAIN     ECONOMICS (9708/0455)                Excel=D
+│  2023 March    0012 HARSHINI ARVIND JAIN     HINDI AS A SECOND LANGUAGE (0549)    Excel=U
+│  2023 March    0013 KRRISH SAKHRANI          ART AND DESIGN (9479/0400)           Excel=A
+│  2023 March    0013 KRRISH SAKHRANI          ECONOMICS (9708/0455)                Excel=C
+│  2023 March    0013 KRRISH SAKHRANI          HINDI AS A SECOND LANGUAGE (0549)    Excel=U
+│  2023 March    0013 KRRISH SAKHRANI          INFORMATION AND COMMUNICATION (0417)  Excel=B
+│  2023 March    0015 RAVI KHILERY             ART AND DESIGN (9479/0400)           Excel=B
+│  2023 March    0015 RAVI KHILERY             ECONOMICS (9708/0455)                Excel=E
+│  2023 March    0015 RAVI KHILERY             HINDI AS A SECOND LANGUAGE (0549)    Excel=U
+│  2023 March    0015 RAVI KHILERY             INFORMATION AND COMMUNICATION (0417)  Excel=A
+│  2023 March    0016 RISHAV KUMAR SINGLA      ART AND DESIGN (9479/0400)           Excel=C
+│  2023 March    0016 RISHAV KUMAR SINGLA      CO-ORD SCIENCES (DOUBLE AWARD) (0654)  Excel=U
+│  2023 March    0016 RISHAV KUMAR SINGLA      ECONOMICS (9708/0455)                Excel=U
+│  2023 March    0016 RISHAV KUMAR SINGLA      HINDI AS A SECOND LANGUAGE (0549)    Excel=U
+│  2023 March    0017 YASH PARIHAR             ART AND DESIGN (9479/0400)           Excel=D
+│  2023 March    0017 YASH PARIHAR             CO-ORD SCIENCES (DOUBLE AWARD) (0654)  Excel=U
+│  2023 March    0017 YASH PARIHAR             ECONOMICS (9708/0455)                Excel=U
+│  2023 March    0017 YASH PARIHAR             HINDI AS A SECOND LANGUAGE (0549)    Excel=U
+│  2023 March    0018 SUFIYA ALI               ART AND DESIGN (9479/0400)           Excel=C
+│  2023 March    0018 SUFIYA ALI               CO-ORD SCIENCES (DOUBLE AWARD) (0654)  Excel=U
+│  2023 March    0018 SUFIYA ALI               HINDI AS A SECOND LANGUAGE (0549)    Excel=U
+│  2023 March    0019 ARHAAN SHAIKH            COMBINED SCIENCE (0653)              Excel=E
+│  2023 March    0019 ARHAAN SHAIKH            ENGLISH AS A SECOND LANGUAGE (0510)  Excel=E
+│  2023 March    0019 ARHAAN SHAIKH            INFORMATION AND COMMUNICATION (0417)  Excel=D
+│  2023 March    0019 ARHAAN SHAIKH            MATHEMATICS (W/OUT COURSEWORK) (9709/0580)  Excel=E
+│  2023 March    0020 SUHANI CHAUHAN           COMBINED SCIENCE (0653)              Excel=B
+│  2023 March    0020 SUHANI CHAUHAN           ENGLISH AS A SECOND LANGUAGE (0510)  Excel=C
+│  2023 March    0020 SUHANI CHAUHAN           INFORMATION AND COMMUNICATION (0417)  Excel=A
+│  2023 March    0020 SUHANI CHAUHAN           MATHEMATICS (W/OUT COURSEWORK) (9709/0580)  Excel=B
+│  2023 March    0021 AJAR PANDEY              ART AND DESIGN (9479/0400)           Excel=B
+│  2023 March    0021 AJAR PANDEY              CO-ORD SCIENCES (DOUBLE AWARD) (0654)  Excel=B
+│  2023 March    0021 AJAR PANDEY              ENGLISH AS A SECOND LANGUAGE (0510)  Excel=E
+│  2023 March    0021 AJAR PANDEY              HINDI AS A SECOND LANGUAGE (0549)    Excel=D
+│  2023 March    0022 JAYESH GARG              ART AND DESIGN (9479/0400)           Excel=A
+│  2023 March    0022 JAYESH GARG              CO-ORD SCIENCES (DOUBLE AWARD) (0654)  Excel=D
+│  2023 March    0022 JAYESH GARG              ENGLISH AS A SECOND LANGUAGE (0510)  Excel=C
+│  2023 March    0025 STUTI GAURAV MATHUR      COMBINED SCIENCE (0653)              Excel=E
+│  2023 March    0025 STUTI GAURAV MATHUR      ENGLISH AS A SECOND LANGUAGE (0510)  Excel=C
+│  2023 March    0025 STUTI GAURAV MATHUR      INFORMATION AND COMMUNICATION (0417)  Excel=C
+│  2023 March    0025 STUTI GAURAV MATHUR      MATHEMATICS (W/OUT COURSEWORK) (9709/0580)  Excel=D
+│  2023 March    0026 MANAS JAIN               CHEMISTRY (9701/0620)                Excel=C
+│  2023 March    0026 MANAS JAIN               COMBINED SCIENCE (0653)              Excel=B
+│  2023 March    0026 MANAS JAIN               FOREIGN LANGUAGE FRENCH (0520)       Excel=C
+│  2023 March    0026 MANAS JAIN               INFORMATION AND COMMUNICATION (0417)  Excel=A
+│  2023 March    0027 ANJALI JAIN              COMBINED SCIENCE (0653)              Excel=E
+│  2023 March    0027 ANJALI JAIN              INFORMATION AND COMMUNICATION (0417)  Excel=C
+│  2024 March    0013 GARV AGARWAL             CHEMISTRY (9701/0620)                Excel=C
+│  2024 March    0013 GARV AGARWAL             MATHEMATICS (9709/0580)              Excel=A
+│  2024 March    0013 GARV AGARWAL             PHYSICS (9702/0625)                  Excel=A
+│  2024 March    0016 MAHEK BHAMBHANI          CHEMISTRY (9701/0620)                Excel=C
+│  2024 March    0016 MAHEK BHAMBHANI          INFORMATION TECHNOLOGY (9626)        Excel=D
+│  2024 March    0016 MAHEK BHAMBHANI          MATHEMATICS (9709/0580)              Excel=B
+│  2024 March    0016 MAHEK BHAMBHANI          PHYSICS (9702/0625)                  Excel=D
+│  2024 March    0017 RIYA BHANDARI            BIOLOGY (9700/0610)                  Excel=E
+│  2024 March    0017 RIYA BHANDARI            CHEMISTRY (9701/0620)                Excel=E
+│  2024 March    0017 RIYA BHANDARI            PHYSICS (9702/0625)                  Excel=E
+│  2024 March    0017 RIYA BHANDARI            PSYCHOLOGY (9990)                    Excel=E
+│  2024 March    0019 SHIKHAR VASWANI          ECONOMICS (9708/0455)                Excel=U
+│  2024 March    0019 SHIKHAR VASWANI          INFORMATION TECHNOLOGY (9626)        Excel=U
+│  2024 March    0019 SHIKHAR VASWANI          MATHEMATICS (9709/0580)              Excel=U
+│  2024 March    0019 SHIKHAR VASWANI          PHYSICS (9702/0625)                  Excel=U
+│  2024 March    0020 SONAL RATHORE            BIOLOGY (9700/0610)                  Excel=D
+│  2024 March    0020 SONAL RATHORE            CHEMISTRY (9701/0620)                Excel=D
+│  2024 March    0020 SONAL RATHORE            INFORMATION TECHNOLOGY (9626)        Excel=E
+│  2024 March    0020 SONAL RATHORE            PHYSICS (9702/0625)                  Excel=D
+│  2024 March    0021 VIPUL KACHHWAHA          ECONOMICS (9708/0455)                Excel=D
+│  2024 March    0021 VIPUL KACHHWAHA          MATHEMATICS (9709/0580)              Excel=B
+│  2024 March    0021 VIPUL KACHHWAHA          PHYSICS (9702/0625)                  Excel=C
+│  2024 March    0022 AARNA MISHRA             ACCOUNTING (9706/0452)               Excel=A
+│  2024 March    0022 AARNA MISHRA             BUSINESS (9609/0450)                 Excel=U
+│  2024 March    0022 AARNA MISHRA             ECONOMICS (9708/0455)                Excel=E
+│  2024 March    0022 AARNA MISHRA             PSYCHOLOGY (9990)                    Excel=E
+│  2024 March    0024 NIKITA BISHNOI           BUSINESS (9609/0450)                 Excel=U
+│  2024 March    0024 NIKITA BISHNOI           ECONOMICS (9708/0455)                Excel=U
+│  2024 March    0024 NIKITA BISHNOI           PSYCHOLOGY (9990)                    Excel=U
+│  2024 March    0025 TWINKLE LUNIA            ACCOUNTING (9706/0452)               Excel=B
+│  2024 March    0025 TWINKLE LUNIA            BUSINESS (9609/0450)                 Excel=C
+│  2024 March    0025 TWINKLE LUNIA            ECONOMICS (9708/0455)                Excel=E
+│  2024 March    0025 TWINKLE LUNIA            PSYCHOLOGY (9990)                    Excel=D
+│  2024 March    0026 VIKRAM KUMAR PRAJAPAT    ACCOUNTING (9706/0452)               Excel=U
+│  2024 March    0026 VIKRAM KUMAR PRAJAPAT    BUSINESS (9609/0450)                 Excel=U
+│  2024 March    0027 AJITA GOUR               LITERATURE IN ENGLISH (9695/0475)    Excel=U
+│  2024 March    0029 HARSHVARDHAN SINGH       CHEMISTRY (9701/0620)                Excel=E
+│  2024 March    0029 HARSHVARDHAN SINGH       ENGLISH GENERAL PAPER (8021)         Excel=E
+│  2024 March    0030 NANDINI CHAUHAN          ENGLISH GENERAL PAPER (8021)         Excel=C
+│  2024 March    0032 NAMAN KACHHWAHA          ENGLISH GENERAL PAPER (8021)         Excel=C
+│  2024 March    0032 NAMAN KACHHWAHA          INFORMATION TECHNOLOGY (9626)        Excel=D
+│  2024 March    0032 NAMAN KACHHWAHA          MATHEMATICS (9709/0580)              Excel=A*
+│  2024 March    0033 KRRISH SAKHRANI          ENGLISH GENERAL PAPER (8021)         Excel=C
+│  2024 March    0033 KRRISH SAKHRANI          MATHEMATICS (9709/0580)              Excel=B
+│  2024 March    0034 RAVI KHILERY             ACCOUNTING (9706/0452)               Excel=A
+│  2024 March    0034 RAVI KHILERY             ENGLISH GENERAL PAPER (8021)         Excel=E
+│  2024 March    0034 RAVI KHILERY             MATHEMATICS (9709/0580)              Excel=D
+│  2024 March    0035 RISHAV KUMAR SINGLA      ENGLISH GENERAL PAPER (8021)         Excel=U
+│  2024 March    0035 RISHAV KUMAR SINGLA      INFORMATION TECHNOLOGY (9626)        Excel=U
+│  2024 March    0036 SUFIYA ALI               ACCOUNTING (9706/0452)               Excel=C
+│  2024 March    0036 SUFIYA ALI               BUSINESS (9609/0450)                 Excel=E
+│  2024 March    0036 SUFIYA ALI               ENGLISH GENERAL PAPER (8021)         Excel=U
+│  2024 March    0036 SUFIYA ALI               INFORMATION TECHNOLOGY (9626)        Excel=U
+│  2024 March    0037 YASH PARIHAR             ACCOUNTING (9706/0452)               Excel=D
+│  2024 March    0037 YASH PARIHAR             ENGLISH GENERAL PAPER (8021)         Excel=C
+│  2024 March    0001 ANAND KANWAR PADIYAR     ACCOUNTING (9706/0452)               Excel=M
+│  2024 March    0002 BHANUPRIYA RANA          ACCOUNTING (9706/0452)               Excel=P
+│  2024 March    0003 HIMANSHI AGARWAL         ACCOUNTING (9706/0452)               Excel=M
+│  2024 March    0004 HITEN JAIN               ACCOUNTING (9706/0452)               Excel=P
+│  2024 March    0006 KALYANI YADAV            ACCOUNTING (9706/0452)               Excel=P
+│  2024 March    0007 KAMLESH CHAUDHARY        ACCOUNTING (9706/0452)               Excel=M
+│  2024 March    0009 MANISHA YADAV            ACCOUNTING (9706/0452)               Excel=P
+│  2024 March    0010 PREET SINGH              ACCOUNTING (9706/0452)               Excel=M
+│  2024 March    0011 PRIYAL CHOPRA            ACCOUNTING (9706/0452)               Excel=M
+│  2024 March    0012 PRIYANKA KHILERY         ACCOUNTING (9706/0452)               Excel=M
+│  2024 March    0001 ANAND KANWAR PADIYAR     ACCOUNTING (9706/0452)               Excel=BB
+│  2024 March    0001 ANAND KANWAR PADIYAR     BUSINESS (9609/0450)                 Excel=C
+│  2024 March    0001 ANAND KANWAR PADIYAR     CHEMISTRY (9701/0620)                Excel=E
+│  2024 March    0001 ANAND KANWAR PADIYAR     ENGLISH GENERAL PAPER (8021)         Excel=A
+│  2024 March    0001 ANAND KANWAR PADIYAR     INFORMATION TECHNOLOGY (9626)        Excel=D
+│  2024 March    0001 ANAND KANWAR PADIYAR     LITERATURE IN ENGLISH (9695/0475)    Excel=B
+│  2024 March    0002 BHANUPRIYA RANA          ACCOUNTING (9706/0452)               Excel=DD
+│  2024 March    0002 BHANUPRIYA RANA          BUSINESS (9609/0450)                 Excel=F
+│  2024 March    0002 BHANUPRIYA RANA          CHEMISTRY (9701/0620)                Excel=E
+│  2024 March    0002 BHANUPRIYA RANA          ECONOMICS (9708/0455)                Excel=E
+│  2024 March    0002 BHANUPRIYA RANA          INFORMATION TECHNOLOGY (9626)        Excel=D
+│  2024 March    0002 BHANUPRIYA RANA          LITERATURE IN ENGLISH (9695/0475)    Excel=C
+│  2024 March    0003 HIMANSHI AGARWAL         ACCOUNTING (9706/0452)               Excel=AA
+│  2024 March    0003 HIMANSHI AGARWAL         BUSINESS (9609/0450)                 Excel=C
+│  2024 March    0003 HIMANSHI AGARWAL         CHEMISTRY (9701/0620)                Excel=B
+│  2024 March    0003 HIMANSHI AGARWAL         ENGLISH GENERAL PAPER (8021)         Excel=A*
+│  2024 March    0003 HIMANSHI AGARWAL         INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2024 March    0003 HIMANSHI AGARWAL         LITERATURE IN ENGLISH (9695/0475)    Excel=A
+│  2024 March    0004 HITEN JAIN               ACCOUNTING (9706/0452)               Excel=DD
+│  2024 March    0004 HITEN JAIN               BUSINESS (9609/0450)                 Excel=C
+│  2024 March    0004 HITEN JAIN               CHEMISTRY (9701/0620)                Excel=F
+│  2024 March    0004 HITEN JAIN               INFORMATION TECHNOLOGY (9626)        Excel=G
+│  2024 March    0004 HITEN JAIN               LITERATURE IN ENGLISH (9695/0475)    Excel=B
+│  2024 March    0005 JAHANARA KHAN            ACCOUNTING (9706/0452)               Excel=FF
+│  2024 March    0005 JAHANARA KHAN            CHEMISTRY (9701/0620)                Excel=D
+│  2024 March    0005 JAHANARA KHAN            ECONOMICS (9708/0455)                Excel=E
+│  2024 March    0005 JAHANARA KHAN            INFORMATION TECHNOLOGY (9626)        Excel=F
+│  2024 March    0005 JAHANARA KHAN            LITERATURE IN ENGLISH (9695/0475)    Excel=E
+│  2024 March    0006 KALYANI YADAV            ACCOUNTING (9706/0452)               Excel=CC
+│  2024 March    0006 KALYANI YADAV            BUSINESS (9609/0450)                 Excel=D
+│  2024 March    0006 KALYANI YADAV            CHEMISTRY (9701/0620)                Excel=D
+│  2024 March    0006 KALYANI YADAV            ECONOMICS (9708/0455)                Excel=C
+│  2024 March    0006 KALYANI YADAV            INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2024 March    0006 KALYANI YADAV            LITERATURE IN ENGLISH (9695/0475)    Excel=D
+│  2024 March    0007 KAMLESH CHAUDHARY        ACCOUNTING (9706/0452)               Excel=BB
+│  2024 March    0007 KAMLESH CHAUDHARY        BUSINESS (9609/0450)                 Excel=C
+│  2024 March    0007 KAMLESH CHAUDHARY        CHEMISTRY (9701/0620)                Excel=D
+│  2024 March    0007 KAMLESH CHAUDHARY        ENGLISH GENERAL PAPER (8021)         Excel=B
+│  2024 March    0007 KAMLESH CHAUDHARY        INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2024 March    0007 KAMLESH CHAUDHARY        LITERATURE IN ENGLISH (9695/0475)    Excel=B
+│  2024 March    0008 KUNAL JANGID             BIOLOGY (9700/0610)                  Excel=U
+│  2024 March    0008 KUNAL JANGID             CHEMISTRY (9701/0620)                Excel=U
+│  2024 March    0008 KUNAL JANGID             ECONOMICS (9708/0455)                Excel=F
+│  2024 March    0008 KUNAL JANGID             INFORMATION TECHNOLOGY (9626)        Excel=U
+│  2024 March    0008 KUNAL JANGID             LITERATURE IN ENGLISH (9695/0475)    Excel=G
+│  2024 March    0009 MANISHA YADAV            ACCOUNTING (9706/0452)               Excel=FF
+│  2024 March    0009 MANISHA YADAV            BUSINESS (9609/0450)                 Excel=F
+│  2024 March    0009 MANISHA YADAV            CHEMISTRY (9701/0620)                Excel=F
+│  2024 March    0009 MANISHA YADAV            ECONOMICS (9708/0455)                Excel=E
+│  2024 March    0009 MANISHA YADAV            INFORMATION TECHNOLOGY (9626)        Excel=F
+│  2024 March    0009 MANISHA YADAV            LITERATURE IN ENGLISH (9695/0475)    Excel=E
+│  2024 March    0010 PREET SINGH              ACCOUNTING (9706/0452)               Excel=CC
+│  2024 March    0010 PREET SINGH              BUSINESS (9609/0450)                 Excel=C
+│  2024 March    0010 PREET SINGH              CHEMISTRY (9701/0620)                Excel=B
+│  2024 March    0010 PREET SINGH              ENGLISH GENERAL PAPER (8021)         Excel=A
+│  2024 March    0010 PREET SINGH              INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2024 March    0010 PREET SINGH              LITERATURE IN ENGLISH (9695/0475)    Excel=D
+│  2024 March    0011 PRIYAL CHOPRA            ACCOUNTING (9706/0452)               Excel=BB
+│  2024 March    0011 PRIYAL CHOPRA            BUSINESS (9609/0450)                 Excel=C
+│  2024 March    0011 PRIYAL CHOPRA            CHEMISTRY (9701/0620)                Excel=B
+│  2024 March    0011 PRIYAL CHOPRA            ENGLISH GENERAL PAPER (8021)         Excel=A
+│  2024 March    0011 PRIYAL CHOPRA            INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2024 March    0011 PRIYAL CHOPRA            LITERATURE IN ENGLISH (9695/0475)    Excel=A
+│  2024 March    0012 PRIYANKA KHILERY         ACCOUNTING (9706/0452)               Excel=CC
+│  2024 March    0012 PRIYANKA KHILERY         BUSINESS (9609/0450)                 Excel=C
+│  2024 March    0012 PRIYANKA KHILERY         CHEMISTRY (9701/0620)                Excel=D
+│  2024 March    0012 PRIYANKA KHILERY         ENGLISH GENERAL PAPER (8021)         Excel=A
+│  2024 March    0012 PRIYANKA KHILERY         INFORMATION TECHNOLOGY (9626)        Excel=D
+│  2025 March    0028 RONIK MEWARA             CHEMISTRY (9701/0620)                Excel=U
+│  2025 March    0028 RONIK MEWARA             ENGLISH GENERAL PAPER (8021)         Excel=E
+│  2025 March    0028 RONIK MEWARA             MATHEMATICS (9709/0580)              Excel=E
+│  2025 March    0028 RONIK MEWARA             PHYSICS (9702/0625)                  Excel=U
+│  2025 March    0038 AMRIT KUMBHAT            ACCOUNTING (9706/0452)               Excel=U
+│  2025 March    0006 JAIN YOGITA SURESH       ACCOUNTING (9706/0452)               Excel=M
+│  2025 March    0007 JAYVEER SINGH BHATI      ACCOUNTING (9706/0452)               Excel=M
+│  2025 March    0008 JHANAK SHARMA            ACCOUNTING (9706/0452)               Excel=M
+│  2025 March    0010 JUNED MOYAL              ACCOUNTING (9706/0452)               Excel=M
+│  2025 March    0012 MAYANK MEWARA            ACCOUNTING (9706/0452)               Excel=M
+│  2025 March    0013 MAYANK MALVIYA           ACCOUNTING (9706/0452)               Excel=P
+│  2025 March    0019 SHAURYA LODHA            ACCOUNTING (9706/0452)               Excel=M
+│  2025 March    0020 UTSAV MAHESHWARI         ACCOUNTING (9706/0452)               Excel=M
+│  2025 March    0021 VIVEK KUMAR YADAV        ACCOUNTING (9706/0452)               Excel=P
+│  2025 March    0001 ANIRUDH                  CHEMISTRY (9701/0620)                Excel=CC
+│  2025 March    0001 ANIRUDH                  ENGLISH GENERAL PAPER (8021)         Excel=E
+│  2025 March    0001 ANIRUDH                  INFORMATION TECHNOLOGY (9626)        Excel=D
+│  2025 March    0001 ANIRUDH                  PHYSICS (9702/0625)                  Excel=D
+│  2025 March    0002 AYAN ALI KHAN            CHEMISTRY (9701/0620)                Excel=AA
+│  2025 March    0002 AYAN ALI KHAN            INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2025 March    0002 AYAN ALI KHAN            PHYSICS (9702/0625)                  Excel=A
+│  2025 March    0002 AYAN ALI KHAN            PSYCHOLOGY (9990)                    Excel=B
+│  2025 March    0003 BHARAT PUNIYA            ACCOUNTING (9706/0452)               Excel=A*
+│  2025 March    0003 BHARAT PUNIYA            BIOLOGY (9700/0610)                  Excel=C
+│  2025 March    0003 BHARAT PUNIYA            CHEMISTRY (9701/0620)                Excel=A*
+│  2025 March    0004 DIVYANSH JAIN            INFORMATION TECHNOLOGY (9626)        Excel=D
+│  2025 March    0004 DIVYANSH JAIN            MATHEMATICS (9709/0580)              Excel=C
+│  2025 March    0004 DIVYANSH JAIN            PSYCHOLOGY (9990)                    Excel=B
+│  2025 March    0005 DRASHTI DHOOT            BIOLOGY (9700/0610)                  Excel=C
+│  2025 March    0005 DRASHTI DHOOT            CHEMISTRY (9701/0620)                Excel=CC
+│  2025 March    0005 DRASHTI DHOOT            INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2025 March    0005 DRASHTI DHOOT            PHYSICS (9702/0625)                  Excel=B
+│  2025 March    0006 JAIN YOGITA SURESH       BIOLOGY (9700/0610)                  Excel=C
+│  2025 March    0006 JAIN YOGITA SURESH       CHEMISTRY (9701/0620)                Excel=AA
+│  2025 March    0006 JAIN YOGITA SURESH       ENGLISH GENERAL PAPER (8021)         Excel=D
+│  2025 March    0006 JAIN YOGITA SURESH       INFORMATION TECHNOLOGY (9626)        Excel=D
+│  2025 March    0006 JAIN YOGITA SURESH       PHYSICS (9702/0625)                  Excel=A*
+│  2025 March    0007 JAYVEER SINGH BHATI      CHEMISTRY (9701/0620)                Excel=AA
+│  2025 March    0007 JAYVEER SINGH BHATI      ENGLISH GENERAL PAPER (8021)         Excel=B
+│  2025 March    0007 JAYVEER SINGH BHATI      INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2025 March    0007 JAYVEER SINGH BHATI      PHYSICS (9702/0625)                  Excel=B
+│  2025 March    0007 JAYVEER SINGH BHATI      PSYCHOLOGY (9990)                    Excel=A
+│  2025 March    0008 JHANAK SHARMA            CHEMISTRY (9701/0620)                Excel=AA
+│  2025 March    0008 JHANAK SHARMA            ENGLISH GENERAL PAPER (8021)         Excel=A
+│  2025 March    0008 JHANAK SHARMA            INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2025 March    0008 JHANAK SHARMA            MATHEMATICS (9709/0580)              Excel=B
+│  2025 March    0008 JHANAK SHARMA            PSYCHOLOGY (9990)                    Excel=B
+│  2025 March    0009 JINAL SOLANKI            CHEMISTRY (9701/0620)                Excel=CC
+│  2025 March    0009 JINAL SOLANKI            INFORMATION TECHNOLOGY (9626)        Excel=F
+│  2025 March    0009 JINAL SOLANKI            PHYSICS (9702/0625)                  Excel=A
+│  2025 March    0009 JINAL SOLANKI            PSYCHOLOGY (9990)                    Excel=B
+│  2025 March    0010 JUNED MOYAL              CHEMISTRY (9701/0620)                Excel=CC
+│  2025 March    0010 JUNED MOYAL              ENGLISH GENERAL PAPER (8021)         Excel=D
+│  2025 March    0010 JUNED MOYAL              INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2025 March    0010 JUNED MOYAL              MATHEMATICS (9709/0580)              Excel=B
+│  2025 March    0010 JUNED MOYAL              PSYCHOLOGY (9990)                    Excel=A
+│  2025 March    0011 KARTIK RANKAWAT          CHEMISTRY (9701/0620)                Excel=EE
+│  2025 March    0011 KARTIK RANKAWAT          INFORMATION TECHNOLOGY (9626)        Excel=E
+│  2025 March    0011 KARTIK RANKAWAT          PSYCHOLOGY (9990)                    Excel=C
+│  2025 March    0012 MAYANK MEWARA            CHEMISTRY (9701/0620)                Excel=BB
+│  2025 March    0012 MAYANK MEWARA            ENGLISH GENERAL PAPER (8021)         Excel=D
+│  2025 March    0012 MAYANK MEWARA            INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2025 March    0012 MAYANK MEWARA            PHYSICS (9702/0625)                  Excel=C
+│  2025 March    0012 MAYANK MEWARA            PSYCHOLOGY (9990)                    Excel=B
+│  2025 March    0013 MAYANK MALVIYA           CHEMISTRY (9701/0620)                Excel=DD
+│  2025 March    0013 MAYANK MALVIYA           ENGLISH GENERAL PAPER (8021)         Excel=F
+│  2025 March    0013 MAYANK MALVIYA           INFORMATION TECHNOLOGY (9626)        Excel=D
+│  2025 March    0013 MAYANK MALVIYA           PHYSICS (9702/0625)                  Excel=A
+│  2025 March    0013 MAYANK MALVIYA           PSYCHOLOGY (9990)                    Excel=C
+│  2025 March    0015 NIKHIL KACHHWAHA         BUSINESS (9609/0450)                 Excel=A*
+│  2025 March    0015 NIKHIL KACHHWAHA         ENGLISH GENERAL PAPER (8021)         Excel=B
+│  2025 March    0015 NIKHIL KACHHWAHA         INFORMATION TECHNOLOGY (9626)        Excel=A
+│  2025 March    0015 NIKHIL KACHHWAHA         PHYSICS (9702/0625)                  Excel=A*
+│  2025 March    0015 NIKHIL KACHHWAHA         PSYCHOLOGY (9990)                    Excel=B
+│  2025 March    0016 PREET RATHORE            CHEMISTRY (9701/0620)                Excel=UU
+│  2025 March    0016 PREET RATHORE            INFORMATION TECHNOLOGY (9626)        Excel=F
+│  2025 March    0016 PREET RATHORE            PHYSICS (9702/0625)                  Excel=D
+│  2025 March    0016 PREET RATHORE            PSYCHOLOGY (9990)                    Excel=E
+│  2025 March    0017 RAGHVENDRA PRATAP SINGH  CHEMISTRY (9701/0620)                Excel=DD
+│  2025 March    0017 RAGHVENDRA PRATAP SINGH  ENGLISH GENERAL PAPER (8021)         Excel=E
+│  2025 March    0017 RAGHVENDRA PRATAP SINGH  INFORMATION TECHNOLOGY (9626)        Excel=E
+│  2025 March    0017 RAGHVENDRA PRATAP SINGH  PHYSICS (9702/0625)                  Excel=D
+│  2025 March    0018 RAJVEER SINGH TANWAR     CHEMISTRY (9701/0620)                Excel=EE
+│  2025 March    0018 RAJVEER SINGH TANWAR     ENGLISH GENERAL PAPER (8021)         Excel=F
+│  2025 March    0018 RAJVEER SINGH TANWAR     INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2025 March    0018 RAJVEER SINGH TANWAR     PHYSICS (9702/0625)                  Excel=C
+│  2025 March    0019 SHAURYA LODHA            CHEMISTRY (9701/0620)                Excel=BB
+│  2025 March    0019 SHAURYA LODHA            ENGLISH GENERAL PAPER (8021)         Excel=D
+│  2025 March    0019 SHAURYA LODHA            INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2025 March    0019 SHAURYA LODHA            PSYCHOLOGY (9990)                    Excel=B
+│  2025 March    0020 UTSAV MAHESHWARI         CHEMISTRY (9701/0620)                Excel=BB
+│  2025 March    0020 UTSAV MAHESHWARI         ENGLISH GENERAL PAPER (8021)         Excel=B
+│  2025 March    0020 UTSAV MAHESHWARI         INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2025 March    0020 UTSAV MAHESHWARI         MATHEMATICS (9709/0580)              Excel=B
+│  2025 March    0020 UTSAV MAHESHWARI         PSYCHOLOGY (9990)                    Excel=B
+│  2025 March    0021 VIVEK KUMAR YADAV        CHEMISTRY (9701/0620)                Excel=DD
+│  2025 March    0021 VIVEK KUMAR YADAV        ENGLISH GENERAL PAPER (8021)         Excel=E
+│  2025 March    0021 VIVEK KUMAR YADAV        INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2025 March    0021 VIVEK KUMAR YADAV        MATHEMATICS (9709/0580)              Excel=C
+│  2025 March    0021 VIVEK KUMAR YADAV        PSYCHOLOGY (9990)                    Excel=B
+│  2025 March    0022 YUJVENDRA PRATAP SINGH   CHEMISTRY (9701/0620)                Excel=AA
+│  2025 March    0022 YUJVENDRA PRATAP SINGH   INFORMATION TECHNOLOGY (9626)        Excel=E
+│  2025 March    0022 YUJVENDRA PRATAP SINGH   PHYSICS (9702/0625)                  Excel=B
+│  2025 March    0036 KUNAL JANGID             ECONOMICS (9708/0455)                Excel=F
+│  2025 March    0036 KUNAL JANGID             INFORMATION TECHNOLOGY (9626)        Excel=F
+│  2025 March    0037 AYUSHMAN SOLANKI         PHYSICS (9702/0625)                  Excel=D
+│  2026 March    0005 BHARAT PUNIYA            MATHEMATICS (9709/0580)              Excel=A*
+│  2026 March    0008 DIVYANSH JAIN            CHEMISTRY (9701/0620)                Excel=Q
+│  2026 March    0008 DIVYANSH JAIN            MATHEMATICS (9709/0580)              Excel=D
+│  2026 March    0008 DIVYANSH JAIN            PHYSICS (9702/0625)                  Excel=E
+│  2026 March    5001 AADITYA SHARMA           ACCOUNTING (9706/0452)               Excel=D
+│  2026 March    5002 AJIJ ALI                 ACCOUNTING (9706/0452)               Excel=M
+│  2026 March    5003 ARVIND CHAUDHARY         ACCOUNTING (9706/0452)               Excel=M
+│  2026 March    5007 DIVYAM JAIN              ACCOUNTING (9706/0452)               Excel=M
+│  2026 March    5008 HARSHIT SAMRIYA          ACCOUNTING (9706/0452)               Excel=P
+│  2026 March    5009 KHUSH CHOPRA             ACCOUNTING (9706/0452)               Excel=D
+│  2026 March    5011 MANYA LOHIA              ACCOUNTING (9706/0452)               Excel=M
+│  2026 March    5013 NITIN JIRAWALA           ACCOUNTING (9706/0452)               Excel=M
+│  2026 March    5015 TANISHA CHOUDHARY        ACCOUNTING (9706/0452)               Excel=P
+│  2026 March    0006 NIKHIL KACHHWAHA         CHEMISTRY (9701/0620)                Excel=G
+│  2026 March    0006 NIKHIL KACHHWAHA         MATHEMATICS (9709/0580)              Excel=B
+│  2026 March    0006 NIKHIL KACHHWAHA         PSYCHOLOGY (9990)                    Excel=A
+│  2026 March    5003 ARVIND CHAUDHARY         BIOLOGY (9700/0610)                  Excel=U
+│  2026 March    5004 AYUSHMAN SINGH RAJPUROHIT  ENGLISH GENERAL PAPER (8021)         Excel=F
+│  2026 March    5005 BHUVI JAIN               BUSINESS (9609/0450)                 Excel=D
+│  2026 March    5006 BHUVNESH DHARIWAL        CHEMISTRY (9701/0620)                Excel=C
+│  2026 March    5006 BHUVNESH DHARIWAL        PHYSICS (9702/0625)                  Excel=C
+│  2026 March    5008 HARSHIT SAMRIYA          ECONOMICS (9708/0455)                Excel=DD
+│  2026 March    5008 HARSHIT SAMRIYA          PHYSICS (9702/0625)                  Excel=E
+│  2026 March    5010 KRISHNAVARDHAN SINGH     ENGLISH GENERAL PAPER (8021)         Excel=F
+│  2026 March    5011 MANYA LOHIA              BUSINESS (9609/0450)                 Excel=F
+│  2026 March    5012 MOHIT JANGID             CHEMISTRY (9701/0620)                Excel=G
+│  2026 March    5014 PRINCE GEHLOT            ENGLISH GENERAL PAPER (8021)         Excel=F
+│  2026 March    5015 TANISHA CHOUDHARY        BUSINESS (9609/0450)                 Excel=E
+│  2026 March    5027 CHRISANNE NADINE D'SILVA  MATHEMATICS (9709/0580)              Excel=C
+│  2026 March    5027 CHRISANNE NADINE D'SILVA  PHYSICS (9702/0625)                  Excel=D
+│  2026 March    5028 SHUBHANGI GAJJA          CHEMISTRY (9701/0620)                Excel=C
+│  2021 November  0002 KESHAV GEHLOT            MATHEMATICS (9709/0580)              Excel=E
+│  2021 November  0002 KESHAV GEHLOT            PHYSICS (9702/0625)                  Excel=E
+│  2021 November  0003 MITESH MISHRA            ART AND DESIGN (9479/0400)           Excel=U
+│  2021 November  0003 MITESH MISHRA            HISTORY (9489/9389)                  Excel=U
+│  2021 November  0003 MITESH MISHRA            PSYCHOLOGY (9990)                    Excel=U
+│  2021 November  0004 SAWAI GURJAR             ECONOMICS (9708/0455)                Excel=C
+│  2021 November  0004 SAWAI GURJAR             HISTORY (9489/9389)                  Excel=U
+│  2021 November  0004 SAWAI GURJAR             INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2021 November  0004 SAWAI GURJAR             PSYCHOLOGY (9990)                    Excel=E
+│  2021 November  0005 YUGAN SHARMA             ACCOUNTING (9706/0452)               Excel=U
+│  2021 November  0005 YUGAN SHARMA             ECONOMICS (9708/0455)                Excel=U
+│  2021 November  0005 YUGAN SHARMA             INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2021 November  0006 ARYAN                    INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2021 November  0009 STUTI GAURAV MATHUR      MATHEMATICS (9709/0580)              Excel=E
+│  2021 November  0001 ADITI JANGID             ART AND DESIGN (9479/0400)           Excel=D
+│  2021 November  0007 HARSH VARDHAN VYAS       ACCOUNTING (9706/0452)               Excel=C
+│  2021 November  0007 HARSH VARDHAN VYAS       ART AND DESIGN (9479/0400)           Excel=B
+│  2021 November  0007 HARSH VARDHAN VYAS       ECONOMICS (9708/0455)                Excel=D
+│  2021 November  0007 HARSH VARDHAN VYAS       HISTORY (9489/9389)                  Excel=A*
+│  2021 November  0007 HARSH VARDHAN VYAS       INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2021 November  0008 DURGA KANWAR             HISTORY (9489/9389)                  Excel=A*
+│  2021 November  0009 STUTI GAURAV MATHUR      INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2022 November  0002 BHAVIKA ANAND            ECONOMICS (9708/0455)                Excel=C
+│  2022 November  0002 BHAVIKA ANAND            HISTORY (9489/9389)                  Excel=C
+│  2022 November  0002 BHAVIKA ANAND            PSYCHOLOGY (9990)                    Excel=D
+│  2022 November  0003 MANAS JAIN               BIOLOGY (9700/0610)                  Excel=C
+│  2022 November  0003 MANAS JAIN               CHEMISTRY (9701/0620)                Excel=A
+│  2022 November  0003 MANAS JAIN               ECONOMICS (9708/0455)                Excel=B
+│  2022 November  0004 PRABHAV AGARWAL          CHEMISTRY (9701/0620)                Excel=D
+│  2022 November  0004 PRABHAV AGARWAL          PHYSICS (9702/0625)                  Excel=B
+│  2023 November  0001 RAVI KHILERY             ECONOMICS (9708/0455)                Excel=C
+│  2023 November  0002 SHREY PRAKASH VISHNOI    BIOLOGY (9700/0610)                  Excel=E
+│  2023 November  0002 SHREY PRAKASH VISHNOI    CHEMISTRY (9701/0620)                Excel=B
+│  2023 November  0002 SHREY PRAKASH VISHNOI    PHYSICS (9702/0625)                  Excel=A
+│  2023 November  0003 SUFIYA ALI               BUSINESS (9609/0450)                 Excel=E
+│  2023 November  0003 SUFIYA ALI               INFORMATION TECHNOLOGY (9626)        Excel=D
+│  2023 November  0004 RIDDHI GUPTA             ACCOUNTING (9706/0452)               Excel=A*
+│  2023 November  0004 RIDDHI GUPTA             ECONOMICS (9708/0455)                Excel=A
+│  2023 November  0004 RIDDHI GUPTA             ENGLISH GENERAL PAPER (8021)         Excel=C
+│  2023 November  0004 RIDDHI GUPTA             INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2023 November  0004 RIDDHI GUPTA             MATHEMATICS (9709/0580)              Excel=A*
+│  2023 November  0007 RISHAV KUMAR SINGLA      BUSINESS (9609/0450)                 Excel=D
+│  2023 November  0007 RISHAV KUMAR SINGLA      INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2023 November  0008 ADITI JANGID             ENGLISH GENERAL PAPER (8021)         Excel=U
+│  2023 November  0009 YASH PARIHAR             BUSINESS (9609/0450)                 Excel=U
+│  2023 November  0009 YASH PARIHAR             INFORMATION TECHNOLOGY (9626)        Excel=U
+│  2023 November  0010 HARSHVARDHAN SINGH       MATHEMATICS (9709/0580)              Excel=A
+│  2023 November  0010 HARSHVARDHAN SINGH       PHYSICS (9702/0625)                  Excel=B
+│  2023 November  0012 NANDINI CHAUHAN          BIOLOGY (9700/0610)                  Excel=E
+│  2023 November  0013 NAMAN KACHHWAHA          MATHEMATICS (9709/0580)              Excel=A
+│  2023 November  0005 ARYAN NAKHAWAT           ACCOUNTING (9706/0452)               Excel=U
+│  2023 November  0005 ARYAN NAKHAWAT           BIOLOGY (9700/0610)                  Excel=C
+│  2023 November  0006 VIKRAM KUMAR PRAJAPAT    ACCOUNTING (9706/0452)               Excel=U
+│  2023 November  0006 VIKRAM KUMAR PRAJAPAT    BIOLOGY (9700/0610)                  Excel=C
+│  2024 November  0001 MAHEK BHAMBHANI          CHEMISTRY (9701/0620)                Excel=A
+│  2024 November  0001 MAHEK BHAMBHANI          PHYSICS (9702/0625)                  Excel=B
+│  2024 November  0002 TWINKLE LUNIA            BUSINESS (9609/0450)                 Excel=D
+│  2024 November  0002 TWINKLE LUNIA            ECONOMICS (9708/0455)                Excel=C
+│  2024 November  0002 TWINKLE LUNIA            PSYCHOLOGY (9990)                    Excel=B
+│  2024 November  0003 SHIKHAR VASWANI          ECONOMICS (9708/0455)                Excel=E
+│  2024 November  0005 KRISHNA SONI             ACCOUNTING (9706/0452)               Excel=E
+│  2024 November  0005 KRISHNA SONI             BUSINESS (9609/0450)                 Excel=U
+│  2024 November  0005 KRISHNA SONI             ECONOMICS (9708/0455)                Excel=U
+│  2024 November  0005 KRISHNA SONI             INFORMATION TECHNOLOGY (9626)        Excel=U
+│  2024 November  0006 GUNGUN                   CHEMISTRY (9701/0620)                Excel=D
+│  2024 November  0006 GUNGUN                   MATHEMATICS (9709/0580)              Excel=D
+│  2024 November  0006 GUNGUN                   PHYSICS (9702/0625)                  Excel=U
+│  2024 November  0007 AARNA MISHRA             BUSINESS (9609/0450)                 Excel=U
+│  2024 November  0007 AARNA MISHRA             PSYCHOLOGY (9990)                    Excel=U
+│  2024 November  0008 NIKITA BISHNOI           ACCOUNTING (9706/0452)               Excel=C
+│  2024 November  0008 NIKITA BISHNOI           BUSINESS (9609/0450)                 Excel=U
+│  2024 November  0008 NIKITA BISHNOI           ECONOMICS (9708/0455)                Excel=C
+│  2024 November  0009 SHREY PRAKASH VISHNOI    BIOLOGY (9700/0610)                  Excel=C
+│  2024 November  0010 NANDINI CHAUHAN          BIOLOGY (9700/0610)                  Excel=A
+│  2024 November  0011 RONIK MEWARA             CHEMISTRY (9701/0620)                Excel=D
+│  2024 November  0011 RONIK MEWARA             MATHEMATICS (9709/0580)              Excel=C
+│  2024 November  0011 RONIK MEWARA             PHYSICS (9702/0625)                  Excel=U
+│  2024 November  0013 RISHAV KUMAR SINGLA      BUSINESS (9609/0450)                 Excel=D
+│  2024 November  0013 RISHAV KUMAR SINGLA      ENGLISH GENERAL PAPER (8021)         Excel=U
+│  2024 November  0013 RISHAV KUMAR SINGLA      INFORMATION TECHNOLOGY (9626)        Excel=U
+│  2024 November  0013 RISHAV KUMAR SINGLA      MATHEMATICS (9709/0580)              Excel=D
+│  2024 November  0015 RAVI KHILERY             ECONOMICS (9708/0455)                Excel=C
+│  2024 November  0015 RAVI KHILERY             ENGLISH GENERAL PAPER (8021)         Excel=E
+│  2024 November  0015 RAVI KHILERY             MATHEMATICS (9709/0580)              Excel=C
+│  2024 November  0016 RIYA BHANDARI            BIOLOGY (9700/0610)                  Excel=E
+│  2024 November  0016 RIYA BHANDARI            CHEMISTRY (9701/0620)                Excel=C
+│  2024 November  0016 RIYA BHANDARI            PSYCHOLOGY (9990)                    Excel=D
+│  2024 November  0017 KRISH AGARWALLA          CHEMISTRY (9701/0620)                Excel=C
+│  2024 November  0017 KRISH AGARWALLA          PHYSICS (9702/0625)                  Excel=C
+│  2024 November  0004 KUNAL JANGID             BIOLOGY (9700/0610)                  Excel=U
+│  2024 November  0004 KUNAL JANGID             BUSINESS (9609/0450)                 Excel=U
+│  2024 November  0004 KUNAL JANGID             CHEMISTRY (9701/0620)                Excel=G
+│  2024 November  0020 ANVI TALESARA            ACCOUNTING (9706/0452)               Excel=F
+│  2025 November  0026 VIKRAM KUMAR PRAJAPAT    BUSINESS (9609/0450)                 Excel=U
+│  2025 November  0026 VIKRAM KUMAR PRAJAPAT    ENGLISH GENERAL PAPER (8021)         Excel=U
+│  2025 November  0026 VIKRAM KUMAR PRAJAPAT    INFORMATION TECHNOLOGY (9626)        Excel=U
+│  2025 November  0028 RONIK MEWARA             CHEMISTRY (9701/0620)                Excel=E
+│  2025 November  0028 RONIK MEWARA             PHYSICS (9702/0625)                  Excel=E
+│  2020 June     0001 ABHAYRAJ TAK             COMPUTER SCIENCE (9618/9608/0478)    Excel=B
+│  2020 June     0001 ABHAYRAJ TAK             ENGLISH GENERAL PAPER (8021)         Excel=A
+│  2020 June     0001 ABHAYRAJ TAK             MATHEMATICS (9709/0580)              Excel=B
+│  2020 June     0002 ABHISHEK BISHNOI         ENGLISH GENERAL PAPER (8021)         Excel=A
+│  2020 June     0002 ABHISHEK BISHNOI         MATHEMATICS (9709/0580)              Excel=A
+│  2020 June     0003 ARYAN                    ENGLISH GENERAL PAPER (8021)         Excel=C
+│  2020 June     0003 ARYAN                    MATHEMATICS (9709/0580)              Excel=D
+│  2020 June     0004 IRA ALI                  ENGLISH GENERAL PAPER (8021)         Excel=A
+│  2020 June     0004 IRA ALI                  HISTORY (9489/9389)                  Excel=A
+│  2020 June     0006 LUCKY JANGID             ENGLISH GENERAL PAPER (8021)         Excel=C
+│  2020 June     0007 MEHRAJ ALI               ENGLISH GENERAL PAPER (8021)         Excel=D
+│  2020 June     0008 PRABHAV AGARWAL          COMPUTER SCIENCE (9618/9608/0478)    Excel=B
+│  2020 June     0008 PRABHAV AGARWAL          ENGLISH GENERAL PAPER (8021)         Excel=C
+│  2020 June     0008 PRABHAV AGARWAL          MATHEMATICS (9709/0580)              Excel=C
+│  2020 June     0009 RISHIT MANTRI            COMPUTER SCIENCE (9618/9608/0478)    Excel=A
+│  2020 June     0009 RISHIT MANTRI            ENGLISH GENERAL PAPER (8021)         Excel=A
+│  2020 June     0009 RISHIT MANTRI            MATHEMATICS (9709/0580)              Excel=A
+│  2020 June     0010 TANMAY SALECHA           ENGLISH GENERAL PAPER (8021)         Excel=B
+│  2021 June     0001 JAISAL SINGH             BIOLOGY (9700/0610)                  Excel=B
+│  2021 June     0001 JAISAL SINGH             CHEMISTRY (9701/0620)                Excel=B
+│  2021 June     0002 IRA ALI                  BIOLOGY (9700/0610)                  Excel=A
+│  2021 June     0002 IRA ALI                  HISTORY (9489/9389)                  Excel=C
+│  2021 June     0003 PARTH RAJ MATHUR         BIOLOGY (9700/0610)                  Excel=B
+│  2021 June     0003 PARTH RAJ MATHUR         COMPUTER SCIENCE (9618/9608/0478)    Excel=A
+│  2021 June     0004 KESHAV GEHLOT            COMPUTER SCIENCE (9618/9608/0478)    Excel=A
+│  2021 June     0006 PRABHAV AGARWAL          COMPUTER SCIENCE (9618/9608/0478)    Excel=A
+│  2021 June     0007 RISHIT MANTRI            COMPUTER SCIENCE (9618/9608/0478)    Excel=A
+│  2021 June     0009 ARYAN                    ACCOUNTING (9706/0452)               Excel=B
+│  2021 June     0010 LUCKY JANGID             ACCOUNTING (9706/0452)               Excel=B
+│  2021 June     0008 DURGA KANWAR             ACCOUNTING (9706/0452)               Excel=BB
+│  2021 June     0008 DURGA KANWAR             BIOLOGY (9700/0610)                  Excel=B
+│  2021 June     0008 DURGA KANWAR             CHEMISTRY (9701/0620)                Excel=B
+│  2021 June     0008 DURGA KANWAR             COMPUTER SCIENCE (9618/9608/0478)    Excel=A
+│  2020 March    0011 IRA ALI                  ART AND DESIGN (9479/0400)           Excel=U
+│  2020 March    0011 IRA ALI                  ECONOMICS (9708/0455)                Excel=D
+│  2020 March    0011 IRA ALI                  PSYCHOLOGY (9990)                    Excel=B
+│  2020 March    0013 LUCKY JANGID             ACCOUNTING (9706/0452)               Excel=D
+│  2020 March    0013 LUCKY JANGID             BUSINESS (9609/0450)                 Excel=U
+│  2020 March    0013 LUCKY JANGID             ECONOMICS (9708/0455)                Excel=U
+│  2020 March    0013 LUCKY JANGID             PSYCHOLOGY (9990)                    Excel=U
+│  2020 March    0017 TANMAY SALECHA           BUSINESS (9609/0450)                 Excel=E
+│  2020 March    0009 ABHISHEK BISHNOI         ACCOUNTING (9706/0452)               Excel=A
+│  2020 March    0009 ABHISHEK BISHNOI         ECONOMICS (9708/0455)                Excel=A
+│  2020 March    0009 ABHISHEK BISHNOI         INFORMATION TECHNOLOGY (9626)        Excel=A
+│  2020 March    0010 ARYAN                    ACCOUNTING (9706/0452)               Excel=C
+│  2020 March    0010 ARYAN                    INFORMATION TECHNOLOGY (9626)        Excel=E
+│  2020 March    0012 KHUSH JIRAWALA           ACCOUNTING (9706/0452)               Excel=B
+│  2020 March    0012 KHUSH JIRAWALA           ECONOMICS (9708/0455)                Excel=E
+│  2020 March    0012 KHUSH JIRAWALA           INFORMATION TECHNOLOGY (9626)        Excel=D
+│  2020 March    0008 ABHAYRAJ TAK             CHEMISTRY (9701/0620)                Excel=Q
+│  2020 March    0008 ABHAYRAJ TAK             PHYSICS (9702/0625)                  Excel=E
+│  2020 March    0015 PRABHAV AGARWAL          CHEMISTRY (9701/0620)                Excel=Q
+│  2020 March    0015 PRABHAV AGARWAL          PHYSICS (9702/0625)                  Excel=E
+│  2020 March    0016 RISHIT MANTRI            CHEMISTRY (9701/0620)                Excel=Q
+│  2020 March    0016 RISHIT MANTRI            PHYSICS (9702/0625)                  Excel=A
+│  2020 March    0006 SAWAI GURJAR             ART AND DESIGN (9479/0400)           Excel=B
+│  2020 March    0006 SAWAI GURJAR             BUSINESS (9609/0450)                 Excel=C
+│  2020 March    0006 SAWAI GURJAR             CHEMISTRY (9701/0620)                Excel=B
+│  2020 March    0006 SAWAI GURJAR             ECONOMICS (9708/0455)                Excel=A*
+│  2020 March    0006 SAWAI GURJAR             PHYSICS (9702/0625)                  Excel=B
+│  2020 March    0003 MITESH MISHRA            ACCOUNTING (9706/0452)               Excel=D
+│  2020 March    0003 MITESH MISHRA            ART AND DESIGN (9479/0400)           Excel=E
+│  2020 March    0003 MITESH MISHRA            CHEMISTRY (9701/0620)                Excel=E
+│  2020 March    0003 MITESH MISHRA            ECONOMICS (9708/0455)                Excel=B
+│  2020 March    0003 MITESH MISHRA            PHYSICS (9702/0625)                  Excel=E
+│  2020 March    0004 PARTH RAJ MATHUR         ACCOUNTING (9706/0452)               Excel=E
+│  2020 March    0004 PARTH RAJ MATHUR         ART AND DESIGN (9479/0400)           Excel=A
+│  2020 March    0004 PARTH RAJ MATHUR         CHEMISTRY (9701/0620)                Excel=D
+│  2020 March    0004 PARTH RAJ MATHUR         ECONOMICS (9708/0455)                Excel=A
+│  2020 March    0004 PARTH RAJ MATHUR         PHYSICS (9702/0625)                  Excel=B
+│  2020 March    0007 YUGAN SHARMA             ACCOUNTING (9706/0452)               Excel=E
+│  2020 March    0007 YUGAN SHARMA             ART AND DESIGN (9479/0400)           Excel=C
+│  2020 March    0007 YUGAN SHARMA             CHEMISTRY (9701/0620)                Excel=E
+│  2020 March    0007 YUGAN SHARMA             ECONOMICS (9708/0455)                Excel=D
+│  2020 March    0007 YUGAN SHARMA             PHYSICS (9702/0625)                  Excel=D
+│  2020 March    0002 KESHAV GEHLOT            ART AND DESIGN (9479/0400)           Excel=A
+│  2020 March    0002 KESHAV GEHLOT            BUSINESS (9609/0450)                 Excel=B
+│  2020 March    0002 KESHAV GEHLOT            CHEMISTRY (9701/0620)                Excel=E
+│  2020 March    0002 KESHAV GEHLOT            ECONOMICS (9708/0455)                Excel=C
+│  2020 March    0002 KESHAV GEHLOT            INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2020 March    0002 KESHAV GEHLOT            PHYSICS (9702/0625)                  Excel=B
+│  2020 March    0001 AGRIMA SHARMA            ART AND DESIGN (9479/0400)           Excel=C
+│  2020 March    0001 AGRIMA SHARMA            BUSINESS (9609/0450)                 Excel=B
+│  2020 March    0001 AGRIMA SHARMA            CHEMISTRY (9701/0620)                Excel=C
+│  2020 March    0001 AGRIMA SHARMA            PHYSICS (9702/0625)                  Excel=C
+│  2020 March    0005 RAMCHANDRA RAMSNEHI      ART AND DESIGN (9479/0400)           Excel=B
+│  2020 March    0005 RAMCHANDRA RAMSNEHI      BUSINESS (9609/0450)                 Excel=B
+│  2020 March    0005 RAMCHANDRA RAMSNEHI      ECONOMICS (9708/0455)                Excel=A*
+│  2021 March    0010 JAISAL SINGH             CHEMISTRY (9701/0620)                Excel=X
+│  2021 March    0010 JAISAL SINGH             ECONOMICS (9708/0455)                Excel=D
+│  2021 March    0010 JAISAL SINGH             PSYCHOLOGY (9990)                    Excel=E
+│  2021 March    0011 KESHAV GEHLOT            CHEMISTRY (9701/0620)                Excel=U
+│  2021 March    0011 KESHAV GEHLOT            MATHEMATICS (9709/0580)              Excel=D
+│  2021 March    0011 KESHAV GEHLOT            PHYSICS (9702/0625)                  Excel=E
+│  2021 March    0012 MITESH MISHRA            ART AND DESIGN (9479/0400)           Excel=U
+│  2021 March    0012 MITESH MISHRA            HISTORY (9489/9389)                  Excel=U
+│  2021 March    0012 MITESH MISHRA            PSYCHOLOGY (9990)                    Excel=U
+│  2021 March    0013 PARTH RAJ MATHUR         CHEMISTRY (9701/0620)                Excel=E
+│  2021 March    0013 PARTH RAJ MATHUR         PHYSICS (9702/0625)                  Excel=D
+│  2021 March    0015 YUGAN SHARMA             ACCOUNTING (9706/0452)               Excel=U
+│  2021 March    0015 YUGAN SHARMA             ECONOMICS (9708/0455)                Excel=U
+│  2021 March    0015 YUGAN SHARMA             INFORMATION TECHNOLOGY (9626)        Excel=U
+│  2021 March    0016 ABHAYRAJ TAK             MATHEMATICS (9709/0580)              Excel=C
+│  2021 March    0016 ABHAYRAJ TAK             PHYSICS (9702/0625)                  Excel=E
+│  2021 March    0018 ARYAN                    ACCOUNTING (9706/0452)               Excel=D
+│  2021 March    0018 ARYAN                    INFORMATION TECHNOLOGY (9626)        Excel=U
+│  2021 March    0018 ARYAN                    MATHEMATICS (9709/0580)              Excel=C
+│  2021 March    0019 IRA ALI                  BIOLOGY (9700/0610)                  Excel=B
+│  2021 March    0019 IRA ALI                  ECONOMICS (9708/0455)                Excel=C
+│  2021 March    0019 IRA ALI                  PSYCHOLOGY (9990)                    Excel=C
+│  2021 March    0020 KHUSH JIRAWALA           ACCOUNTING (9706/0452)               Excel=B
+│  2021 March    0020 KHUSH JIRAWALA           ECONOMICS (9708/0455)                Excel=C
+│  2021 March    0020 KHUSH JIRAWALA           INFORMATION TECHNOLOGY (9626)        Excel=C
+│  2021 March    0020 KHUSH JIRAWALA           MATHEMATICS (9709/0580)              Excel=B
+│  2021 March    0021 LUCKY JANGID             ACCOUNTING (9706/0452)               Excel=D
+│  2021 March    0021 LUCKY JANGID             BUSINESS (9609/0450)                 Excel=D
+│  2021 March    0021 LUCKY JANGID             ECONOMICS (9708/0455)                Excel=D
+│  2021 March    0022 PRABHAV AGARWAL          CHEMISTRY (9701/0620)                Excel=U
+│  2021 March    0022 PRABHAV AGARWAL          MATHEMATICS (9709/0580)              Excel=D
+│  2021 March    0022 PRABHAV AGARWAL          PHYSICS (9702/0625)                  Excel=U
+│  2021 March    0024 TANMAY SALECHA           ACCOUNTING (9706/0452)               Excel=C
+│  2021 March    0024 TANMAY SALECHA           BUSINESS (9609/0450)                 Excel=E
+│  2021 March    0024 TANMAY SALECHA           ECONOMICS (9708/0455)                Excel=D
+│  2021 March    0024 TANMAY SALECHA           INFORMATION TECHNOLOGY (9626)        Excel=D
+│  2021 March    0004 JOG SINGH RATHORE        ACCOUNTING (9706/0452)               Excel=P
+│  2021 March    0005 NAVYA VAISHNAV           ACCOUNTING (9706/0452)               Excel=M
+│  2021 March    0006 RADHIKA GEHLOT           ACCOUNTING (9706/0452)               Excel=D
+│  2021 March    0007 SUHANI CHAUHAN           ACCOUNTING (9706/0452)               Excel=M
+│  2021 March    0008 VINISHA MANTRI           ACCOUNTING (9706/0452)               Excel=M
+│  2021 March    0001 ADITI JANGID             ACCOUNTING (9706/0452)               Excel=E
+│  2021 March    0001 ADITI JANGID             BIOLOGY (9700/0610)                  Excel=E
+│  2021 March    0001 ADITI JANGID             BUSINESS (9609/0450)                 Excel=U
+│  2021 March    0001 ADITI JANGID             CHEMISTRY (9701/0620)                Excel=C
+│  2021 March    0001 ADITI JANGID             HISTORY (9489/9389)                  Excel=B
+│  2021 March    0001 ADITI JANGID             MATHEMATICS (9709/0580)              Excel=D
+│  2021 March    0002 AJAR PANDEY              BIOLOGY (9700/0610)                  Excel=C
+│  2021 March    0002 AJAR PANDEY              CHEMISTRY (9701/0620)                Excel=B
+│  2021 March    0002 AJAR PANDEY              HISTORY (9489/9389)                  Excel=A*
+│  2021 March    0002 AJAR PANDEY              INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2021 March    0002 AJAR PANDEY              MATHEMATICS (9709/0580)              Excel=A
+│  2021 March    0004 JOG SINGH RATHORE        ART AND DESIGN (9479/0400)           Excel=DD
+│  2021 March    0004 JOG SINGH RATHORE        BUSINESS (9609/0450)                 Excel=E
+│  2021 March    0004 JOG SINGH RATHORE        CHEMISTRY (9701/0620)                Excel=E
+│  2021 March    0004 JOG SINGH RATHORE        ECONOMICS (9708/0455)                Excel=D
+│  2021 March    0004 JOG SINGH RATHORE        INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2021 March    0004 JOG SINGH RATHORE        MATHEMATICS (9709/0580)              Excel=C
+│  2021 March    0005 NAVYA VAISHNAV           ART AND DESIGN (9479/0400)           Excel=BB
+│  2021 March    0005 NAVYA VAISHNAV           BUSINESS (9609/0450)                 Excel=B
+│  2021 March    0005 NAVYA VAISHNAV           CHEMISTRY (9701/0620)                Excel=A
+│  2021 March    0005 NAVYA VAISHNAV           ECONOMICS (9708/0455)                Excel=B
+│  2021 March    0005 NAVYA VAISHNAV           INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2021 March    0006 RADHIKA GEHLOT           ACCOUNTING (9706/0452)               Excel=A
+│  2021 March    0006 RADHIKA GEHLOT           ART AND DESIGN (9479/0400)           Excel=A*
+│  2021 March    0006 RADHIKA GEHLOT           BUSINESS (9609/0450)                 Excel=A
+│  2021 March    0006 RADHIKA GEHLOT           CHEMISTRY (9701/0620)                Excel=B
+│  2021 March    0006 RADHIKA GEHLOT           HISTORY (9489/9389)                  Excel=A*
+│  2021 March    0006 RADHIKA GEHLOT           MATHEMATICS (9709/0580)              Excel=A*
+│  2021 March    0007 SUHANI CHAUHAN           ART AND DESIGN (9479/0400)           Excel=AA
+│  2021 March    0007 SUHANI CHAUHAN           BUSINESS (9609/0450)                 Excel=C
+│  2021 March    0007 SUHANI CHAUHAN           CHEMISTRY (9701/0620)                Excel=C
+│  2021 March    0007 SUHANI CHAUHAN           HISTORY (9489/9389)                  Excel=A*
+│  2021 March    0007 SUHANI CHAUHAN           INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2021 March    0007 SUHANI CHAUHAN           MATHEMATICS (9709/0580)              Excel=A*
+│  2021 March    0008 VINISHA MANTRI           ART AND DESIGN (9479/0400)           Excel=A*
+│  2021 March    0008 VINISHA MANTRI           BUSINESS (9609/0450)                 Excel=B
+│  2021 March    0008 VINISHA MANTRI           CHEMISTRY (9701/0620)                Excel=C
+│  2021 March    0008 VINISHA MANTRI           ECONOMICS (9708/0455)                Excel=B
+│  2021 March    0008 VINISHA MANTRI           INFORMATION TECHNOLOGY (9626)        Excel=B
+│  2021 March    0008 VINISHA MANTRI           MATHEMATICS (9709/0580)              Excel=A*
+│  2021 March    0009 YASHVARDHAN SINGH        BIOLOGY (9700/0610)                  Excel=D
+│  2021 March    0009 YASHVARDHAN SINGH        BUSINESS (9609/0450)                 Excel=F
+│  2021 March    0009 YASHVARDHAN SINGH        CHEMISTRY (9701/0620)                Excel=D
+│  2021 March    0009 YASHVARDHAN SINGH        HISTORY (9489/9389)                  Excel=A
+│  2021 March    0009 YASHVARDHAN SINGH        MATHEMATICS (9709/0580)              Excel=D
+│  2019 November  0001 ARYAN                    ENGLISH AS A SECOND LANGUAGE (0510)  Excel=E
+│  2019 November  0002 MEHRAJ ALI               ENGLISH AS A SECOND LANGUAGE (0510)  Excel=G
+│  2020 November  0002 KHUSH JIRAWALA           ECONOMICS (9708/0455)                Excel=D
+│  2020 November  0002 KHUSH JIRAWALA           INFORMATION TECHNOLOGY (9626)        Excel=X
+│  2020 November  0003 LUCKY JANGID             BUSINESS (9609/0450)                 Excel=B
+│  2020 November  0003 LUCKY JANGID             ECONOMICS (9708/0455)                Excel=D
+│  2020 November  0004 PRABHAV AGARWAL          CHEMISTRY (9701/0620)                Excel=D
+│  2020 November  0005 RISHIT MANTRI            CHEMISTRY (9701/0620)                Excel=A
+└──────────────────────────────────────────────────────────
+
+┌─── ⚠  CANDIDATES NOT IN DB (53) ──────────────────
+│  2022 March    0014 JAYESH GARG              (file: Electronic Results File for March 2022.xls)
+│  2023 March    0014 NAMAN KACHHWAHA          (file: Electronic Results File for March 2023.xls)
+│  2023 March    0023 ADITI JANGID             (file: Electronic Results File for March 2023.xls)
+│  2024 March    0014 GUNGUN                   (file: Electronic Results File for March 2024.xls)
+│  2024 March    0023 KRISHNA SONI             (file: Electronic Results File for March 2024.xls)
+│  2024 March    0031 SHREY PRAKASH VISHNOI    (file: Electronic Results File for March 2024.xls)
+│  2024 March    0039 ANJALI JAIN              (file: Electronic Results File for March 2024.xls)
+│  2025 March    0023 GARV AGARWAL             (file: Electronic Results File for March 2025.xls)
+│  2025 March    0031 VIPUL KACHHWAHA          (file: Electronic Results File for March 2025.xls)
+│  2025 March    0014 NIHARIKA SHARMA          (file: Electronic Results File for March 2025.xls)
+│  2023 November  0014 HARSH VARDHAN VYAS       (file: Electronic Results File for November 2023.xls)
+│  2024 November  0014 VIPUL KACHHWAHA          (file: Electronic Results File for November 2024.xls)
+│  2020 March    0014 MEHRAJ ALI               (file: Provisional Results File for March 2020.xls)
+│  2021 March    0014 SAWAI GURJAR             (file: Provisional Results File for March 2021.xls)
+│  2021 March    0023 RISHIT MANTRI            (file: Provisional Results File for March 2021.xls)
+└──────────────────────────────────────────────────────────
+
+╔══════════════════════════════╗
+║          SUMMARY             ║
+╠══════════════════════════════╣
+║  ✅ Matched       :    240   ║
+║  ❌ Mismatches    :     58   ║
+║  ⚠  Missing in DB :    887   ║
+║  ℹ  No mapping    :      0   ║
+║  ━━ Total checked :   1185   ║
+╚══════════════════════════════╝

@@ -62,10 +62,24 @@
     <!-- Qualifications / Subjects Accordion Group -->
     <div class="space-y-8">
         @forelse($qualificationsData as $qual)
+            @php
+                $isIgcse = strtoupper($qual['qualification_type']) === 'IGCSE';
+                $tileBg = $isIgcse 
+                    ? 'bg-indigo-50/30 border-indigo-100 hover:border-indigo-200 hover:shadow-indigo-500/5' 
+                    : 'bg-purple-50/30 border-purple-100 hover:border-purple-200 hover:shadow-purple-500/5';
+                $qualBadge = $isIgcse 
+                    ? 'bg-indigo-50 border-indigo-150 text-indigo-700' 
+                    : 'bg-purple-50 border-purple-150 text-purple-700';
+                $pumBadge = $isIgcse 
+                    ? 'bg-indigo-50/70 border-indigo-100 text-indigo-750' 
+                    : 'bg-purple-50/70 border-purple-100 text-purple-750';
+                $subjectTextHover = $isIgcse ? 'group-hover:text-indigo-900' : 'group-hover:text-purple-900';
+                $chevronColor = $isIgcse ? 'text-indigo-600' : 'text-purple-600';
+            @endphp
             <div class="space-y-4">
                 <div class="flex items-center justify-between border-b border-slate-100 pb-2">
                     <div class="flex items-center gap-2">
-                        <span class="px-2.5 py-0.5 bg-indigo-50 border border-indigo-150 text-indigo-700 font-extrabold rounded-lg text-xxs tracking-wider uppercase">
+                        <span class="px-2.5 py-0.5 font-extrabold rounded-lg text-xxs tracking-wider uppercase border {{ $qualBadge }}">
                             {{ $qual['qualification_name'] }}
                         </span>
                         <h3 class="text-sm font-bold text-slate-800">Syllabi &amp; Subject Performance</h3>
@@ -89,13 +103,13 @@
                         @endphp
                         <a href="{{ route('manual-results.show', [$series->id, $subj['subject_id']]) }}"
                            title="{{ $titleText ?: 'No uploads' }}"
-                           class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition duration-200 flex flex-col justify-between space-y-4 group">
+                           class="{{ $tileBg }} p-5 rounded-3xl border shadow-sm hover:shadow-md transition duration-200 flex flex-col justify-between space-y-4 group">
                             <div class="space-y-2">
                                 <div class="flex items-start justify-between gap-2">
-                                    <h4 class="text-sm font-bold text-slate-800 truncate group-hover:text-indigo-900 transition" title="{{ $subj['subject_name'] }}">
+                                    <h4 class="text-sm font-bold text-slate-800 truncate {{ $subjectTextHover }} transition" title="{{ $subj['subject_name'] }}">
                                         {{ $subj['subject_name'] }}
                                     </h4>
-                                    <span class="font-mono text-[10px] font-black text-slate-400 bg-slate-50 border border-slate-200 px-1.5 py-0.5 rounded">
+                                    <span class="font-mono text-[10px] font-black text-slate-400 bg-white/80 border border-slate-200 px-1.5 py-0.5 rounded">
                                         {{ $subj['subject_code'] }}
                                     </span>
                                 </div>
@@ -106,7 +120,7 @@
                                         </span>
                                     @endif
                                     @if($subj['components_uploaded'])
-                                        <span class="px-2 py-0.5 bg-indigo-50 border border-indigo-150 text-indigo-750 font-extrabold rounded text-[9px] uppercase tracking-wider">
+                                        <span class="px-2 py-0.5 bg-white/95 border border-slate-200 text-slate-700 font-extrabold rounded text-[9px] uppercase tracking-wider shadow-sm">
                                             Components marks uploaded
                                         </span>
                                     @endif
@@ -116,23 +130,23 @@
                             <!-- Subject Performance Metrics -->
                             <div class="space-y-3 pt-3 border-t border-slate-100">
                                 <div class="grid grid-cols-3 gap-2 text-center text-xs">
-                                    <div class="bg-slate-50 rounded-xl p-2 border border-slate-100 flex flex-col justify-center">
+                                    <div class="bg-white/85 rounded-xl p-2 border border-slate-150/50 flex flex-col justify-center shadow-xs">
                                         <span class="block text-[9px] font-black text-slate-400 uppercase tracking-wider">Candidates</span>
                                         <span class="text-xs font-extrabold text-slate-800">{{ $subj['candidate_count'] }}</span>
                                     </div>
-                                    <div class="bg-slate-50 rounded-xl p-2 border border-slate-100 flex flex-col justify-center">
+                                    <div class="bg-white/85 rounded-xl p-2 border border-slate-150/50 flex flex-col justify-center shadow-xs">
                                         <span class="block text-[9px] font-black text-slate-450 uppercase tracking-wider">Pass / Fail</span>
                                         <span class="text-[10px] font-extrabold text-slate-800">
                                             <span class="text-emerald-600">{{ $subj['passed_count'] }}</span>/<span class="text-rose-500">{{ $subj['failed_count'] }}</span>
                                         </span>
                                     </div>
-                                    <div class="bg-indigo-50/50 rounded-xl p-2 border border-indigo-100 flex flex-col justify-center">
-                                        <span class="block text-[9px] font-black text-indigo-500 uppercase tracking-wider">Avg PUM</span>
-                                        <span class="text-xs font-black text-indigo-750">{{ $subj['average_pum'] }}%</span>
+                                    <div class="{{ $pumBadge }} rounded-xl p-2 border flex flex-col justify-center">
+                                        <span class="block text-[9px] font-black opacity-80 uppercase tracking-wider">Avg PUM</span>
+                                        <span class="text-xs font-black">{{ $subj['average_pum'] }}%</span>
                                     </div>
                                 </div>
 
-                                <div class="flex justify-between items-center text-[10px] text-indigo-650 font-extrabold tracking-wider uppercase pt-1">
+                                <div class="flex justify-between items-center text-[10px] {{ $chevronColor }} font-extrabold tracking-wider uppercase pt-1">
                                     <span>Open Marks Sheet</span>
                                     <span class="group-hover:translate-x-1 transition-transform">→</span>
                                 </div>

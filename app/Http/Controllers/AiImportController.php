@@ -240,6 +240,7 @@ class AiImportController extends Controller
                                 'subject_id' => null,
                             ],
                             [
+                                'candidate_number' => $cNo,
                                 'enrolled_date' => now()->toDateString(),
                                 'enrollment_status' => 'enrolled',
                             ]
@@ -254,6 +255,7 @@ class AiImportController extends Controller
                                 'subject_id' => $subject->id,
                             ],
                             [
+                                'candidate_number' => $cNo,
                                 'enrolled_date' => now()->toDateString(),
                                 'enrollment_status' => 'enrolled',
                             ]

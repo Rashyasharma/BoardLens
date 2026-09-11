@@ -198,6 +198,46 @@
                                 </td>
                             @endforeach
                         </tr>
+                        <tr class="hover:bg-slate-100/50 transition border-b border-slate-150">
+                            <td colspan="2" class="sticky left-0 z-10 bg-slate-50 border-r border-slate-200 px-4 py-2 text-right font-extrabold text-slate-600">
+                                Last Available Series Avg
+                            </td>
+                            @foreach($subjects as $sub)
+                                <td class="px-1 py-2 text-center border-l border-slate-100 font-black text-slate-800 col-subj-{{ $sub->id }}">
+                                    {{ $pumStats[$sub->id]['last_available'] ?? 'N/A' }}
+                                </td>
+                            @endforeach
+                        </tr>
+                        <tr class="hover:bg-slate-100/50 transition border-b border-slate-150">
+                            <td colspan="2" class="sticky left-0 z-10 bg-slate-50 border-r border-slate-200 px-4 py-2 text-right font-extrabold text-slate-600">
+                                Last 3 Years Avg
+                            </td>
+                            @foreach($subjects as $sub)
+                                <td class="px-1 py-2 text-center border-l border-slate-100 font-black text-slate-800 col-subj-{{ $sub->id }}">
+                                    {{ $pumStats[$sub->id]['last_3_years'] ?? 'N/A' }}
+                                </td>
+                            @endforeach
+                        </tr>
+                        <tr class="hover:bg-slate-100/50 transition border-b border-slate-150">
+                            <td colspan="2" class="sticky left-0 z-10 bg-slate-50 border-r border-slate-200 px-4 py-2 text-right font-extrabold text-slate-600">
+                                Last 5 Series Avg
+                            </td>
+                            @foreach($subjects as $sub)
+                                <td class="px-1 py-2 text-center border-l border-slate-100 font-black text-slate-800 col-subj-{{ $sub->id }}">
+                                    {{ $pumStats[$sub->id]['last_5_series'] ?? 'N/A' }}
+                                </td>
+                            @endforeach
+                        </tr>
+                        <tr class="hover:bg-slate-100/50 transition border-b border-slate-150">
+                            <td colspan="2" class="sticky left-0 z-10 bg-slate-50 border-r border-slate-200 px-4 py-2 text-right font-extrabold text-slate-600">
+                                Historical Avg (All Time)
+                            </td>
+                            @foreach($subjects as $sub)
+                                <td class="px-1 py-2 text-center border-l border-slate-100 font-black text-slate-800 col-subj-{{ $sub->id }}">
+                                    {{ $pumStats[$sub->id]['historical'] ?? 'N/A' }}
+                                </td>
+                            @endforeach
+                        </tr>
                     </tfoot>
                 @endif
             </table>

@@ -17,6 +17,7 @@ class CandidateEnrollment extends Model
     protected $fillable = [
         'candidate_id',
         'series_id',
+        'candidate_number',
         'qualification_id',
         'subject_id',
         'enrollment_status',

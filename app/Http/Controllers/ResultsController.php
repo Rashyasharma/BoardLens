@@ -180,6 +180,7 @@ class ResultsController extends Controller
             return [
                 'qualification_id' => $qualification->id,
                 'qualification_name' => $qualification->type_display,
+                'qualification_type' => $qualification->qualification_type,
                 'subject_count' => $qualGroup->unique('subject_id')->count(),
                 'total_candidates' => $uniqueCandidatesCount,
                 'average_pum' => $avgPum ? round($avgPum, 1) : null,
@@ -491,6 +492,10 @@ class ResultsController extends Controller
                 'highest' => 'N/A',
                 'lowest' => 'N/A',
                 'average' => 'N/A',
+                'last_available' => 'N/A',
+                'last_3_years' => 'N/A',
+                'last_5_series' => 'N/A',
+                'historical' => 'N/A',
                 'values' => []
             ];
         }
@@ -524,13 +529,49 @@ class ResultsController extends Controller
             }
         }
         
-        // Calculate PUM statistics max, min, avg
+        // Calculate PUM statistics max, min, avg for CURRENT series
         foreach ($subjects as $sub) {
             $vals = $pumStats[$sub->id]['values'];
             if (count($vals) > 0) {
                 $pumStats[$sub->id]['highest'] = max($vals);
                 $pumStats[$sub->id]['lowest'] = min($vals);
                 $pumStats[$sub->id]['average'] = round(array_sum($vals) / count($vals), 1);
+            }
+        }
+        
+        // Calculate HISTORICAL PUM statistics
+        $historicalPumsQuery = SubjectResult::whereIn('subject_id', $subjects->pluck('id'))
+            ->whereNotNull('pum')
+            ->where('pum', '>', 0);
+            
+        if ($schoolId) {
+            $historicalPumsQuery->whereHas('enrollment.candidate', function ($q) use ($schoolId) {
+                $q->where('school_id', $schoolId);
+            });
+        }
+        
+        $historicalPums = $historicalPumsQuery->with('series')->get();
+        $historicalBySubject = $historicalPums->groupBy('subject_id');
+        $monthOrder = ['January' => 1, 'February' => 2, 'March' => 3, 'April' => 4, 'May' => 5, 'June' => 6, 'July' => 7, 'August' => 8, 'September' => 9, 'October' => 10, 'November' => 11, 'December' => 12];
+
+        foreach ($subjects as $sub) {
+            $subHistory = $historicalBySubject->get($sub->id, collect());
+            if ($subHistory->isNotEmpty()) {
+                $subHistorySorted = $subHistory->sortByDesc(function ($res) use ($monthOrder) {
+                    return ($res->series->year * 100) + ($monthOrder[$res->series->month] ?? 0);
+                });
+                
+                $seriesGroups = $subHistorySorted->groupBy('series_id');
+                
+                $pumStats[$sub->id]['historical'] = round($subHistory->avg('pum'), 1);
+                $pumStats[$sub->id]['last_available'] = round($seriesGroups->first()->avg('pum'), 1);
+                $pumStats[$sub->id]['last_5_series'] = round($seriesGroups->take(5)->flatten()->avg('pum'), 1);
+                
+                $currentYear = (int) now()->format('Y');
+                $last3YearsPums = $subHistory->filter(function ($res) use ($currentYear) {
+                    return $res->series->year >= ($currentYear - 2);
+                });
+                $pumStats[$sub->id]['last_3_years'] = $last3YearsPums->count() > 0 ? round($last3YearsPums->avg('pum'), 1) : 'N/A';
             }
         }
         

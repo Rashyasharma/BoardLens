@@ -1,0 +1,202 @@
+﻿
+══════════════════════════════════════════════
+FILE : Electronic Results File for June 2022.xls
+SERIES: 2022 June (id=019e5ed2-bde0-721f-b432-3e2c8da64020)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for June 2023.xls
+SERIES: 2023 June (id=019e5ed2-bdf0-7207-8ad6-e7a0de7d32b8)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for June 2024.xls
+SERIES: 2024 June (id=019e5ed2-bdff-7189-8b90-2e93467b089f)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for June 2025.xls
+SERIES: 2025 June (id=019e5ed2-be0f-72ad-89e8-d1d89ebaad0a)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for June 2026_raw.xls
+SERIES: 2026 June (id=019ff3e5-a875-718b-be8b-6aa62b75fe76)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for March 2022.xls
+SERIES: 2022 March (id=019e5ed2-bddb-7305-bcfb-7a75c8d0dcf3)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for March 2023.xls
+SERIES: 2023 March (id=019e5ed2-bdeb-72eb-a9cb-beef503fa502)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for March 2024.xls
+SERIES: 2024 March (id=019e5ed2-bdfa-73e4-af9c-65e9fc90e40d)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for March 2025.xls
+SERIES: 2025 March (id=019e5ed2-be09-7254-b16e-707651fd4f93)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for March 2026.xls
+SERIES: 2026 March (id=019e5ed2-be1b-7098-8157-5242cabfec27)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for November 2021.xls
+SERIES: 2021 November (id=019e5ed2-bdd6-7152-a878-00a32199d621)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for November 2022.xls
+SERIES: 2022 November (id=019e5ed2-bde6-71b3-a45a-16b8cafbbb72)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for November 2023.xls
+SERIES: 2023 November (id=019ee460-40b4-728f-8236-6aa8806137c9)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for November 2024.xls
+SERIES: 2024 November (id=019e5ed2-be04-7299-8e4d-f66677417c8e)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Electronic Results File for November 2025.xls
+SERIES: 2025 November (id=019e5ed2-be15-7171-93bc-4f3555f1e588)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Provisional Results File for June 2020.xls
+SERIES: 2020 June (id=019e5ed2-bdc1-73cd-b313-dbb4caea40c5)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Provisional Results File for June 2021.xls
+SERIES: 2021 June (id=019e5ed2-bdd1-7208-b126-7f91f99a3129)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Provisional Results File for March 2019.xls
+SERIES: 2019 March (id=019e5ed2-bdab-7095-b617-526c7ff17c29)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Provisional Results File for March 2020.xls
+SERIES: 2020 March (id=019e5ed2-bdbc-7018-9135-bb0b0d1a34c6)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Provisional Results File for March 2021.xls
+SERIES: 2021 March (id=019e5ed2-bdcc-7242-8f8c-a467be993d5d)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Provisional Results File for November 2019.xls
+SERIES: 2019 November (id=019e5ed2-bdb6-7240-8f2f-a4af758f4fbf)
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+FILE : Provisional Results File for November 2020.xls
+SERIES: 2020 November (id=019e5ed2-bdc7-7113-89b2-319b116d0a9f)
+══════════════════════════════════════════════
+
+
+╔══════════════════════════════════════════════════════════╗
+║              GRADE VERIFICATION REPORT                  ║
+╚══════════════════════════════════════════════════════════╝
+
+┌─── ❌ GRADE MISMATCHES (74) ───────────────────────────
+│  2022 June     0006 HARSHVARDHAN SINGH       ACCOUNTING (9706)                    Excel=AA    DB=A   
+│  2023 June     0001 MOLLY DILIPKUMAR CHOPRA  BIOLOGY (9700)                       Excel=M     DB=A   
+│  2025 June     0006 NIKHIL KACHHWAHA         ACCOUNTING (9706)                    Excel=D     DB=B   
+│  2025 June     0037 AYUSHMAN SOLANKI         BUSINESS (9609)                      Excel=AA    DB=A   
+│  2026 June     4013 CHRISANNE NADINE D'SILVA  BUSINESS (9609)                      Excel=A     DB=B   
+│  2022 March    0001 HARSHINI ARVIND JAIN     ACCOUNTING (9706)                    Excel=D     DB=A   
+│  2022 March    0004 NAMAN KACHHWAHA          ACCOUNTING (9706)                    Excel=D     DB=A*  
+│  2022 March    0005 RAVI KHILERY             ACCOUNTING (9706)                    Excel=M     DB=B   
+│  2022 March    0007 SHREY PRAKASH VISHNOI    ACCOUNTING (9706)                    Excel=D     DB=A   
+│  2022 March    0009 VIKAS CHOUDHARY          ACCOUNTING (9706)                    Excel=D     DB=A*  
+│  2022 March    0001 HARSHINI ARVIND JAIN     ACCOUNTING (9706)                    Excel=AA    DB=A   
+│  2022 March    0005 RAVI KHILERY             ACCOUNTING (9706)                    Excel=BB    DB=B   
+│  2022 March    0007 SHREY PRAKASH VISHNOI    ACCOUNTING (9706)                    Excel=AA    DB=A   
+│  2023 March    0003 MAHEK BHAMBHANI          ART AND DESIGN (9479)                Excel=D     DB=M   
+│  2023 March    0004 RIYA BHANDARI            ART AND DESIGN (9479)                Excel=D     DB=M   
+│  2023 March    0004 RIYA BHANDARI            CO-ORD SCIENCES (DOUBLE AWARD) (0654)  Excel=AA    DB=A   
+│  2023 March    0005 RONIK MEWARA             CO-ORD SCIENCES (DOUBLE AWARD) (0654)  Excel=BB    DB=B   
+│  2023 March    0006 SUMAN CHAMPAWAT          ART AND DESIGN (9479)                Excel=D     DB=P   
+│  2023 March    0006 SUMAN CHAMPAWAT          CO-ORD SCIENCES (DOUBLE AWARD) (0654)  Excel=BB    DB=B   
+│  2024 March    0001 ANAND KANWAR PADIYAR     ACCOUNTING (9706)                    Excel=M     DB=B   
+│  2024 March    0002 BHANUPRIYA RANA          ACCOUNTING (9706)                    Excel=P     DB=D   
+│  2024 March    0003 HIMANSHI AGARWAL         ACCOUNTING (9706)                    Excel=M     DB=A   
+│  2024 March    0004 HITEN JAIN               ACCOUNTING (9706)                    Excel=P     DB=D   
+│  2024 March    0006 KALYANI YADAV            ACCOUNTING (9706)                    Excel=P     DB=C   
+│  2024 March    0007 KAMLESH CHAUDHARY        ACCOUNTING (9706)                    Excel=M     DB=B   
+│  2024 March    0009 MANISHA YADAV            ACCOUNTING (9706)                    Excel=P     DB=F   
+│  2024 March    0010 PREET SINGH              ACCOUNTING (9706)                    Excel=M     DB=C   
+│  2024 March    0011 PRIYAL CHOPRA            ACCOUNTING (9706)                    Excel=M     DB=B   
+│  2024 March    0012 PRIYANKA KHILERY         ACCOUNTING (9706)                    Excel=M     DB=C   
+│  2024 March    0001 ANAND KANWAR PADIYAR     ACCOUNTING (9706)                    Excel=BB    DB=B   
+│  2024 March    0002 BHANUPRIYA RANA          ACCOUNTING (9706)                    Excel=DD    DB=D   
+│  2024 March    0003 HIMANSHI AGARWAL         ACCOUNTING (9706)                    Excel=AA    DB=A   
+│  2024 March    0004 HITEN JAIN               ACCOUNTING (9706)                    Excel=DD    DB=D   
+│  2024 March    0005 JAHANARA KHAN            ACCOUNTING (9706)                    Excel=FF    DB=F   
+│  2024 March    0006 KALYANI YADAV            ACCOUNTING (9706)                    Excel=CC    DB=C   
+│  2024 March    0007 KAMLESH CHAUDHARY        ACCOUNTING (9706)                    Excel=BB    DB=B   
+│  2024 March    0009 MANISHA YADAV            ACCOUNTING (9706)                    Excel=FF    DB=F   
+│  2024 March    0010 PREET SINGH              ACCOUNTING (9706)                    Excel=CC    DB=C   
+│  2024 March    0011 PRIYAL CHOPRA            ACCOUNTING (9706)                    Excel=BB    DB=B   
+│  2024 March    0012 PRIYANKA KHILERY         ACCOUNTING (9706)                    Excel=CC    DB=C   
+│  2025 March    0001 ANIRUDH                  CHEMISTRY (9701)                     Excel=CC    DB=C   
+│  2025 March    0002 AYAN ALI KHAN            CHEMISTRY (9701)                     Excel=AA    DB=A   
+│  2025 March    0005 DRASHTI DHOOT            CHEMISTRY (9701)                     Excel=CC    DB=C   
+│  2025 March    0006 JAIN YOGITA SURESH       CHEMISTRY (9701)                     Excel=AA    DB=A   
+│  2025 March    0007 JAYVEER SINGH BHATI      CHEMISTRY (9701)                     Excel=AA    DB=A   
+│  2025 March    0008 JHANAK SHARMA            CHEMISTRY (9701)                     Excel=AA    DB=A   
+│  2025 March    0009 JINAL SOLANKI            CHEMISTRY (9701)                     Excel=CC    DB=C   
+│  2025 March    0010 JUNED MOYAL              CHEMISTRY (9701)                     Excel=CC    DB=C   
+│  2025 March    0011 KARTIK RANKAWAT          CHEMISTRY (9701)                     Excel=EE    DB=E   
+│  2025 March    0012 MAYANK MEWARA            CHEMISTRY (9701)                     Excel=BB    DB=B   
+│  2025 March    0013 MAYANK MALVIYA           CHEMISTRY (9701)                     Excel=DD    DB=D   
+│  2025 March    0014 NIHARIKA SHARMA          CHEMISTRY (9701)                     Excel=DD    DB=D   
+│  2025 March    0016 PREET RATHORE            CHEMISTRY (9701)                     Excel=UU    DB=U   
+│  2025 March    0017 RAGHVENDRA PRATAP SINGH  CHEMISTRY (9701)                     Excel=DD    DB=D   
+│  2025 March    0018 RAJVEER SINGH TANWAR     CHEMISTRY (9701)                     Excel=EE    DB=E   
+│  2025 March    0019 SHAURYA LODHA            CHEMISTRY (9701)                     Excel=BB    DB=B   
+│  2025 March    0020 UTSAV MAHESHWARI         CHEMISTRY (9701)                     Excel=BB    DB=B   
+│  2025 March    0021 VIVEK KUMAR YADAV        CHEMISTRY (9701)                     Excel=DD    DB=D   
+│  2025 March    0022 YUJVENDRA PRATAP SINGH   CHEMISTRY (9701)                     Excel=AA    DB=A   
+│  2026 March    5006 BHUVNESH DHARIWAL        ACCOUNTING (0452)                    Excel=M     DB=B   
+│  2026 March    5002 AJIJ ALI                 ECONOMICS (0455)                     Excel=BB    DB=B   
+│  2026 March    5003 ARVIND CHAUDHARY         ECONOMICS (0455)                     Excel=BB    DB=B   
+│  2026 March    5005 BHUVI JAIN               ECONOMICS (0455)                     Excel=FF    DB=F   
+│  2026 March    5007 DIVYAM JAIN              ECONOMICS (0455)                     Excel=CC    DB=C   
+│  2026 March    5008 HARSHIT SAMRIYA          ECONOMICS (9708)                     Excel=DD    DB=D   
+│  2026 March    5009 KHUSH CHOPRA             ECONOMICS (0455)                     Excel=AA    DB=A   
+│  2026 March    5011 MANYA LOHIA              ECONOMICS (0455)                     Excel=CC    DB=C   
+│  2026 March    5013 NITIN JIRAWALA           ECONOMICS (0455)                     Excel=BB    DB=B   
+│  2026 March    5015 TANISHA CHOUDHARY        ECONOMICS (0455)                     Excel=CC    DB=C   
+│  2021 June     0008 DURGA KANWAR             ACCOUNTING (9706)                    Excel=BB    DB=B   
+│  2021 March    0006 RADHIKA GEHLOT           ACCOUNTING (9706)                    Excel=D     DB=A   
+│  2021 March    0004 JOG SINGH RATHORE        ART AND DESIGN (9479)                Excel=DD    DB=D   
+│  2021 March    0005 NAVYA VAISHNAV           ART AND DESIGN (9479)                Excel=BB    DB=B   
+│  2021 March    0007 SUHANI CHAUHAN           ART AND DESIGN (9479)                Excel=AA    DB=A   
+└──────────────────────────────────────────────────────────
+
+╔══════════════════════════════╗
+║          SUMMARY             ║
+╠══════════════════════════════╣
+║  ✅ Matched       :   1111   ║
+║  ❌ Mismatches    :     74   ║
+║  ⚠  Missing in DB :      0   ║
+║  ℹ  No mapping    :      0   ║
+║  ━━ Total checked :   1185   ║
+╚══════════════════════════════╝

@@ -90,15 +90,17 @@
 
                     {{-- Header: Month & Year --}}
                     <div class="mb-4">
-                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400">
-                            @switch($sStat['month'])
-                                @case('March') Feb / Mar @break
-                                @case('June') May / June @break
-                                @case('November') Oct / Nov @break
-                                @default {{ $sStat['month'] }}
-                            @endswitch
-                        </span>
-                        <h4 class="text-3xl font-black text-slate-800 mt-0.5 font-display tracking-tight group-hover:text-slate-900 transition-colors duration-200">{{ $sStat['year'] }}</h4>
+                        <div class="flex items-baseline justify-between">
+                            <span class="text-lg font-black uppercase tracking-tight text-slate-800 group-hover:text-slate-900 transition-colors duration-200">
+                                @switch($sStat['month'])
+                                    @case('March') Feb / March @break
+                                    @case('June') May / June @break
+                                    @case('November') Oct / Nov @break
+                                    @default {{ $sStat['month'] }}
+                                @endswitch
+                            </span>
+                            <span class="text-2xl font-black {{ $isIgcse ? 'text-indigo-600' : 'text-purple-600' }}">{{ $sStat['year'] }}</span>
+                        </div>
                     </div>
 
                     {{-- Statistics Dashboard List (Vertical rows to prevent any overflow) --}}

@@ -32,23 +32,15 @@ class Candidate extends Model
      */
     public static function findOrCreateByNameAndNumber(string $schoolId, string $number, string $name, array $extraData = [])
     {
+        // Find by name only to prevent mixing up different candidates with the same candidate number
         $candidate = self::where('school_id', $schoolId)
             ->where('candidate_name', 'like', $name)
             ->first();
-
-        if (!$candidate) {
-            $candidate = self::where('school_id', $schoolId)
-                ->where('candidate_number', $number)
-                ->first();
-        }
 
         if ($candidate) {
             $updateData = [];
             if ($candidate->candidate_number !== $number) {
                 $updateData['candidate_number'] = $number;
-            }
-            if ($candidate->candidate_name !== $name) {
-                $updateData['candidate_name'] = $name;
             }
             if (!empty($updateData)) {
                 $candidate->update($updateData);

@@ -278,7 +278,8 @@ class AnalysisController extends Controller
         $results = $query->select(['id', 'subject_id', 'series_id', 'enrollment_id', 'grade', 'pum'])
             ->with([
                 'componentMarks:id,subject_result_id,obtained_marks,percentage,component_id',
-                'componentMarks.component:id,component_code,component_name,total_marks',
+                'componentMarks.component:id,component_code,component_name,component_label,total_marks,component_set_id',
+                'componentMarks.component.componentSet:id,start_year,end_year',
                 'series:id,year,month,series_code',
                 'subject:id,subject_code,subject_name',
                 'enrollment.candidate:id,candidate_name,candidate_number'
@@ -289,7 +290,8 @@ class AnalysisController extends Controller
         $statsResults = $statsQuery->select(['id', 'subject_id', 'series_id', 'enrollment_id'])
             ->with([
                 'componentMarks:id,subject_result_id,obtained_marks,percentage,component_id',
-                'componentMarks.component:id,component_code,component_name,total_marks,subject_id',
+                'componentMarks.component:id,component_code,component_name,component_label,total_marks,subject_id,component_set_id',
+                'componentMarks.component.componentSet:id,start_year,end_year',
                 'series:id,year,month,series_code',
                 'enrollment.candidate:id,candidate_name'
             ])
@@ -301,8 +303,42 @@ class AnalysisController extends Controller
         $componentTrends = [];
         $monthOrder = ['March' => 1, 'June' => 2, 'November' => 3];
 
-        // Load Qualifications and subjects grouped by qualification, including components
-        $qualifications = Qualification::with('subjects.components')->get();
+        // Load Qualifications and subjects grouped by qualification, including components grouped by set
+        $qualifications = Qualification::all()->map(function ($qual) {
+            return [
+                'id' => $qual->id,
+                'qualification_name' => $qual->qualification_name,
+                'qualification_type' => $qual->qualification_type,
+                'subjects' => $qual->subjects()->with([
+                    'componentSets' => function ($query) {
+                        $query->with(['components' => function ($q) {
+                            $q->orderBy('component_code');
+                        }])
+                        ->orderByRaw("CASE WHEN is_default = 0 THEN 0 ELSE 1 END ASC")
+                        ->orderByRaw("COALESCE(end_year, start_year, 0) DESC");
+                    }
+                ])->get()->map(function ($subject) {
+                    // Flatten all components from all component sets for this subject
+                    $allComponents = collect();
+                    foreach ($subject->componentSets as $set) {
+                        foreach ($set->components as $c) {
+                            $c->component_set = [
+                                'start_year' => $set->start_year,
+                                'end_year' => $set->end_year,
+                                'label' => $set->label
+                            ];
+                            $allComponents->push($c);
+                        }
+                    }
+                    return [
+                        'id' => $subject->id,
+                        'subject_name' => $subject->subject_name,
+                        'subject_code' => $subject->subject_code,
+                        'components' => $allComponents
+                    ];
+                })
+            ];
+        });
 
         // Compute component trends, max/min scores, and candidate names for each series (optimized)
         $componentTrends = [];
@@ -323,9 +359,11 @@ class AnalysisController extends Controller
                 $candidateName = $result->enrollment->candidate->candidate_name ?? 'N/A';
                 foreach ($result->componentMarks as $mark) {
                     if (!$mark->component) continue;
-                    $componentName = $result->subject_id . '_' . $mark->component->component_code . ' - ' . $mark->component->component_name;
-                    if (!isset($componentTrends[$componentName])) {
-                        $componentTrends[$componentName] = [
+                    // Use component_id as key — globally unique, avoids collision when
+                    // different component sets reuse the same component_code+name
+                    $uniqueKey = $mark->component->id;
+                    if (!isset($componentTrends[$uniqueKey])) {
+                        $componentTrends[$uniqueKey] = [
                             'yearly' => [],
                             'highest_score' => 0,
                             'highest_candidate' => 'N/A',
@@ -336,18 +374,18 @@ class AnalysisController extends Controller
 
                     // Log overall min/max marks
                     $pct = $mark->percentage;
-                    if ($pct > $componentTrends[$componentName]['highest_score']) {
-                        $componentTrends[$componentName]['highest_score'] = $pct;
-                        $componentTrends[$componentName]['highest_candidate'] = $candidateName;
+                    if ($pct > $componentTrends[$uniqueKey]['highest_score']) {
+                        $componentTrends[$uniqueKey]['highest_score'] = $pct;
+                        $componentTrends[$uniqueKey]['highest_candidate'] = $candidateName;
                     }
-                    if ($pct < $componentTrends[$componentName]['lowest_score']) {
-                        $componentTrends[$componentName]['lowest_score'] = $pct;
-                        $componentTrends[$componentName]['lowest_candidate'] = $candidateName;
+                    if ($pct < $componentTrends[$uniqueKey]['lowest_score']) {
+                        $componentTrends[$uniqueKey]['lowest_score'] = $pct;
+                        $componentTrends[$uniqueKey]['lowest_candidate'] = $candidateName;
                     }
 
-                    $componentTrends[$componentName]['yearly'][$seriesName]['percentages'][] = $pct;
-                    $componentTrends[$componentName]['yearly'][$seriesName]['raw_marks'][] = $mark->obtained_marks;
-                    $componentTrends[$componentName]['yearly'][$seriesName]['candidates'][] = [
+                    $componentTrends[$uniqueKey]['yearly'][$seriesName]['percentages'][] = $pct;
+                    $componentTrends[$uniqueKey]['yearly'][$seriesName]['raw_marks'][] = $mark->obtained_marks;
+                    $componentTrends[$uniqueKey]['yearly'][$seriesName]['candidates'][] = [
                         'name' => $candidateName,
                         'mark' => $mark->obtained_marks
                     ];
@@ -500,8 +538,16 @@ class AnalysisController extends Controller
             $students = Candidate::where('candidate_name', $selectedName)->with('school')->get();
             if ($students->isNotEmpty()) {
                 $student = $students->first();
-                $allCandidateNumbers = $students->pluck('candidate_number')->unique()->toArray();
                 $candidateIds = $students->pluck('id')->toArray();
+                
+                $allCandidateNumbers = DB::table('candidate_enrollments')
+                    ->whereIn('candidate_id', $candidateIds)
+                    ->whereNotNull('candidate_number')
+                    ->pluck('candidate_number')
+                    ->merge($students->pluck('candidate_number'))
+                    ->unique()
+                    ->filter()
+                    ->toArray();
 
                 // Fetch results for all these candidate IDs
                 $results = SubjectResult::whereIn('enrollment_id', function ($query) use ($candidateIds) {
@@ -530,15 +576,17 @@ class AnalysisController extends Controller
 
                 foreach ($groupedResults as $seriesId => $seriesResults) {
                     $series = $seriesResults->first()->series;
-                    $avgPum = $seriesResults->avg('pum');
-                    // Candidate number for this specific series
-                    $seriesCandidateNumber = $seriesResults->first()->enrollment?->candidate?->candidate_number ?? 'N/A';
+                    $avgPum = $seriesResults->filter(fn($r) => is_numeric($r->pum) && $r->pum !== '')->avg('pum');
+                    // Candidate number for this specific series (prefer enrollment, fallback to candidate)
+                    $seriesCandidateNumber = $seriesResults->first()->enrollment?->candidate_number 
+                        ?? $seriesResults->first()->enrollment?->candidate?->candidate_number 
+                        ?? 'N/A';
                     $journey[] = [
                         'series_id' => $series->id,
                         'series_name' => $series->series_name,
                         'year' => $series->year,
                         'month' => $series->month,
-                        'avg_pum' => round($avgPum, 1),
+                        'avg_pum' => $avgPum !== null ? round((float)$avgPum, 1) : null,
                         'results' => $seriesResults,
                         'total_subjects' => $seriesResults->count(),
                         'best_grade' => $this->getBestGrade($seriesResults),
@@ -705,21 +753,25 @@ class AnalysisController extends Controller
 
         foreach ($results as $result) {
             foreach ($result->componentMarks as $mark) {
-                $componentName = $mark->component->component_name;
-                $componentCode = $mark->component->component_code;
-                $uniqueName = "{$result->subject_id}_{$componentCode} - {$componentName}";
+                if (!$mark->component) continue;
+                // Use component_id as key — avoids collision across component sets
+                $uniqueKey = $mark->component->id;
                 
-                if (!isset($componentAnalysis[$uniqueName])) {
-                    $componentAnalysis[$uniqueName] = [
-                        'code' => $componentCode,
-                        'name' => $componentName,
+                if (!isset($componentAnalysis[$uniqueKey])) {
+                    $componentAnalysis[$uniqueKey] = [
+                        'code' => $mark->component->component_code,
+                        'name' => $mark->component->component_name,
+                        'label' => $mark->component->component_label,
+                        'start_year' => $mark->component->componentSet->start_year ?? null,
+                        'end_year' => $mark->component->componentSet->end_year ?? null,
                         'total_marks' => $mark->component->total_marks,
                         'subject_id' => $mark->component->subject_id,
+                        'component_set_id' => $mark->component->component_set_id,
                         'marks' => [],
                     ];
                 }
 
-                $componentAnalysis[$uniqueName]['marks'][] = [
+                $componentAnalysis[$uniqueKey]['marks'][] = [
                     'obtained' => $mark->obtained_marks,
                     'percentage' => $mark->percentage,
                 ];
@@ -902,8 +954,15 @@ class AnalysisController extends Controller
         }
 
         $student = $students->first();
-        $allCandidateNumbers = $students->pluck('candidate_number')->unique()->toArray();
         $candidateIds = $students->pluck('id')->toArray();
+        $allCandidateNumbers = DB::table('candidate_enrollments')
+            ->whereIn('candidate_id', $candidateIds)
+            ->whereNotNull('candidate_number')
+            ->pluck('candidate_number')
+            ->merge($students->pluck('candidate_number'))
+            ->unique()
+            ->filter()
+            ->toArray();
 
         // Fetch all results
         $results = SubjectResult::whereIn('enrollment_id', function ($query) use ($candidateIds) {
@@ -938,7 +997,9 @@ class AnalysisController extends Controller
                 'best_grade'       => $this->getBestGrade($seriesResults),
                 'worst_grade'      => $this->getWorstGrade($seriesResults),
                 'pum_delta'        => null,
-                'candidate_number' => $seriesResults->first()->enrollment?->candidate?->candidate_number ?? 'N/A',
+                'candidate_number' => $seriesResults->first()->enrollment?->candidate_number 
+                    ?? $seriesResults->first()->enrollment?->candidate?->candidate_number 
+                    ?? 'N/A',
             ];
         }
 
@@ -992,8 +1053,15 @@ class AnalysisController extends Controller
         }
 
         $student = $students->first();
-        $allCandidateNumbers = $students->pluck('candidate_number')->unique()->toArray();
         $candidateIds = $students->pluck('id')->toArray();
+        $allCandidateNumbers = DB::table('candidate_enrollments')
+            ->whereIn('candidate_id', $candidateIds)
+            ->whereNotNull('candidate_number')
+            ->pluck('candidate_number')
+            ->merge($students->pluck('candidate_number'))
+            ->unique()
+            ->filter()
+            ->toArray();
 
         $results = SubjectResult::whereIn('enrollment_id', function ($query) use ($candidateIds) {
             $query->select('id')->from('candidate_enrollments')->whereIn('candidate_id', $candidateIds);
@@ -1021,7 +1089,9 @@ class AnalysisController extends Controller
                 'best_grade'       => $this->getBestGrade($seriesResults),
                 'worst_grade'      => $this->getWorstGrade($seriesResults),
                 'pum_delta'        => null,
-                'candidate_number' => $seriesResults->first()->enrollment?->candidate?->candidate_number ?? 'N/A',
+                'candidate_number' => $seriesResults->first()->enrollment?->candidate_number 
+                    ?? $seriesResults->first()->enrollment?->candidate?->candidate_number 
+                    ?? 'N/A',
             ];
         }
 

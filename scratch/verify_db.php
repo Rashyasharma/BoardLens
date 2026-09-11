@@ -4,7 +4,7 @@
  * Cross-references SQLite database with broadsheet Excel files
  */
 
-$db = new SQLite3('database/database.sqlite');
+$db = new SQLite3('C:/Users/HP11/CambridgeInsights_db/database.sqlite');
 
 // Check table structure for component_marks
 echo "=== TABLE STRUCTURE: component_marks ===" . PHP_EOL;

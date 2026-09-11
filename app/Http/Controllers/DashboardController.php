@@ -7,7 +7,9 @@ use App\Models\ExamSeries;
 use App\Models\Subject;
 use App\Models\SubjectResult;
 use App\Models\UploadLog;
+use App\Models\Qualification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -78,6 +80,57 @@ class DashboardController extends Controller
         $excelUploads = (clone $uploadQuery)->where('file_path', '!=', 'ai_imported')->count();
         $flaggedResults = (clone $resultQuery)->whereIn('grade', ['Q', 'X'])->count();
 
+        // 5. Best & Worst Performing Subjects (Last 3 years)
+        $currentYear = (int) now()->format('Y');
+        $startYear = $currentYear - 2; // Last 3 years (e.g., 2026, 2025, 2024)
+
+        // Helper closure to calculate stats based on PUM
+        $getSubjectPerformance = function ($qualificationTypes) use ($schoolId, $startYear) {
+            $qualIds = Qualification::whereIn('qualification_type', $qualificationTypes)->pluck('id');
+            
+            $query = SubjectResult::select(
+                    'subject_id',
+                    DB::raw('COUNT(*) as total_results'),
+                    DB::raw('AVG(pum) as avg_pum')
+                )
+                ->whereHas('series', function ($q) use ($startYear) {
+                    $q->where('year', '>=', $startYear);
+                })
+                ->whereHas('subject', function ($q) use ($qualIds) {
+                    $q->whereIn('qualification_id', $qualIds);
+                })
+                ->whereNotNull('pum')
+                ->where('pum', '>', 0);
+                
+            if ($schoolId) {
+                $query->whereHas('enrollment.candidate', function ($q) use ($schoolId) {
+                    $q->where('school_id', $schoolId);
+                });
+            }
+
+            return $query->groupBy('subject_id')
+                ->havingRaw('COUNT(*) > 0') // Ensure there are results
+                ->with('subject')
+                ->get()
+                ->map(function ($result) {
+                    $result->avg_pum = round($result->avg_pum, 1);
+                    return $result;
+                })
+                ->filter(function ($result) {
+                    return $result->total_results >= 5; // Meaningful sample size
+                });
+        };
+
+        // GCE AS & A Level
+        $gcePerformance = $getSubjectPerformance(['AS_A_LEVEL', 'AS_LEVEL', 'A_LEVEL']);
+        $bestGceSubjects = $gcePerformance->sortByDesc('avg_pum')->take(5);
+        $worstGceSubjects = $gcePerformance->sortBy('avg_pum')->take(5);
+
+        // IGCSE
+        $igcsePerformance = $getSubjectPerformance(['IGCSE']);
+        $bestIgcseSubjects = $igcsePerformance->sortByDesc('avg_pum')->take(5);
+        $worstIgcseSubjects = $igcsePerformance->sortBy('avg_pum')->take(5);
+
         $recentUploads = $uploadQuery->with(['series', 'subject', 'user'])
             ->latest('uploaded_at')
             ->take(5)
@@ -98,7 +151,11 @@ class DashboardController extends Controller
             'aiUploads',
             'excelUploads',
             'flaggedResults',
-            'recentUploads'
+            'recentUploads',
+            'bestGceSubjects',
+            'worstGceSubjects',
+            'bestIgcseSubjects',
+            'worstIgcseSubjects'
         ));
     }
 }

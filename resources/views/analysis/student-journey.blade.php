@@ -239,7 +239,7 @@
                                              data-qualification="{{ $res->subject->qualification->qualification_name }}"
                                              data-grade="{{ $res->grade }}"
                                              data-pum="{{ $res->pum }}"
-                                             data-components='{!! json_encode($res->componentMarks->map(fn($m) => ["code" => $m->component->component_code, "name" => $m->component->component_name, "obtained" => $m->obtained_marks, "total" => $m->component->total_marks])) !!}'>
+                                             data-components='{!! json_encode($res->componentMarks->map(fn($m) => ["code" => $m->component->component_code, "name" => $m->component->component_name, "label" => $m->component->component_label, "obtained" => $m->obtained_marks, "total" => $m->component->total_marks])) !!}'>
                                             <div class="flex justify-between items-start gap-1">
                                                 <div class="min-w-0">
                                                     <span class="px-1.5 py-0.2 bg-slate-100 border border-slate-200 text-[8px] font-bold text-slate-500 rounded">
@@ -252,18 +252,18 @@
                                                 </span>
                                             </div>
 
-                                            <div class="flex justify-between items-center pt-1 border-t border-slate-100">
-                                                <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wide">PUM</span>
-                                                <span class="text-sm font-black text-indigo-650">{{ $res->pum }}%</span>
+                                            <div class="flex justify-between items-center pt-2 border-t border-slate-100">
+                                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wide">PUM</span>
+                                                <span class="text-sm font-black text-indigo-600">{{ $res->pum }}%</span>
                                             </div>
 
                                             <!-- Component Marks Breakdowns (If any) -->
                                             @if($res->componentMarks->isNotEmpty())
-                                                <div class="pt-1 border-t border-slate-100 grid grid-cols-3 gap-0.5 bg-white p-1 rounded-lg border border-slate-150 text-[8px]">
+                                                <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-1 bg-slate-50/50 p-1.5 rounded-xl border border-slate-150 text-[9px]">
                                                     @foreach($res->componentMarks as $mark)
-                                                        <div class="text-center">
-                                                            <span class="text-slate-400 font-bold font-mono block" title="{{ $mark->component->component_label ?? $mark->component->component_name }}">{{ $mark->component->component_label ?? $mark->component->component_name }} ({{ $mark->component->component_code }})</span>
-                                                            <span class="font-black text-slate-700">{{ $mark->obtained_marks }}</span><span class="text-[7px] text-slate-400">/{{ $mark->component->total_marks }}</span>
+                                                        <div class="px-2 py-0.5 bg-white border border-slate-200 rounded-md flex items-center gap-1.5 grow justify-center">
+                                                            <span class="text-slate-500 font-bold" title="{{ $mark->component->component_name }}">{{ $mark->component->component_label ?: 'Component ' . $mark->component->component_code }}</span>
+                                                            <span class="font-extrabold text-slate-800">{{ $mark->obtained_marks }}<span class="text-[7.5px] text-slate-400 font-normal">/{{ $mark->component->total_marks }}</span></span>
                                                         </div>
                                                     @endforeach
                                                 </div>
@@ -328,24 +328,39 @@
                             <!-- Subjects in this series -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                                 @foreach($stage['results'] as $res)
-                                    <div class="p-3.5 bg-slate-50/50 border border-slate-100 rounded-xl hover:bg-indigo-50/20 hover:border-indigo-200 cursor-pointer hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-between gap-3"
+                                    <div class="p-3.5 bg-slate-50/50 border border-slate-100 rounded-xl hover:bg-indigo-50/20 hover:border-indigo-200 cursor-pointer hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-between gap-3"
                                          onclick="openSubjectModal(this)"
                                          data-subject-name="{{ $res->subject->subject_name }}"
                                          data-subject-code="{{ $res->subject->subject_code }}"
                                          data-qualification="{{ $res->subject->qualification->qualification_name }}"
                                          data-grade="{{ $res->grade }}"
                                          data-pum="{{ $res->pum }}"
-                                         data-components='{!! json_encode($res->componentMarks->map(fn($m) => ["code" => $m->component->component_code, "name" => $m->component->component_name, "obtained" => $m->obtained_marks, "total" => $m->component->total_marks])) !!}'>
-                                        <div class="min-w-0">
-                                            <span class="px-2 py-0.5 bg-slate-100 border border-slate-200 text-[10px] font-bold text-slate-500 rounded">
-                                                {{ $res->subject->qualification->qualification_name }}
+                                         data-components='{!! json_encode($res->componentMarks->map(fn($m) => ["code" => $m->component->component_code, "name" => $m->component->component_name, "label" => $m->component->component_label, "obtained" => $m->obtained_marks, "total" => $m->component->total_marks])) !!}'>
+                                        
+                                        <div class="flex items-center justify-between gap-3">
+                                            <div class="min-w-0">
+                                                <span class="px-2 py-0.5 bg-slate-100 border border-slate-200 text-[10px] font-bold text-slate-500 rounded">
+                                                    {{ $res->subject->qualification->qualification_name }}
+                                                </span>
+                                                <h5 class="text-sm font-bold text-slate-800 mt-1.5 truncate" title="{{ $res->subject->subject_name }} ({{ $res->subject->subject_code }})">{{ $res->subject->subject_name }} ({{ $res->subject->subject_code }})</h5>
+                                                <p class="text-xs text-slate-450 font-semibold mt-1">PUM: <span class="text-base font-black text-indigo-600 ml-1">{{ $res->pum }}%</span></p>
+                                            </div>
+                                            <span class="inline-flex items-center justify-center w-7 h-7 bg-slate-900 text-white rounded-full text-xs font-extrabold shadow-sm shrink-0">
+                                                {{ $res->grade }}
                                             </span>
-                                            <h5 class="text-sm font-bold text-slate-800 mt-1.5 truncate" title="{{ $res->subject->subject_name }} ({{ $res->subject->subject_code }})">{{ $res->subject->subject_name }} ({{ $res->subject->subject_code }})</h5>
-                                            <p class="text-xs text-slate-450 font-semibold mt-1">PUM: <span class="text-base font-black text-indigo-600 ml-1">{{ $res->pum }}%</span></p>
                                         </div>
-                                        <span class="inline-flex items-center justify-center w-7 h-7 bg-slate-900 text-white rounded-full text-xs font-extrabold shadow-sm shrink-0">
-                                            {{ $res->grade }}
-                                        </span>
+
+                                        <!-- Component Marks inside List View -->
+                                        @if($res->componentMarks->isNotEmpty())
+                                            <div class="pt-2 border-t border-slate-200/60 flex flex-wrap gap-1 text-[9px]">
+                                                @foreach($res->componentMarks as $mark)
+                                                    <div class="px-2 py-0.5 bg-white border border-slate-200 rounded-md flex items-center gap-1.5 grow justify-center">
+                                                        <span class="text-slate-500 font-bold" title="{{ $mark->component->component_name }}">{{ $mark->component->component_label ?: 'Component ' . $mark->component->component_code }}</span>
+                                                        <span class="font-extrabold text-slate-800">{{ $mark->obtained_marks }}<span class="text-[7.5px] text-slate-400 font-normal">/{{ $mark->component->total_marks }}</span></span>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endif
                                     </div>
                                 @endforeach
                             </div>
@@ -831,8 +846,8 @@
                 row.className = 'flex justify-between items-center bg-slate-50 border border-slate-100 p-2.5 rounded-xl text-xs';
                 row.innerHTML = `
                     <div>
-                        <span class="font-bold text-slate-700 block text-[11px]">${c.name || 'Component'}</span>
-                        <span class="text-[9px] font-mono text-slate-400 font-bold">${c.code}</span>
+                        <span class="font-bold text-slate-700 block text-[11px]">${c.label || c.name || 'Component'}</span>
+                        <span class="text-[9px] font-mono text-slate-400 font-bold">Component ${c.code}</span>
                     </div>
                     <div class="font-mono font-bold text-slate-800 text-[11px]">
                         ${c.obtained !== null ? c.obtained : '—'} <span class="text-slate-400 text-[9px]">/ ${c.total}</span>

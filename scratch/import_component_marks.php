@@ -2,8 +2,9 @@
 require_once 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
-error_reporting(0);
-$db = new SQLite3('database/database.sqlite');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+$db = new SQLite3('C:/Users/HP11/CambridgeInsights_db/database.sqlite');
 
 $broadsheetDir = 'D:/Rashya Sharma/CIE/Other Docs/CIE ALL Broadsheets/Provisional Component Marks';
 
@@ -21,23 +22,41 @@ while ($row = $r->fetchArray(SQLITE3_ASSOC)) {
     $dbSubjects[$row['qualification_type']][$row['subject_code']] = $row; 
 }
 
-// Load DB components
-$dbComponents = [];
-$r = $db->query("SELECT id, component_code, subject_id FROM components");
+// Load DB component sets
+$dbComponentSets = [];
+$r = $db->query("SELECT id, subject_id, start_year, end_year FROM component_sets");
 while ($row = $r->fetchArray(SQLITE3_ASSOC)) { 
-    $dbComponents[$row['subject_id']][$row['component_code']] = $row['id']; 
+    $dbComponentSets[] = $row; 
+}
+
+// Function to find component set ID for a subject and year
+$getComponentSetId = function($subjectId, $year) use ($dbComponentSets) {
+    foreach ($dbComponentSets as $set) {
+        if ($set['subject_id'] === $subjectId && $year >= $set['start_year'] && ($set['end_year'] === null || $year <= $set['end_year'])) {
+            return $set['id'];
+        }
+    }
+    return null;
+};
+
+// Load DB components keyed by component_set_id and component_code
+$dbComponents = [];
+$r = $db->query("SELECT id, component_code, component_set_id FROM components");
+while ($row = $r->fetchArray(SQLITE3_ASSOC)) { 
+    if ($row['component_set_id']) {
+        $dbComponents[$row['component_set_id']][$row['component_code']] = $row['id']; 
+    }
 }
 
 // Load DB results with enrollment details to link correctly
 $dbResults = [];
 $r = $db->query("
-    SELECT sr.id as result_id, sr.enrollment_id, s.id as subject_id, s.subject_code, es.series_code, cand.candidate_number, q.qualification_type 
+    SELECT sr.id as result_id, sr.enrollment_id, s.id as subject_id, s.subject_code, es.series_code, ce.candidate_number, q.qualification_type 
     FROM subject_results sr 
     JOIN subjects s ON sr.subject_id=s.id 
     JOIN exam_series es ON sr.series_id=es.id 
     JOIN candidate_enrollments ce ON sr.enrollment_id=ce.id 
     JOIN qualifications q ON ce.qualification_id=q.id 
-    JOIN candidates cand ON ce.candidate_id=cand.id
 ");
 while ($row = $r->fetchArray(SQLITE3_ASSOC)) {
     $key = $row['series_code'] . '|' . $row['subject_code'] . '|' . $row['candidate_number'];
@@ -55,7 +74,7 @@ foreach (['IGCSE', 'AS A'] as $level) {
             $month = $m[1]; $year = $m[2];
             $seriesCode = strtoupper(substr($month, 0, 3)) . '-' . $year;
             $qualType = $level === 'IGCSE' ? 'IGCSE' : 'AS_A_LEVEL';
-            $fileMap[] = ['path' => $dir . '/' . $f, 'series_code' => $seriesCode, 'qual_type' => $qualType, 'filename' => $f];
+            $fileMap[] = ['path' => $dir . '/' . $f, 'series_code' => $seriesCode, 'qual_type' => $qualType, 'filename' => $f, 'year' => (int)$year];
         }
     }
 }
@@ -177,22 +196,32 @@ foreach ($fileMap as $fInfo) {
                         continue;
                     }
                     
-                    // Find component ID from DB components list
-                    $compId = $dbComponents[$subjId][$compNum] ?? null;
+                    // Find component ID from DB components list using component_set_id
+                    $year = $fInfo['year'];
+                    $setId = $getComponentSetId($subjId, $year);
+                    
+                    $compId = null;
+                    if ($setId) {
+                        $compId = $dbComponents[$setId][$compNum] ?? null;
+                    }
+                    
                     if (!$compId) {
                         // If missing, generate dynamically
                         $compId = bin2hex(random_bytes(13));
-                        $dbComponents[$subjId][$compNum] = $compId;
+                        if ($setId) {
+                            $dbComponents[$setId][$compNum] = $compId;
+                        }
                         
                         $stmtComp = $db->prepare("
-                            INSERT INTO components (id, subject_id, component_code, component_name, component_type, total_marks, scaling_factor, is_mandatory, created_at, updated_at)
-                            VALUES (:id, :subject_id, :code, :name, 'paper', :total_marks, 1, 1, datetime('now'), datetime('now'))
+                            INSERT INTO components (id, subject_id, component_code, component_name, component_type, total_marks, scaling_factor, is_mandatory, component_set_id, created_at, updated_at)
+                            VALUES (:id, :subject_id, :code, :name, 'paper', :total_marks, 1, 1, :set_id, datetime('now'), datetime('now'))
                         ");
                         $stmtComp->bindValue(':id', $compId, SQLITE3_TEXT);
                         $stmtComp->bindValue(':subject_id', $subjId, SQLITE3_TEXT);
                         $stmtComp->bindValue(':code', $compNum, SQLITE3_TEXT);
                         $stmtComp->bindValue(':name', "Component " . $compNum, SQLITE3_TEXT);
                         $stmtComp->bindValue(':total_marks', $compInfo['total_marks'], SQLITE3_INTEGER);
+                        $stmtComp->bindValue(':set_id', $setId, SQLITE3_TEXT);
                         $stmtComp->execute();
                     }
                     

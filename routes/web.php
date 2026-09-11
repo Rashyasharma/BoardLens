@@ -15,16 +15,17 @@ use App\Http\Controllers\StudentEntryController;
 use App\Http\Controllers\ManualResultsController;
 use App\Http\Controllers\AiImportController;
 
-// Login/logout routes redirect to dashboard (no auth required)
-Route::get('/login', function () {
-    return redirect('/dashboard');
-})->name('login');
-Route::post('/login', function () {
-    return redirect('/dashboard');
-})->name('login.store');
-Route::post('/logout', function () {
-    return redirect('/dashboard');
-})->name('logout');
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.store');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Public Home route
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+
+// All application routes (protected by auth middleware)
+Route::middleware('auth')->group(function () {
 
 // All application routes (no auth middleware)
 // Dashboard
@@ -135,16 +136,12 @@ Route::get('/api/series', [ResultUploadController::class, 'getSeries'])->name('a
 Route::get('/api/subjects/{qualification_id}', [ResultUploadController::class, 'getSubjects'])->name('api.subjects');
 
 // ============== ANALYSIS ==============
-Route::get('/analysis/student-wise', [StudentAnalysisController::class, 'studentWise'])
-    ->name('analysis.student-wise');
 Route::get('/analysis/subject-wise', [AnalysisController::class, 'subjectWise'])
     ->name('analysis.subject-wise');
 Route::get('/api/analysis/yearly-pum-trends', [AnalysisController::class, 'yearlyPumTrends'])
     ->name('api.analysis.yearly-pum-trends');
 Route::get('/analysis/component-marks', [AnalysisController::class, 'componentMarks'])
     ->name('analysis.component-marks');
-Route::get('/analysis/grade-threshold', [AnalysisController::class, 'gradeThreshold'])
-    ->name('analysis.grade-threshold');
 Route::get('/analysis/trends', [AnalysisController::class, 'trends'])
     ->name('analysis.trends');
 Route::get('/analysis/student-journey', [AnalysisController::class, 'studentJourney'])
@@ -158,109 +155,19 @@ Route::get('/analysis/student-journey/preview', [AnalysisController::class, 'stu
 Route::get('/settings', [SettingsController::class, 'index'])
     ->name('settings.index');
 
-// Legacy Students Routes
-Route::get('/students', [StudentController::class, 'index'])->name('students.index');
-Route::get('/students/search', [StudentController::class, 'search'])->name('students.search');
-Route::get('/students/{candidate}', [StudentController::class, 'show'])->name('students.show');
-Route::get('/students/{candidate}/edit', [StudentController::class, 'edit'])->name('students.edit');
-Route::put('/students/{candidate}', [StudentController::class, 'update'])->name('students.update');
-
-// ============== LEGACY & ADMIN COMPATIBILITY ROUTES ==============
-// Admin routes
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
-Route::post('/admin/qualifications', [App\Http\Controllers\AdminController::class, 'storeQualification'])->name('admin.qualifications.store');
-Route::put('/admin/qualifications/{qualification}', [App\Http\Controllers\AdminController::class, 'updateQualification'])->name('admin.qualifications.update');
-Route::delete('/admin/qualifications/{qualification}', [App\Http\Controllers\AdminController::class, 'destroyQualification'])->name('admin.qualifications.destroy');
-Route::post('/admin/subjects', [App\Http\Controllers\AdminController::class, 'storeSubject'])->name('admin.subjects.store');
-Route::put('/admin/subjects/{subject}', [App\Http\Controllers\AdminController::class, 'updateSubject'])->name('admin.subjects.update');
-Route::delete('/admin/subjects/{subject}', [App\Http\Controllers\AdminController::class, 'destroySubject'])->name('admin.subjects.destroy');
-Route::post('/admin/components', [App\Http\Controllers\AdminController::class, 'storeComponent'])->name('admin.components.store');
-Route::put('/admin/components/{component}', [App\Http\Controllers\AdminController::class, 'updateComponent'])->name('admin.components.update');
-Route::delete('/admin/components/{component}', [App\Http\Controllers\AdminController::class, 'destroyComponent'])->name('admin.components.destroy');
-
-// Upload routes
-Route::get('/uploads/history', [App\Http\Controllers\UploadController::class, 'uploadHistory'])->name('uploads.history');
-Route::get('/uploads/candidates', [App\Http\Controllers\UploadController::class, 'showCandidatesUpload'])->name('uploads.candidates');
-Route::post('/uploads/candidates', [App\Http\Controllers\UploadController::class, 'storeCandidatesUpload'])->name('uploads.candidates.store');
-Route::post('/uploads/marks', [App\Http\Controllers\UploadController::class, 'storeMarksUpload'])->name('uploads.marks.store');
-Route::post('/uploads/thresholds', [App\Http\Controllers\UploadController::class, 'storeThresholdsUpload'])->name('uploads.thresholds.store');
-Route::post('/uploads/results', [App\Http\Controllers\ResultUploadController::class, 'storeUploadResult'])->name('uploads.results.store');
-
-Route::get('/uploads/components', [App\Http\Controllers\ComponentMarksUploadController::class, 'show'])->name('uploads.components');
-Route::post('/uploads/components', [App\Http\Controllers\ComponentMarksUploadController::class, 'store'])->name('uploads.components.store');
-
 // AI Component Marks Importer
 Route::get('/uploads/ai-components', [App\Http\Controllers\AiComponentImportController::class, 'showUploadForm'])->name('uploads.ai_components');
 Route::post('/uploads/ai-components/preview', [App\Http\Controllers\AiComponentImportController::class, 'processUploadPreview'])->name('uploads.ai_components.preview');
 Route::post('/uploads/ai-components/confirm', [App\Http\Controllers\AiComponentImportController::class, 'confirmImport'])->name('uploads.ai_components.confirm');
 
 // AI-Assisted Broadsheet Importer routes
-Route::get('/uploads/ai-importer', [AiImportController::class, 'showUploadForm'])->name('uploads.ai_importer');
-Route::post('/uploads/ai-importer/preview', [AiImportController::class, 'processUploadPreview'])->name('uploads.ai_importer.preview');
-Route::post('/uploads/ai-importer/confirm', [AiImportController::class, 'confirmImport'])->name('uploads.ai_importer.confirm');
-
-// Analytics routes
-Route::get('/analytics/yearly', [App\Http\Controllers\AnalyticsController::class, 'yearly'])->name('analytics.yearly');
-Route::get('/analytics/export', [App\Http\Controllers\AnalyticsController::class, 'export'])->name('analytics.export');
-Route::get('/analytics/yoy', [App\Http\Controllers\AnalyticsController::class, 'yoyComparison'])->name('analytics.yoy');
+Route::get('/uploads/ai-importer', [App\Http\Controllers\AiImportController::class, 'showUploadForm'])->name('uploads.ai_importer');
+Route::post('/uploads/ai-importer/preview', [App\Http\Controllers\AiImportController::class, 'processUploadPreview'])->name('uploads.ai_importer.preview');
+Route::post('/uploads/ai-importer/confirm', [App\Http\Controllers\AiImportController::class, 'confirmImport'])->name('uploads.ai_importer.confirm');
 
 // Dummy register route
-Route::get('/register', function () {
-    return redirect()->route('dashboard');
-})->name('register');
-
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
-Route::get('/cbse-insights', function () {
-    return view('cbse-insights');
-})->name('cbse-insights');
-
-// ============== CBSE MODULE ==============
-use App\Http\Controllers\Cbse\CbseDashboardController;
-use App\Http\Controllers\Cbse\CbseQualificationController;
-use App\Http\Controllers\Cbse\CbseSubjectController;
-use App\Http\Controllers\Cbse\CbseStudentController;
-use App\Http\Controllers\Cbse\CbseResultController;
-use App\Http\Controllers\Cbse\CbseAnalysisController;
-
-Route::prefix('cbse')->name('cbse.')->group(function () {
-    Route::get('/dashboard', [CbseDashboardController::class, 'index'])->name('dashboard');
-    
-    // Qualifications
-    Route::get('/qualifications', [CbseQualificationController::class, 'index'])->name('qualifications.index');
-    Route::get('/qualifications/{qualification}', [CbseQualificationController::class, 'show'])->name('qualifications.show');
-
-    // Subjects
-    Route::resource('subjects', CbseSubjectController::class);
-
-    // Academic Years
-    Route::resource('academic-years', \App\Http\Controllers\Cbse\CbseAcademicYearController::class);
-
-    // Student Entries (Manage Enrollments inside Academic Years)
-    Route::get('/student-entries/{academicYear}', [\App\Http\Controllers\Cbse\CbseStudentEntryController::class, 'show'])->name('student-entries.show');
-    Route::post('/student-entries/{academicYear}/add-student', [\App\Http\Controllers\Cbse\CbseStudentEntryController::class, 'addStudent'])->name('student-entries.add-student');
-    Route::post('/student-entries/{academicYear}/toggle-subject', [\App\Http\Controllers\Cbse\CbseStudentEntryController::class, 'toggleSubject'])->name('student-entries.toggle-subject');
-    Route::post('/student-entries/{academicYear}/update-roll-number', [\App\Http\Controllers\Cbse\CbseStudentEntryController::class, 'updateRollNumber'])->name('student-entries.update-roll-number');
-    Route::post('/student-entries/{academicYear}/bulk-update', [\App\Http\Controllers\Cbse\CbseStudentEntryController::class, 'updateBulkEntries'])->name('student-entries.bulk-update');
-
-    // Students (Show only, since managing is via entries grid)
-    Route::get('/students/{student}', [CbseStudentController::class, 'show'])->name('students.show');
-
-    // Results
-    Route::get('/results/upload', [CbseResultController::class, 'showUpload'])->name('results.upload');
-    Route::post('/results/upload', [CbseResultController::class, 'storeUpload'])->name('results.store-upload');
-    Route::post('/results/save-row', [CbseResultController::class, 'saveRow'])->name('results.save-row');
-    Route::get('/results/year/{academicYear}', [CbseResultController::class, 'academicYearDetails'])->name('results.year-details');
-    Route::get('/results/subject/{academicYear}/{subject}', [CbseResultController::class, 'subjectDetails'])->name('results.subject-details');
-    Route::delete('/results/subject/{academicYear}/{subject}', [CbseResultController::class, 'destroySubjectResults'])->name('results.destroy-subject');
-    Route::resource('results', CbseResultController::class);
-
-    // Analysis
-    Route::get('/analysis/subject-wise', [CbseAnalysisController::class, 'subjectWise'])->name('analysis.subject-wise');
-    Route::get('/analysis/student-journey', [CbseAnalysisController::class, 'studentJourney'])->name('analysis.student-journey');
-    Route::get('/analysis/broadsheet', [CbseAnalysisController::class, 'broadsheet'])->name('analysis.broadsheet');
+    Route::get('/register', function () {
+        return redirect()->route('dashboard');
+    })->name('register');
 });
-
 

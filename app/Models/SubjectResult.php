@@ -37,7 +37,6 @@ class SubjectResult extends Model
     ];
 
     protected $casts = [
-        'pum' => 'decimal:2',
         'total_obtained_marks' => 'decimal:2',
         'overall_percentage' => 'decimal:2',
         'calculated_uniform_mark' => 'decimal:2',
@@ -54,6 +53,16 @@ class SubjectResult extends Model
             $grade = strtoupper(trim($model->grade));
             $model->is_passed = !empty($grade) && !in_array($grade, ['U', 'UU', 'X', 'Q', 'PENDING']);
         });
+    }
+
+    public function getPumAttribute($value)
+    {
+        return $value === '' ? null : (float) $value;
+    }
+
+    public function setPumAttribute($value)
+    {
+        $this->attributes['pum'] = $value === null ? '' : $value;
     }
 
     public function enrollment(): BelongsTo
