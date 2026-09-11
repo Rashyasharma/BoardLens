@@ -18,6 +18,7 @@ if (is_dir('/var/task')) {
         'SESSION_DRIVER' => 'cookie',
         'QUEUE_CONNECTION' => 'sync',
         'VIEW_COMPILED_PATH' => '/tmp/views',
+        'APP_MAINTENANCE_DRIVER' => 'file',
     ];
     foreach ($vercelEnv as $key => $value) {
         putenv("$key=$value");
