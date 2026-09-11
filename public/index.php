@@ -10,12 +10,12 @@ if (is_dir('/var/task')) {
     // Set env vars that vercel.json fails to inject into PHP runtime
     $vercelEnv = [
         'APP_ENV' => 'production',
-        'APP_DEBUG' => 'true', // ENABLE DEBUG TO SEE REAL EXCEPTION
+        'APP_DEBUG' => 'false', // Turn off debug mode for production
         'APP_KEY' => 'base64:84ddEbXcSCiYt/MgVwPwBDpIONNdNPTVmgnRyyA9zRI=',
         'LOG_CHANNEL' => 'stderr',
         'DB_CONNECTION' => 'sqlite',
         'CACHE_DRIVER' => 'array',
-        'SESSION_DRIVER' => 'cookie',
+        'SESSION_DRIVER' => 'file', // Change back to file since we have /tmp
         'QUEUE_CONNECTION' => 'sync',
         'VIEW_COMPILED_PATH' => '/tmp/views',
         'APP_MAINTENANCE_DRIVER' => 'file',
@@ -81,28 +81,5 @@ require __DIR__.'/../vendor/autoload.php';
 /** @var Application $app */
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
-try {
-    $app->handleRequest(Request::capture());
-} catch (\Throwable $e) {
-    http_response_code(500);
-    header('Content-Type: text/plain');
-    echo "REAL BOOT ERROR:\n";
-    
-    // Check if view.php actually exists on Vercel
-    if (!file_exists(__DIR__ . '/../config/view.php')) {
-        echo "MISSING FILE: config/view.php is missing in the Vercel deployment!\n";
-    } else {
-        echo "config/view.php exists.\n";
-    }
-
-    $previous = $e;
-    while ($previous) {
-        echo $previous->getMessage() . "\n";
-        echo $previous->getFile() . ":" . $previous->getLine() . "\n";
-        echo "--------------\n";
-        $previous = $previous->getPrevious();
-    }
-    
-    echo "\nFULL TRACE:\n";
-    echo $e->getTraceAsString();
-}
+// We can safely handle requests normally now that the boot issues are fixed!
+$app->handleRequest(Request::capture());
