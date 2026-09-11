@@ -37,6 +37,11 @@ if (is_dir('/var/task')) {
     if (!is_dir('/tmp/views')) {
         mkdir('/tmp/views', 0777, true);
     }
+    
+    // Create /tmp/bootstrap/cache for package discovery
+    if (!is_dir('/tmp/bootstrap/cache')) {
+        mkdir('/tmp/bootstrap/cache', 0777, true);
+    }
 
     // Copy SQLite database to writable /tmp
     $dbPath = '/tmp/database.sqlite';

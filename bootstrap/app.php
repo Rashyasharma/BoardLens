@@ -30,9 +30,10 @@ $app = Application::configure(basePath: dirname(__DIR__))
         });
     })->create();
 
-// On Vercel, redirect storage to writable /tmp IMMEDATELY after app creation
+// On Vercel, redirect storage and bootstrap caches to writable /tmp
 if (is_dir('/var/task')) {
     $app->useStoragePath('/tmp/storage');
+    $app->useBootstrapPath('/tmp/bootstrap');
 }
 
 return $app;
