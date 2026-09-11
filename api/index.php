@@ -1,33 +1,34 @@
 <?php
 
+use Illuminate\Http\Request;
+
+define('LARAVEL_START', microtime(true));
+
+// Register the Composer autoloader
 require __DIR__.'/../vendor/autoload.php';
-$app = require __DIR__.'/../bootstrap/app.php';
 
-// Tell Laravel to use /tmp/storage instead of the read-only /var/task/storage
-$storagePath = $_ENV['APP_STORAGE'] ?? '/tmp/storage';
-$app->useStoragePath($storagePath);
-
-// Ensure essential subdirectories exist
+// Vercel read-only filesystem: set up writable /tmp directories BEFORE bootstrapping
+$storagePath = '/tmp/storage';
 foreach (['app', 'framework/cache/data', 'framework/sessions', 'framework/views', 'logs'] as $dir) {
     if (!is_dir("$storagePath/$dir")) {
         mkdir("$storagePath/$dir", 0777, true);
     }
 }
 
-// Vercel read-only filesystem fix: SQLite needs write access for WAL/SHM files
+// Copy SQLite database to writable /tmp so WAL mode works
 $dbPath = '/tmp/database.sqlite';
 if (!file_exists($dbPath)) {
     copy(__DIR__.'/../database/database.sqlite', $dbPath);
 }
-$_ENV['DB_DATABASE'] = $dbPath;
 putenv('DB_DATABASE=' . $dbPath);
+$_ENV['DB_DATABASE'] = $dbPath;
+$_SERVER['DB_DATABASE'] = $dbPath;
 
-$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+// Bootstrap Laravel
+$app = require_once __DIR__.'/../bootstrap/app.php';
 
-$response = $kernel->handle(
-    $request = Illuminate\Http\Request::capture()
-);
+// Override storage path to /tmp
+$app->useStoragePath($storagePath);
 
-$response->send();
-
-$kernel->terminate($request, $response);
+// Handle the request (Laravel 13 style)
+$app->handleRequest(Request::capture());
