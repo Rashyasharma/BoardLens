@@ -10,7 +10,7 @@ if (is_dir('/var/task')) {
     // Set env vars that vercel.json fails to inject into PHP runtime
     $vercelEnv = [
         'APP_ENV' => 'production',
-        'APP_DEBUG' => 'false',
+        'APP_DEBUG' => 'true', // ENABLE DEBUG TO SEE REAL EXCEPTION
         'APP_KEY' => 'base64:84ddEbXcSCiYt/MgVwPwBDpIONNdNPTVmgnRyyA9zRI=',
         'LOG_CHANNEL' => 'stderr',
         'DB_CONNECTION' => 'sqlite',
@@ -41,7 +41,13 @@ if (is_dir('/var/task')) {
     // Copy SQLite database to writable /tmp
     $dbPath = '/tmp/database.sqlite';
     if (!file_exists($dbPath)) {
-        copy(__DIR__ . '/../database/database.sqlite', $dbPath);
+        $sourcePath = __DIR__ . '/../database/database.sqlite';
+        if (file_exists($sourcePath)) {
+            copy($sourcePath, $dbPath);
+        } else {
+            // Touch it so it exists if it wasn't bundled
+            touch($dbPath);
+        }
     }
     putenv("DB_DATABASE=$dbPath");
     $_ENV['DB_DATABASE'] = $dbPath;
@@ -74,4 +80,13 @@ if (is_dir('/var/task')) {
     $app->useStoragePath('/tmp/storage');
 }
 
-$app->handleRequest(Request::capture());
+try {
+    $app->handleRequest(Request::capture());
+} catch (\Throwable $e) {
+    http_response_code(500);
+    header('Content-Type: text/plain');
+    echo "REAL BOOT ERROR:\n";
+    echo $e->getMessage() . "\n";
+    echo $e->getFile() . ":" . $e->getLine() . "\n";
+    echo $e->getTraceAsString();
+}
