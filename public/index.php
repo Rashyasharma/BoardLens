@@ -5,12 +5,14 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
-// Ensure SQLite has a writable temporary directory
+// Ensure SQLite has a writable temporary directory locally
 $tempDir = 'C:/Users/HP11/CambridgeInsights_db';
-putenv("TEMP={$tempDir}");
-putenv("TMP={$tempDir}");
-$_ENV['TEMP'] = $tempDir;
-$_ENV['TMP'] = $tempDir;
+if (is_dir($tempDir)) {
+    putenv("TEMP={$tempDir}");
+    putenv("TMP={$tempDir}");
+    $_ENV['TEMP'] = $tempDir;
+    $_ENV['TMP'] = $tempDir;
+}
 
 // Determine if the application is in maintenance mode...
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
