@@ -27,6 +27,9 @@
         "SESSION_DRIVER": "cookie",
         "QUEUE_CONNECTION": "sync",
         "VIEW_COMPILED_PATH": "/tmp",
-        "IGNITION_ENABLE_RUNNABLE_SOLUTIONS": "false"
+        "IGNITION_ENABLE_RUNNABLE_SOLUTIONS": "false",
+        "APP_KEY": "base64:84ddEbXcSCiYt/MgVwPwBDpIONNdNPTVmgnRyyA9zRI=",
+        "DB_CONNECTION": "sqlite",
+        "DB_DATABASE": "database/database.sqlite"
     }
 }
