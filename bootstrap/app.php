@@ -16,7 +16,18 @@ $app = Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        $exceptions->reportable(function (\Throwable $e) {
+            if (is_dir('/var/task')) {
+                // If on Vercel, print the first error immediately before Laravel swallows it
+                http_response_code(500);
+                header('Content-Type: text/plain');
+                echo "REPORTABLE INTERCEPTED ERROR:\n";
+                echo $e->getMessage() . "\n";
+                echo $e->getFile() . ":" . $e->getLine() . "\n";
+                echo $e->getTraceAsString();
+                exit(1);
+            }
+        });
     })->create();
 
 // On Vercel, redirect storage to writable /tmp IMMEDATELY after app creation
