@@ -75,11 +75,6 @@ require __DIR__.'/../vendor/autoload.php';
 /** @var Application $app */
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
-// On Vercel, redirect storage to writable /tmp
-if (is_dir('/var/task')) {
-    $app->useStoragePath('/tmp/storage');
-}
-
 try {
     $app->handleRequest(Request::capture());
 } catch (\Throwable $e) {
@@ -94,7 +89,14 @@ try {
         echo "config/view.php exists.\n";
     }
 
-    echo $e->getMessage() . "\n";
-    echo $e->getFile() . ":" . $e->getLine() . "\n";
+    $previous = $e;
+    while ($previous) {
+        echo $previous->getMessage() . "\n";
+        echo $previous->getFile() . ":" . $previous->getLine() . "\n";
+        echo "--------------\n";
+        $previous = $previous->getPrevious();
+    }
+    
+    echo "\nFULL TRACE:\n";
     echo $e->getTraceAsString();
 }
