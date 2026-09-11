@@ -80,7 +80,7 @@
                             <!-- Candidate -->
                             <td class="px-6 py-4">
                                 <div class="font-bold text-slate-800">
-                                    <a href="{{ route('students.show', $res->enrollment->candidate->id) }}" class="hover:text-indigo-600 transition">
+                                    <a href="#" class="hover:text-indigo-600 transition">
                                         {{ $res->enrollment->candidate->candidate_name }}
                                     </a>
                                 </div>

@@ -76,7 +76,7 @@
                             <!-- Candidate -->
                             <td class="px-6 py-4">
                                 <div class="font-bold text-slate-800">
-                                    <a href="{{ route('analysis.student-wise', ['candidate_number' => $res->enrollment->candidate->candidate_number]) }}" class="hover:text-indigo-650 transition">
+                                    <a href="#" class="hover:text-indigo-650 transition">
                                         {{ $res->enrollment->candidate->candidate_name }}
                                     </a>
                                 </div>
@@ -115,7 +115,7 @@
                             <!-- Actions -->
                             <td class="px-6 py-4 text-right space-x-2 shrink-0 whitespace-nowrap">
                                 @if($res->status === 'pending_components')
-                                    <a href="{{ route('uploads.components') }}?series_id={{ $res->series_id }}&subject_id={{ $res->subject_id }}" class="inline-flex items-center text-xs font-bold text-amber-600 hover:text-amber-800 hover:underline">
+                                    <a href="#" class="inline-flex items-center text-xs font-bold text-amber-600 hover:text-amber-800 hover:underline">
                                         Upload Components
                                     </a>
                                     <span class="text-slate-200">|</span>

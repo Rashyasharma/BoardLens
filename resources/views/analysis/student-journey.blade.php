@@ -422,7 +422,7 @@
                         Compare component mark splits of lower scoring subjects to plan targeted study programs before upcoming exams.
                     </p>
                     <div class="mt-4 pt-4 border-t border-indigo-800">
-                        <a href="{{ route('analysis.student-wise') }}" class="inline-flex items-center text-xs font-bold text-white hover:text-indigo-200 gap-1 transition">
+                        <a href="#" class="inline-flex items-center text-xs font-bold text-white hover:text-indigo-200 gap-1 transition">
                             Go to Student Analysis
                             <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                         </a>
