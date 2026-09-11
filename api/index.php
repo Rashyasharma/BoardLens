@@ -1,5 +1,6 @@
 <?php
 
+require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 
 // Tell Laravel to use /tmp/storage instead of the read-only /var/task/storage
