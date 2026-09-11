@@ -24,7 +24,7 @@
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <!-- Candidates -->
-            <a href="{{ route('students.index') }}" class="block bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:border-indigo-300 group">
+            <a href="#" class="block bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:border-indigo-300 group">
                 <div class="flex items-center justify-between">
                     <span class="text-xs font-bold text-slate-400 uppercase tracking-wider group-hover:text-indigo-650 transition">Candidates</span>
                     <span class="p-2 bg-indigo-50 text-indigo-650 rounded-xl group-hover:bg-indigo-100 transition">👥</span>
