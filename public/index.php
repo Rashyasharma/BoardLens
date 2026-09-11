@@ -19,7 +19,7 @@ if (is_dir('/var/task')) {
         'LOG_CHANNEL' => 'stderr',
         'DB_CONNECTION' => 'sqlite',
         'CACHE_DRIVER' => 'array',
-        'SESSION_DRIVER' => 'file',
+        'SESSION_DRIVER' => 'cookie', // MUST be cookie because /tmp is wiped between serverless requests!
         'SESSION_SECURE_COOKIE' => 'true',
         'QUEUE_CONNECTION' => 'sync',
         'VIEW_COMPILED_PATH' => '/tmp/views',
