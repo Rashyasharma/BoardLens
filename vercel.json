@@ -1,12 +1,14 @@
 {
-    "version": 2,
     "builds": [
         {
             "src": "api/index.php",
-            "use": "vercel-php@0.9.0"
+            "use": "vercel-php@0.9.0",
+            "config": {
+                "includeFiles": ["config/**"]
+            }
         },
         {
-            "src": "/public/**",
+            "src": "public/**",
             "use": "@vercel/static"
         }
     ],
@@ -16,20 +18,16 @@
             "dest": "/public/build/$1"
         },
         {
+            "src": "/(css|js|images)/(.*)",
+            "dest": "/public/$1/$2"
+        },
+        {
+            "src": "/favicon.ico",
+            "dest": "/public/favicon.ico"
+        },
+        {
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
-    ],
-    "env": {
-        "APP_ENV": "production",
-        "APP_DEBUG": "false",
-        "CACHE_DRIVER": "array",
-        "SESSION_DRIVER": "cookie",
-        "QUEUE_CONNECTION": "sync",
-        "VIEW_COMPILED_PATH": "/tmp",
-        "IGNITION_ENABLE_RUNNABLE_SOLUTIONS": "false",
-        "APP_KEY": "base64:84ddEbXcSCiYt/MgVwPwBDpIONNdNPTVmgnRyyA9zRI=",
-        "LOG_CHANNEL": "stderr",
-        "DB_CONNECTION": "sqlite"
-    }
+    ]
 }

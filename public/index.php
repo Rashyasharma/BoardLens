@@ -86,6 +86,14 @@ try {
     http_response_code(500);
     header('Content-Type: text/plain');
     echo "REAL BOOT ERROR:\n";
+    
+    // Check if view.php actually exists on Vercel
+    if (!file_exists(__DIR__ . '/../config/view.php')) {
+        echo "MISSING FILE: config/view.php is missing in the Vercel deployment!\n";
+    } else {
+        echo "config/view.php exists.\n";
+    }
+
     echo $e->getMessage() . "\n";
     echo $e->getFile() . ":" . $e->getLine() . "\n";
     echo $e->getTraceAsString();
