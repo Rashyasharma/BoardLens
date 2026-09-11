@@ -7,15 +7,20 @@ define('LARAVEL_START', microtime(true));
 
 // Detect Vercel (read-only filesystem)
 if (is_dir('/var/task')) {
+    // Vercel sits behind a load balancer, so force HTTPS
+    $_SERVER['HTTPS'] = 'on';
+    
     // Set env vars that vercel.json fails to inject into PHP runtime
     $vercelEnv = [
         'APP_ENV' => 'production',
-        'APP_DEBUG' => 'false', // Turn off debug mode for production
+        'APP_DEBUG' => 'false',
+        'APP_URL' => 'https://' . ($_SERVER['HTTP_HOST'] ?? 'board-lens-lilac.vercel.app'),
         'APP_KEY' => 'base64:84ddEbXcSCiYt/MgVwPwBDpIONNdNPTVmgnRyyA9zRI=',
         'LOG_CHANNEL' => 'stderr',
         'DB_CONNECTION' => 'sqlite',
         'CACHE_DRIVER' => 'array',
-        'SESSION_DRIVER' => 'file', // Change back to file since we have /tmp
+        'SESSION_DRIVER' => 'file',
+        'SESSION_SECURE_COOKIE' => 'true',
         'QUEUE_CONNECTION' => 'sync',
         'VIEW_COMPILED_PATH' => '/tmp/views',
         'APP_MAINTENANCE_DRIVER' => 'file',
@@ -51,7 +56,6 @@ if (is_dir('/var/task')) {
         if (file_exists($sourcePath)) {
             copy($sourcePath, $dbPath);
         } else {
-            // Touch it so it exists if it wasn't bundled
             touch($dbPath);
         }
     }
@@ -81,5 +85,4 @@ require __DIR__.'/../vendor/autoload.php';
 /** @var Application $app */
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
-// We can safely handle requests normally now that the boot issues are fixed!
 $app->handleRequest(Request::capture());
